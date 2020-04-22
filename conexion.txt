@@ -1,2 +1,2 @@
 MAICK-PC*BD_NEGOSEL_2019_FEBR26022020*sa*foreach()
-D:\DESAROLLO\JPC\JpcConsultings\Sistema\Presentacion\Reportes\
+Reportes\
