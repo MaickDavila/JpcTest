@@ -1,0 +1,3 @@
+efectivo,0
+vuelto,0
+lololo,0
