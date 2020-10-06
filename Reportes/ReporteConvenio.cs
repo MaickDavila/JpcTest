@@ -38,7 +38,7 @@ namespace Presentacion.Reportes
 
                 AsignarImpresoras();
                 ImpresorasNameEleccion(1);
-
+ 
                 DataTable tabla = N_Venta1.FormatoConvenio(IdConvenio);
 
                 ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);

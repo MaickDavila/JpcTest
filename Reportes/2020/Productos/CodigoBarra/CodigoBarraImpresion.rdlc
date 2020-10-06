@@ -248,7 +248,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Cod_Barra.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>free 3 of 9</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
