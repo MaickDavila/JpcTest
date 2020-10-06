@@ -1,0 +1,9 @@
+{
+  "tickets": [
+    {
+      "name": "para_llevar",
+      "state": true,
+      "pages": 10
+    }
+  ]
+}
