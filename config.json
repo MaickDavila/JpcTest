@@ -1,0 +1,36 @@
+{
+  "tickets": [
+    {
+      "tag": "restaurant",
+      "items": [
+        {
+          "name": "default",
+          "state": true,
+          "printers": [
+            {
+              "id": 1,
+              "printer_name": "Microsoft Print to PDF",
+              "report_name": "PedidosRestaurant.rdlc"
+            }
+          ]
+        },
+        {
+          "name": "llevar",
+          "state": true,
+          "printers": [
+            {
+              "id": 1,
+              "printer_name": "Microsoft Print to PDF",
+              "report_name": "PedidosRestaurant.rdlc"
+            },
+            {
+              "id": 2,
+              "printer_name": "Microsoft Print to PDF",
+              "report_name": "PedidosRestaurant.rdlc"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
