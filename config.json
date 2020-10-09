@@ -32,5 +32,8 @@
         }
       ]
     }
-  ]
+  ],
+  "config_restaurant": {
+    "pago_directo": false
+  }
 }
