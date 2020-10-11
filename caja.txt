@@ -7,4 +7,4 @@ CPE,D:\CPE\,1
 LIMITEDNI,700,1
 guardarotros,1,0
 vendedorencaja,1,1
-seguridadCaja,1-2,1
+seguridadCaja,1,1
