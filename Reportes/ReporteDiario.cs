@@ -75,10 +75,12 @@ namespace Presentacion.Reportes
 
 
                     reportViewer1.LocalReport.DataSources.Clear();
+                    LocalReport relatorio = new LocalReport();
+
 
                     ReportDataSource dataSource = new ReportDataSource("DataSet1", datos);
                     RutaQr = "";
-                    LocalReport relatorio = new LocalReport();
+                   
                     string reporte = RutaReportes;
                     Campos = NombreReporteDiario.Split('.');
                     string nombre_reporte_temp = Campos[0];
@@ -87,6 +89,25 @@ namespace Presentacion.Reportes
                     relatorio.ReportPath = reporte;
                     ImpresoranNow = ImpresoraCaja;
                     relatorio.DataSources.Add(dataSource);
+                    //
+
+
+                    //SEGUNDO DATASET
+                    _2020.Apertura.Dataset.ReporteAperturaDataSetTableAdapters.sp_mostrar_aperturasTableAdapter ta = new _2020.Apertura.Dataset.ReporteAperturaDataSetTableAdapters.sp_mostrar_aperturasTableAdapter();
+                    ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
+
+                    Reportes._2020.Apertura.Dataset.ReporteAperturaDataSet.sp_mostrar_aperturasDataTable tabla = new _2020.Apertura.Dataset.ReporteAperturaDataSet.sp_mostrar_aperturasDataTable();
+                    ta.Fill(tabla, IdApertura, IdUsuario, IdCaja);
+
+                    ReportDataSource dataSource2 = new ReportDataSource("DataSet2", (DataTable)tabla);                                         
+                    relatorio.DataSources.Add(dataSource2);
+
+
+
+
+
+
+
                     string PARA = "Para";
                     ReportParameter[] parameters = new ReportParameter[11];
                     parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
@@ -102,14 +123,10 @@ namespace Presentacion.Reportes
                     parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
                     relatorio.EnableExternalImages = true;
                     relatorio.SetParameters(parameters);
-                    //aaqui entra la segunda consulta - para gastos operativos
+                    
 
 
-                    //DataTable datos_gastos = new DataTable();
-                    //datos_gastos = N_Venta1.Reporte_Gastos_Operativos_Cierre(IdApertura, IdCaja, IdUsuario);
-
-                    //ReportDataSource dataSource2 = new ReportDataSource("DataSet2", datos_gastos);
-                    //relatorio.DataSources.Add(dataSource);
+                   
 
 
 

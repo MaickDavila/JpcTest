@@ -1,4 +1,5 @@
 ﻿using Microsoft.Reporting.WinForms;
+using Presentacion.Inicio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,19 @@ namespace Presentacion.Reportes
 {
     public partial class PedidosRest : Imprimir
     {
+        bool _Para_Llevar;
+        bool _Es_Delivery;
+
         int IdMesa = 0;
         int NumeroGrupos;
         List<string> NombreGrupos = new List<string>();
         List<int> IdsGrupos = new List<int>();
         int IdGrupo;
+
+
+        public bool Para_Llevar { get => _Para_Llevar; set => _Para_Llevar = value; }
+        public bool Es_Delivery { get => _Es_Delivery; set => _Es_Delivery = value; }
+
         public PedidosRest()
         {
             InitializeComponent();
@@ -88,7 +97,10 @@ namespace Presentacion.Reportes
             return salida = Impresorass.Count - 1;
         }
         List<string> Impresorass = new List<string>();
-        void Imprmir2()
+
+       
+
+        async void Imprmir2()
         {                    
             try
             {               
@@ -165,45 +177,153 @@ namespace Presentacion.Reportes
                         impressaux.Add(Impresorass[i]);
                     }                    
                     contTable++;
-                }
-                int contaux = 0;
-                do
+                }                 
+
+                var configTicket = ConfigJson.Tickets.Find(val => val.Tag == "restaurant");
+                var configDefault = configTicket.Items.Find(val => val.Name == "default");
+                var configLlevar = configTicket.Items.Find(val => val.Name == "llevar");
+
+                if(configTicket == null)
                 {
-                    for (int i = 1; i < Tables.Count; i++)
+                    MessageBox.Show("No existe configuracion!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if(configDefault == null)
+                {
+                    MessageBox.Show("No existe configuracion de ticket por default!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                //la impresion del ticket por defecto
+                if (configDefault.State)
+                {
+                    bool hay_cambios = Tables.Count > 1 ? true : false;
+
+                    if (hay_cambios)
                     {
-                        if (contaux == 0)
-                            ImpresoranNow = impressaux[i];
-                        else
-                            ImpresoranNow = NombreImpresoraTikesito;
+                        DataTable datos_pedidos = Tables[1];
 
-                        reportViewer1.LocalReport.DataSources.Clear();
+                        if (datos_pedidos.Rows.Count > 0)
+                        {
+                            foreach (var item in configDefault.Printers)
+                            {
+                                await ReporteLocal(datos_pedidos, item.ReportName, item.PrinterName);
+                            }
 
-                        ReportDataSource dataSource = new ReportDataSource("DataSet1", Tables[i]);
-                        RutaQr = "";
-                        LocalReport relatorio = new LocalReport();
-                        relatorio.ReportPath = RutaReportes + ReporteNow;
-                        relatorio.DataSources.Add(dataSource);
-                        string PARA = "Para";
-                        ReportParameter[] parameters = new ReportParameter[11];
-                        parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
-                        parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
-                        parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
-                        parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
-                        parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
-                        parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
-                        parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
-                        parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
-                        parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
-                        parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
-                        parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
-                        relatorio.EnableExternalImages = true;
-                        relatorio.SetParameters(parameters);
-                        Exportar(relatorio);
-                        Imprimirr(relatorio);
-                    }
-                    contaux++;
+                            //impresion de ticket para llevar
+                            if (configLlevar.State && Para_Llevar)
+                            {
+                                foreach (var item in configLlevar.Printers)
+                                {
+                                    await ReporteLocal(datos_pedidos, item.ReportName, item.PrinterName);
+                                }
+                            }
+                        }                       
+                    }    
+                     
+                }
 
-                } while (Tikesito && contaux <= 1 && IdMesa >= 500);
+                 
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //if (!configDefault.State) return;               
+
+                //if(configDefault == null)
+                //{
+                //    MessageBox.Show("La impresora para llevar no está configurada!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+                //num_impresiones = int.Parse(configDefault.Pages.ToString());                
+
+
+                //do
+                //{
+
+
+                //    for (int i = 1; i < Tables.Count; i++)
+                //    {
+                //        if (contaux == 0)
+                //            ImpresoranNow = impressaux[i];
+                //        else
+                //            ImpresoranNow = NombreImpresoraTikesito;
+
+
+
+                //        reportViewer1.LocalReport.DataSources.Clear();
+
+                //        ReportDataSource dataSource = new ReportDataSource("DataSet1", Tables[i]);
+                //        RutaQr = "";
+                //        LocalReport relatorio = new LocalReport();
+                //        relatorio.ReportPath = RutaReportes + ReporteNow;
+                //        relatorio.DataSources.Add(dataSource);
+                //        string PARA = "Para";
+                //        ReportParameter[] parameters = new ReportParameter[11];
+                //        parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
+                //        parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
+                //        parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
+                //        parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
+                //        parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
+                //        parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
+                //        parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
+                //        parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
+                //        parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
+                //        parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
+                //        parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
+                //        relatorio.EnableExternalImages = true;
+                //        relatorio.SetParameters(parameters);
+                //        Exportar(relatorio);
+                //        Imprimirr(relatorio);
+                //    }
+                //    contaux++;
+
+                //} while (contaux <= num_impresiones && IdMesa >= 500);
 
             }
             catch (Exception ex)
@@ -215,6 +335,45 @@ namespace Presentacion.Reportes
                 Mensaje = N_Venta1.ResetarTemp(IdMesa, IdPiso);
                 //if (Mensaje == null)
                 //    MessageBox.Show("EL TICKET NO SE ELIMINÓ, PORFAVOR CONTACTESE: " + "\n- JORGE PUGA DE LA CRUZ, TELF. 970637964." + "\nMAICK DÁVILA JESÚS, TELF. 970637964", Sistema + "- Puede que se vuelva a imprimir el ticker al cobrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        async Task<bool> ReporteLocal(DataTable data, string nombre_reporte, string nombre_impresora = "Microsoft Print to PDF")
+        {
+            
+            try
+            {
+                ImpresoranNow = nombre_impresora;
+                reportViewer1.LocalReport.DataSources.Clear();
+
+                ReportDataSource dataSource = new ReportDataSource("DataSet1", data);
+                RutaQr = "";
+                LocalReport relatorio = new LocalReport();
+                relatorio.ReportPath = RutaReportes + nombre_reporte;
+                relatorio.DataSources.Add(dataSource);
+                string PARA = "Para";
+                ReportParameter[] parameters = new ReportParameter[11];
+                parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
+                parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
+                parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
+                parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
+                parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
+                parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
+                parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
+                parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
+                parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
+                parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
+                parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
+                relatorio.EnableExternalImages = true;
+                relatorio.SetParameters(parameters);
+                Exportar(relatorio);
+                Imprimirr(relatorio);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
         void MeterColumnas(DataTable entrada, DataTable salida)

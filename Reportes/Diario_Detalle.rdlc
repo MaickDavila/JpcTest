@@ -9,6 +9,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>ac5c73c2-3ad3-4fda-b407-d26cf812f9c9</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="ReporteAperturaDataSet">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>43d75780-77fe-44b3-9a9e-4646937c4e27</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
@@ -55,76 +62,95 @@
         <rd:TableAdapterName>spResumenVentasProductosTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <DataSourceName>ReporteAperturaDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Numero">
+          <DataField>Numero</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IdUsuario">
+          <DataField>IdUsuario</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fecha">
+          <DataField>Fecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Abierto_Cerrado">
+          <DataField>Abierto_Cerrado</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IdCaja">
+          <DataField>IdCaja</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="fechacierre">
+          <DataField>fechacierre</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="caja_chica">
+          <DataField>caja_chica</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="contado">
+          <DataField>contado</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="credito">
+          <DataField>credito</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="tarjetas">
+          <DataField>tarjetas</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="otros_ingresos">
+          <DataField>otros_ingresos</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="gastos">
+          <DataField>gastos</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="total_efectivo">
+          <DataField>total_efectivo</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="total_egreso">
+          <DataField>total_egreso</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="efectivo_declarado">
+          <DataField>efectivo_declarado</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="diferencia">
+          <DataField>diferencia</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ReporteAperturaDataSet</rd:DataSetName>
+        <rd:SchemaPath>D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\Reportes\2020\Apertura\Dataset\ReporteAperturaDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>sp_mostrar_aperturas</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>sp_mostrar_aperturasTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="Fecha">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!Fecha.Value</Value>
-                    <Style>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Fecha</rd:DefaultName>
-            <Top>1.44112cm</Top>
-            <Left>1.91065cm</Left>
-            <Height>0.66146cm</Height>
-            <Width>4.12278cm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Numero">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!Numero.Value</Value>
-                    <Style>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Numero</rd:DefaultName>
-            <Top>0.74235cm</Top>
-            <Left>1.91417cm</Left>
-            <Height>0.66146cm</Height>
-            <Width>1.87382cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="Tablix2">
             <TablixBody>
               <TablixColumns>
@@ -477,7 +503,6 @@
             <Left>0.14619cm</Left>
             <Height>1.4825cm</Height>
             <Width>6.82562cm</Width>
-            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -506,7 +531,7 @@
             <Left>0.14619cm</Left>
             <Height>0.66146cm</Height>
             <Width>1.73271cm</Width>
-            <ZIndex>3</ZIndex>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -539,7 +564,7 @@
             <Left>0.14619cm</Left>
             <Height>0.66146cm</Height>
             <Width>1.73271cm</Width>
-            <ZIndex>4</ZIndex>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -572,7 +597,7 @@
             <Left>0.14619cm</Left>
             <Height>0.6cm</Height>
             <Width>2.47354cm</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -605,7 +630,7 @@
             <Left>2.49039cm</Left>
             <Height>0.56119cm</Height>
             <Width>4.48142cm</Width>
-            <ZIndex>6</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -638,40 +663,7 @@
             <Left>4.30072cm</Left>
             <Height>0.66146cm</Height>
             <Width>0.93838cm</Width>
-            <ZIndex>7</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox26">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!Piso.Value</Value>
-                    <Style>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>0.73176cm</Top>
-            <Left>5.09093cm</Left>
-            <Height>0.66146cm</Height>
-            <Width>1.38817cm</Width>
-            <ZIndex>8</ZIndex>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -686,7 +678,7 @@
         <Height>11.15325cm</Height>
         <Style />
       </Body>
-      <Width>7.14031cm</Width>
+      <Width>9.85162cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>8cm</PageWidth>

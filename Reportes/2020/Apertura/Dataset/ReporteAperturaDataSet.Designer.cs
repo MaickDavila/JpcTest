@@ -279,13 +279,13 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_mostrar_aperturasDataTable : global::System.Data.TypedTableBase<sp_mostrar_aperturasRow> {
             
-            private global::System.Data.DataColumn columnid;
+            private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnnum_apertura;
+            private global::System.Data.DataColumn columnNumero;
             
             private global::System.Data.DataColumn columnIdUsuario;
             
-            private global::System.Data.DataColumn columnfecha_crea;
+            private global::System.Data.DataColumn columnFecha;
             
             private global::System.Data.DataColumn columnAbierto_Cerrado;
             
@@ -294,6 +294,8 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             private global::System.Data.DataColumn columnfechacierre;
             
             private global::System.Data.DataColumn columncaja_chica;
+            
+            private global::System.Data.DataColumn columncontado;
             
             private global::System.Data.DataColumn columncredito;
             
@@ -346,17 +348,17 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
+            public global::System.Data.DataColumn IdColumn {
                 get {
-                    return this.columnid;
+                    return this.columnId;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn num_aperturaColumn {
+            public global::System.Data.DataColumn NumeroColumn {
                 get {
-                    return this.columnnum_apertura;
+                    return this.columnNumero;
                 }
             }
             
@@ -370,9 +372,9 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fecha_creaColumn {
+            public global::System.Data.DataColumn FechaColumn {
                 get {
-                    return this.columnfecha_crea;
+                    return this.columnFecha;
                 }
             }
             
@@ -405,6 +407,14 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             public global::System.Data.DataColumn caja_chicaColumn {
                 get {
                     return this.columncaja_chica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn contadoColumn {
+                get {
+                    return this.columncontado;
                 }
             }
             
@@ -509,17 +519,34 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_mostrar_aperturasRow Addsp_mostrar_aperturasRow(int num_apertura, int IdUsuario, System.DateTime fecha_crea, bool Abierto_Cerrado, int IdCaja, System.DateTime fechacierre, decimal caja_chica, decimal credito, decimal tarjetas, decimal otros_ingresos, decimal gastos, decimal total_efectivo, decimal total_egreso, decimal efectivo_declarado, decimal diferencia) {
+            public sp_mostrar_aperturasRow Addsp_mostrar_aperturasRow(
+                        int Numero, 
+                        int IdUsuario, 
+                        System.DateTime Fecha, 
+                        bool Abierto_Cerrado, 
+                        int IdCaja, 
+                        System.DateTime fechacierre, 
+                        decimal caja_chica, 
+                        decimal contado, 
+                        decimal credito, 
+                        decimal tarjetas, 
+                        decimal otros_ingresos, 
+                        decimal gastos, 
+                        decimal total_efectivo, 
+                        decimal total_egreso, 
+                        decimal efectivo_declarado, 
+                        decimal diferencia) {
                 sp_mostrar_aperturasRow rowsp_mostrar_aperturasRow = ((sp_mostrar_aperturasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        num_apertura,
+                        Numero,
                         IdUsuario,
-                        fecha_crea,
+                        Fecha,
                         Abierto_Cerrado,
                         IdCaja,
                         fechacierre,
                         caja_chica,
+                        contado,
                         credito,
                         tarjetas,
                         otros_ingresos,
@@ -535,9 +562,9 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_mostrar_aperturasRow FindByid(int id) {
+            public sp_mostrar_aperturasRow FindById(int Id) {
                 return ((sp_mostrar_aperturasRow)(this.Rows.Find(new object[] {
-                            id})));
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -557,14 +584,15 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnid = base.Columns["id"];
-                this.columnnum_apertura = base.Columns["num_apertura"];
+                this.columnId = base.Columns["Id"];
+                this.columnNumero = base.Columns["Numero"];
                 this.columnIdUsuario = base.Columns["IdUsuario"];
-                this.columnfecha_crea = base.Columns["fecha_crea"];
+                this.columnFecha = base.Columns["Fecha"];
                 this.columnAbierto_Cerrado = base.Columns["Abierto_Cerrado"];
                 this.columnIdCaja = base.Columns["IdCaja"];
                 this.columnfechacierre = base.Columns["fechacierre"];
                 this.columncaja_chica = base.Columns["caja_chica"];
+                this.columncontado = base.Columns["contado"];
                 this.columncredito = base.Columns["credito"];
                 this.columntarjetas = base.Columns["tarjetas"];
                 this.columnotros_ingresos = base.Columns["otros_ingresos"];
@@ -578,14 +606,14 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
-                this.columnnum_apertura = new global::System.Data.DataColumn("num_apertura", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnum_apertura);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnNumero = new global::System.Data.DataColumn("Numero", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumero);
                 this.columnIdUsuario = new global::System.Data.DataColumn("IdUsuario", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIdUsuario);
-                this.columnfecha_crea = new global::System.Data.DataColumn("fecha_crea", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfecha_crea);
+                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha);
                 this.columnAbierto_Cerrado = new global::System.Data.DataColumn("Abierto_Cerrado", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAbierto_Cerrado);
                 this.columnIdCaja = new global::System.Data.DataColumn("IdCaja", typeof(int), null, global::System.Data.MappingType.Element);
@@ -594,6 +622,8 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
                 base.Columns.Add(this.columnfechacierre);
                 this.columncaja_chica = new global::System.Data.DataColumn("caja_chica", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncaja_chica);
+                this.columncontado = new global::System.Data.DataColumn("contado", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontado);
                 this.columncredito = new global::System.Data.DataColumn("credito", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncredito);
                 this.columntarjetas = new global::System.Data.DataColumn("tarjetas", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -611,11 +641,11 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
                 this.columndiferencia = new global::System.Data.DataColumn("diferencia", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiferencia);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid}, true));
-                this.columnid.AutoIncrement = true;
-                this.columnid.AllowDBNull = false;
-                this.columnid.ReadOnly = true;
-                this.columnid.Unique = true;
+                                this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -758,29 +788,28 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int id {
+            public int Id {
                 get {
-                    return ((int)(this[this.tablesp_mostrar_aperturas.idColumn]));
+                    return ((int)(this[this.tablesp_mostrar_aperturas.IdColumn]));
                 }
                 set {
-                    this[this.tablesp_mostrar_aperturas.idColumn] = value;
+                    this[this.tablesp_mostrar_aperturas.IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int num_apertura {
+            public int Numero {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_mostrar_aperturas.num_aperturaColumn]));
+                        return ((int)(this[this.tablesp_mostrar_aperturas.NumeroColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'num_apertura\' de la tabla \'sp_mostrar_aperturas\' es DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Numero\' de la tabla \'sp_mostrar_aperturas\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_mostrar_aperturas.num_aperturaColumn] = value;
+                    this[this.tablesp_mostrar_aperturas.NumeroColumn] = value;
                 }
             }
             
@@ -802,18 +831,17 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime fecha_crea {
+            public System.DateTime Fecha {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablesp_mostrar_aperturas.fecha_creaColumn]));
+                        return ((global::System.DateTime)(this[this.tablesp_mostrar_aperturas.FechaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha_crea\' de la tabla \'sp_mostrar_aperturas\' es DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha\' de la tabla \'sp_mostrar_aperturas\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_mostrar_aperturas.fecha_creaColumn] = value;
+                    this[this.tablesp_mostrar_aperturas.FechaColumn] = value;
                 }
             }
             
@@ -881,6 +909,22 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
                 }
                 set {
                     this[this.tablesp_mostrar_aperturas.caja_chicaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal contado {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_mostrar_aperturas.contadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'contado\' de la tabla \'sp_mostrar_aperturas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_mostrar_aperturas.contadoColumn] = value;
                 }
             }
             
@@ -1019,14 +1063,14 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isnum_aperturaNull() {
-                return this.IsNull(this.tablesp_mostrar_aperturas.num_aperturaColumn);
+            public bool IsNumeroNull() {
+                return this.IsNull(this.tablesp_mostrar_aperturas.NumeroColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setnum_aperturaNull() {
-                this[this.tablesp_mostrar_aperturas.num_aperturaColumn] = global::System.Convert.DBNull;
+            public void SetNumeroNull() {
+                this[this.tablesp_mostrar_aperturas.NumeroColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1043,14 +1087,14 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isfecha_creaNull() {
-                return this.IsNull(this.tablesp_mostrar_aperturas.fecha_creaColumn);
+            public bool IsFechaNull() {
+                return this.IsNull(this.tablesp_mostrar_aperturas.FechaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setfecha_creaNull() {
-                this[this.tablesp_mostrar_aperturas.fecha_creaColumn] = global::System.Convert.DBNull;
+            public void SetFechaNull() {
+                this[this.tablesp_mostrar_aperturas.FechaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1099,6 +1143,18 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setcaja_chicaNull() {
                 this[this.tablesp_mostrar_aperturas.caja_chicaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscontadoNull() {
+                return this.IsNull(this.tablesp_mostrar_aperturas.contadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcontadoNull() {
+                this[this.tablesp_mostrar_aperturas.contadoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1357,14 +1413,15 @@ namespace Presentacion.Reportes._2020.Apertura.Dataset.ReporteAperturaDataSetTab
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_mostrar_aperturas";
-            tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("num_apertura", "num_apertura");
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Numero", "Numero");
             tableMapping.ColumnMappings.Add("IdUsuario", "IdUsuario");
-            tableMapping.ColumnMappings.Add("fecha_crea", "fecha_crea");
+            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             tableMapping.ColumnMappings.Add("Abierto_Cerrado", "Abierto_Cerrado");
             tableMapping.ColumnMappings.Add("IdCaja", "IdCaja");
             tableMapping.ColumnMappings.Add("fechacierre", "fechacierre");
             tableMapping.ColumnMappings.Add("caja_chica", "caja_chica");
+            tableMapping.ColumnMappings.Add("contado", "contado");
             tableMapping.ColumnMappings.Add("credito", "credito");
             tableMapping.ColumnMappings.Add("tarjetas", "tarjetas");
             tableMapping.ColumnMappings.Add("otros_ingresos", "otros_ingresos");
