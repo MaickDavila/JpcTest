@@ -32,11 +32,15 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosNotasSalida.fo
             try
             {
 
-                ReporteGeneralPagosNotasSalida.DataSet.ReporteGeneralPagosSalidasDataSetTableAdapters.sp_reporte_general_pagos_notas_salidasTableAdapter ta = new DataSet.ReporteGeneralPagosSalidasDataSetTableAdapters.sp_reporte_general_pagos_notas_salidasTableAdapter();
-                ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);                
+                //ReporteGeneralPagosNotasSalida.DataSet.ReporteGeneralPagosSalidasDataSetTableAdapters.sp_reporte_general_pagos_notas_salidasTableAdapter ta = new DataSet.ReporteGeneralPagosSalidasDataSetTableAdapters.sp_reporte_general_pagos_notas_salidasTableAdapter();
+                //ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);                
 
-                ReporteGeneralPagosNotasSalida.DataSet.ReporteGeneralPagosSalidasDataSet.sp_reporte_general_pagos_notas_salidasDataTable tabla = new DataSet.ReporteGeneralPagosSalidasDataSet.sp_reporte_general_pagos_notas_salidasDataTable();                
-                ta.Fill(tabla, FechaInicio, FechaFin);                 
+                //ReporteGeneralPagosNotasSalida.DataSet.ReporteGeneralPagosSalidasDataSet.sp_reporte_general_pagos_notas_salidasDataTable tabla = new DataSet.ReporteGeneralPagosSalidasDataSet.sp_reporte_general_pagos_notas_salidasDataTable();                
+                //ta.Fill(tabla, FechaInicio, FechaFin);                 
+
+                DataTable tabla = new DataTable();
+
+                tabla = N_Reportes.sp_reporte_general_pagos_notas_salidas(FechaInicio, FechaFin);
 
                 ParametrosReporte("DataSet1", (DataTable)tabla, "2020\\Reportes\\ReporteGeneralPagosNotasSalida\\ReporteGeneralPagosSalidas.rdlc", reportViewer1);
 
