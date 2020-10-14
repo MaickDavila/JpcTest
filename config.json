@@ -34,7 +34,7 @@
     }
   ],
   "config_restaurant": {
-    "pago_directo": false
+    "pago_directo": true
   },
   "mant_ventas": {
     "acciones": {
