@@ -177,11 +177,16 @@ namespace Presentacion.Reportes
                         impressaux.Add(Impresorass[i]);
                     }                    
                     contTable++;
-                }                 
+                }
 
-                var configTicket = ConfigJson.Tickets.Find(val => val.Tag == "restaurant");
+              
+
+
+                var configTicket = ConfigJson.Tickets.Find(val => val.Tag == "restaurant");                                
                 var configDefault = configTicket.Items.Find(val => val.Name == "default");
                 var configLlevar = configTicket.Items.Find(val => val.Name == "llevar");
+
+                var configDelivery = configTicket.Items.Find(val => val.Name == "delivery");
 
                 if(configTicket == null)
                 {
@@ -189,11 +194,13 @@ namespace Presentacion.Reportes
                     return;
                 }
 
-                if(configDefault == null)
+                if(configDefault == null && Para_Llevar)
                 {
                     MessageBox.Show("No existe configuracion de ticket por default!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+
+                 
 
                 //la impresion del ticket por defecto
                 if (configDefault.State)
@@ -219,6 +226,7 @@ namespace Presentacion.Reportes
                                     await ReporteLocal(datos_pedidos, item.ReportName, item.PrinterName);
                                 }
                             }
+                            
                         }                       
                     }    
                      
