@@ -323,6 +323,14 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
             
             private global::System.Data.DataColumn columnflag;
             
+            private global::System.Data.DataColumn columncountPecho;
+            
+            private global::System.Data.DataColumn columncountPierna;
+            
+            private global::System.Data.DataColumn columntextObservation;
+            
+            private global::System.Data.DataColumn columntelefono;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_reporte_deliveryDataTable() {
@@ -534,6 +542,38 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn countPechoColumn {
+                get {
+                    return this.columncountPecho;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn countPiernaColumn {
+                get {
+                    return this.columncountPierna;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn textObservationColumn {
+                get {
+                    return this.columntextObservation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn telefonoColumn {
+                get {
+                    return this.columntelefono;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -590,7 +630,11 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
                         decimal Total, 
                         bool Anulado1, 
                         bool estado, 
-                        bool flag) {
+                        bool flag, 
+                        int countPecho, 
+                        int countPierna, 
+                        string textObservation, 
+                        string telefono) {
                 sp_reporte_deliveryRow rowsp_reporte_deliveryRow = ((sp_reporte_deliveryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id_contacto,
@@ -614,7 +658,11 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
                         Total,
                         Anulado1,
                         estado,
-                        flag};
+                        flag,
+                        countPecho,
+                        countPierna,
+                        textObservation,
+                        telefono};
                 rowsp_reporte_deliveryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_reporte_deliveryRow);
                 return rowsp_reporte_deliveryRow;
@@ -666,6 +714,10 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
                 this.columnAnulado1 = base.Columns["Anulado1"];
                 this.columnestado = base.Columns["estado"];
                 this.columnflag = base.Columns["flag"];
+                this.columncountPecho = base.Columns["countPecho"];
+                this.columncountPierna = base.Columns["countPierna"];
+                this.columntextObservation = base.Columns["textObservation"];
+                this.columntelefono = base.Columns["telefono"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -715,6 +767,14 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
                 base.Columns.Add(this.columnestado);
                 this.columnflag = new global::System.Data.DataColumn("flag", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnflag);
+                this.columncountPecho = new global::System.Data.DataColumn("countPecho", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncountPecho);
+                this.columncountPierna = new global::System.Data.DataColumn("countPierna", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncountPierna);
+                this.columntextObservation = new global::System.Data.DataColumn("textObservation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntextObservation);
+                this.columntelefono = new global::System.Data.DataColumn("telefono", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntelefono);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnContacto.MaxLength = 200;
@@ -728,6 +788,8 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
                 this.columnFechaEmision.ReadOnly = true;
                 this.columnTotal_Letras.MaxLength = 2147483647;
                 this.columndescripcion.MaxLength = 200;
+                this.columntextObservation.MaxLength = 250;
+                this.columntelefono.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1217,6 +1279,70 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int countPecho {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_reporte_delivery.countPechoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'countPecho\' in table \'sp_reporte_delivery\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_reporte_delivery.countPechoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int countPierna {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_reporte_delivery.countPiernaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'countPierna\' in table \'sp_reporte_delivery\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_reporte_delivery.countPiernaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string textObservation {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_reporte_delivery.textObservationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'textObservation\' in table \'sp_reporte_delivery\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_reporte_delivery.textObservationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string telefono {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_reporte_delivery.telefonoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'telefono\' in table \'sp_reporte_delivery\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_reporte_delivery.telefonoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsId_contactoNull() {
                 return this.IsNull(this.tablesp_reporte_delivery.Id_contactoColumn);
             }
@@ -1466,6 +1592,54 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset {
             public void SetflagNull() {
                 this[this.tablesp_reporte_delivery.flagColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscountPechoNull() {
+                return this.IsNull(this.tablesp_reporte_delivery.countPechoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcountPechoNull() {
+                this[this.tablesp_reporte_delivery.countPechoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscountPiernaNull() {
+                return this.IsNull(this.tablesp_reporte_delivery.countPiernaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcountPiernaNull() {
+                this[this.tablesp_reporte_delivery.countPiernaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstextObservationNull() {
+                return this.IsNull(this.tablesp_reporte_delivery.textObservationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettextObservationNull() {
+                this[this.tablesp_reporte_delivery.textObservationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstelefonoNull() {
+                return this.IsNull(this.tablesp_reporte_delivery.telefonoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettelefonoNull() {
+                this[this.tablesp_reporte_delivery.telefonoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1649,6 +1823,10 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.dataset.TicketDeliveryDa
             tableMapping.ColumnMappings.Add("Anulado1", "Anulado1");
             tableMapping.ColumnMappings.Add("estado", "estado");
             tableMapping.ColumnMappings.Add("flag", "flag");
+            tableMapping.ColumnMappings.Add("countPecho", "countPecho");
+            tableMapping.ColumnMappings.Add("countPierna", "countPierna");
+            tableMapping.ColumnMappings.Add("textObservation", "textObservation");
+            tableMapping.ColumnMappings.Add("telefono", "telefono");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

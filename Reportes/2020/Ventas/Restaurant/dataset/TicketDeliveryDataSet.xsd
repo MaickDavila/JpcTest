@@ -44,6 +44,10 @@
               <Mapping SourceColumn="Anulado1" DataSetColumn="Anulado1" />
               <Mapping SourceColumn="estado" DataSetColumn="estado" />
               <Mapping SourceColumn="flag" DataSetColumn="flag" />
+              <Mapping SourceColumn="countPecho" DataSetColumn="countPecho" />
+              <Mapping SourceColumn="countPierna" DataSetColumn="countPierna" />
+              <Mapping SourceColumn="textObservation" DataSetColumn="textObservation" />
+              <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -116,6 +120,22 @@
               <xs:element name="Anulado1" msprop:Generator_ColumnVarNameInTable="columnAnulado1" msprop:Generator_ColumnPropNameInRow="Anulado1" msprop:Generator_ColumnPropNameInTable="Anulado1Column" msprop:Generator_UserColumnName="Anulado1" type="xs:boolean" minOccurs="0" />
               <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:boolean" minOccurs="0" />
               <xs:element name="flag" msprop:Generator_ColumnVarNameInTable="columnflag" msprop:Generator_ColumnPropNameInRow="flag" msprop:Generator_ColumnPropNameInTable="flagColumn" msprop:Generator_UserColumnName="flag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="countPecho" msprop:Generator_ColumnVarNameInTable="columncountPecho" msprop:Generator_ColumnPropNameInRow="countPecho" msprop:Generator_ColumnPropNameInTable="countPechoColumn" msprop:Generator_UserColumnName="countPecho" type="xs:int" minOccurs="0" />
+              <xs:element name="countPierna" msprop:Generator_ColumnVarNameInTable="columncountPierna" msprop:Generator_ColumnPropNameInRow="countPierna" msprop:Generator_ColumnPropNameInTable="countPiernaColumn" msprop:Generator_UserColumnName="countPierna" type="xs:int" minOccurs="0" />
+              <xs:element name="textObservation" msprop:Generator_ColumnVarNameInTable="columntextObservation" msprop:Generator_ColumnPropNameInRow="textObservation" msprop:Generator_ColumnPropNameInTable="textObservationColumn" msprop:Generator_UserColumnName="textObservation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

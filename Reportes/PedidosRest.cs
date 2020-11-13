@@ -36,6 +36,8 @@ namespace Presentacion.Reportes
             InitializeComponent();
             IdMesa = id;
         }
+
+
         private void PedidosRest_Load(object sender, EventArgs e)
         {
             Imprmir2();
@@ -130,6 +132,10 @@ namespace Presentacion.Reportes
                 maqueta2.Columns.Add("Mesa");
                 maqueta2.Columns.Add("Mozo");
                 maqueta2.Columns.Add("Descripcion_Grupo");
+                //
+                maqueta2.Columns.Add("countPecho");
+                maqueta2.Columns.Add("countPierna");
+                maqueta2.Columns.Add("textObservation");
 
                 List<DataTable> Tables = new List<DataTable>();
                 Tables.Add(maqueta2);
@@ -165,10 +171,13 @@ namespace Presentacion.Reportes
                             descuento = Math.Round(double.Parse(r["descuento"].ToString()), 2).ToString();
                             total = Formato(r["total"].ToString());
                             string secunecua = r["NumSecuencia"].ToString();
+                            int countPecho = int.Parse(r["countPecho"].ToString());
+                            int countPierna = int.Parse(r["countPierna"].ToString());
+                            string textObservation=  r["textObservation"].ToString();
 
                             maqueta.Rows.Add(Valor(0, true), Valor(1, true), Valor(2, true), Valor(3, true), Valor(4, true), Valor(5, true),
                                 Valor(6, true), cantidad, precio, subtotal, igv, descuento,
-                                total, Valor(13, true), Valor(14, true), Valor(15, true), Valor(16, true), Valor(17, true), Valor(18, true), Valor(19, true), Valor(20, true), Valor(21, true), Valor(22, true), Valor(23, true), Valor(24, true));
+                                total, Valor(13, true), Valor(14, true), Valor(15, true), Valor(16, true), Valor(17, true), Valor(18, true), Valor(19, true), Valor(20, true), Valor(21, true), Valor(22, true), Valor(23, true), Valor(24, true), countPecho, countPierna, textObservation);
                         }
                     }
                     if (maqueta.Rows.Count != 0)
@@ -227,7 +236,8 @@ namespace Presentacion.Reportes
                                 }
                             }
                             
-                        }                       
+                        }    
+                        
                     }    
                      
                 }
