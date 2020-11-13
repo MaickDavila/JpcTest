@@ -171,8 +171,10 @@ namespace Presentacion.Reportes
                             descuento = Math.Round(double.Parse(r["descuento"].ToString()), 2).ToString();
                             total = Formato(r["total"].ToString());
                             string secunecua = r["NumSecuencia"].ToString();
-                            int countPecho = int.Parse(r["countPecho"].ToString());
-                            int countPierna = int.Parse(r["countPierna"].ToString());
+                            int countPecho = 0;
+                            int.TryParse(r["countPecho"].ToString(), out countPecho);
+                            int countPierna = 0;
+                            int.TryParse(r["countPierna"].ToString(), out countPierna);
                             string textObservation=  r["textObservation"].ToString();
 
                             maqueta.Rows.Add(Valor(0, true), Valor(1, true), Valor(2, true), Valor(3, true), Valor(4, true), Valor(5, true),
@@ -209,38 +211,43 @@ namespace Presentacion.Reportes
                     return;
                 }
 
-                 
+
 
                 //la impresion del ticket por defecto
-                if (configDefault.State)
+
+                bool hay_cambios = Tables.Count > 1 ? true : false;
+
+                if (hay_cambios)
                 {
-                    bool hay_cambios = Tables.Count > 1 ? true : false;
+                    DataTable datos_pedidos = Tables[1];
 
-                    if (hay_cambios)
+                    if (datos_pedidos.Rows.Count > 0)
                     {
-                        DataTable datos_pedidos = Tables[1];
 
-                        if (datos_pedidos.Rows.Count > 0)
+
+                        if (configDefault.State)
                         {
                             foreach (var item in configDefault.Printers)
                             {
                                 await ReporteLocal(datos_pedidos, item.ReportName, item.PrinterName);
                             }
-
-                            //impresion de ticket para llevar
-                            if (configLlevar.State && Para_Llevar)
-                            {
-                                foreach (var item in configLlevar.Printers)
-                                {
-                                    await ReporteLocal(datos_pedidos, item.ReportName, item.PrinterName);
-                                }
-                            }
-                            
-                        }    
-                        
-                    }    
+                        }
                      
+
+                        //impresion de ticket para llevar
+                        if (configLlevar.State && Para_Llevar)
+                        {
+                            foreach (var item in configLlevar.Printers)
+                            {
+                                await ReporteLocal(datos_pedidos, item.ReportName, item.PrinterName);
+                            }
+                        }
+
+                    }
+
                 }
+
+
 
                  
                 
