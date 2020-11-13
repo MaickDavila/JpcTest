@@ -105,6 +105,18 @@
           <DataField>flag</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="countPecho">
+          <DataField>countPecho</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="countPierna">
+          <DataField>countPierna</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="textObservation">
+          <DataField>textObservation</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>TicketDeliveryDataSet</rd:DataSetName>
