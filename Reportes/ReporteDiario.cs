@@ -13,9 +13,11 @@ namespace Presentacion.Reportes
 {
     public partial class ReporteDiario : Imprimir
     {
-        int IdApertura = 0;
+        public int IdAperturaAux { get; set; }
+        public int IdCajaAux { get; set; }
+        public int IdUsuarioAux { get; set; }        
 
-        bool Detallado = false;
+        public bool Detallado { get; set; }
         public ReporteDiario()
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace Presentacion.Reportes
             IdApertura = idapertura;
             Detallado = detallado;
         }
+
         private void ReporteDiario_Load(object sender, EventArgs e)
         {
             try
@@ -33,7 +36,7 @@ namespace Presentacion.Reportes
                 Pisos();
                 Imprimir();
                 if (X)
-                    new ReportX(IdApertura).ShowDialog();
+                    new ReportX(IdAperturaAux).ShowDialog();
                 Close();
             }
             catch (Exception ex)
@@ -70,8 +73,8 @@ namespace Presentacion.Reportes
                     int index_piso = ListaPisos.ToArray().Length;
                     index_piso--;
                     if (pisos == 1) 
-                        datos = N_Venta1.ResumenVentasProductos(IdApertura, ListaPisos[index_piso], IdCaja, IdUsuario, Detallado);
-                    else datos = N_Venta1.ResumenVentasProductos(IdApertura, ListaPisos[i], IdCaja, IdUsuario, Detallado);
+                        datos = N_Venta1.ResumenVentasProductos(IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux, Detallado);
+                    else datos = N_Venta1.ResumenVentasProductos(IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux, Detallado);
 
 
                     reportViewer1.LocalReport.DataSources.Clear();
@@ -97,7 +100,7 @@ namespace Presentacion.Reportes
                     ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     Reportes._2020.Apertura.Dataset.ReporteAperturaDataSet.sp_mostrar_aperturasDataTable tabla = new _2020.Apertura.Dataset.ReporteAperturaDataSet.sp_mostrar_aperturasDataTable();
-                    ta.Fill(tabla, IdApertura, IdUsuario, IdCaja);
+                    ta.Fill(tabla, IdAperturaAux, IdUsuarioAux, IdCajaAux);
 
                     ReportDataSource dataSource2 = new ReportDataSource("DataSet2", (DataTable)tabla);                                         
                     relatorio.DataSources.Add(dataSource2);

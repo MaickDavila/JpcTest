@@ -13,7 +13,10 @@ namespace Presentacion.Reportes._2020.Caja.Forms
 {
     public partial class ReporteDetalladoTotal : Imprimir
     {
-        private int IdApertura = 0;
+        public int IdAperturaAux { get; set; }
+        public int IdCajaAux { get; set; }
+        public int IdUsuarioAux { get; set; }
+
         public ReporteDetalladoTotal()
         {
             InitializeComponent();
@@ -63,7 +66,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     DataSetDetalleTotal.spReporteDetalladoTotalDataTable tabla = new DataSetDetalleTotal.spReporteDetalladoTotalDataTable();
-                    ta.Fill(tabla, IdApertura, ListaPisos[index_piso], IdCaja, IdUsuario);
+                    ta.Fill(tabla, IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
                     reportViewer1.LocalReport.DataSources.Clear();
                     reportViewer1.LocalReport.EnableExternalImages = true;
                     ParametrosReporte("DataSet1", (DataTable)tabla, reporte, reportViewer1);
@@ -73,7 +76,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta2.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     DataSetGastos_Cierre.Reporte_Gastos_Operativos_CierreDataTable tabla2 = new DataSetGastos_Cierre.Reporte_Gastos_Operativos_CierreDataTable();
-                    ta2.Fill(tabla2, IdApertura, IdCaja, IdUsuario);
+                    ta2.Fill(tabla2, IdAperturaAux, IdCajaAux, IdUsuarioAux);
 
                     ParametrosReporte("DataSet2", (DataTable)tabla2, reporte, reportViewer1);
                     //-----------------------------------------------------
@@ -82,7 +85,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta3.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     Dataset.DataSetReporteDetalladoTotal_FormaPago.spReporteDetalladoTotal_FormaPagoDataTable tabla3 = new Dataset.DataSetReporteDetalladoTotal_FormaPago.spReporteDetalladoTotal_FormaPagoDataTable();
-                    ta3.Fill(tabla3, IdApertura, ListaPisos[index_piso], IdCaja, IdUsuario);
+                    ta3.Fill(tabla3, IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
 
                     ParametrosReporte("DataSet3", (DataTable)tabla3, reporte, reportViewer1);
                     //-----------------------------------------------------------------------
@@ -92,7 +95,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta4.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     Dataset.DataSetReporteResumenVendedor_CierreCaja.spReporteResumenVendedor_CierreCajaDataTable tabla4 = new Dataset.DataSetReporteResumenVendedor_CierreCaja.spReporteResumenVendedor_CierreCajaDataTable();
-                    ta4.Fill(tabla4, IdApertura, ListaPisos[index_piso], IdCaja, IdUsuario);
+                    ta4.Fill(tabla4, IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
 
                     ParametrosReporte("DataSet4", (DataTable)tabla4, reporte, reportViewer1);
 
@@ -102,7 +105,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta5.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     Dataset.DataSetReporteResumenProductos_CierreCaja.spReporteResumenProductos_CierreCajaDataTable tabla5 = new Dataset.DataSetReporteResumenProductos_CierreCaja.spReporteResumenProductos_CierreCajaDataTable();
-                    ta5.Fill(tabla5, IdApertura, ListaPisos[index_piso], IdCaja, IdUsuario);
+                    ta5.Fill(tabla5, IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
 
                     ParametrosReporte("DataSet5", (DataTable)tabla5, reporte, reportViewer1);
 
@@ -143,8 +146,8 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     int index_piso = ListaPisos.ToArray().Length;
                     index_piso--;
                     if (pisos == 1)
-                        datos = N_Venta1.ResumenVentasProductosDetalladoTotal(IdApertura, ListaPisos[index_piso], IdCaja, IdUsuario);
-                    else datos = N_Venta1.ResumenVentasProductosDetalladoTotal(IdApertura, ListaPisos[i], IdCaja, IdUsuario);
+                        datos = N_Venta1.ResumenVentasProductosDetalladoTotal(IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
+                    else datos = N_Venta1.ResumenVentasProductosDetalladoTotal(IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux);
 
 
                     reportViewer1.LocalReport.DataSources.Clear();
@@ -178,7 +181,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
 
 
                     DataTable datos_gastos = new DataTable();
-                    datos_gastos = N_Venta1.Reporte_Gastos_Operativos_Cierre(IdApertura, IdCaja, IdUsuario);
+                    datos_gastos = N_Venta1.Reporte_Gastos_Operativos_Cierre(IdAperturaAux, IdCajaAux, IdUsuarioAux);
 
                     ReportDataSource dataSource2 = new ReportDataSource("DataSet2", datos_gastos);
                     dataSource2.Name = "DataSet2";

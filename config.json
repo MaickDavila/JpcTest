@@ -36,9 +36,9 @@
           "printers": [
             {
               "id": 1,
-              "printer_name": "Microsoft Print to PDF",              
+              "printer_name": "Microsoft Print to PDF",
               "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
-            }             
+            }
           ]
         }
       ]
@@ -46,7 +46,7 @@
   ],
   "config_restaurant": {
     "pago_directo": true,
-    "descripcion_item":false
+    "descripcion_item": false
   },
   "mant_ventas": {
     "acciones": {
