@@ -5,7 +5,7 @@
       "items": [
         {
           "name": "default",
-          "state": true,
+          "state": false,
           "printers": [
             {
               "id": 1,
@@ -20,12 +20,12 @@
           "printers": [
             {
               "id": 1,
-              "printer_name": "Microsoft Print to PDF",
+              "printer_name": "EPSON L4150 Series",
               "report_name": "PedidosRestaurant.rdlc"
             },
             {
               "id": 2,
-              "printer_name": "Microsoft Print to PDF",
+              "printer_name": "EPSON L4150 Series",
               "report_name": "PedidosRestaurant.rdlc"
             }
           ]
@@ -36,7 +36,7 @@
           "printers": [
             {
               "id": 1,
-              "printer_name": "Microsoft Print to PDF",
+              "printer_name": "EPSON L4150 Series",
               "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
             }
           ]
