@@ -546,7 +546,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.81446cm</Top>
+            <Top>2.13196cm</Top>
             <Left>0.04974cm</Left>
             <Height>0.80312cm</Height>
             <Width>6.12951cm</Width>
@@ -606,7 +606,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>1.21588cm</Top>
+            <Top>1.53338cm</Top>
             <Left>0.04974cm</Left>
             <Height>0.45889cm</Height>
             <Width>1.38465cm</Width>
@@ -702,10 +702,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>1.21588cm</Top>
+            <Top>1.53338cm</Top>
             <Left>1.50495cm</Left>
             <Height>0.45889cm</Height>
-            <Width>3.86855cm</Width>
+            <Width>4.39772cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -726,6 +726,7 @@
                   <TextRun>
                     <Value>=Fields!Mesa.Value</Value>
                     <Style>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -736,7 +737,7 @@
             <rd:DefaultName>Textbox17</rd:DefaultName>
             <Top>0.6441cm</Top>
             <Left>2.51411cm</Left>
-            <Height>0.45889cm</Height>
+            <Height>0.71289cm</Height>
             <Width>3.66514cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
@@ -757,11 +758,15 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Pecho:</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!countPecho.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
@@ -770,7 +775,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>countPecho</rd:DefaultName>
-            <Top>2.66058cm</Top>
+            <Top>2.97808cm</Top>
             <Left>0.02954cm</Left>
             <Height>0.6cm</Height>
             <Width>3.50542cm</Width>
@@ -793,11 +798,15 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Pierna:</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!countPierna.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
@@ -806,7 +815,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>countPierna</rd:DefaultName>
-            <Top>2.68175cm</Top>
+            <Top>2.99925cm</Top>
             <Left>2.79412cm</Left>
             <Height>0.6cm</Height>
             <Width>3.42604cm</Width>
@@ -836,7 +845,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>textObservation</rd:DefaultName>
-            <Top>3.26912cm</Top>
+            <Top>3.58662cm</Top>
             <Left>0.05537cm</Left>
             <Height>0.6cm</Height>
             <Width>6.12388cm</Width>
@@ -852,7 +861,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.97496cm</Height>
+        <Height>4.18662cm</Height>
         <Style />
       </Body>
       <Width>6.22017cm</Width>
