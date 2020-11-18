@@ -164,9 +164,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
             <Top>0.48182cm</Top>
-            <Left>2.20144cm</Left>
+            <Left>1.91569cm</Left>
             <Height>0.55806cm</Height>
-            <Width>5.67156cm</Width>
+            <Width>4.77198cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -194,8 +194,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
+            <Left>0.03175cm</Left>
             <Height>0.41479cm</Height>
-            <Width>2.97755cm</Width>
+            <Width>3.70613cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -227,8 +228,9 @@
             </Paragraphs>
             <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
             <Top>0.48535cm</Top>
+            <Left>0.03175cm</Left>
             <Height>0.55453cm</Height>
-            <Width>2.13088cm</Width>
+            <Width>2.00388cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -244,10 +246,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.00388cm</Width>
+                  <Width>1.97742cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.74212cm</Width>
+                  <Width>4.869cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -442,7 +444,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -464,9 +465,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>4.27686cm</Top>
-            <Left>0.127cm</Left>
+            <Left>0.03175cm</Left>
             <Height>1.8cm</Height>
-            <Width>7.746cm</Width>
+            <Width>6.84642cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -499,7 +500,7 @@
             </Paragraphs>
             <rd:DefaultName>countPecho</rd:DefaultName>
             <Top>2.97102cm</Top>
-            <Left>0.127cm</Left>
+            <Left>0.03175cm</Left>
             <Height>0.49417cm</Height>
             <Width>3.70613cm</Width>
             <ZIndex>4</ZIndex>
@@ -540,9 +541,9 @@
             </Paragraphs>
             <rd:DefaultName>countPierna</rd:DefaultName>
             <Top>2.97102cm</Top>
-            <Left>3.83313cm</Left>
+            <Left>3.04467cm</Left>
             <Height>0.49417cm</Height>
-            <Width>4.00284cm</Width>
+            <Width>3.643cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -578,9 +579,9 @@
             </Paragraphs>
             <rd:DefaultName>textObservation</rd:DefaultName>
             <Top>3.50929cm</Top>
-            <Left>0.127cm</Left>
+            <Left>0.03175cm</Left>
             <Height>0.62646cm</Height>
-            <Width>7.70897cm</Width>
+            <Width>6.84642cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -596,13 +597,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.09771cm</Width>
+                  <Width>0.79785cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.07703cm</Width>
+                  <Width>4.77717cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.57126cm</Width>
+                  <Width>1.2714cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -788,6 +789,7 @@
                                   <Value>=Fields!Cantidad.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>f2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -801,26 +803,6 @@
                             <Border>
                               <Style>Solid</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -892,6 +874,7 @@
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>f2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -905,26 +888,6 @@
                             <Border>
                               <Style>Solid</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1021,26 +984,6 @@
                             <Border>
                               <Style>Solid</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1075,9 +1018,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>1.21478cm</Top>
-            <Left>0.127cm</Left>
+            <Left>0.03175cm</Left>
             <Height>1.64125cm</Height>
-            <Width>7.746cm</Width>
+            <Width>6.84642cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -1105,9 +1048,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>FechaEmision</rd:DefaultName>
-            <Left>5.83505cm</Left>
+            <Left>4.62326cm</Left>
             <Height>0.41479cm</Height>
-            <Width>2.03795cm</Width>
+            <Width>2.06441cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -1120,10 +1063,10 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>6.39436cm</Height>
+        <Height>6.07686cm</Height>
         <Style />
       </Body>
-      <Width>7.873cm</Width>
+      <Width>6.95776cm</Width>
       <Page>
         <PageHeight>10.423cm</PageHeight>
         <PageWidth>8cm</PageWidth>
@@ -1267,6 +1210,7 @@
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <Language>es-PE</Language>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>b1c28d06-456f-4cb6-967c-be842197fa1b</rd:ReportID>
 </Report>
