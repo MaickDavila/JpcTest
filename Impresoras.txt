@@ -6,7 +6,7 @@ rest-PLATOS DULCES,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-PLATOS ESPECIALES,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-TALLARINES,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-ARROZ,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
-rest-POLLOS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
+rest-POLLO,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
 rest-MENU,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-SOPAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-GASEOSAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,0,192.168.1.90
