@@ -38,6 +38,21 @@
               "id": 1,
               "printer_name": "Microsoft Print to PDF",
               "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
+            },
+            {
+              "id": 2,
+              "printer_name": "Microsoft Print to PDF",
+              "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
+            },
+            {
+              "id": 3,
+              "printer_name": "Microsoft Print to PDF",
+              "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
+            },
+            {
+              "id": 4,
+              "printer_name": "Microsoft Print to PDF",
+              "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
             }
           ]
         }
@@ -67,12 +82,40 @@
         },
         {
           "idusuario": 2,
-          "ver_convenios": true,
+          "ver_convenios": false,
           "pagar_deuda": true,
           "editar_forma_pago": false,
           "guia": false,
           "editar": false,
           "imprimir": false,
+          "anular": false,
+          "permission": {
+            "state": false,
+            "password": ""
+          }
+        },
+        {
+          "idusuario": 5,
+          "ver_convenios": true,
+          "pagar_deuda": true,
+          "editar_forma_pago": false,
+          "guia": false,
+          "editar": false,
+          "imprimir": true,
+          "anular": false,
+          "permission": {
+            "state": false,
+            "password": ""
+          }
+        },
+        {
+          "idusuario": 6,
+          "ver_convenios": true,
+          "pagar_deuda": true,
+          "editar_forma_pago": false,
+          "guia": false,
+          "editar": false,
+          "imprimir": true,
           "anular": false,
           "permission": {
             "state": false,
