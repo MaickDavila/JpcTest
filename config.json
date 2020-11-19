@@ -67,12 +67,40 @@
         },
         {
           "idusuario": 2,
-          "ver_convenios": true,
-          "pagar_deuda": true,
-          "editar_forma_pago": false,
+          "ver_convenios": false,
+          "pagar_deuda": false,
+          "editar_forma_pago": true,
           "guia": false,
           "editar": false,
-          "imprimir": false,
+          "imprimir": true,
+          "anular": false,
+          "permission": {
+            "state": false,
+            "password": ""
+          }
+        },
+        {
+          "idusuario": 5,
+          "ver_convenios": false,
+          "pagar_deuda": false,
+          "editar_forma_pago": true,
+          "guia": false,
+          "editar": false,
+          "imprimir": true,
+          "anular": false,
+          "permission": {
+            "state": false,
+            "password": ""
+          }
+        },
+        {
+          "idusuario": 6,
+          "ver_convenios": false,
+          "pagar_deuda": false,
+          "editar_forma_pago": true,
+          "guia": false,
+          "editar": false,
+          "imprimir": true,
           "anular": false,
           "permission": {
             "state": false,
