@@ -1,2 +1,2 @@
-MAICK-PC\SQLEXPRESS*BD_WANGCO_2020_18*sa*foreach()
+MAICK-PC\SQLEXPRESS*BD_ALMATRINCHERO_2020_NEW*sa*foreach()
 D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\bin\Debug\Reportes\
