@@ -164,9 +164,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
             <Top>0.48182cm</Top>
-            <Left>1.91569cm</Left>
-            <Height>0.55806cm</Height>
-            <Width>4.77198cm</Width>
+            <Left>0.03175cm</Left>
+            <Height>0.72238cm</Height>
+            <Width>6.65592cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -198,40 +198,6 @@
             <Height>0.41479cm</Height>
             <Width>3.70613cm</Width>
             <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="ParaNOMBRECOM2">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>DELIVERY</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
-            <Top>0.48535cm</Top>
-            <Left>0.03175cm</Left>
-            <Height>0.55453cm</Height>
-            <Width>2.00388cm</Width>
-            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -473,11 +439,11 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>4.94361cm</Top>
+            <Top>5.03886cm</Top>
             <Left>0.03175cm</Left>
             <Height>1.8cm</Height>
             <Width>6.65592cm</Width>
-            <ZIndex>3</ZIndex>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -508,11 +474,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>countPecho</rd:DefaultName>
-            <Top>3.63777cm</Top>
+            <Top>3.73302cm</Top>
             <Left>0.03175cm</Left>
             <Height>0.49417cm</Height>
             <Width>3.70613cm</Width>
-            <ZIndex>4</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -549,11 +515,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>countPierna</rd:DefaultName>
-            <Top>3.63777cm</Top>
+            <Top>3.73302cm</Top>
             <Left>3.04467cm</Left>
             <Height>0.49417cm</Height>
             <Width>3.643cm</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -587,11 +553,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>textObservation</rd:DefaultName>
-            <Top>4.17604cm</Top>
+            <Top>4.27129cm</Top>
             <Left>0.03175cm</Left>
             <Height>0.62646cm</Height>
             <Width>6.65592cm</Width>
-            <ZIndex>6</ZIndex>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -606,10 +572,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.79785cm</Width>
+                  <Width>0.93543cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.27306cm</Width>
+                  <Width>4.13548cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.58501cm</Width>
@@ -927,11 +893,11 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.21478cm</Top>
+            <Top>1.31003cm</Top>
             <Left>0.03175cm</Left>
             <Height>1.04125cm</Height>
             <Width>6.65592cm</Width>
-            <ZIndex>7</ZIndex>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -961,7 +927,7 @@
             <Left>4.62326cm</Left>
             <Height>0.41479cm</Height>
             <Width>2.06441cm</Width>
-            <ZIndex>8</ZIndex>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1070,7 +1036,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1313,22 +1278,78 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.31987cm</Top>
+            <Top>2.41512cm</Top>
             <Left>3.08716cm</Left>
             <Height>1.13853cm</Height>
             <Width>3.60051cm</Width>
-            <ZIndex>9</ZIndex>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="countPecho2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Doc.Ref: </Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!SerieDoc.Value</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>-</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!NumeroDoc.Value</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>countPecho</rd:DefaultName>
+            <Top>7.01525cm</Top>
+            <Left>0.03175cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>6.65592cm</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>6.74361cm</Height>
+        <Height>7.50942cm</Height>
         <Style />
       </Body>
-      <Width>6.82525cm</Width>
+      <Width>6.77233cm</Width>
       <Page>
         <PageHeight>10.423cm</PageHeight>
         <PageWidth>8cm</PageWidth>
