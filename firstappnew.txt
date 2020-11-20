@@ -1,2 +1,0 @@
-flag_login,1
-flag_pedidos,0
