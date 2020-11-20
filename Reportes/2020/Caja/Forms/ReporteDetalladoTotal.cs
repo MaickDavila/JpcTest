@@ -28,8 +28,8 @@ namespace Presentacion.Reportes._2020.Caja.Forms
         }
 
         private void ReporteDetalladoTotal_Load(object sender, EventArgs e)
-        {           
-            Pisos();
+        {
+            getPisos();
             Previsualizar();
             //Close();
         }
@@ -41,17 +41,20 @@ namespace Presentacion.Reportes._2020.Caja.Forms
 
 
 
-                ListaPisos.Add(0);
+                
                 int pisos = ListaPisos.Count;
 
                 if (ListaPisos.Count <= 2)
                 {
 
                     pisos = 1;
+                
                 }
+                else ListaPisos.Add(0);
+
                 AsignarRutaReporte();
 
-                for (int i = 0; i < pisos; i++)
+                for (int i = 0; i <= pisos; i++)
                 {
                     int index_piso = ListaPisos.ToArray().Length;
                     index_piso--;
@@ -203,13 +206,20 @@ namespace Presentacion.Reportes._2020.Caja.Forms
 
             }
         }
-        void Pisos()
+        void getPisos()
         {
             ListaPisos.Clear();
+
             foreach (DataRow r in Config.MostrarRestaurantes().Rows)
             {
                 SeleccionRow = r;
-                ListaPisos.Add(Valor(1, "int", true));
+                int piso = Valor(1, "int", true);
+                var exist = Pisos.Find(item => item == piso.ToString());
+                if (exist != null)
+                {
+                    ListaPisos.Add(piso);
+                }
+
             }
         }
         static List<int> ListaPisos = new List<int>();

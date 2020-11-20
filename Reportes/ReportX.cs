@@ -26,7 +26,7 @@ namespace Presentacion.Reportes
 
         private void ReportX_Load(object sender, EventArgs e)
         {
-            Pisos();
+            getPisos();
             Imprimir();
             Close();
             //this.reportViewer1.RefreshReport();
@@ -35,7 +35,7 @@ namespace Presentacion.Reportes
         {
             try
             {
-                ListaPisos.Add(0);
+                
                 string splitear = NombreReporteDiario.Split('.')[0];
                 splitear += "XX.rdlc";
                 splitear = splitear.Trim();
@@ -46,6 +46,7 @@ namespace Presentacion.Reportes
 
                     pisos = 1;
                 }
+                else ListaPisos.Add(0);
 
                 for (int i = 0; i < pisos; i++)
                 {
@@ -83,6 +84,7 @@ namespace Presentacion.Reportes
                     parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
                     relatorio.EnableExternalImages = true;
                     relatorio.SetParameters(parameters);
+                    ObiarCopias = true;
                     Exportar(relatorio);
                     Imprimirr(relatorio);
                 }
@@ -97,13 +99,20 @@ namespace Presentacion.Reportes
                 N_Venta1.LimpiarPedidos();
             }
         }
-        void Pisos()
+        void getPisos()
         {
             ListaPisos.Clear();
+
             foreach (DataRow r in Config.MostrarRestaurantes().Rows)
             {
                 SeleccionRow = r;
-                ListaPisos.Add(Valor(1, "int", true));
+                int piso = Valor(1, "int", true);
+                var exist = Pisos.Find(item => item == piso.ToString());
+                if (exist != null)
+                {
+                    ListaPisos.Add(piso);
+                }
+
             }
         }
         static List<int> ListaPisos = new List<int>();

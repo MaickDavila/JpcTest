@@ -437,6 +437,14 @@
           <DataField>num_correlative</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="delivery">
+          <DataField>delivery</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="llevar">
+          <DataField>llevar</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SistemaDataSet</rd:DataSetName>
