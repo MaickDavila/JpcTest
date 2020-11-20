@@ -1,6 +1,5 @@
 llevar,4,1
 pisos,1,1
 pisos,2,1
-pisos,3,0
 tamanio,1,1
 SEGURIDAD,2-123,1
