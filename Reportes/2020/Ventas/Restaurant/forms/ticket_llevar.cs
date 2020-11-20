@@ -71,6 +71,7 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.forms
                 {
                     relatorio.ReportPath = RutaReportes + item.ReportName;
                     ImpresoranNow = item.PrinterName;
+                    ObiarCopias = true;
                     Imprimirr(relatorio);
                 }
             }

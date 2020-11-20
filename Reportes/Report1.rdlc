@@ -445,6 +445,10 @@
           <DataField>llevar</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="correlativo2">
+          <DataField>correlativo2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SistemaDataSet</rd:DataSetName>
@@ -2376,15 +2380,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>D-</Value>
-                    <Style>
-                      <FontFamily>tahoma</FontFamily>
-                      <FontSize>14pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Fields!num_correlative.Value</Value>
+                    <Value>=Fields!correlativo2.Value</Value>
                     <Style>
                       <FontFamily>tahoma</FontFamily>
                       <FontSize>14pt</FontSize>

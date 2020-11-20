@@ -117,6 +117,10 @@
           <DataField>textObservation</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="telefono">
+          <DataField>telefono</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>TicketDeliveryDataSet</rd:DataSetName>
@@ -328,6 +332,7 @@
                                   <Value>=Fields!Cantidad.Value</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
+                                    <Format>f2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1117,12 +1122,12 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>6.93764cm</Height>
+        <Height>6.99055cm</Height>
         <Style />
       </Body>
       <Width>7.03474cm</Width>
       <Page>
-        <PageHeight>27.94cm</PageHeight>
+        <PageHeight>20.32cm</PageHeight>
         <PageWidth>8cm</PageWidth>
         <LeftMargin>0cm</LeftMargin>
         <RightMargin>0cm</RightMargin>

@@ -33,7 +33,7 @@ namespace Presentacion.Reportes
         {
             try
             {
-                Pisos();
+                getPisos();
                 Imprimir();
                 if (X)
                     new ReportX(IdAperturaAux).ShowDialog();
@@ -52,18 +52,17 @@ namespace Presentacion.Reportes
         void Imprimir()
         {
             try
-            {
-                ListaPisos.Add(0);
+            {                
                 int pisos = ListaPisos.Count;
 
-                if (ListaPisos.Count <= 2)
-                {
-                   
+                if (ListaPisos.Count <= 1)
+                {                    
                     pisos = 1;
                 }
-                
+                else ListaPisos.Add(0);
 
-                for (int i = 0; i < pisos; i++) 
+
+                for (int i = 0; i <= pisos; i++) 
                 {
                     AsignarRutaReporte();
   
@@ -126,13 +125,13 @@ namespace Presentacion.Reportes
                     parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
                     relatorio.EnableExternalImages = true;
                     relatorio.SetParameters(parameters);
-                    
-
-
-                   
 
 
 
+
+
+
+                    ObiarCopias = true;
                     Exportar(relatorio);
                     Imprimirr(relatorio);
                 }    
@@ -147,13 +146,20 @@ namespace Presentacion.Reportes
                 
             }
         }
-        void Pisos()
-        {
+        void getPisos()
+        {          
             ListaPisos.Clear();
+            
             foreach (DataRow r in Config.MostrarRestaurantes().Rows)
             {
                 SeleccionRow = r;
-                ListaPisos.Add(Valor(1, "int", true));
+                int piso = Valor(1, "int", true);
+                var exist = Pisos.Find(item => item == piso.ToString());
+                if (exist != null)
+                {
+                    ListaPisos.Add(piso);
+                }
+
             }
         }
         static List<int> ListaPisos = new List<int>();

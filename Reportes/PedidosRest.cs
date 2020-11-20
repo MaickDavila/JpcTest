@@ -218,32 +218,43 @@ namespace Presentacion.Reportes
                 bool hay_cambios = Tables.Count > 1 ? true : false;
 
                 if (hay_cambios)
-                {
-                    DataTable datos_pedidos = Tables[1];
+                {                     
 
-                    if (datos_pedidos.Rows.Count > 0)
+                    for (int i = 1; i < Tables.Count; i++)
                     {
+                        DataTable datos_pedidos = Tables[i];
 
-
-                        if (configDefault.State)
+                        if (datos_pedidos.Rows.Count > 0)
                         {
-                            foreach (var item in configDefault.Printers)
-                            {
-                                await ReporteLocal(datos_pedidos, item.ReportName, item.PrinterName);
-                            }
-                        }
-                     
 
-                        //impresion de ticket para llevar
-                        if (configLlevar.State && Para_Llevar)
-                        {
-                            foreach (var item in configLlevar.Printers)
-                            {
-                                await ReporteLocal(datos_pedidos, item.ReportName, item.PrinterName);
-                            }
-                        }
+                            string impresora = "";
 
-                    }
+                            if (configDefault.State)
+                            {
+                                if (impressaux.Count > 1) impresora = impressaux[i];
+
+                                foreach (var item in configDefault.Printers)
+                                {
+                                    impresora = impresora == "" ? item.PrinterName : impresora;
+                                    await ReporteLocal(datos_pedidos, item.ReportName, impresora);
+                                }
+                            }
+
+
+                            //impresion de ticket para llevar
+                            //if (configLlevar.State && Para_Llevar)
+                            //{
+                            //    if (impressaux.Count > 1) impresora = impressaux[i];
+
+                            //    foreach (var item in configLlevar.Printers)
+                            //    {
+                            //        impresora = impresora == "" ? item.PrinterName : impresora;
+                            //        await ReporteLocal(datos_pedidos, item.ReportName, impresora);
+                            //    }
+                            //}
+
+                        }
+                    }                    
 
                 }
 
@@ -390,8 +401,9 @@ namespace Presentacion.Reportes
                 parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
                 parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
                 relatorio.EnableExternalImages = true;
-                relatorio.SetParameters(parameters);
+                relatorio.SetParameters(parameters);                
                 Exportar(relatorio);
+                ObiarCopias = true;
                 Imprimirr(relatorio);
 
                 return true;
