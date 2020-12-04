@@ -79,7 +79,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                 relatorio.DataSources.Add(dataSource2);
 
 
-
+                ObiarCopias = true;
                 Exportar(relatorio);
                 Imprimirr(relatorio);
 
