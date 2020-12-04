@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -45,7 +46,7 @@ namespace Presentacion.Reportes
             }
             finally
             {
-                N_Venta1.LimpiarPedidos();
+                
             }
         }
         
@@ -55,12 +56,7 @@ namespace Presentacion.Reportes
             {                
                 int pisos = ListaPisos.Count;
 
-                if (ListaPisos.Count <= 1)
-                {                    
-                    pisos = 1;
-                }
-                else ListaPisos.Add(0);
-
+                ListaPisos.Add(0);
 
                 for (int i = 0; i <= pisos; i++) 
                 {
@@ -69,12 +65,20 @@ namespace Presentacion.Reportes
 
 
                     DataTable datos = new DataTable();
-                    int index_piso = ListaPisos.ToArray().Length;
-                    index_piso--;
-                    if (pisos == 1) 
-                        datos = N_Venta1.ResumenVentasProductos(IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux, Detallado);
-                    else datos = N_Venta1.ResumenVentasProductos(IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux, Detallado);
+                    //int index_piso = ListaPisos.ToArray().Length;
+                    //index_piso--;
+                    //if (pisos == 1) 
+                    //    datos = N_Venta1.ResumenVentasProductos(IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux, Detallado);
+                    //else datos = N_Venta1.ResumenVentasProductos(IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux, Detallado);
+                    datos = N_Venta1.ResumenVentasProductos(IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux, Detallado);
 
+                    if (datos.Rows.Count == 0)
+                    {
+                        string msj = "";
+                        msj = ListaPisos[i] == 0 ? "Todos" : ListaPisos[i].ToString();
+                        MessageBox.Show($"No tiene datos en el piso {msj}");
+                        continue;
+                    }
 
                     reportViewer1.LocalReport.DataSources.Clear();
                     LocalReport relatorio = new LocalReport();
@@ -125,15 +129,19 @@ namespace Presentacion.Reportes
                     parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
                     relatorio.EnableExternalImages = true;
                     relatorio.SetParameters(parameters);
-
-
-
-
-
-
+                    //
                     ObiarCopias = true;
-                    Exportar(relatorio);
-                    Imprimirr(relatorio);
+
+                    while (true)
+                    {
+                        if (ImpresoraDisponible(ImpresoranNow))
+                        {
+                            Exportar(relatorio);
+                            Imprimirr(relatorio);
+                            break;
+                        }                       
+                    }
+                    relatorio.Dispose();
                 }    
                 
             }
@@ -159,7 +167,6 @@ namespace Presentacion.Reportes
                 {
                     ListaPisos.Add(piso);
                 }
-
             }
         }
         static List<int> ListaPisos = new List<int>();

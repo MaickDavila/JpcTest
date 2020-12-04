@@ -67,11 +67,22 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.forms
 
                 foreach (var item in configDelivery.Printers)
                 {
+
+                   
                     relatorio.ReportPath = RutaReportes + item.ReportName;
                     ImpresoranNow = item.PrinterName;
                     ObiarCopias = true;
-                    Imprimirr(relatorio);
+
+                    while (true)
+                    {
+                        if (ImpresoraDisponible(ImpresoranNow))
+                        {
+                            Imprimirr(relatorio);
+                            break;
+                        }
+                    }                    
                 }
+                relatorio.Dispose();
             }
             catch (Exception ex)
             {
