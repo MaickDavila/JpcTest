@@ -196,7 +196,7 @@
             <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
             <Left>0.03175cm</Left>
             <Height>0.41479cm</Height>
-            <Width>3.70613cm</Width>
+            <Width>4.41512cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -212,19 +212,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.55409cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>5.10183cm</Width>
+                  <Width>6.65592cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.97042cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox14">
+                        <Textbox Name="Contacto">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -240,32 +237,13 @@
                               </TextRuns>
                               <Style />
                             </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox14</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Contacto">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Contacto.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -288,40 +266,8 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>1.18208cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox12">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Direccion:</Value>
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox12</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Direccion">
@@ -331,9 +277,25 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
+                                  <Value>Dirección:</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value xml:space="preserve">
+</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
                                   <Value>=Fields!Direccion.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -356,11 +318,11 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.99688cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox11">
+                        <Textbox Name="telefono">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -376,32 +338,13 @@
                               </TextRuns>
                               <Style />
                             </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox11</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="telefono">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!telefono.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -428,7 +371,6 @@
             <TablixColumnHierarchy>
               <TablixMembers>
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -441,7 +383,7 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>5.03886cm</Top>
             <Left>0.03175cm</Left>
-            <Height>1.8cm</Height>
+            <Height>3.14937cm</Height>
             <Width>6.65592cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
@@ -459,13 +401,15 @@
                   <TextRun>
                     <Value>PECHO: </Value>
                     <Style>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!countPecho.Value</Value>
                     <Style>
-                      <FontWeight>Normal</FontWeight>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                       <Format>f0</Format>
                     </Style>
                   </TextRun>
@@ -498,13 +442,15 @@
                   <TextRun>
                     <Value>PIERNA:</Value>
                     <Style>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!countPierna.Value</Value>
                     <Style>
-                      <FontWeight>Normal</FontWeight>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                       <Format>f0</Format>
                     </Style>
                   </TextRun>
@@ -546,6 +492,7 @@
                     <Value>=Fields!textObservation.Value</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -763,7 +710,7 @@
                                 <TextRun>
                                   <Value>=Fields!Cantidad.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>11pt</FontSize>
                                     <Format>f2</Format>
                                   </Style>
                                 </TextRun>
@@ -797,7 +744,7 @@
                                 <TextRun>
                                   <Value>=Fields!descripcion.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>11pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -848,7 +795,7 @@
                                 <TextRun>
                                   <Value>=Fields!Total.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>11pt</FontSize>
                                     <Format>f2</Format>
                                   </Style>
                                 </TextRun>
@@ -924,9 +871,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>FechaEmision</rd:DefaultName>
-            <Left>4.62326cm</Left>
+            <Left>4.44687cm</Left>
             <Height>0.41479cm</Height>
-            <Width>2.06441cm</Width>
+            <Width>2.2408cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -942,10 +889,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.0155cm</Width>
+                  <Width>2.17425cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.58501cm</Width>
+                  <Width>1.74376cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -961,9 +908,8 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>SubTotal</Value>
+                                  <Value>SubTotal S/:</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1015,7 +961,6 @@
                                 <TextRun>
                                   <Value>=Fields!Importe.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
                                     <Format>f2</Format>
                                   </Style>
                                 </TextRun>
@@ -1052,9 +997,8 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ICBPER</Value>
+                                  <Value>ICBPER S/:</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1106,7 +1050,6 @@
                                 <TextRun>
                                   <Value>=Fields!Otro_Imp.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
                                     <Format>f2</Format>
                                   </Style>
                                 </TextRun>
@@ -1163,9 +1106,8 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>TOTAL</Value>
+                                  <Value>TOTAL S/:</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1217,7 +1159,6 @@
                                 <TextRun>
                                   <Value>=Fields!TotalVenta.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
                                     <Format>f2</Format>
                                   </Style>
                                 </TextRun>
@@ -1279,9 +1220,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>2.41512cm</Top>
-            <Left>3.08716cm</Left>
+            <Left>2.76966cm</Left>
             <Height>1.13853cm</Height>
-            <Width>3.60051cm</Width>
+            <Width>3.91801cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -1298,39 +1239,35 @@
                   <TextRun>
                     <Value>Doc.Ref: </Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!SerieDoc.Value</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>-</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!NumeroDoc.Value</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Right</TextAlign>
+                  <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>countPecho</rd:DefaultName>
-            <Top>7.01525cm</Top>
+            <Top>8.28525cm</Top>
             <Left>0.03175cm</Left>
             <Height>0.49417cm</Height>
             <Width>6.65592cm</Width>
@@ -1346,7 +1283,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>7.50942cm</Height>
+        <Height>8.77942cm</Height>
         <Style />
       </Body>
       <Width>6.77233cm</Width>
