@@ -43,21 +43,12 @@ namespace Presentacion.Reportes._2020.Caja.Forms
 
                 
                 int pisos = ListaPisos.Count;
-
-                if (ListaPisos.Count <= 2)
-                {
-
-                    pisos = 1;
-                
-                }
-                else ListaPisos.Add(0);
-
+                ListaPisos.Add(0);
                 AsignarRutaReporte();
 
                 for (int i = 0; i <= pisos; i++)
                 {
-                    int index_piso = ListaPisos.ToArray().Length;
-                    index_piso--;
+                    
 
                     string reporte = "2020\\Caja\\";
                     reporte += "reporteDetalladoTotal.rdlc";
@@ -69,7 +60,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     DataSetDetalleTotal.spReporteDetalladoTotalDataTable tabla = new DataSetDetalleTotal.spReporteDetalladoTotalDataTable();
-                    ta.Fill(tabla, IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
+                    ta.Fill(tabla, IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux);
                     reportViewer1.LocalReport.DataSources.Clear();
                     reportViewer1.LocalReport.EnableExternalImages = true;
                     ParametrosReporte("DataSet1", (DataTable)tabla, reporte, reportViewer1);
@@ -88,7 +79,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta3.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     Dataset.DataSetReporteDetalladoTotal_FormaPago.spReporteDetalladoTotal_FormaPagoDataTable tabla3 = new Dataset.DataSetReporteDetalladoTotal_FormaPago.spReporteDetalladoTotal_FormaPagoDataTable();
-                    ta3.Fill(tabla3, IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
+                    ta3.Fill(tabla3, IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux);
 
                     ParametrosReporte("DataSet3", (DataTable)tabla3, reporte, reportViewer1);
                     //-----------------------------------------------------------------------
@@ -98,7 +89,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta4.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     Dataset.DataSetReporteResumenVendedor_CierreCaja.spReporteResumenVendedor_CierreCajaDataTable tabla4 = new Dataset.DataSetReporteResumenVendedor_CierreCaja.spReporteResumenVendedor_CierreCajaDataTable();
-                    ta4.Fill(tabla4, IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
+                    ta4.Fill(tabla4, IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux);
 
                     ParametrosReporte("DataSet4", (DataTable)tabla4, reporte, reportViewer1);
 
@@ -108,7 +99,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                     ta5.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                     Dataset.DataSetReporteResumenProductos_CierreCaja.spReporteResumenProductos_CierreCajaDataTable tabla5 = new Dataset.DataSetReporteResumenProductos_CierreCaja.spReporteResumenProductos_CierreCajaDataTable();
-                    ta5.Fill(tabla5, IdAperturaAux, ListaPisos[index_piso], IdCajaAux, IdUsuarioAux);
+                    ta5.Fill(tabla5, IdAperturaAux, ListaPisos[i], IdCajaAux, IdUsuarioAux);
 
                     ParametrosReporte("DataSet5", (DataTable)tabla5, reporte, reportViewer1);
 

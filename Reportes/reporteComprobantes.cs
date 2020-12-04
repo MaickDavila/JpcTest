@@ -141,13 +141,24 @@ namespace Presentacion.Reportes
                 relatorio.SetParameters(parameters);
 
                 Exportar(relatorio);
-                
-                if (Imprimir_pdf)
-                    Imprimirr(relatorio);
-                else
+
+
+                while (true)
                 {
-                    GenerarPdf(relatorio, NombreCPE);
+                    if (ImpresoraDisponible(ImpresoranNow))
+                    {
+
+                        if (Imprimir_pdf)
+                            Imprimirr(relatorio);
+                        else
+                        {
+                            GenerarPdf(relatorio, NombreCPE);
+                        }
+                        break;
+                    }
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -166,63 +177,141 @@ namespace Presentacion.Reportes
                 int cont = 0;
                 
                 AsignarImpresoras();
-                
-                do
+
+
+                LLenar();
+
+
+
+                //SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter ta = new SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter();//aqui se lentea cuando es factura
+
+                //SistemaDataSet.spReporteComprobanteDataTable tabla = new SistemaDataSet.spReporteComprobanteDataTable();
+
+                //ta.Connection = N_SQLAPI.ConexionGlobal();
+
+                //ta.Fill(tabla, IdVenta, EsIntegracion);
+                int count = N_Venta1.BuscarVentasDetalleId(IdVenta, false).Rows.Count;
+
+
+                if (!ImpresorasNameEleccion(count))
                 {
-                    LLenar();
+                    MessageBox.Show("Desea Imprimir de todas formas?, puede que se genere un archivo en pdf.");
+                }
+
+                //reportViewer1.LocalReport.DataSources.Clear();
+
+                DataTable tabla = N_Venta1.ReporteComprobante(IdVenta, EsIntegracion);
+
+                ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);
+
+                LocalReport relatorio = new LocalReport();
+                relatorio.ReportPath = RutaReportes + ReporteNow;
+                relatorio.DataSources.Add(dataSource);
+                string PARA = "Para";
+                ReportParameter[] parameters = new ReportParameter[11];
+                parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
+                parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
+                parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
+                parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
+                parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
+                parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
+                parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
+                parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
+                parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
+                parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
+                parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
+                relatorio.EnableExternalImages = true;
+
+                relatorio.SetParameters(parameters);
+
+                Exportar(relatorio);
 
 
 
-                    //SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter ta = new SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter();//aqui se lentea cuando es factura
-
-                    //SistemaDataSet.spReporteComprobanteDataTable tabla = new SistemaDataSet.spReporteComprobanteDataTable();
-
-                    //ta.Connection = N_SQLAPI.ConexionGlobal();
-
-                    //ta.Fill(tabla, IdVenta, EsIntegracion);
-                    int count = N_Venta1.BuscarVentasDetalleId(IdVenta, false).Rows.Count;
-                    
-                    
-                    if (!ImpresorasNameEleccion(count)) 
+                while (true)
+                {
+                    if (ImpresoraDisponible(ImpresoranNow))
                     {
-                        MessageBox.Show("Desea Imprimir de todas formas?, puede que se genere un archivo en pdf.");
+                        Imprimirr(relatorio);
+                        if (ImpresorasNameEleccion_Almacen())
+                        {
+                            cont++;
+                        }
+                        else break;
+
+                        break;
                     }
+                }
+                relatorio.Dispose();
 
-                    //reportViewer1.LocalReport.DataSources.Clear();
 
-                    DataTable tabla = N_Venta1.ReporteComprobante(IdVenta, EsIntegracion);
+                //do
+                //{
+                //    LLenar();
 
-                    ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);
 
-                    LocalReport relatorio = new LocalReport();
-                    relatorio.ReportPath = RutaReportes + ReporteNow;
-                    relatorio.DataSources.Add(dataSource);
-                    string PARA = "Para";
-                    ReportParameter[] parameters = new ReportParameter[11];
-                    parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
-                    parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
-                    parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
-                    parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
-                    parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
-                    parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
-                    parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
-                    parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
-                    parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
-                    parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
-                    parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
-                    relatorio.EnableExternalImages = true;
+
+                //    //SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter ta = new SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter();//aqui se lentea cuando es factura
+
+                //    //SistemaDataSet.spReporteComprobanteDataTable tabla = new SistemaDataSet.spReporteComprobanteDataTable();
+
+                //    //ta.Connection = N_SQLAPI.ConexionGlobal();
+
+                //    //ta.Fill(tabla, IdVenta, EsIntegracion);
+                //    int count = N_Venta1.BuscarVentasDetalleId(IdVenta, false).Rows.Count;
                     
-                    relatorio.SetParameters(parameters);
                     
-                    Exportar(relatorio);
+                //    if (!ImpresorasNameEleccion(count)) 
+                //    {
+                //        MessageBox.Show("Desea Imprimir de todas formas?, puede que se genere un archivo en pdf.");
+                //    }
+
+                //    //reportViewer1.LocalReport.DataSources.Clear();
+
+                //    DataTable tabla = N_Venta1.ReporteComprobante(IdVenta, EsIntegracion);
+
+                //    ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);
+
+                //    LocalReport relatorio = new LocalReport();
+                //    relatorio.ReportPath = RutaReportes + ReporteNow;
+                //    relatorio.DataSources.Add(dataSource);
+                //    string PARA = "Para";
+                //    ReportParameter[] parameters = new ReportParameter[11];
+                //    parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
+                //    parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
+                //    parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
+                //    parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
+                //    parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
+                //    parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
+                //    parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
+                //    parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
+                //    parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
+                //    parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
+                //    parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
+                //    relatorio.EnableExternalImages = true;
                     
-                    Imprimirr(relatorio);
-                    if (ImpresorasNameEleccion_Almacen())
-                    {
-                        cont++;
-                    }
-                    else break;
-                } while (cont <= 1);
+                //    relatorio.SetParameters(parameters);
+                    
+                //    Exportar(relatorio);
+
+
+
+                //    while (true)
+                //    {
+                //        if (ImpresoraDisponible(ImpresoranNow))
+                //        {
+                //            Imprimirr(relatorio);
+                //            if (ImpresorasNameEleccion_Almacen())
+                //            {
+                //                cont++;
+                //            }
+                //            else break;
+
+                //            break;
+                //        }
+                //    }
+
+                //} while (cont <= 1);
             }
             catch (Exception ex)
             {

@@ -96,7 +96,7 @@ namespace Presentacion.Reportes
             }
             finally
             {
-                N_Venta1.LimpiarPedidos();
+                
             }
         }
         void getPisos()

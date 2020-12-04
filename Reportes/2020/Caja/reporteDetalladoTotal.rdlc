@@ -161,10 +161,14 @@
           <DataField>Fecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="Tipo_de_Gasto">
+          <DataField>Tipo_de_Gasto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetGastos_Cierre</rd:DataSetName>
-        <rd:SchemaPath>D:\DESAROLLO\JPC\JpcConsultings\Sistema\Presentacion\DataSetGastos_Cierre.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\DataSetGastos_Cierre.xsd</rd:SchemaPath>
         <rd:TableName>Reporte_Gastos_Operativos_Cierre</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
