@@ -74,7 +74,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteDenominaciones.form
                 dataSource2.Name = "DataSet2";
                 relatorio.DataSources.Add(dataSource2);
 
-
+                ObiarCopias = true;
 
                 Exportar(relatorio);
                 Imprimirr(relatorio);

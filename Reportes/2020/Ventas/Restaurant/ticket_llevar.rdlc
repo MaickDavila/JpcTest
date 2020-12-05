@@ -151,7 +151,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.1875in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -336,7 +336,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Cantidad</rd:DefaultName>
@@ -500,7 +502,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.61333in</Top>
-            <Height>0.5in</Height>
+            <Height>0.4375in</Height>
             <Width>2.7246in</Width>
             <Style>
               <Border>
@@ -526,7 +528,7 @@
             </Paragraphs>
             <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
             <Height>0.17014in</Height>
-            <Width>1.9375in</Width>
+            <Width>1.82877in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -934,7 +936,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.15778in</Top>
+            <Top>1.10778in</Top>
             <Left>1.0375in</Left>
             <Height>0.5625in</Height>
             <Width>1.6871in</Width>
@@ -952,15 +954,17 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Pecho: </Value>
+                    <Value>PECHO: </Value>
                     <Style>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!countPecho.Value</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -968,7 +972,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
-            <Top>4.63739cm</Top>
+            <Top>4.51039cm</Top>
             <Left>0.09525cm</Left>
             <Height>0.24306in</Height>
             <Width>1.60377in</Width>
@@ -990,15 +994,17 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Pecho: </Value>
+                    <Value>PIERNA: </Value>
                     <Style>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Fields!countPecho.Value</Value>
+                    <Value>=Fields!countPierna.Value</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1006,10 +1012,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
-            <Top>4.63739cm</Top>
-            <Left>2.9887cm</Left>
+            <Top>4.51039cm</Top>
+            <Left>2.96224cm</Left>
             <Height>0.24306in</Height>
-            <Width>1.54795in</Width>
+            <Width>1.55836in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -1043,6 +1049,7 @@
                     <Value>=Fields!textObservation.Value</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1050,7 +1057,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
-            <Top>5.36059cm</Top>
+            <Top>5.23359cm</Top>
             <Left>0.09525cm</Left>
             <Height>0.3813in</Height>
             <Width>2.68711in</Width>
@@ -1074,39 +1081,35 @@
                   <TextRun>
                     <Value>Doc. Ref: </Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!SerieDoc.Value</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>-</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!NumeroDoc.Value</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Right</TextAlign>
+                  <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
-            <Top>6.50548cm</Top>
+            <Top>6.37848cm</Top>
             <Left>0.09525cm</Left>
             <Height>0.17014in</Height>
             <Width>2.68711in</Width>
@@ -1121,11 +1124,43 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="ParaNOMBRECOM7">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!FechaEmision.Value</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Format>d</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>ParaNOMBRECOM</rd:DefaultName>
+            <Left>4.64508cm</Left>
+            <Height>0.17014in</Height>
+            <Width>0.89584in</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>6.99055cm</Height>
+        <Height>6.8318cm</Height>
         <Style />
       </Body>
-      <Width>7.03474cm</Width>
+      <Width>6.96182cm</Width>
       <Page>
         <PageHeight>20.32cm</PageHeight>
         <PageWidth>8cm</PageWidth>
