@@ -68,15 +68,22 @@ namespace Presentacion.Reportes._2020.Caja.Forms
                 parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
                 relatorio.EnableExternalImages = true;
                 relatorio.SetParameters(parameters);
-                //aaqui entra la segunda consulta - para gastos operativos
-
-
+                //
                 DataTable datos2 = new DataTable();
                 datos2 = N_Apertura.sp_reporte_cierre_suma_denominaciones_por_usuairo(FechaIni, FechaFin);
 
                 ReportDataSource dataSource2 = new ReportDataSource("DataSet2", datos2);
                 dataSource2.Name = "DataSet2";
                 relatorio.DataSources.Add(dataSource2);
+
+
+                //
+                DataTable datos3 = new DataTable();
+                datos3 = N_Apertura.Reporte_Gastos_Operativos_Cierre_Totalizado_por_fecha(FechaIni, FechaFin);
+
+                ReportDataSource dataSource3 = new ReportDataSource("DataSet3", datos3);
+                dataSource3.Name = "DataSet3";
+                relatorio.DataSources.Add(dataSource3);
 
 
                 ObiarCopias = true;
