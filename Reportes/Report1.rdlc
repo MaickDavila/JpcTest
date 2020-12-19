@@ -449,6 +449,10 @@
           <DataField>correlativo2</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="IdDocumento">
+          <DataField>IdDocumento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SistemaDataSet</rd:DataSetName>
@@ -1993,6 +1997,9 @@
             <Height>2.11493cm</Height>
             <Width>2.4609cm</Width>
             <ZIndex>7</ZIndex>
+            <Visibility>
+              <Hidden>=iif(Fields!IdDocumento.Value = "99", True, False)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2031,6 +2038,9 @@
             <Height>0.41479cm</Height>
             <Width>6.80424cm</Width>
             <ZIndex>8</ZIndex>
+            <Visibility>
+              <Hidden>=iif(Fields!IdDocumento.Value = "99", True, False)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2265,10 +2275,10 @@
           </Textbox>
           <Rectangle Name="delivery">
             <KeepTogether>true</KeepTogether>
-            <Top>10.76537cm</Top>
-            <Left>0.13878cm</Left>
-            <Height>3.61125cm</Height>
-            <Width>5.69483cm</Width>
+            <Top>14.36557cm</Top>
+            <Left>0.15875cm</Left>
+            <Height>3.70096cm</Height>
+            <Width>6.83336cm</Width>
             <ZIndex>13</ZIndex>
             <Visibility>
               <Hidden>=iif(Fields!delivery.Value = True, False, True)</Hidden>
@@ -2335,7 +2345,15 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>DELIVERY 222226  /  2255917</Value>
+                    <Value>DELIVERY </Value>
+                    <Style>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!ParaTELEFONO.Value</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -2657,7 +2675,7 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>17.61674cm</Height>
+        <Height>18.06653cm</Height>
         <Style />
       </Body>
       <Width>7.11349cm</Width>
