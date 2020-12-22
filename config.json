@@ -65,6 +65,7 @@
           "editar": true,
           "imprimir": true,
           "anular": true,
+          "total": true,
           "permission": {
             "state": true,
             "password": "123"
@@ -79,6 +80,7 @@
           "editar": false,
           "imprimir": true,
           "anular": false,
+          "total": false,
           "permission": {
             "state": false,
             "password": ""
@@ -93,6 +95,7 @@
           "editar": false,
           "imprimir": true,
           "anular": false,
+          "total": false,
           "permission": {
             "state": false,
             "password": ""
@@ -107,6 +110,7 @@
           "editar": false,
           "imprimir": true,
           "anular": false,
+          "total": false,
           "permission": {
             "state": false,
             "password": ""
