@@ -96,12 +96,16 @@
           <DataField>IdUsuario</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="usuario">
+          <DataField>usuario</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Fecha">
           <DataField>Fecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Abierto_Cerrado">
-          <DataField>Abierto_Cerrado</DataField>
+        <Field Name="Cerrado">
+          <DataField>Cerrado</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="IdCaja">
@@ -150,6 +154,10 @@
         </Field>
         <Field Name="diferencia">
           <DataField>diferencia</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="reserva">
+          <DataField>reserva</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
