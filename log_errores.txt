@@ -913,3 +913,5 @@ D:\cpe\LOGO\logoempresa.jpg
 20605245367-03-BB04-2966
 D:\cpe\CODIGOBARRA\20605245367-03-BB04-2966.Bmp
 D:\cpe\LOGO\logoempresa.jpg
+Cannot open database "BD_ALMATRINCHERO_2020" requested by the login. The login failed.
+Login failed for user 'sa'.
