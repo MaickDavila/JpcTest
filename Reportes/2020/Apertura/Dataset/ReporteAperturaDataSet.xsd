@@ -2,14 +2,15 @@
 <xs:schema id="ReporteAperturaDataSet" targetNamespace="http://tempuri.org/ReporteAperturaDataSet.xsd" xmlns:mstns="http://tempuri.org/ReporteAperturaDataSet.xsd" xmlns="http://tempuri.org/ReporteAperturaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_ALMATRINCHERO_2020_NEWConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_ALMATRINCHERO_2020_NEWConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Presentacion.Properties.Settings.GlobalReference.Default.BD_ALMATRINCHERO_2020_NEWConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_ALMATRINCHERO_2020_NEWConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_ALMATRINCHERO_2020_NEWConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Presentacion.Properties.Settings.GlobalReference.Default.BD_ALMATRINCHERO_2020_NEWConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_mostrar_aperturasTableAdapter" GeneratorDataComponentClassName="sp_mostrar_aperturasTableAdapter" Name="sp_mostrar_aperturas" UserDataComponentName="sp_mostrar_aperturasTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BD_ALMATRINCHERO_2020_NEWConnectionString (Settings)" DbObjectName="BD_ALMATRINCHERO_2020_NEW.dbo.sp_mostrar_aperturas" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BD_ALMATRINCHERO_2020_NEWConnectionString1 (Settings)" DbObjectName="BD_ALMATRINCHERO_2020_NEW.dbo.sp_mostrar_aperturas" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.sp_mostrar_aperturas</CommandText>
@@ -27,8 +28,9 @@
               <Mapping SourceColumn="Id" DataSetColumn="Id" />
               <Mapping SourceColumn="Numero" DataSetColumn="Numero" />
               <Mapping SourceColumn="IdUsuario" DataSetColumn="IdUsuario" />
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
               <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
-              <Mapping SourceColumn="Abierto_Cerrado" DataSetColumn="Abierto_Cerrado" />
+              <Mapping SourceColumn="Cerrado" DataSetColumn="Cerrado" />
               <Mapping SourceColumn="IdCaja" DataSetColumn="IdCaja" />
               <Mapping SourceColumn="fechacierre" DataSetColumn="fechacierre" />
               <Mapping SourceColumn="caja_chica" DataSetColumn="caja_chica" />
@@ -41,6 +43,7 @@
               <Mapping SourceColumn="total_egreso" DataSetColumn="total_egreso" />
               <Mapping SourceColumn="efectivo_declarado" DataSetColumn="efectivo_declarado" />
               <Mapping SourceColumn="diferencia" DataSetColumn="diferencia" />
+              <Mapping SourceColumn="reserva" DataSetColumn="reserva" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -58,8 +61,15 @@
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
               <xs:element name="Numero" msprop:Generator_ColumnVarNameInTable="columnNumero" msprop:Generator_ColumnPropNameInRow="Numero" msprop:Generator_ColumnPropNameInTable="NumeroColumn" msprop:Generator_UserColumnName="Numero" type="xs:int" minOccurs="0" />
               <xs:element name="IdUsuario" msprop:Generator_ColumnVarNameInTable="columnIdUsuario" msprop:Generator_ColumnPropNameInRow="IdUsuario" msprop:Generator_ColumnPropNameInTable="IdUsuarioColumn" msprop:Generator_UserColumnName="IdUsuario" type="xs:int" minOccurs="0" />
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Abierto_Cerrado" msprop:Generator_ColumnVarNameInTable="columnAbierto_Cerrado" msprop:Generator_ColumnPropNameInRow="Abierto_Cerrado" msprop:Generator_ColumnPropNameInTable="Abierto_CerradoColumn" msprop:Generator_UserColumnName="Abierto_Cerrado" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Cerrado" msprop:Generator_ColumnVarNameInTable="columnCerrado" msprop:Generator_ColumnPropNameInRow="Cerrado" msprop:Generator_ColumnPropNameInTable="CerradoColumn" msprop:Generator_UserColumnName="Cerrado" type="xs:boolean" minOccurs="0" />
               <xs:element name="IdCaja" msprop:Generator_ColumnVarNameInTable="columnIdCaja" msprop:Generator_ColumnPropNameInRow="IdCaja" msprop:Generator_ColumnPropNameInTable="IdCajaColumn" msprop:Generator_UserColumnName="IdCaja" type="xs:int" minOccurs="0" />
               <xs:element name="fechacierre" msprop:Generator_ColumnVarNameInTable="columnfechacierre" msprop:Generator_ColumnPropNameInRow="fechacierre" msprop:Generator_ColumnPropNameInTable="fechacierreColumn" msprop:Generator_UserColumnName="fechacierre" type="xs:dateTime" minOccurs="0" />
               <xs:element name="caja_chica" msprop:Generator_ColumnVarNameInTable="columncaja_chica" msprop:Generator_ColumnPropNameInRow="caja_chica" msprop:Generator_ColumnPropNameInTable="caja_chicaColumn" msprop:Generator_UserColumnName="caja_chica" type="xs:decimal" minOccurs="0" />
@@ -72,6 +82,7 @@
               <xs:element name="total_egreso" msprop:Generator_ColumnVarNameInTable="columntotal_egreso" msprop:Generator_ColumnPropNameInRow="total_egreso" msprop:Generator_ColumnPropNameInTable="total_egresoColumn" msprop:Generator_UserColumnName="total_egreso" type="xs:decimal" minOccurs="0" />
               <xs:element name="efectivo_declarado" msprop:Generator_ColumnVarNameInTable="columnefectivo_declarado" msprop:Generator_ColumnPropNameInRow="efectivo_declarado" msprop:Generator_ColumnPropNameInTable="efectivo_declaradoColumn" msprop:Generator_UserColumnName="efectivo_declarado" type="xs:decimal" minOccurs="0" />
               <xs:element name="diferencia" msprop:Generator_ColumnVarNameInTable="columndiferencia" msprop:Generator_ColumnPropNameInRow="diferencia" msprop:Generator_ColumnPropNameInTable="diferenciaColumn" msprop:Generator_UserColumnName="diferencia" type="xs:decimal" minOccurs="0" />
+              <xs:element name="reserva" msprop:Generator_ColumnVarNameInTable="columnreserva" msprop:Generator_ColumnPropNameInRow="reserva" msprop:Generator_ColumnPropNameInTable="reservaColumn" msprop:Generator_UserColumnName="reserva" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
