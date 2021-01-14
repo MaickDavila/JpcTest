@@ -201,13 +201,13 @@ namespace Presentacion.Reportes
 
                 if(configTicket == null)
                 {
-                    MessageBox.Show("No existe configuracion!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("No existe configuracion!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
                 if(configDefault == null && Para_Llevar)
                 {
-                    MessageBox.Show("No existe configuracion de ticket por default!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("No existe configuracion de ticket por default!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 

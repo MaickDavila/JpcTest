@@ -923,4 +923,31 @@ D:\cpe\LOGO\logoempresa.jpg
 =======
 Cannot open database "BD_ALMATRINCHERO_2020" requested by the login. The login failed.
 Login failed for user 'sa'.
+<<<<<<< HEAD
 >>>>>>> 8f126fbff3c18bb69d6d399d90a781d227fac675
+=======
+20103964921-03-B001-6
+D:\cpe\CODIGOBARRA\20103964921-03-B001-6.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103964921-03-B001-7
+D:\cpe\CODIGOBARRA\20103964921-03-B001-7.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103964921-03-B001-8
+D:\cpe\CODIGOBARRA\20103964921-03-B001-8.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103964921-01-F001-1
+D:\cpe\CODIGOBARRA\20103964921-01-F001-1.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103964921-01-F001-2
+D:\cpe\CODIGOBARRA\20103964921-01-F001-2.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-01-F001-3
+D:\cpe\CODIGOBARRA\20103845328-01-F001-3.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-01-F001-4
+D:\cpe\CODIGOBARRA\20103845328-01-F001-4.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-01-F001-5
+D:\cpe\CODIGOBARRA\20103845328-01-F001-5.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+>>>>>>> cee718f84e74eb40bf14be0dc0110d20fcee505a

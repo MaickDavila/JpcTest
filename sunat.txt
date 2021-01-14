@@ -1,5 +1,9 @@
 TipoEmpresa,0101,0
 TipoEmpresa,2121,0
+<<<<<<< HEAD
 TipoEmpresa,2102,1
+=======
+TipoEmpresa,2102,0
+>>>>>>> cee718f84e74eb40bf14be0dc0110d20fcee505a
 IDENTIFICADOR,X,1
 RESUMEN,DEFAULT,1
