@@ -13,8 +13,8 @@ namespace Presentacion.Reportes._2020.Deuda.forms
 {
     public partial class ReporteCobranza : Imprimir
     {
-        public DateTime FechaIni { get; set; }
-        public DateTime FechaFin { get; set; }
+        public DateTime Fecha { get; set; }
+         
 
 
         public ReporteCobranza()
@@ -39,7 +39,7 @@ namespace Presentacion.Reportes._2020.Deuda.forms
                
 
                 datasets.DataSetReporteCobranza.sp_reporte_cobranzaDataTable tabla = new datasets.DataSetReporteCobranza.sp_reporte_cobranzaDataTable();                
-                ta.Fill(tabla, FechaIni, FechaFin);
+                ta.Fill(tabla, Fecha);
 
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.EnableExternalImages = true;
@@ -49,7 +49,7 @@ namespace Presentacion.Reportes._2020.Deuda.forms
                 ta2.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                 datasets.DataSetReporteEmitidos.sp_reporte_comprobantes_emitidosDataTable tabla2 = new datasets.DataSetReporteEmitidos.sp_reporte_comprobantes_emitidosDataTable();
-                ta2.Fill(tabla2, FechaIni, FechaFin);
+                ta2.Fill(tabla2, Fecha);
                 ParametrosReporte("DataSet2", (DataTable)tabla2, @"2020\Deuda\ReporteCobranza.rdlc", reportViewer1);
 
                 this.reportViewer1.RefreshReport();
