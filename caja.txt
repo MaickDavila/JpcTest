@@ -3,7 +3,7 @@ impresora,Microsoft Print to PDF,Diario.rdlc,1
 puntoventa,,0
 tikesito,Microsoft Print to PDF,0
 x,Microsoft Print to PDF,0
-CPE,D:\cpe\,1
+CPE,D:\CPE\,1
 LIMITEDNI,700,1
 guardarotros,1,0
 vendedorencaja,1,1
