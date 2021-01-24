@@ -954,3 +954,5 @@ D:\cpe\LOGO\logoempresa.jpg
 20604745528-01-FP01-1
 D:\CPE\CODIGOBARRA\20604745528-01-FP01-1.Bmp
 D:\CPE\LOGO\logoempresa.jpg
+Cannot open database "BD_TO" requested by the login. The login failed.
+Login failed for user 'sa'.
