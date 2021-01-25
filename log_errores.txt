@@ -939,3 +939,6 @@ D:\cpe\LOGO\logoempresa.jpg
 20103845328-01-F001-5
 D:\cpe\CODIGOBARRA\20103845328-01-F001-5.Bmp
 D:\cpe\LOGO\logoempresa.jpg
+20605245561-03-B001-1
+D:\cpe\CODIGOBARRA\20605245561-03-B001-1.Bmp
+D:\cpe\LOGO\logoempresa.jpg
