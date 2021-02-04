@@ -23,6 +23,7 @@
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="DescripDoc" DataSetColumn="DescripDoc" />
               <Mapping SourceColumn="documento" DataSetColumn="documento" />
               <Mapping SourceColumn="fecha" DataSetColumn="fecha" />
               <Mapping SourceColumn="referencia" DataSetColumn="referencia" />
@@ -34,7 +35,9 @@
               <Mapping SourceColumn="credito" DataSetColumn="credito" />
               <Mapping SourceColumn="doc_facturado" DataSetColumn="doc_facturado" />
               <Mapping SourceColumn="almacen" DataSetColumn="almacen" />
+              <Mapping SourceColumn="numeroDocumento" DataSetColumn="numeroDocumento" />
               <Mapping SourceColumn="cliente" DataSetColumn="cliente" />
+              <Mapping SourceColumn="direccion" DataSetColumn="direccion" />
               <Mapping SourceColumn="vendedor" DataSetColumn="vendedor" />
               <Mapping SourceColumn="total" DataSetColumn="total" />
               <Mapping SourceColumn="id1" DataSetColumn="id1" />
@@ -64,6 +67,13 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />
+              <xs:element name="DescripDoc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDescripDoc" msprop:Generator_ColumnPropNameInRow="DescripDoc" msprop:Generator_ColumnPropNameInTable="DescripDocColumn" msprop:Generator_UserColumnName="DescripDoc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="documento" msprop:Generator_ColumnVarNameInTable="columndocumento" msprop:Generator_ColumnPropNameInRow="documento" msprop:Generator_ColumnPropNameInTable="documentoColumn" msprop:Generator_UserColumnName="documento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -71,7 +81,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
               <xs:element name="referencia" msprop:Generator_ColumnVarNameInTable="columnreferencia" msprop:Generator_ColumnPropNameInRow="referencia" msprop:Generator_ColumnPropNameInTable="referenciaColumn" msprop:Generator_UserColumnName="referencia" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -105,10 +115,24 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="numeroDocumento" msprop:Generator_ColumnVarNameInTable="columnnumeroDocumento" msprop:Generator_ColumnPropNameInRow="numeroDocumento" msprop:Generator_ColumnPropNameInTable="numeroDocumentoColumn" msprop:Generator_UserColumnName="numeroDocumento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="cliente" msprop:Generator_ColumnVarNameInTable="columncliente" msprop:Generator_ColumnPropNameInRow="cliente" msprop:Generator_ColumnPropNameInTable="clienteColumn" msprop:Generator_UserColumnName="cliente" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="direccion" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" msprop:Generator_UserColumnName="direccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

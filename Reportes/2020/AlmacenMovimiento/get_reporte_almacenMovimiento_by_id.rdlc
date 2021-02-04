@@ -21,6 +21,10 @@
           <DataField>id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
+        <Field Name="DescripDoc">
+          <DataField>DescripDoc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="documento">
           <DataField>documento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -65,8 +69,16 @@
           <DataField>almacen</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="numeroDocumento">
+          <DataField>numeroDocumento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="cliente">
           <DataField>cliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="direccion">
+          <DataField>direccion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="vendedor">

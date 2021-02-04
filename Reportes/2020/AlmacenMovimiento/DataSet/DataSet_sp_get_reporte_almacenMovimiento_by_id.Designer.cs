@@ -281,6 +281,8 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             
             private global::System.Data.DataColumn columnid;
             
+            private global::System.Data.DataColumn columnDescripDoc;
+            
             private global::System.Data.DataColumn columndocumento;
             
             private global::System.Data.DataColumn columnfecha;
@@ -303,7 +305,11 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             
             private global::System.Data.DataColumn columnalmacen;
             
+            private global::System.Data.DataColumn columnnumeroDocumento;
+            
             private global::System.Data.DataColumn columncliente;
+            
+            private global::System.Data.DataColumn columndireccion;
             
             private global::System.Data.DataColumn columnvendedor;
             
@@ -371,6 +377,14 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             public global::System.Data.DataColumn idColumn {
                 get {
                     return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DescripDocColumn {
+                get {
+                    return this.columnDescripDoc;
                 }
             }
             
@@ -464,9 +478,25 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn numeroDocumentoColumn {
+                get {
+                    return this.columnnumeroDocumento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn clienteColumn {
                 get {
                     return this.columncliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn direccionColumn {
+                get {
+                    return this.columndireccion;
                 }
             }
             
@@ -620,6 +650,7 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sp_get_reporte_almacenMovimiento_by_idRow Addsp_get_reporte_almacenMovimiento_by_idRow(
+                        string DescripDoc, 
                         string documento, 
                         System.DateTime fecha, 
                         string referencia, 
@@ -631,7 +662,9 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
                         bool credito, 
                         string doc_facturado, 
                         string almacen, 
+                        string numeroDocumento, 
                         string cliente, 
+                        string direccion, 
                         string vendedor, 
                         decimal total, 
                         int idProducto, 
@@ -648,6 +681,7 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
                 sp_get_reporte_almacenMovimiento_by_idRow rowsp_get_reporte_almacenMovimiento_by_idRow = ((sp_get_reporte_almacenMovimiento_by_idRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        DescripDoc,
                         documento,
                         fecha,
                         referencia,
@@ -659,7 +693,9 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
                         credito,
                         doc_facturado,
                         almacen,
+                        numeroDocumento,
                         cliente,
+                        direccion,
                         vendedor,
                         total,
                         null,
@@ -697,6 +733,7 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
+                this.columnDescripDoc = base.Columns["DescripDoc"];
                 this.columndocumento = base.Columns["documento"];
                 this.columnfecha = base.Columns["fecha"];
                 this.columnreferencia = base.Columns["referencia"];
@@ -708,7 +745,9 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
                 this.columncredito = base.Columns["credito"];
                 this.columndoc_facturado = base.Columns["doc_facturado"];
                 this.columnalmacen = base.Columns["almacen"];
+                this.columnnumeroDocumento = base.Columns["numeroDocumento"];
                 this.columncliente = base.Columns["cliente"];
+                this.columndireccion = base.Columns["direccion"];
                 this.columnvendedor = base.Columns["vendedor"];
                 this.columntotal = base.Columns["total"];
                 this.columnid1 = base.Columns["id1"];
@@ -730,6 +769,8 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             private void InitClass() {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
+                this.columnDescripDoc = new global::System.Data.DataColumn("DescripDoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescripDoc);
                 this.columndocumento = new global::System.Data.DataColumn("documento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndocumento);
                 this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -752,8 +793,12 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
                 base.Columns.Add(this.columndoc_facturado);
                 this.columnalmacen = new global::System.Data.DataColumn("almacen", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnalmacen);
+                this.columnnumeroDocumento = new global::System.Data.DataColumn("numeroDocumento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumeroDocumento);
                 this.columncliente = new global::System.Data.DataColumn("cliente", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncliente);
+                this.columndireccion = new global::System.Data.DataColumn("direccion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndireccion);
                 this.columnvendedor = new global::System.Data.DataColumn("vendedor", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvendedor);
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -785,12 +830,17 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
                 this.columnid.AutoIncrement = true;
                 this.columnid.AllowDBNull = false;
                 this.columnid.ReadOnly = true;
+                this.columnDescripDoc.ReadOnly = true;
+                this.columnDescripDoc.MaxLength = 15;
                 this.columndocumento.MaxLength = 2147483647;
+                this.columnfecha.ReadOnly = true;
                 this.columnreferencia.MaxLength = 2147483647;
                 this.columnserie.MaxLength = 2147483647;
                 this.columndoc_facturado.MaxLength = 10;
                 this.columnalmacen.MaxLength = 100;
+                this.columnnumeroDocumento.MaxLength = 20;
                 this.columncliente.MaxLength = 200;
+                this.columndireccion.MaxLength = 2147483647;
                 this.columnvendedor.AllowDBNull = false;
                 this.columnvendedor.MaxLength = 50;
                 this.columnid1.AutoIncrement = true;
@@ -955,6 +1005,23 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
                 }
                 set {
                     this[this.tablesp_get_reporte_almacenMovimiento_by_id.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DescripDoc {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_get_reporte_almacenMovimiento_by_id.DescripDocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DescripDoc\' in table \'sp_get_reporte_almacenMovimiento_by_i" +
+                                "d\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_get_reporte_almacenMovimiento_by_id.DescripDocColumn] = value;
                 }
             }
             
@@ -1147,6 +1214,23 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string numeroDocumento {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_get_reporte_almacenMovimiento_by_id.numeroDocumentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'numeroDocumento\' in table \'sp_get_reporte_almacenMovimiento" +
+                                "_by_id\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_get_reporte_almacenMovimiento_by_id.numeroDocumentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string cliente {
                 get {
                     try {
@@ -1159,6 +1243,23 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
                 }
                 set {
                     this[this.tablesp_get_reporte_almacenMovimiento_by_id.clienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string direccion {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_get_reporte_almacenMovimiento_by_id.direccionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'direccion\' in table \'sp_get_reporte_almacenMovimiento_by_id" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_get_reporte_almacenMovimiento_by_id.direccionColumn] = value;
                 }
             }
             
@@ -1336,6 +1437,18 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDescripDocNull() {
+                return this.IsNull(this.tablesp_get_reporte_almacenMovimiento_by_id.DescripDocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDescripDocNull() {
+                this[this.tablesp_get_reporte_almacenMovimiento_by_id.DescripDocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdocumentoNull() {
                 return this.IsNull(this.tablesp_get_reporte_almacenMovimiento_by_id.documentoColumn);
             }
@@ -1468,6 +1581,18 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnumeroDocumentoNull() {
+                return this.IsNull(this.tablesp_get_reporte_almacenMovimiento_by_id.numeroDocumentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnumeroDocumentoNull() {
+                this[this.tablesp_get_reporte_almacenMovimiento_by_id.numeroDocumentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsclienteNull() {
                 return this.IsNull(this.tablesp_get_reporte_almacenMovimiento_by_id.clienteColumn);
             }
@@ -1476,6 +1601,18 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetclienteNull() {
                 this[this.tablesp_get_reporte_almacenMovimiento_by_id.clienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsdireccionNull() {
+                return this.IsNull(this.tablesp_get_reporte_almacenMovimiento_by_id.direccionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetdireccionNull() {
+                this[this.tablesp_get_reporte_almacenMovimiento_by_id.direccionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1675,6 +1812,7 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet.DataSet_sp_get_r
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_get_reporte_almacenMovimiento_by_id";
             tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("DescripDoc", "DescripDoc");
             tableMapping.ColumnMappings.Add("documento", "documento");
             tableMapping.ColumnMappings.Add("fecha", "fecha");
             tableMapping.ColumnMappings.Add("referencia", "referencia");
@@ -1686,7 +1824,9 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.DataSet.DataSet_sp_get_r
             tableMapping.ColumnMappings.Add("credito", "credito");
             tableMapping.ColumnMappings.Add("doc_facturado", "doc_facturado");
             tableMapping.ColumnMappings.Add("almacen", "almacen");
+            tableMapping.ColumnMappings.Add("numeroDocumento", "numeroDocumento");
             tableMapping.ColumnMappings.Add("cliente", "cliente");
+            tableMapping.ColumnMappings.Add("direccion", "direccion");
             tableMapping.ColumnMappings.Add("vendedor", "vendedor");
             tableMapping.ColumnMappings.Add("total", "total");
             tableMapping.ColumnMappings.Add("id1", "id1");

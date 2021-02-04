@@ -45,7 +45,7 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
     }
