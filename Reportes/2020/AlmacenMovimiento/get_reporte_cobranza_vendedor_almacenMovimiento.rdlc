@@ -705,7 +705,7 @@
             <Top>1.04041in</Top>
             <Left>0.125in</Left>
             <Height>0.38542in</Height>
-            <Width>7.66667in</Width>
+            <Width>7.66666in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -867,10 +867,10 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.62161cm</Height>
+        <Height>3.78036cm</Height>
         <Style />
       </Body>
-      <Width>19.79083cm</Width>
+      <Width>19.92313cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
