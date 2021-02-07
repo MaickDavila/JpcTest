@@ -139,5 +139,71 @@
       ]
     }
   },
-  "cierre_caja": {}
+  "cierre_caja": {},
+  "almacen_movimiento": {
+    "users": [
+      {
+        "idusuario": 1,
+        "acciones": [
+          {
+            "key": "entrada",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          },
+
+          {
+            "key": "salida",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          },
+
+          {
+            "key": "ajuste",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          }
+        ]
+      },
+      {
+        "idusuario": 2,
+        "acciones": [
+          {
+            "key": "entrada",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          },
+
+          {
+            "key": "salida",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          },
+
+          {
+            "key": "ajuste",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          }
+        ]
+      }
+    ]
+  }
 }
