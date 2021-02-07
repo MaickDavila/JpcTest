@@ -1,7 +1,0 @@
-normal,Microsoft Print to PDF,Report1.rdlc,1000
-normal,Microsoft Print to PDF,Report1.rdlc,100
-almacen,,Report1.rdlc,0
-rest-POLLOS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
-rest-SOPAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
-rest-OTROS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
-impresorapdf,Microsoft Print to PDF,,1
