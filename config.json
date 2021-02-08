@@ -168,7 +168,7 @@
         "acciones": [
           {
             "key": "entrada",
-            "activo": true,
+            "activo": false,
             "agregar": true,
             "editar": true,
             "eliminar": true,
@@ -186,7 +186,7 @@
 
           {
             "key": "ajuste",
-            "activo": true,
+            "activo": false,
             "agregar": true,
             "editar": true,
             "eliminar": true,
