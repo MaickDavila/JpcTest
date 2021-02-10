@@ -1,10 +1,23 @@
 normal,Microsoft Print to PDF,Report1.rdlc,1000
 normal,Microsoft Print to PDF,Report1_A4.rdlc,100
 almacen,Microsoft Print to PDF,Report1.rdlc,0
+<<<<<<< HEAD
 rest-POLLO,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
 rest-PARRILLA,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-GASEOSAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-LICOR,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-OTROS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-BOLSAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+=======
+rest-GASEOSAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
+rest-SOPAS,Microsoft XPS Document Writer,PedidosRestaurant.rdlc,1,192.168.1.90
+rest-MENU,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+rest-POLLOS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+rest-ARROZ,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+rest-TALLARINES,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+rest-PLATOS ESPECIALES,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+rest-PLATOS DULCES,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+rest-GUARNICION,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+rest-GUARNICION COCINA,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
+>>>>>>> 703d3a680b02971878b994b5aa4ef0f0198af128
 impresorapdf,Microsoft Print to PDF,,1

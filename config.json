@@ -5,7 +5,7 @@
       "items": [
         {
           "name": "default",
-          "state": false,
+          "state": true,
           "printers": [
             {
               "id": 1,
@@ -22,11 +22,6 @@
               "id": 1,
               "printer_name": "Microsoft Print to PDF",
               "report_name": "PedidosRestaurant.rdlc"
-            },
-            {
-              "id": 2,
-              "printer_name": "Microsoft Print to PDF",
-              "report_name": "PedidosRestaurant.rdlc"
             }
           ]
         },
@@ -36,11 +31,6 @@
           "printers": [
             {
               "id": 1,
-              "printer_name": "Microsoft Print to PDF",
-              "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
-            },
-            {
-              "id": 2,
               "printer_name": "Microsoft Print to PDF",
               "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
             }
@@ -139,5 +129,71 @@
       ]
     }
   },
-  "cierre_caja": {}
+  "cierre_caja": {},
+  "almacen_movimiento": {
+    "users": [
+      {
+        "idusuario": 1,
+        "acciones": [
+          {
+            "key": "entrada",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          },
+
+          {
+            "key": "salida",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          },
+
+          {
+            "key": "ajuste",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          }
+        ]
+      },
+      {
+        "idusuario": 2,
+        "acciones": [
+          {
+            "key": "entrada",
+            "activo": false,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          },
+
+          {
+            "key": "salida",
+            "activo": true,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          },
+
+          {
+            "key": "ajuste",
+            "activo": false,
+            "agregar": true,
+            "editar": true,
+            "eliminar": true,
+            "imprimir": true
+          }
+        ]
+      }
+    ]
+  }
 }
