@@ -5,7 +5,7 @@
       "items": [
         {
           "name": "default",
-          "state": true,
+          "state": false,
           "printers": [
             {
               "id": 1,
@@ -40,7 +40,7 @@
     }
   ],
   "config_restaurant": {
-    "pago_directo": true,
+    "pago_directo": false,
     "descripcion_item": false
   },
   "mant_ventas": {
@@ -67,11 +67,11 @@
           "ver_convenios": false,
           "pagar_deuda": true,
           "editar_forma_pago": true,
-          "guia": false,
+          "guia": true,
           "editar": true,
           "imprimir": true,
-          "anular": false,
-          "total": false,
+          "anular": true,
+          "total": true,
           "permission": {
             "state": false,
             "password": ""
@@ -79,40 +79,8 @@
           "ver_deuda": true
         },
         {
-          "idusuario": 5,
+          "idusuario": 9,
           "ver_convenios": false,
-          "pagar_deuda": false,
-          "editar_forma_pago": true,
-          "guia": false,
-          "editar": false,
-          "imprimir": true,
-          "anular": false,
-          "total": false,
-          "permission": {
-            "state": false,
-            "password": ""
-          },
-          "ver_deuda": true
-        },
-        {
-          "idusuario": 6,
-          "ver_convenios": false,
-          "pagar_deuda": false,
-          "editar_forma_pago": true,
-          "guia": false,
-          "editar": false,
-          "imprimir": true,
-          "anular": false,
-          "total": false,
-          "permission": {
-            "state": false,
-            "password": ""
-          },
-          "ver_deuda": true
-        },
-        {
-          "idusuario": 3,
-          "ver_convenios": true,
           "pagar_deuda": true,
           "editar_forma_pago": true,
           "guia": true,
@@ -121,10 +89,26 @@
           "anular": true,
           "total": true,
           "permission": {
-            "state": true,
-            "password": "123"
+            "state": false,
+            "password": ""
           },
-          "ver_deuda": false
+          "ver_deuda": true
+        },
+        {
+          "idusuario": 10,
+          "ver_convenios": false,
+          "pagar_deuda": true,
+          "editar_forma_pago": true,
+          "guia": true,
+          "editar": true,
+          "imprimir": true,
+          "anular": true,
+          "total": true,
+          "permission": {
+            "state": false,
+            "password": ""
+          },
+          "ver_deuda": true
         }
       ]
     }
