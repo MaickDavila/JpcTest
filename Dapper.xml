@@ -135,7 +135,7 @@
             Returns property based on selector strategy
             </summary>
             <param name="columnName">DataReader column name</param>
-            <returns>Property member map</returns>
+            <returns>Poperty member map</returns>
         </member>
         <member name="T:Dapper.DbString">
             <summary>
@@ -322,12 +322,6 @@
             Tell Dapper to use an explicit constructor, passing nulls or 0s for all parameters
             </summary>
         </member>
-        <member name="M:Dapper.Extensions.CastResult``2(System.Threading.Tasks.Task{``0})">
-            <summary>
-            Creates a <see cref="T:System.Threading.Tasks.Task`1"/> with a less specific generic parameter that perfectly mirrors the
-            state of the specified <paramref name="task"/>.
-            </summary>
-        </member>
         <member name="T:Dapper.FeatureSupport">
             <summary>
             Handles variances in features per DBMS
@@ -395,14 +389,14 @@
             Target constructor parameter
             </summary>
         </member>
-        <member name="T:Dapper.SqlDataRecordListTVPParameter`1">
+        <member name="T:Dapper.SqlDataRecordListTVPParameter">
             <summary>
             Used to pass a IEnumerable&lt;SqlDataRecord&gt; as a SqlDataRecordListTVPParameter
             </summary>
         </member>
-        <member name="M:Dapper.SqlDataRecordListTVPParameter`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.String)">
+        <member name="M:Dapper.SqlDataRecordListTVPParameter.#ctor(System.Collections.Generic.IEnumerable{Microsoft.SqlServer.Server.SqlDataRecord},System.String)">
             <summary>
-            Create a new instance of <see cref="T:Dapper.SqlDataRecordListTVPParameter`1"/>.
+            Create a new instance of <see cref="T:Dapper.SqlDataRecordListTVPParameter"/>.
             </summary>
             <param name="data">The data records to convert into TVPs.</param>
             <param name="typeName">The parameter type name.</param>
@@ -414,7 +408,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a query asynchronously using Task.
+            Execute a query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="sql">The SQL to execute for the query.</param>
@@ -426,7 +420,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a query asynchronously using Task.
+            Execute a query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="command">The command used to query on this connection.</param>
@@ -434,7 +428,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstAsync(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="command">The command used to query on this connection.</param>
@@ -442,7 +436,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstOrDefaultAsync(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="command">The command used to query on this connection.</param>
@@ -450,7 +444,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleAsync(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="command">The command used to query on this connection.</param>
@@ -458,7 +452,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleOrDefaultAsync(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="command">The command used to query on this connection.</param>
@@ -466,7 +460,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``1(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a query asynchronously using Task.
+            Execute a query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type of results to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -482,7 +476,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstAsync``1(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type of result to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -494,7 +488,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstOrDefaultAsync``1(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type of result to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -506,7 +500,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleAsync``1(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type of result to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -518,7 +512,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleOrDefaultAsync``1(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -530,7 +524,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstAsync(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="sql">The SQL to execute for the query.</param>
@@ -541,7 +535,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstOrDefaultAsync(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="sql">The SQL to execute for the query.</param>
@@ -552,7 +546,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleAsync(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="sql">The SQL to execute for the query.</param>
@@ -563,7 +557,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleOrDefaultAsync(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="sql">The SQL to execute for the query.</param>
@@ -574,7 +568,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync(System.Data.IDbConnection,System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a query asynchronously using Task.
+            Execute a query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -587,7 +581,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstAsync(System.Data.IDbConnection,System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -600,7 +594,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstOrDefaultAsync(System.Data.IDbConnection,System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -613,7 +607,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleAsync(System.Data.IDbConnection,System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -626,7 +620,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleOrDefaultAsync(System.Data.IDbConnection,System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -639,7 +633,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``1(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a query asynchronously using Task.
+            Execute a query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -651,7 +645,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync(System.Data.IDbConnection,System.Type,Dapper.CommandDefinition)">
             <summary>
-            Execute a query asynchronously using Task.
+            Execute a query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -659,7 +653,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstAsync(System.Data.IDbConnection,System.Type,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -667,7 +661,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstAsync``1(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -675,7 +669,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstOrDefaultAsync(System.Data.IDbConnection,System.Type,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -683,7 +677,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryFirstOrDefaultAsync``1(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -691,7 +685,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleAsync(System.Data.IDbConnection,System.Type,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -699,7 +693,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleAsync``1(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -707,7 +701,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleOrDefaultAsync(System.Data.IDbConnection,System.Type,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="type">The type to return.</param>
@@ -715,7 +709,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QuerySingleOrDefaultAsync``1(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a single-row query asynchronously using Task.
+            Execute a single-row query asynchronously using .NET 4.5 Task.
             </summary>
             <typeparam name="T">The type to return.</typeparam>
             <param name="cnn">The connection to query on.</param>
@@ -733,7 +727,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.ExecuteAsync(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Execute a command asynchronously using Task.
+            Execute a command asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to query on.</param>
             <param name="sql">The SQL to execute for this query.</param>
@@ -745,7 +739,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.ExecuteAsync(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute a command asynchronously using Task.
+            Execute a command asynchronously using .NET 4.5 Task.
             </summary>
             <param name="cnn">The connection to execute on.</param>
             <param name="command">The command to execute on this connection.</param>
@@ -753,7 +747,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``3(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a asynchronous multi-mapping query with 2 input types.
+            Perform a asynchronous multi-mapping query with 2 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -772,7 +766,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``3(System.Data.IDbConnection,Dapper.CommandDefinition,System.Func{``0,``1,``2},System.String)">
             <summary>
-            Perform a asynchronous multi-mapping query with 2 input types.
+            Perform a asynchronous multi-mapping query with 2 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -786,7 +780,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``4(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a asynchronous multi-mapping query with 3 input types.
+            Perform a asynchronous multi-mapping query with 3 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -806,7 +800,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``4(System.Data.IDbConnection,Dapper.CommandDefinition,System.Func{``0,``1,``2,``3},System.String)">
             <summary>
-            Perform a asynchronous multi-mapping query with 3 input types.
+            Perform a asynchronous multi-mapping query with 3 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -821,7 +815,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``5(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3,``4},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a asynchronous multi-mapping query with 4 input types.
+            Perform a asynchronous multi-mapping query with 4 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -842,7 +836,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``5(System.Data.IDbConnection,Dapper.CommandDefinition,System.Func{``0,``1,``2,``3,``4},System.String)">
             <summary>
-            Perform a asynchronous multi-mapping query with 4 input types.
+            Perform a asynchronous multi-mapping query with 4 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -858,7 +852,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``6(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3,``4,``5},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a asynchronous multi-mapping query with 5 input types.
+            Perform a asynchronous multi-mapping query with 5 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -880,7 +874,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``6(System.Data.IDbConnection,Dapper.CommandDefinition,System.Func{``0,``1,``2,``3,``4,``5},System.String)">
             <summary>
-            Perform a asynchronous multi-mapping query with 5 input types.
+            Perform a asynchronous multi-mapping query with 5 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -897,7 +891,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``7(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3,``4,``5,``6},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a asynchronous multi-mapping query with 6 input types.
+            Perform a asynchronous multi-mapping query with 6 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -920,7 +914,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``7(System.Data.IDbConnection,Dapper.CommandDefinition,System.Func{``0,``1,``2,``3,``4,``5,``6},System.String)">
             <summary>
-            Perform a asynchronous multi-mapping query with 6 input types.
+            Perform a asynchronous multi-mapping query with 6 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -938,7 +932,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``8(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3,``4,``5,``6,``7},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a asynchronous multi-mapping query with 7 input types.
+            Perform a asynchronous multi-mapping query with 7 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -962,7 +956,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``8(System.Data.IDbConnection,Dapper.CommandDefinition,System.Func{``0,``1,``2,``3,``4,``5,``6,``7},System.String)">
             <summary>
-            Perform an asynchronous multi-mapping query with 7 input types.
+            Perform an asynchronous multi-mapping query with 7 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -981,7 +975,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.QueryAsync``1(System.Data.IDbConnection,System.String,System.Type[],System.Func{System.Object[],``0},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a asynchronous multi-mapping query with an arbitrary number of input types.
+            Perform a asynchronous multi-mapping query with an arbitrary number of input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TReturn">The combined type to return.</typeparam>
@@ -1042,17 +1036,6 @@
             </code>
             </example>
         </member>
-        <member name="M:Dapper.SqlMapper.ExecuteReaderAsync(System.Data.Common.DbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
-            <summary>
-            Execute parameterized SQL and return a <see cref="T:System.Data.Common.DbDataReader"/>.
-            </summary>
-            <param name="cnn">The connection to execute on.</param>
-            <param name="sql">The SQL to execute.</param>
-            <param name="param">The parameters to use for this command.</param>
-            <param name="transaction">The transaction to use for this command.</param>
-            <param name="commandTimeout">Number of seconds before command execution timeout.</param>
-            <param name="commandType">Is it a stored proc or a batch?</param>
-        </member>
         <member name="M:Dapper.SqlMapper.ExecuteReaderAsync(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
             Execute parameterized SQL and return an <see cref="T:System.Data.IDataReader"/>.
@@ -1064,13 +1047,6 @@
             This is typically used when the results of a query are not processed by Dapper, for example, used to fill a <see cref="T:System.Data.DataTable"/>
             or <see cref="T:DataSet"/>.
             </remarks>
-        </member>
-        <member name="M:Dapper.SqlMapper.ExecuteReaderAsync(System.Data.Common.DbConnection,Dapper.CommandDefinition)">
-            <summary>
-            Execute parameterized SQL and return a <see cref="T:System.Data.Common.DbDataReader"/>.
-            </summary>
-            <param name="cnn">The connection to execute on.</param>
-            <param name="command">The command to execute.</param>
         </member>
         <member name="M:Dapper.SqlMapper.ExecuteReaderAsync(System.Data.IDbConnection,Dapper.CommandDefinition,System.Data.CommandBehavior)">
             <summary>
@@ -1084,14 +1060,6 @@
             This is typically used when the results of a query are not processed by Dapper, for example, used to fill a <see cref="T:System.Data.DataTable"/>
             or <see cref="T:DataSet"/>.
             </remarks>
-        </member>
-        <member name="M:Dapper.SqlMapper.ExecuteReaderAsync(System.Data.Common.DbConnection,Dapper.CommandDefinition,System.Data.CommandBehavior)">
-            <summary>
-            Execute parameterized SQL and return a <see cref="T:System.Data.Common.DbDataReader"/>.
-            </summary>
-            <param name="cnn">The connection to execute on.</param>
-            <param name="command">The command to execute.</param>
-            <param name="commandBehavior">The <see cref="T:System.Data.CommandBehavior"/> flags for this reader.</param>
         </member>
         <member name="M:Dapper.SqlMapper.ExecuteScalarAsync(System.Data.IDbConnection,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
@@ -1128,7 +1096,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.ExecuteScalarAsync``1(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute parameterized SQL that selects a single value.
+            Execute parameterized SQL that selects a single value
             </summary>
             <typeparam name="T">The type to return.</typeparam>
             <param name="cnn">The connection to execute on.</param>
@@ -1415,7 +1383,7 @@
             <param name="commandTimeout">The command timeout (in seconds).</param>
             <param name="commandType">The type of command to execute.</param>
             <returns>
-            A sequence of data of the supplied type; if a basic type (int, string, etc) is queried then the data from the first column is assumed, otherwise an instance is
+            A sequence of data of the supplied type; if a basic type (int, string, etc) is queried then the data from the first column in assumed, otherwise an instance is
             created per row, and a direct column-name===member-name mapping is assumed (case insensitive).
             </returns>
         </member>
@@ -1647,14 +1615,9 @@
             <param name="cnn">The connection to query on.</param>
             <param name="command">The command to execute for this query.</param>
         </member>
-        <member name="M:Dapper.SqlMapper.ReadRow``1(Dapper.SqlMapper.CacheInfo,Dapper.SqlMapper.Identity,Dapper.CommandDefinition@,System.Type,System.Data.IDataReader)">
-            <summary>
-            Shared value deserialization path for QueryRowImpl and QueryRowAsync
-            </summary>
-        </member>
         <member name="M:Dapper.SqlMapper.Query``3(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a multi-mapping query with 2 input types.
+            Perform a multi-mapping query with 2 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -1673,7 +1636,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.Query``4(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a multi-mapping query with 3 input types.
+            Perform a multi-mapping query with 3 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -1693,7 +1656,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.Query``5(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3,``4},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a multi-mapping query with 4 input types.
+            Perform a multi-mapping query with 4 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -1714,7 +1677,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.Query``6(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3,``4,``5},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a multi-mapping query with 5 input types.
+            Perform a multi-mapping query with 5 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -1736,7 +1699,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.Query``7(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3,``4,``5,``6},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a multi-mapping query with 6 input types.
+            Perform a multi-mapping query with 6 input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>
@@ -1783,7 +1746,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.Query``1(System.Data.IDbConnection,System.String,System.Type[],System.Func{System.Object[],``0},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a multi-mapping query with an arbitrary number of input types.
+            Perform a multi-mapping query with an arbitrary number of input types. 
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TReturn">The combined type to return.</typeparam>
@@ -1829,7 +1792,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.SanitizeParameterValue(System.Object)">
             <summary>
-            OBSOLETE: For internal usage only. Sanitizes the parameter value with proper type casting.
+            OBSOLETE: For internal usage only. Sanitizes the paramter value with proper type casting.
             </summary>
             <param name="value">The value to sanitize.</param>
         </member>
@@ -1838,7 +1801,7 @@
             Replace all literal tokens with their text form.
             </summary>
             <param name="parameters">The parameter lookup to do replacements with.</param>
-            <param name="command">The command to replace parameters in.</param>
+            <param name="command">The command to repalce parameters in.</param>
         </member>
         <member name="M:Dapper.SqlMapper.Format(System.Object)">
             <summary>
@@ -1872,7 +1835,7 @@
             Set custom mapping for type deserializers
             </summary>
             <param name="type">Entity type to override</param>
-            <param name="map">Mapping rules implementation, null to remove custom map</param>
+            <param name="map">Mapping rules impementation, null to remove custom map</param>
         </member>
         <member name="M:Dapper.SqlMapper.GetTypeDeserializer(System.Type,System.Data.IDataReader,System.Int32,System.Int32,System.Boolean)">
             <summary>
@@ -1927,7 +1890,7 @@
             </summary>
             <param name="table">The <see cref="T:System.Data.DataTable"/> that has a type name associated with it.</param>
         </member>
-        <member name="M:Dapper.SqlMapper.AsTableValuedParameter``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+        <member name="M:Dapper.SqlMapper.AsTableValuedParameter(System.Collections.Generic.IEnumerable{Microsoft.SqlServer.Server.SqlDataRecord},System.String)">
             <summary>
             Used to pass a IEnumerable&lt;SqlDataRecord&gt; as a TableValuedParameter.
             </summary>
@@ -2404,11 +2367,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Dapper.SqlMapper.Identity.ToString">
-            <summary>
-            See object.ToString()
-            </summary>
-        </member>
         <member name="M:Dapper.SqlMapper.Identity.Equals(Dapper.SqlMapper.Identity)">
             <summary>
             Compare 2 Identity objects
@@ -2608,7 +2566,7 @@
         <member name="P:Dapper.SqlMapper.Settings.InListStringSplitCount">
             <summary>
             If set (non-negative), when performing in-list expansions of integer types ("where id in @ids", etc), switch to a string_split based
-            operation if there are this many elements or more. Note that this feature requires SQL Server 2016 / compatibility level 130 (or above).
+            operation if there are more than this many elements. Note that this feautre requires SQL Server 2016 / compatibility level 130 (or above).
             </summary>
         </member>
         <member name="T:Dapper.SqlMapper.TypeHandler`1">
@@ -2645,7 +2603,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.StringTypeHandler`1.Format(`0)">
             <summary>
-            Format an instance into a string (the instance will never be null)
+            Format an instace into a string (the instance will never be null)
             </summary>
             <param name="xml">The string to format.</param>
         </member>
