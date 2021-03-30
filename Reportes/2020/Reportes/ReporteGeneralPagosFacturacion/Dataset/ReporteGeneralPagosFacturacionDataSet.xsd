@@ -2,14 +2,15 @@
 <xs:schema id="ReporteGeneralPagosFacturacionDataSet" targetNamespace="http://tempuri.org/ReporteGeneralPagosFacturacionDataSet.xsd" xmlns:mstns="http://tempuri.org/ReporteGeneralPagosFacturacionDataSet.xsd" xmlns="http://tempuri.org/ReporteGeneralPagosFacturacionDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_ALMATRINCHERO_2020_NEWConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_ALMATRINCHERO_2020_NEWConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Presentacion.Properties.Settings.GlobalReference.Default.BD_ALMATRINCHERO_2020_NEWConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_ALMATRINCHERO_2020_NEWConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_ALMATRINCHERO_2020_NEWConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Presentacion.Properties.Settings.GlobalReference.Default.BD_ALMATRINCHERO_2020_NEWConnectionString2" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_reporte_general_pagos_facturacionTableAdapter" GeneratorDataComponentClassName="sp_reporte_general_pagos_facturacionTableAdapter" Name="sp_reporte_general_pagos_facturacion" UserDataComponentName="sp_reporte_general_pagos_facturacionTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BD_ALMATRINCHERO_2020_NEWConnectionString (Settings)" DbObjectName="BD_ALMATRINCHERO_2020_NEW.dbo.sp_reporte_general_pagos_facturacion" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BD_ALMATRINCHERO_2020_NEWConnectionString2 (Settings)" DbObjectName="BD_ALMATRINCHERO_2020_NEW.dbo.sp_reporte_general_pagos_facturacion" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.sp_reporte_general_pagos_facturacion</CommandText>
@@ -23,7 +24,6 @@
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Id" DataSetColumn="Id" />
               <Mapping SourceColumn="numeroDocumento" DataSetColumn="numeroDocumento" />
               <Mapping SourceColumn="razonSocial" DataSetColumn="razonSocial" />
               <Mapping SourceColumn="idDOcumento" DataSetColumn="idDOcumento" />
@@ -50,7 +50,6 @@
         <xs:element name="sp_reporte_general_pagos_facturacion" msprop:Generator_TableClassName="sp_reporte_general_pagos_facturacionDataTable" msprop:Generator_TableVarName="tablesp_reporte_general_pagos_facturacion" msprop:Generator_TablePropName="sp_reporte_general_pagos_facturacion" msprop:Generator_RowDeletingName="sp_reporte_general_pagos_facturacionRowDeleting" msprop:Generator_RowChangingName="sp_reporte_general_pagos_facturacionRowChanging" msprop:Generator_RowEvHandlerName="sp_reporte_general_pagos_facturacionRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_reporte_general_pagos_facturacionRowDeleted" msprop:Generator_UserTableName="sp_reporte_general_pagos_facturacion" msprop:Generator_RowChangedName="sp_reporte_general_pagos_facturacionRowChanged" msprop:Generator_RowEvArgName="sp_reporte_general_pagos_facturacionRowChangeEvent" msprop:Generator_RowClassName="sp_reporte_general_pagos_facturacionRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:long" />
               <xs:element name="numeroDocumento" msprop:Generator_ColumnVarNameInTable="columnnumeroDocumento" msprop:Generator_ColumnPropNameInRow="numeroDocumento" msprop:Generator_ColumnPropNameInTable="numeroDocumentoColumn" msprop:Generator_UserColumnName="numeroDocumento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -104,9 +103,5 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:sp_reporte_general_pagos_facturacion" />
-      <xs:field xpath="mstns:Id" />
-    </xs:unique>
   </xs:element>
 </xs:schema>
