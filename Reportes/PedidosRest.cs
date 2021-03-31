@@ -145,7 +145,8 @@ namespace Presentacion.Reportes
                 impressaux.Add("0");
 
                 DataTable FormatoRest = N_Venta1.FormatoRest(IdMesa, IdPiso);
-
+                DataTable DatosAuxLlevar = new DataTable();
+                MeterColumnas(maqueta2, DatosAuxLlevar);
 
 
                 for (int i = 1; i <= cantidadImpresoras; i++) 
@@ -160,37 +161,70 @@ namespace Presentacion.Reportes
                         string grupoconsulta = r["grupo"].ToString();
                         string impres = DevolVerNombreImpresora(grupoconsulta).Trim().ToUpper();
                         string nombreim = Impresorass[i].Trim().ToUpper();
+
+                        string cantidad, precio, subtotal, igv, descuento, total;
+                        cantidad = Math.Round(double.Parse(r["cantidad"].ToString()), 0).ToString();
+                        precio = Math.Round(double.Parse(r["precio"].ToString()), 2).ToString();
+                        subtotal = Math.Round(double.Parse(r["subtotal"].ToString()), 2).ToString();
+                        igv = Math.Round(double.Parse(r["igv"].ToString()), 2).ToString();
+                        descuento = Math.Round(double.Parse(r["descuento"].ToString()), 2).ToString();
+                        total = Formato(r["total"].ToString());
+                        string secunecua = r["NumSecuencia"].ToString();
+                        int countPecho = 0;
+                        int.TryParse(r["countPecho"].ToString(), out countPecho);
+                        int countPierna = 0;
+                        int.TryParse(r["countPierna"].ToString(), out countPierna);
+                        string textObservation = r["textObservation"].ToString();
+
                         if (nombreim.Equals(impres)) 
                         {
                             SeleccionRow = r;
-                            string cantidad, precio, subtotal, igv, descuento, total;
-                            cantidad = Math.Round(double.Parse(r["cantidad"].ToString()), 0).ToString();
-                            precio = Math.Round(double.Parse(r["precio"].ToString()), 2).ToString();
-                            subtotal = Math.Round(double.Parse(r["subtotal"].ToString()), 2).ToString();
-                            igv = Math.Round(double.Parse(r["igv"].ToString()), 2).ToString();
-                            descuento = Math.Round(double.Parse(r["descuento"].ToString()), 2).ToString();
-                            total = Formato(r["total"].ToString());
-                            string secunecua = r["NumSecuencia"].ToString();
-                            int countPecho = 0;
-                            int.TryParse(r["countPecho"].ToString(), out countPecho);
-                            int countPierna = 0;
-                            int.TryParse(r["countPierna"].ToString(), out countPierna);
-                            string textObservation=  r["textObservation"].ToString();
+                            
 
                             maqueta.Rows.Add(Valor(0, true), Valor(1, true), Valor(2, true), Valor(3, true), Valor(4, true), Valor(5, true),
                                 Valor(6, true), cantidad, precio, subtotal, igv, descuento,
                                 total, Valor(13, true), Valor(14, true), Valor(15, true), Valor(16, true), Valor(17, true), Valor(18, true), Valor(19, true), Valor(20, true), Valor(21, true), Valor(22, true), Valor(23, true), Valor(24, true), countPecho, countPierna, textObservation);
                         }
+                        
                     }
                     if (maqueta.Rows.Count != 0)
                     {
                         Tables.Add(maqueta);
                         impressaux.Add(Impresorass[i]);
-                    }                    
+                    }
+                   
+                    
                     contTable++;
                 }
 
-              
+
+                //if(Para_Llevar)
+                //{
+                //    foreach (DataRow r in FormatoRest.Rows)
+                //    {
+                //        SeleccionRow = r;
+                //        string grupoconsulta = r["grupo"].ToString();
+                //        string impres = DevolVerNombreImpresora(grupoconsulta).Trim().ToUpper();
+                //        //
+                //        string cantidad, precio, subtotal, igv, descuento, total;
+                //        cantidad = Math.Round(double.Parse(r["cantidad"].ToString()), 0).ToString();
+                //        precio = Math.Round(double.Parse(r["precio"].ToString()), 2).ToString();
+                //        subtotal = Math.Round(double.Parse(r["subtotal"].ToString()), 2).ToString();
+                //        igv = Math.Round(double.Parse(r["igv"].ToString()), 2).ToString();
+                //        descuento = Math.Round(double.Parse(r["descuento"].ToString()), 2).ToString();
+                //        total = Formato(r["total"].ToString());
+                //        string secunecua = r["NumSecuencia"].ToString();
+                //        int countPecho = 0;
+                //        int.TryParse(r["countPecho"].ToString(), out countPecho);
+                //        int countPierna = 0;
+                //        int.TryParse(r["countPierna"].ToString(), out countPierna);
+                //        string textObservation = r["textObservation"].ToString();
+
+                //        DatosAuxLlevar.Rows.Add(Valor(0, true), Valor(1, true), Valor(2, true), Valor(3, true), Valor(4, true), Valor(5, true),
+                //                Valor(6, true), cantidad, precio, subtotal, igv, descuento,
+                //                total, Valor(13, true), Valor(14, true), Valor(15, true), Valor(16, true), Valor(17, true), Valor(18, true), Valor(19, true), Valor(20, true), Valor(21, true), Valor(22, true), Valor(23, true), Valor(24, true), countPecho, countPierna, textObservation);
+                //    }
+                //}
 
 
                 var configTicket = ConfigJson.Tickets.Find(val => val.Tag == "restaurant");                                
@@ -229,17 +263,6 @@ namespace Presentacion.Reportes
 
                             string impresora = "";
 
-                            if (configDefault.State)
-                            {
-                                if (impressaux.Count > 1) impresora = impressaux[i];
-
-                                foreach (var item in configDefault.Printers)
-                                {
-                                    impresora = impresora == "" ? item.PrinterName : impresora;
-                                    await ReporteLocal(datos_pedidos, item.ReportName, impresora);
-                                }
-                            }
-
 
                             //impresion de ticket para llevar
                             //if (configLlevar.State && Para_Llevar)
@@ -253,8 +276,24 @@ namespace Presentacion.Reportes
                             //    }
                             //}
 
+                            if (configDefault.State)
+                            {
+                                if (impressaux.Count > 1) impresora = impressaux[i];
+
+                                foreach (var item in configDefault.Printers)
+                                {
+                                    impresora = impresora == "" ? item.PrinterName : impresora;
+                                    await ReporteLocal(datos_pedidos, item.ReportName, impresora);
+                                }
+                            }
                         }
-                    }                    
+                    }
+                    //
+                    //if (Para_Llevar)
+                    //{
+                    //    string reporte = configLlevar.Printers[0].ReportName;
+                    //    await ReporteLocal(DatosAuxLlevar, reporte, ImpresoraCaja);
+                    //}
 
                 }
 
