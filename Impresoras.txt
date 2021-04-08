@@ -2,6 +2,7 @@ normal,Microsoft Print to PDF,Report1.rdlc,100
 normal,Microsoft Print to PDF,Report1_A4.rdlc,1000
 almacen,Microsoft Print to PDF,Report1.rdlc,0
 rest-POLLO,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
+rest-POLLO,EPSON L4150 Series,PedidosRestaurant.rdlc,1,192.168.1.100
 rest-PARRILLA,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-GASEOSAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
 rest-LICOR,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
