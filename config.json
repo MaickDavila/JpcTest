@@ -16,12 +16,12 @@
         },
         {
           "name": "llevar",
-          "state": true,
+          "state": false,
           "printers": [
             {
               "id": 1,
               "printer_name": "Microsoft Print to PDF",
-              "report_name": "PedidosRestaurant.rdlc"
+              "report_name": "2020/Ventas/Restaurant/ticket_llevar.rdlc"
             }
           ]
         },
