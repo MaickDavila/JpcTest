@@ -9,29 +9,29 @@
           "printers": [
             {
               "id": 1,
-              "printer_name": "Microsoft Print to PDF",
+              "printer_name": "POS-80C",
               "report_name": "PedidosRestaurant.rdlc"
             }
           ]
         },
         {
           "name": "llevar",
-          "state": true,
+          "state": false,
           "printers": [
             {
               "id": 1,
-              "printer_name": "Microsoft Print to PDF",
-              "report_name": "PedidosRestaurant.rdlc"
+              "printer_name": "POS-80C",
+              "report_name": "2020/Ventas/Restaurant/ticket_llevar.rdlc"
             }
           ]
         },
         {
           "name": "delivery",
-          "state": true,
+          "state": false,
           "printers": [
             {
               "id": 1,
-              "printer_name": "Microsoft Print to PDF",
+              "printer_name": "POS-80C",
               "report_name": "2020/Ventas/Restaurant/ticket_delivery.rdlc"
             }
           ]
