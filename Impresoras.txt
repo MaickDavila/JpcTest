@@ -1,16 +1,6 @@
 normal,Microsoft Print to PDF,Report1.rdlc,100
 normal,Microsoft Print to PDF,Report1_A4.rdlc,1000
 almacen,Microsoft Print to PDF,Report1.rdlc,0
-<<<<<<< HEAD
-rest-POLLO,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
-rest-POLLO,EPSON L4150 Series,PedidosRestaurant.rdlc,1,192.168.1.100
-rest-PARRILLA,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
-rest-GASEOSAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
-rest-LICOR,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
-rest-OTROS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
-rest-BOLSAS,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.90
-=======
 rest-HAMBURGUESA,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
 rest-JUGOS,Microsoft Print to PDF:,PedidosRestaurant.rdlc,1,192.168.1.90
->>>>>>> f48c169287eb55b29b5e35ed18eb49902db681c9
 impresorapdf,Microsoft Print to PDF,,1
