@@ -1,6 +1,11 @@
 {
     "server_name":"DESKTOP-OH2B16V",
     "user_name": "sa",
+<<<<<<< HEAD
     "password": "419141",
     "database_name":"BD_ALMATRINCHERO_2020_NEW"
+=======
+    "password": "foreach()",
+    "database_name":"BD_ALMATRINCHERO_2020"
+>>>>>>> a54225bb42c88bc4998303651304482702bb669c
 }

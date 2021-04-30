@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 DESKTOP-OH2B16V*BD_ALMATRINCHERO_2020_NEW*sa*419141
 D:\JpcTest\Reportes\
+=======
+MAICK-PC*BD_ALMATRINCHERO_2020*sa*foreach()
+D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\bin\Debug\Reportes\
+>>>>>>> a54225bb42c88bc4998303651304482702bb669c
