@@ -205,20 +205,20 @@
           {
             "nombre": "Microsoft Print to PDF",
             "report": "Report1.rdlc",
-            "limit": 10,
+            "limit": 2,
             "enabled": true
           },
 
           {
             "nombre": "Microsoft Print to PDF",
             "report": "Report1_A4.rdlc",
-            "limit": 100,
+            "limit": 10,
             "enabled": true
           }
         ],
 
         "copiasAlmacen": {
-          "enabled": true,
+          "enabled": false,
           "items": [
             {
               "nombre": "Microsoft Print to PDF",
