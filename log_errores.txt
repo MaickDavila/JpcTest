@@ -1215,3 +1215,32 @@ D:\cpe\LOGO\logoempresa.jpg
 20103845328-03-B001-78
 D:\cpe\CODIGOBARRA\20103845328-03-B001-78.Bmp
 D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-79
+D:\cpe\CODIGOBARRA\20103845328-03-B001-79.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+Valor de tiempo de espera caducado. El periodo de tiempo de espera se agotó al intentar consumir la confirmación del protocolo de enlace previo al inicio de sesión. El motivo podría ser que se produjo un error en el protocolo de enlace o que el servidor no pudo responder a tiempo.  El tiempo invertido al intentar conectarse a este servidor fue: [Previo al inicio de sesión] inicialización=14922; protocolo de enlace=13807; 
+Valor de tiempo de espera caducado. El periodo de tiempo de espera se agotó al intentar consumir la confirmación del protocolo de enlace previo al inicio de sesión. El motivo podría ser que se produjo un error en el protocolo de enlace o que el servidor no pudo responder a tiempo.  El tiempo invertido al intentar conectarse a este servidor fue: [Previo al inicio de sesión] inicialización=15152; protocolo de enlace=13965; 
+20103845328-03-B001-76
+D:\cpe\CODIGOBARRA\20103845328-03-B001-76.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-80
+D:\cpe\CODIGOBARRA\20103845328-03-B001-80.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-81
+D:\cpe\CODIGOBARRA\20103845328-03-B001-81.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-80
+D:\cpe\CODIGOBARRA\20103845328-03-B001-80.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-82
+D:\cpe\CODIGOBARRA\20103845328-03-B001-82.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20605245561-03-B001-2
+D:\cpe\CODIGOBARRA\20605245561-03-B001-2.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20605245561-03-B001-2
+D:\cpe\CODIGOBARRA\20605245561-03-B001-2.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20605245561-03-B001-4
+D:\cpe\CODIGOBARRA\20605245561-03-B001-4.Bmp
+D:\cpe\LOGO\logoempresa.jpg

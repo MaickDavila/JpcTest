@@ -227,6 +227,37 @@
             }
           ]
         }
+      },
+      {
+        "id": 2,
+        "nombre": "DESKTOP-OH2B16V",
+        "enabled": true,
+        "impresoras": [
+          {
+            "nombre": "EPSON L4150 Series",
+            "report": "Report1_A4.rdlc",
+            "limit": 10,
+            "enabled": true
+          },
+
+          {
+            "nombre": "Microsoft Print to PDF",
+            "report": "Report1_A4.rdlc",
+            "limit": 100,
+            "enabled": true
+          }
+        ],
+
+        "copiasAlmacen": {
+          "enabled": false,
+          "items": [
+            {
+              "nombre": "Microsoft Print to PDF",
+              "report": "Report1_A4.rdlc",
+              "enabled": true
+            }
+          ]
+        }
       }
     ]
   }
