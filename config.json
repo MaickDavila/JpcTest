@@ -47,7 +47,7 @@
     "acciones": {
       "users": [
         {
-          "idusuario": 1,
+          "idUsuario": 1,
           "ver_convenios": true,
           "pagar_deuda": true,
           "editar_forma_pago": true,
@@ -63,7 +63,7 @@
           "ver_deuda": true
         },
         {
-          "idusuario": 2,
+          "idUsuario": 2,
           "ver_convenios": false,
           "pagar_deuda": true,
           "editar_forma_pago": true,
@@ -79,7 +79,7 @@
           "ver_deuda": true
         },
         {
-          "idusuario": 5,
+          "idUsuario": 5,
           "ver_convenios": false,
           "pagar_deuda": false,
           "editar_forma_pago": true,
@@ -95,7 +95,7 @@
           "ver_deuda": true
         },
         {
-          "idusuario": 6,
+          "idUsuario": 6,
           "ver_convenios": false,
           "pagar_deuda": false,
           "editar_forma_pago": true,
@@ -111,7 +111,7 @@
           "ver_deuda": true
         },
         {
-          "idusuario": 3,
+          "idUsuario": 3,
           "ver_convenios": true,
           "pagar_deuda": true,
           "editar_forma_pago": true,
@@ -129,11 +129,10 @@
       ]
     }
   },
-  "cierre_caja": {},
   "almacen_movimiento": {
     "users": [
       {
-        "idusuario": 1,
+        "idUsuario": 1,
         "acciones": [
           {
             "key": "entrada",
@@ -164,7 +163,7 @@
         ]
       },
       {
-        "idusuario": 2,
+        "idUsuario": 2,
         "acciones": [
           {
             "key": "entrada",
@@ -193,6 +192,41 @@
             "imprimir": true
           }
         ]
+      }
+    ]
+  },
+  "caja": {
+    "pcs": [
+      {
+        "id": 1,
+        "nombre": "MAICK-PC",
+        "enabled": true,
+        "impresoras": [
+          {
+            "nombre": "Microsoft Print to PDF",
+            "report": "Report1.rdlc",
+            "limit": 10,
+            "enabled": true
+          },
+
+          {
+            "nombre": "Microsoft Print to PDF",
+            "report": "Report1_A4.rdlc",
+            "limit": 100,
+            "enabled": true
+          }
+        ],
+
+        "copiasAlmacen": {
+          "enabled": true,
+          "items": [
+            {
+              "nombre": "Microsoft Print to PDF",
+              "report": "Report1_A4.rdlc",
+              "enabled": true
+            }
+          ]
+        }
       }
     ]
   }
