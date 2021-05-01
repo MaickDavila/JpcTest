@@ -1,2 +1,2 @@
-MAICK-PC*BD_ALMATRINCHERO_2020*sa*foreach()
+MAICK-PC*BD_ALMATRINCHERO_2020_NEW*sa*foreach()
 \\MAICK-PC\Debug\Reportes\
