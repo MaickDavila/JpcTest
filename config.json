@@ -47,7 +47,7 @@
     "acciones": {
       "users": [
         {
-          "idusuario": 1,
+          "idUsuario": 1,
           "ver_convenios": true,
           "pagar_deuda": true,
           "editar_forma_pago": true,
@@ -63,7 +63,7 @@
           "ver_deuda": true
         },
         {
-          "idusuario": 2,
+          "idUsuario": 2,
           "ver_convenios": false,
           "pagar_deuda": true,
           "editar_forma_pago": true,
@@ -79,7 +79,7 @@
           "ver_deuda": true
         },
         {
-          "idusuario": 9,
+          "idUsuario": 5,
           "ver_convenios": false,
           "pagar_deuda": true,
           "editar_forma_pago": true,
@@ -95,8 +95,24 @@
           "ver_deuda": true
         },
         {
-          "idusuario": 10,
+          "idUsuario": 6,
           "ver_convenios": false,
+          "pagar_deuda": false,
+          "editar_forma_pago": true,
+          "guia": false,
+          "editar": false,
+          "imprimir": true,
+          "anular": false,
+          "total": false,
+          "permission": {
+            "state": false,
+            "password": ""
+          },
+          "ver_deuda": true
+        },
+        {
+          "idUsuario": 3,
+          "ver_convenios": true,
           "pagar_deuda": true,
           "editar_forma_pago": true,
           "guia": true,
@@ -113,11 +129,10 @@
       ]
     }
   },
-  "cierre_caja": {},
   "almacen_movimiento": {
     "users": [
       {
-        "idusuario": 1,
+        "idUsuario": 1,
         "acciones": [
           {
             "key": "entrada",
@@ -148,7 +163,7 @@
         ]
       },
       {
-        "idusuario": 2,
+        "idUsuario": 2,
         "acciones": [
           {
             "key": "entrada",
@@ -177,6 +192,72 @@
             "imprimir": true
           }
         ]
+      }
+    ]
+  },
+  "caja": {
+    "pcs": [
+      {
+        "id": 1,
+        "nombre": "MAICK-PC",
+        "enabled": true,
+        "impresoras": [
+          {
+            "nombre": "Microsoft Print to PDF",
+            "report": "Report1.rdlc",
+            "limit": 2,
+            "enabled": true
+          },
+
+          {
+            "nombre": "Microsoft Print to PDF",
+            "report": "Report1_A4.rdlc",
+            "limit": 10,
+            "enabled": true
+          }
+        ],
+
+        "copiasAlmacen": {
+          "enabled": false,
+          "items": [
+            {
+              "nombre": "Microsoft Print to PDF",
+              "report": "Report1_A4.rdlc",
+              "enabled": true
+            }
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "nombre": "DESKTOP-OH2B16V",
+        "enabled": true,
+        "impresoras": [
+          {
+            "nombre": "EPSON L4150 Series",
+            "report": "Report1_A4.rdlc",
+            "limit": 10,
+            "enabled": true
+          },
+
+          {
+            "nombre": "Microsoft Print to PDF",
+            "report": "Report1_A4.rdlc",
+            "limit": 100,
+            "enabled": true
+          }
+        ],
+
+        "copiasAlmacen": {
+          "enabled": false,
+          "items": [
+            {
+              "nombre": "Microsoft Print to PDF",
+              "report": "Report1_A4.rdlc",
+              "enabled": true
+            }
+          ]
+        }
       }
     ]
   }
