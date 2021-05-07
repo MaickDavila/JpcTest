@@ -163,14 +163,14 @@
         ]
       },
       {
-        "idUsuario": 2,
+        "idUsuario": 1005,
         "acciones": [
           {
             "key": "entrada",
-            "activo": false,
+            "activo": true,
             "agregar": true,
             "editar": true,
-            "eliminar": true,
+            "eliminar": false,
             "imprimir": true
           },
 
@@ -179,7 +179,7 @@
             "activo": true,
             "agregar": true,
             "editar": true,
-            "eliminar": true,
+            "eliminar": false,
             "imprimir": true
           },
 
