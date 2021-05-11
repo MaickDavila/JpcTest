@@ -178,7 +178,7 @@
             "key": "salida",
             "activo": true,
             "agregar": true,
-            "editar": true,
+            "editar": false,
             "eliminar": false,
             "imprimir": true
           },
@@ -234,8 +234,8 @@
         "enabled": true,
         "impresoras": [
           {
-            "nombre": "EPSON L4150 Series",
-            "report": "Report1_A4.rdlc",
+            "nombre": "Microsoft Print to PDF",
+            "report": "Report1.rdlc",
             "limit": 10,
             "enabled": true
           },

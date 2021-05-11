@@ -2158,6 +2158,29 @@
                     </Style>
                   </TextRun>
                   <TextRun>
+                    <Value xml:space="preserve">        </Value>
+                    <Style>
+                      <FontFamily>tahoma</FontFamily>
+                      <FontSize>7pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>F.Pago: </Value>
+                    <Style>
+                      <FontFamily>tahoma</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FormadePago.Value</Value>
+                    <Style>
+                      <FontFamily>tahoma</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
                     <Value xml:space="preserve">
 </Value>
                     <Style>
