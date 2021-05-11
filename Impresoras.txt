@@ -1,6 +1,1 @@
-normal,Microsoft Print to PDF,Report1.rdlc,100
-normal,Microsoft Print to PDF,Report1_A4.rdlc,1000
-almacen,Microsoft Print to PDF,Report1.rdlc,0
-rest-HAMBURGUESA,Microsoft Print to PDF,PedidosRestaurant.rdlc,1,192.168.1.100
-rest-JUGOS,Microsoft Print to PDF:,PedidosRestaurant.rdlc,1,192.168.1.90
 impresorapdf,Microsoft Print to PDF,,1
