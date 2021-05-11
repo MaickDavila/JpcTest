@@ -132,7 +132,7 @@
   "almacen_movimiento": {
     "users": [
       {
-        "idUsuario": 1,
+        "idUsuario": 1004,
         "acciones": [
           {
             "key": "entrada",
@@ -204,7 +204,7 @@
         "impresoras": [
           {
             "nombre": "Microsoft Print to PDF",
-            "report": "Report1.rdlc",
+            "report": "Report1_A4.rdlc",
             "limit": 2,
             "enabled": true
           },
