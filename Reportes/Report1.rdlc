@@ -472,21 +472,70 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.88979cm</Width>
+                  <Width>1.26009cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.4779cm</Width>
+                  <Width>2.17052cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.22514cm</Width>
+                  <Width>1.59544cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.24053cm</Width>
+                  <Width>1.73586cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.26867cm</Height>
+                  <Height>0.36187cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox19">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Descripcion</Value>
+                                  <Style>
+                                    <FontFamily>tahoma</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>4</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell />
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.32159cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -501,6 +550,7 @@
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -515,8 +565,9 @@
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>1pt</Width>
                             </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -528,17 +579,18 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox19">
+                        <Textbox Name="Textbox27">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Descripcion</Value>
+                                  <Value>U.M</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -547,14 +599,15 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <rd:DefaultName>Textbox27</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>1pt</Width>
                             </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -577,11 +630,12 @@
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -591,8 +645,9 @@
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>1pt</Width>
                             </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -615,6 +670,7 @@
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -629,8 +685,9 @@
                               <Style>None</Style>
                             </Border>
                             <BottomBorder>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>0.5pt</Width>
+                              <Width>1pt</Width>
                             </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -643,7 +700,51 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.30895cm</Height>
+                  <Height>0.36187cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TipoNotCred">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!NomPoducto.Value</Value>
+                                  <Style>
+                                    <FontFamily>tahoma</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TipoNotCred</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>4</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell />
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.36187cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -672,6 +773,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -682,32 +788,35 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TipoNotCred">
+                        <Textbox Name="UnidDet">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NomPoducto.Value</Value>
+                                  <Value>=Fields!UnidDet.Value</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TipoNotCred</rd:DefaultName>
+                          <rd:DefaultName>UnidDet</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
                             </Border>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -743,6 +852,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -778,6 +892,11 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -804,8 +923,12 @@
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
                   <Group Name="Detalles" />
                   <TablixMembers>
+                    <TablixMember />
                     <TablixMember />
                   </TablixMembers>
                 </TablixMember>
@@ -814,8 +937,8 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>7.08061cm</Top>
             <Left>0.15875cm</Left>
-            <Height>0.57762cm</Height>
-            <Width>6.83336cm</Width>
+            <Height>1.4072cm</Height>
+            <Width>6.76191cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1546,7 +1669,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>12.07425cm</Top>
+            <Top>11.5345cm</Top>
             <Left>2.59968cm</Left>
             <Height>1.52375cm</Height>
             <Width>4.36376cm</Width>
@@ -1926,7 +2049,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>7.72266cm</Top>
+            <Top>8.57991cm</Top>
             <Left>0.15875cm</Left>
             <Height>0.815cm</Height>
             <Width>6.83335cm</Width>
@@ -1992,7 +2115,7 @@
             <Source>External</Source>
             <Value>=Parameters!ParaQR.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>12.07425cm</Top>
+            <Top>11.5345cm</Top>
             <Left>0.13878cm</Left>
             <Height>2.11493cm</Height>
             <Width>2.4609cm</Width>
@@ -2033,7 +2156,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>hassh</rd:DefaultName>
-            <Top>11.54657cm</Top>
+            <Top>11.00682cm</Top>
             <Left>0.11642cm</Left>
             <Height>0.41479cm</Height>
             <Width>6.80424cm</Width>
@@ -2078,10 +2201,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>hassh</rd:DefaultName>
-            <Top>8.64321cm</Top>
-            <Left>0.18786cm</Left>
+            <Top>9.46871cm</Top>
+            <Left>0.15875cm</Left>
             <Height>0.41479cm</Height>
-            <Width>6.80424cm</Width>
+            <Width>6.83335cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -2194,7 +2317,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>9.16152cm</Top>
+            <Top>9.95527cm</Top>
             <Left>0.18786cm</Left>
             <Height>0.67232cm</Height>
             <Width>6.7328cm</Width>
@@ -2224,85 +2347,13 @@
               </Border>
             </Style>
           </Image>
-          <Textbox Name="Textbox20">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Piso   :  </Value>
-                    <Style>
-                      <FontFamily>tahoma</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Fields!idpiso.Value</Value>
-                    <Style>
-                      <FontFamily>tahoma</FontFamily>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve"> 
-</Value>
-                    <Style>
-                      <FontFamily>tahoma</FontFamily>
-                      <FontSize>8pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>Mesa :</Value>
-                    <Style>
-                      <FontFamily>tahoma</FontFamily>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve"> </Value>
-                    <Style>
-                      <FontFamily>tahoma</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Fields!IdMesa.Value</Value>
-                    <Style>
-                      <FontFamily>tahoma</FontFamily>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>9.9044cm</Top>
-            <Left>3.8804cm</Left>
-            <Height>1.04096cm</Height>
-            <Width>3.04026cm</Width>
-            <ZIndex>12</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Rectangle Name="delivery">
             <KeepTogether>true</KeepTogether>
-            <Top>14.36557cm</Top>
+            <Top>13.82582cm</Top>
             <Left>0.15875cm</Left>
             <Height>3.70096cm</Height>
             <Width>6.83336cm</Width>
-            <ZIndex>13</ZIndex>
+            <ZIndex>12</ZIndex>
             <Visibility>
               <Hidden>=iif(Fields!delivery.Value = True, False, True)</Hidden>
             </Visibility>
@@ -2346,11 +2397,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>hassh</rd:DefaultName>
-            <Top>13.64033cm</Top>
+            <Top>13.10058cm</Top>
             <Left>2.59968cm</Left>
             <Height>0.48535cm</Height>
             <Width>4.36376cm</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2399,47 +2450,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>10.963cm</Top>
+            <Top>10.67725cm</Top>
             <Left>0.18786cm</Left>
-            <Height>0.58413cm</Height>
-            <Width>6.77558cm</Width>
-            <ZIndex>15</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox25">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!correlativo2.Value</Value>
-                    <Style>
-                      <FontFamily>tahoma</FontFamily>
-                      <FontSize>14pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox18</rd:DefaultName>
-            <Top>9.88676cm</Top>
-            <Left>0.18786cm</Left>
-            <Height>1.04096cm</Height>
-            <Width>3.04026cm</Width>
-            <ZIndex>16</ZIndex>
+            <Height>0.28371cm</Height>
+            <Width>6.7328cm</Width>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2683,11 +2698,11 @@
               </Tablix>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>14.57375cm</Top>
+            <Top>14.034cm</Top>
             <Left>0.11305cm</Left>
             <Height>3.04299cm</Height>
             <Width>6.85332cm</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>15</ZIndex>
             <Visibility>
               <Hidden>=iif(Fields!delivery.Value = True, False, True)</Hidden>
             </Visibility>
@@ -2698,7 +2713,7 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>18.06653cm</Height>
+        <Height>17.52678cm</Height>
         <Style />
       </Body>
       <Width>7.11349cm</Width>
