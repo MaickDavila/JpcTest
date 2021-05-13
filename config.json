@@ -199,20 +199,20 @@
     "pcs": [
       {
         "id": 1,
-        "nombre": "MAICK-PC",
+        "nombre": "DESKTOP-OH2B16V",
         "enabled": true,
         "impresoras": [
           {
             "nombre": "Microsoft Print to PDF",
-            "report": "Report1_A4.rdlc",
-            "limit": 2,
+            "report": "Report1.rdlc",
+            "limit": 100,
             "enabled": true
           },
 
           {
             "nombre": "Microsoft Print to PDF",
             "report": "Report1_A4.rdlc",
-            "limit": 10,
+            "limit": 1000,
             "enabled": true
           }
         ],
@@ -226,34 +226,21 @@
               "enabled": true
             }
           ]
-        }
-      },
-      {
-        "id": 2,
-        "nombre": "DESKTOP-OH2B16V",
-        "enabled": true,
-        "impresoras": [
-          {
-            "nombre": "Microsoft Print to PDF",
-            "report": "Report1.rdlc",
-            "limit": 10,
-            "enabled": true
-          },
+        },
 
-          {
-            "nombre": "Microsoft Print to PDF",
-            "report": "Report1_A4.rdlc",
-            "limit": 100,
-            "enabled": true
-          }
-        ],
-
-        "copiasAlmacen": {
-          "enabled": false,
-          "items": [
+        "checkCredito": {
+          "enabled": true,
+          "impresoras": [
             {
               "nombre": "Microsoft Print to PDF",
               "report": "Report1_A4.rdlc",
+              "limit": 100,
+              "enabled": true
+            },
+            {
+              "nombre": "Microsoft Print to PDF",
+              "report": "Report1_A4.rdlc",
+              "limit": 1000,
               "enabled": true
             }
           ]
