@@ -26,7 +26,7 @@ namespace Presentacion.Reportes
         public ReporteDiario(int idapertura, bool detallado)
         {
             InitializeComponent();
-            IdApertura = idapertura;
+            NumApertura = idapertura;
             Detallado = detallado;
         }
 

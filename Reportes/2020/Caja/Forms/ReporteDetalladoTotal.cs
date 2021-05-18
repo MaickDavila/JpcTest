@@ -24,7 +24,7 @@ namespace Presentacion.Reportes._2020.Caja.Forms
         public ReporteDetalladoTotal(int idapertura)
         {
             InitializeComponent();
-            IdApertura =  idapertura;
+            NumApertura =  idapertura;
         }
 
         private void ReporteDetalladoTotal_Load(object sender, EventArgs e)

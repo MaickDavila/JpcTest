@@ -68,7 +68,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ReporteGeneralPagosFacturacionDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\Reportes\2020\Reportes\ReporteGeneralPagosFacturacion\Dataset\ReporteGeneralPagosFacturacionDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\JpcTestCodigoFuente\JpcConsultings\Sistema\Presentacion\Reportes\2020\Reportes\ReporteGeneralPagosFacturacion\Dataset\ReporteGeneralPagosFacturacionDataSet.xsd</rd:SchemaPath>
         <rd:TableName>sp_reporte_general_pagos_facturacion</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

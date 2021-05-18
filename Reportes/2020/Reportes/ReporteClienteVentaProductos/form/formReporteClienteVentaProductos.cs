@@ -35,7 +35,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteClienteVentaProductos.form
 
                 DataSet.DataSetReporteClienteVentaProductos.spReporteClienteVentaProductosDataTable tabla = new DataSet.DataSetReporteClienteVentaProductos.spReporteClienteVentaProductosDataTable();
                 ta.Fill(tabla, FechaInit, FechaFin);
-                ParametrosReporte("DataSet1", (DataTable)tabla, "2020\\Reportes\\ReporteClienteVentaProductos\\ReporteClienteVenta.rdlc", reportViewer1);
+                ParametrosReporte("DataSet1", (DataTable)tabla, "2020\\Reportes\\ReporteClienteVentaProductos\\ReporteClienteVentaProductos.rdlc", reportViewer1);
             }
             catch (Exception e)
             {
