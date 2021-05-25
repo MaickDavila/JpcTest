@@ -13,6 +13,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
     public partial class ReporteGeneralPagosFacturacionForm : Imprimir
     {
         DateTime _FechaInicio, _FechaFin;
+        public int IdCliente { get; set; }
         public ReporteGeneralPagosFacturacionForm()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
                 ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
                 
                 ReporteGeneralPagosFacturacion.Dataset.ReporteGeneralPagosFacturacionDataSet.sp_reporte_general_pagos_facturacionDataTable tabla = new Dataset.ReporteGeneralPagosFacturacionDataSet.sp_reporte_general_pagos_facturacionDataTable();
-                ta.Fill(tabla, FechaInicio, FechaFin);
+                ta.Fill(tabla, FechaInicio, FechaFin,IdCliente);
 
 
 

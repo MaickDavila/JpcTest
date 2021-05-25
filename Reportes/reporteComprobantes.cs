@@ -14,13 +14,12 @@ using Microsoft.Reporting.WinForms;
 namespace Presentacion.Reportes
 {
     public partial class reporteComprobantes : Imprimir
-    {
-        ReportViewer ReportViewerMaick = new ReportViewer();
-        bool Imprimir_pdf;
-        bool VistaPrevia;
+    {         
+        bool Imprimir_pdf;         
         private long IdVenta;
         private string NombreCPE;
         private bool Pdf;       
+
         public reporteComprobantes(long idventa)
         {
             //InitializeComponent();
@@ -173,39 +172,27 @@ namespace Presentacion.Reportes
         public void Imprimir()
         {            
             try
-            {
-                int cont = 0;
-                
+            {                 
                 AsignarImpresoras();
-
-
                 LLenar();
-
-
-
-                //SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter ta = new SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter();//aqui se lentea cuando es factura
-
-                //SistemaDataSet.spReporteComprobanteDataTable tabla = new SistemaDataSet.spReporteComprobanteDataTable();
-
-                //ta.Connection = N_SQLAPI.ConexionGlobal();
-
-                //ta.Fill(tabla, IdVenta, EsIntegracion);
                 int count = N_Venta1.BuscarVentasDetalleId(IdVenta, false).Rows.Count;
-
-
-                if (!ImpresorasNameEleccion(count))
-                {
-                    MessageBox.Show("Desea Imprimir de todas formas?, puede que se genere un archivo en pdf.");
-                }
-
-                //reportViewer1.LocalReport.DataSources.Clear();
+                bool esCredito = false;
 
                 DataTable tabla = N_Venta1.ReporteComprobante(IdVenta, EsIntegracion);
+
+                if(tabla.Rows.Count > 0)
+                {
+                    string aux = tabla.Rows[0]["IdFormaPago"].ToString();
+                    int idFormaPago = 0;
+                    int.TryParse(aux, out idFormaPago);
+                    esCredito = idFormaPago == 2;
+                }
 
                 ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);
 
                 LocalReport relatorio = new LocalReport();
-                relatorio.ReportPath = RutaReportes + ReporteNow;
+                ReporteNow = "default.rdcl";
+                //relatorio.ReportPath = RutaReportes + ReporteNow;
                 relatorio.DataSources.Add(dataSource);
                 string PARA = "Para";
                 ReportParameter[] parameters = new ReportParameter[11];
@@ -222,105 +209,93 @@ namespace Presentacion.Reportes
                 parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
                 relatorio.EnableExternalImages = true;
 
-                relatorio.SetParameters(parameters);
-
-                Exportar(relatorio);
-
-
-
+                
                 while (true)
                 {
                     if (ImpresoraDisponible(ImpresoranNow))
                     {
-                        Imprimirr(relatorio);
-                        if (ImpresorasNameEleccion_Almacen())
+                        //nueva logica con json
+                        string pcName = Environment.MachineName.Trim().ToLower();
+                        if (ConfigJson.Caja.Pcs.Count <= 0)
                         {
-                            cont++;
+                            MessageBox.Show("Aun no tiene ninguna configuración de impresoras con PCs!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
-                        else break;
+                        //
+                        var pcConfig = ConfigJson.Caja.Pcs.Find(item => item.Nombre.ToLower().ToLower() == pcName && item.Enabled);
+                        if(pcConfig == null)
+                        {
+                            MessageBox.Show($"Ocurrio un problema, aun no configura sus impresoras de caja para esta Pc {pcName}!");
+                            return;
+                        }
 
+                        //primero vemos si es credito                        
+                        List<Inicio.Impresora> impresorasParametrisadas = null;
+                        if (esCredito)
+                        {
+                            if (pcConfig.CheckCredito.Enabled)
+                            {
+                                impresorasParametrisadas = (from row in pcConfig.CheckCredito.Impresoras
+                                                            where row.Limit >= count
+                                                            orderby row.Limit ascending
+                                                            select row).ToList();
+                            }
+                            else
+                            {
+                                impresorasParametrisadas = (from row in pcConfig.Impresoras
+                                                            where row.Limit >= count
+                                                            orderby row.Limit ascending
+                                                            select row).ToList();
+                            }
+                        }
+                        else
+                        {
+                            impresorasParametrisadas = (from row in pcConfig.Impresoras
+                                                        where row.Limit >= count
+                                                        orderby row.Limit ascending
+                                                        select row).ToList();
+                        }
+                        //                        
+                        var impresoraSeleccionada = impresorasParametrisadas.Count > 0 ? impresorasParametrisadas[0] : null;
+                        if(impresoraSeleccionada == null)
+                        {
+                            MessageBox.Show("Por favor, antes de continuar tendrá que configurar los parámetros de impresion en caja!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }                        
+                        //
+                        ImpresoranNow = impresoraSeleccionada.Nombre;
+                        ReporteNow = impresoraSeleccionada.Report;
+                        relatorio.ReportPath = RutaReportes + ReporteNow;
+                        //
+                        relatorio.SetParameters(parameters);
+                        Exportar(relatorio);
+                        Imprimirr(relatorio);
+                        //
+                        if(pcConfig.CopiasAlmacen.Items.Count > 0 && pcConfig.CopiasAlmacen.Enabled)
+                        {
+                            pcConfig.CopiasAlmacen.Items.FindAll(item => item.Enabled).ForEach(element => 
+                            {
+                                ImpresoranNow = element.Nombre;
+                                ReporteNow = element.Report;
+                                relatorio.ReportPath = RutaReportes + ReporteNow;
+                                Exportar(relatorio);
+                                Imprimirr(relatorio);
+                            });
+                        }
+                        //esto era del almacen
+                        //if (!ImpresorasNameEleccion_Almacen()) break;
                         break;
                     }
                 }
                 relatorio.Dispose();
-
-
-                //do
-                //{
-                //    LLenar();
-
-
-
-                //    //SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter ta = new SistemaDataSetTableAdapters.spReporteComprobanteTableAdapter();//aqui se lentea cuando es factura
-
-                //    //SistemaDataSet.spReporteComprobanteDataTable tabla = new SistemaDataSet.spReporteComprobanteDataTable();
-
-                //    //ta.Connection = N_SQLAPI.ConexionGlobal();
-
-                //    //ta.Fill(tabla, IdVenta, EsIntegracion);
-                //    int count = N_Venta1.BuscarVentasDetalleId(IdVenta, false).Rows.Count;
-                    
-                    
-                //    if (!ImpresorasNameEleccion(count)) 
-                //    {
-                //        MessageBox.Show("Desea Imprimir de todas formas?, puede que se genere un archivo en pdf.");
-                //    }
-
-                //    //reportViewer1.LocalReport.DataSources.Clear();
-
-                //    DataTable tabla = N_Venta1.ReporteComprobante(IdVenta, EsIntegracion);
-
-                //    ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);
-
-                //    LocalReport relatorio = new LocalReport();
-                //    relatorio.ReportPath = RutaReportes + ReporteNow;
-                //    relatorio.DataSources.Add(dataSource);
-                //    string PARA = "Para";
-                //    ReportParameter[] parameters = new ReportParameter[11];
-                //    parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
-                //    parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
-                //    parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
-                //    parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
-                //    parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
-                //    parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
-                //    parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
-                //    parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
-                //    parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
-                //    parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
-                //    parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
-                //    relatorio.EnableExternalImages = true;
-                    
-                //    relatorio.SetParameters(parameters);
-                    
-                //    Exportar(relatorio);
-
-
-
-                //    while (true)
-                //    {
-                //        if (ImpresoraDisponible(ImpresoranNow))
-                //        {
-                //            Imprimirr(relatorio);
-                //            if (ImpresorasNameEleccion_Almacen())
-                //            {
-                //                cont++;
-                //            }
-                //            else break;
-
-                //            break;
-                //        }
-                //    }
-
-                //} while (cont <= 1);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "IMPRESION COMPROBANTE ");
+                MessageBox.Show(ex.Message + "\n" + ex.InnerException.Message, "IMPRESION COMPROBANTE ");
             }
             finally
             {
                 GuardarRuta();
-                //N_SQLAPI.EstablecerConexionOriginal();
             }
         }
         void GuardarRuta()
