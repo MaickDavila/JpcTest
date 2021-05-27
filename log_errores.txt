@@ -1439,7 +1439,31 @@ Error relacionado con la red o espec√≠fico de la instancia mientras se establec√
 20103845328-03-B001-96
 D:\cpe\CODIGOBARRA\20103845328-03-B001-96.Bmp
 D:\cpe\LOGO\logoempresa.jpg
+<<<<<<< HEAD
 >>>>>>> 2a2eb83c7b6ccffdf232138858ec61e0ce40f38d
 20103845328-03-B001-97
 D:\CPE\CODIGOBARRA\20103845328-03-B001-97.Bmp
 D:\CPE\LOGO\logoempresa.jpg
+=======
+<<<<<<< HEAD
+=======
+20103845328-03-B001-97
+D:\cpe\CODIGOBARRA\20103845328-03-B001-97.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-01-F001-6
+D:\cpe\CODIGOBARRA\20103845328-01-F001-6.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-07-F001-1
+D:\cpe\CODIGOBARRA\20103845328-07-F001-1.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-07-F001-2
+D:\cpe\CODIGOBARRA\20103845328-07-F001-2.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-07-F001-3
+D:\cpe\CODIGOBARRA\20103845328-07-F001-3.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-07-F001-4
+D:\cpe\CODIGOBARRA\20103845328-07-F001-4.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+>>>>>>> 07e73e00c6071d7242cc1867c3252d93fe9c4b56
+>>>>>>> 64d28559a73d30e3c8f3e79c8e85db15797d3d19
