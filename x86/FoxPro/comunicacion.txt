@@ -1,2 +1,0 @@
-cadena>Provider=VFPOLEDB.1;Data Source=C:\Users\Maick_Pc\Desktop\data-lyy\Base01\plusbase.dbc
-cadenainterna>Server=MAICK\SQLEXPRESS;Initial Catalog=BD_PRUEBA_CHINITO;Integrated Security= false; User ID=sa;Password=foreach();MultipleActiveResultSets=True;
