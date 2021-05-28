@@ -143,7 +143,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>CodVen</rd:DefaultName>
-            <Top>0.5925in</Top>
+            <Top>0.3925in</Top>
             <Left>0.155in</Left>
             <Height>0.25in</Height>
             <Width>5.39584in</Width>
@@ -172,8 +172,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ParaRAZON</rd:DefaultName>
-            <Top>0.44662cm</Top>
-            <Left>0.3937cm</Left>
+            <Top>0.22437cm</Top>
+            <Left>0.3302cm</Left>
             <Height>0.6cm</Height>
             <Width>15.80792cm</Width>
             <ZIndex>1</ZIndex>
@@ -194,7 +194,7 @@
                   <Width>2.89751cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>4.45792cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -211,7 +211,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Fecha Cobranza:</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -277,10 +279,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.17522cm</Top>
+            <Top>1.85772cm</Top>
             <Left>0.3937cm</Left>
             <Height>0.6cm</Height>
-            <Width>5.39751cm</Width>
+            <Width>7.35543cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -325,6 +327,7 @@
                                 <TextRun>
                                   <Value>VENDEDOR</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -359,6 +362,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -378,6 +382,7 @@
                                 <TextRun>
                                   <Value>DOCU.</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -412,6 +417,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -431,6 +437,7 @@
                                 <TextRun>
                                   <Value>EFECTIVO</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -465,6 +472,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -484,6 +492,7 @@
                                 <TextRun>
                                   <Value>CHEQUE</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -518,6 +527,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -537,6 +547,7 @@
                                 <TextRun>
                                   <Value>TRANSF.</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -571,6 +582,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -590,6 +602,7 @@
                                 <TextRun>
                                   <Value>DEPOSITO</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -624,6 +637,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -647,7 +661,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!VENDEDOR.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -696,7 +712,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!NumDoc.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -746,6 +764,7 @@
                                 <TextRun>
                                   <Value>=Fields!EFECTIVO.Value</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
@@ -779,6 +798,7 @@
                                 <TextRun>
                                   <Value>=Fields!CHEQUE.Value</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
@@ -812,6 +832,7 @@
                                 <TextRun>
                                   <Value>=Fields!TRANSFERENCIA.Value</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
@@ -845,6 +866,7 @@
                                 <TextRun>
                                   <Value>=Fields!DEPOSITO.Value</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
@@ -882,7 +904,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -932,6 +956,7 @@
                                 <TextRun>
                                   <Value>TOTALES</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -983,6 +1008,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!EFECTIVO.Value)</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
@@ -1017,6 +1043,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!CHEQUE.Value)</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
@@ -1051,6 +1078,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!TRANSFERENCIA.Value)</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
@@ -1085,6 +1113,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!DEPOSITO.Value)</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
@@ -1136,7 +1165,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>3.19829cm</Top>
+            <Top>2.88079cm</Top>
             <Left>0.3937cm</Left>
             <Height>1.8cm</Height>
             <Width>15.80792cm</Width>
@@ -1215,6 +1244,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1268,6 +1298,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1321,6 +1352,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1374,6 +1406,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1427,6 +1460,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1939,7 +1973,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet2</DataSetName>
-            <Top>6.25118cm</Top>
+            <Top>5.93368cm</Top>
             <Left>0.3937cm</Left>
             <Height>1.8cm</Height>
             <Width>15.39751cm</Width>
@@ -1967,7 +2001,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ParaRAZON</rd:DefaultName>
-            <Top>5.47479cm</Top>
+            <Top>5.15729cm</Top>
             <Left>0.3937cm</Left>
             <Height>0.6cm</Height>
             <Width>15.80792cm</Width>
@@ -1983,10 +2017,10 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>9.24771cm</Height>
+        <Height>7.73368cm</Height>
         <Style />
       </Body>
-      <Width>17.16829cm</Width>
+      <Width>16.20162cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

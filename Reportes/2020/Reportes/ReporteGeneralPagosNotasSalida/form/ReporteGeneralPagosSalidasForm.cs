@@ -13,14 +13,16 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosNotasSalida.fo
     public partial class ReporteGeneralPagosSalidasForm : Imprimir
     {
         DateTime _FechaInicio, _FechaFin;
-
-        public DateTime FechaInicio { get => _FechaInicio; set => _FechaInicio = value; }
-        public DateTime FechaFin { get => _FechaFin; set => _FechaFin = value; }
+        public int IdCliente { set; get; }
 
         public ReporteGeneralPagosSalidasForm()
         {
             InitializeComponent();
         }
+
+        public DateTime FechaInicio { get => _FechaInicio; set => _FechaInicio = value; }
+        public DateTime FechaFin { get => _FechaFin; set => _FechaFin = value; }
+
 
         private void ReporteGeneralPagosSalidasForm_Load(object sender, EventArgs e)
         {
@@ -40,7 +42,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosNotasSalida.fo
 
                 DataTable tabla = new DataTable();
 
-                tabla = N_Reportes.sp_reporte_general_pagos_notas_salidas(FechaInicio, FechaFin);
+                tabla = N_Reportes.sp_reporte_general_pagos_notas_salidas(FechaInicio, FechaFin, IdCliente);
 
                 ParametrosReporte("DataSet1", (DataTable)tabla, "2020\\Reportes\\ReporteGeneralPagosNotasSalida\\ReporteGeneralPagosSalidas.rdlc", reportViewer1);
 
