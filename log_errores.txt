@@ -1425,3 +1425,5 @@ D:\cpe\LOGO\logoempresa.jpg
 D:\cpe\CODIGOBARRA\20103845328-07-B001-2.Bmp
 D:\cpe\LOGO\logoempresa.jpg
 >>>>>>> c9ed5f90789fa06c2d5277efa7c8c39fa77efa4a
+Cannot open database "SGTOLORES1" requested by the login. The login failed.
+Login failed for user 'sa'.
