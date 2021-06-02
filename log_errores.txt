@@ -1424,6 +1424,18 @@ D:\cpe\LOGO\logoempresa.jpg
 20103845328-07-B001-2
 D:\cpe\CODIGOBARRA\20103845328-07-B001-2.Bmp
 D:\cpe\LOGO\logoempresa.jpg
+<<<<<<< HEAD
 >>>>>>> c9ed5f90789fa06c2d5277efa7c8c39fa77efa4a
 Cannot open database "SGTOLORES1" requested by the login. The login failed.
 Login failed for user 'sa'.
+=======
+20103845328-03-B001-121
+D:\cpe\CODIGOBARRA\20103845328-03-B001-121.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-122
+D:\cpe\CODIGOBARRA\20103845328-03-B001-122.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-123
+D:\cpe\CODIGOBARRA\20103845328-03-B001-123.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+>>>>>>> 147da8c170ad2df3981ade4b196fa5b94bf3c405
