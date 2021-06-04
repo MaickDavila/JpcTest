@@ -1438,5 +1438,26 @@ D:\cpe\LOGO\logoempresa.jpg
 20103845328-03-B001-123
 D:\cpe\CODIGOBARRA\20103845328-03-B001-123.Bmp
 D:\cpe\LOGO\logoempresa.jpg
+<<<<<<< HEAD
 >>>>>>> 147da8c170ad2df3981ade4b196fa5b94bf3c405
 Error relacionado con la red o específico de la instancia mientras se establecía una conexión con el servidor SQL Server. No se encontró el servidor o éste no estaba accesible. Compruebe que el nombre de la instancia es correcto y que SQL Server está configurado para admitir conexiones remotas. (provider: Named Pipes Provider, error: 40 - No se pudo abrir una conexión con SQL Server)
+=======
+20103845328-03-B001-124
+D:\cpe\CODIGOBARRA\20103845328-03-B001-124.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-125
+D:\cpe\CODIGOBARRA\20103845328-03-B001-125.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-126
+D:\cpe\CODIGOBARRA\20103845328-03-B001-126.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-127
+D:\cpe\CODIGOBARRA\20103845328-03-B001-127.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-128
+D:\cpe\CODIGOBARRA\20103845328-03-B001-128.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+20103845328-03-B001-129
+D:\cpe\CODIGOBARRA\20103845328-03-B001-129.Bmp
+D:\cpe\LOGO\logoempresa.jpg
+>>>>>>> 53f2f5f624689eebc3bb955e047c1ca37fc8a57a
