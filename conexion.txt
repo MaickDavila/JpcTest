@@ -1,2 +1,2 @@
-.*BD_CADENA_2020*sa*foreach()
+.*BD_ALMATRINCHERO_2020_NEW*sa*foreach()
 \\MAICK-PC\Debug\Reportes\
