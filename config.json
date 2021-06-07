@@ -229,7 +229,7 @@
         },
 
         "checkCredito": {
-          "enabled": true,
+          "enabled": false,
           "impresoras": [
             {
               "nombre": "Microsoft Print to PDF",
