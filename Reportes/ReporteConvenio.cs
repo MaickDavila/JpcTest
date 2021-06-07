@@ -11,7 +11,9 @@ using System.Windows.Forms;
 
 namespace Presentacion.Reportes
 {
-    public partial class ReporteConvenio : Imprimir
+    public partial class ReporteConvenio : Imprimir 
+
+
     {
         int IdConvenio;
         public ReporteConvenio()

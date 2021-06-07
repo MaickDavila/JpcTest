@@ -1158,7 +1158,7 @@ namespace Presentacion.Reportes._2020.Deuda.datasets.DataSetReporteVendedorTable
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Presentacion.Properties.Settings.Default.BD_ALMATRINCHERO_2020_NEWConnectionString1;
+            this._connection.ConnectionString = global::Presentacion.Properties.Settings.Default.BD_ALMATRINCHERO_2020_NEWConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1173,13 +1173,14 @@ namespace Presentacion.Reportes._2020.Deuda.datasets.DataSetReporteVendedorTable
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_ini", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_fin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_vendedor", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_usuario_cajero", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetReporteVendedor.sp_reporte_cobranza_vendedorDataTable dataTable, global::System.Nullable<global::System.DateTime> fecha_ini, global::System.Nullable<global::System.DateTime> fecha_fin, global::System.Nullable<int> id_vendedor) {
+        public virtual int Fill(DataSetReporteVendedor.sp_reporte_cobranza_vendedorDataTable dataTable, global::System.Nullable<global::System.DateTime> fecha_ini, global::System.Nullable<global::System.DateTime> fecha_fin, global::System.Nullable<int> id_vendedor, global::System.Nullable<int> id_usuario_cajero) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((fecha_ini.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(fecha_ini.Value));
@@ -1198,6 +1199,12 @@ namespace Presentacion.Reportes._2020.Deuda.datasets.DataSetReporteVendedorTable
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((id_usuario_cajero.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(id_usuario_cajero.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1210,7 +1217,7 @@ namespace Presentacion.Reportes._2020.Deuda.datasets.DataSetReporteVendedorTable
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetReporteVendedor.sp_reporte_cobranza_vendedorDataTable GetData(global::System.Nullable<global::System.DateTime> fecha_ini, global::System.Nullable<global::System.DateTime> fecha_fin, global::System.Nullable<int> id_vendedor) {
+        public virtual DataSetReporteVendedor.sp_reporte_cobranza_vendedorDataTable GetData(global::System.Nullable<global::System.DateTime> fecha_ini, global::System.Nullable<global::System.DateTime> fecha_fin, global::System.Nullable<int> id_vendedor, global::System.Nullable<int> id_usuario_cajero) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((fecha_ini.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(fecha_ini.Value));
@@ -1229,6 +1236,12 @@ namespace Presentacion.Reportes._2020.Deuda.datasets.DataSetReporteVendedorTable
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((id_usuario_cajero.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(id_usuario_cajero.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             DataSetReporteVendedor.sp_reporte_cobranza_vendedorDataTable dataTable = new DataSetReporteVendedor.sp_reporte_cobranza_vendedorDataTable();
             this.Adapter.Fill(dataTable);

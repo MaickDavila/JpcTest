@@ -460,6 +460,18 @@
           <DataField>IdDocumento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="nroCuota">
+          <DataField>nroCuota</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="fecha">
+          <DataField>fecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="monto">
+          <DataField>monto</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SistemaDataSet</rd:DataSetName>
