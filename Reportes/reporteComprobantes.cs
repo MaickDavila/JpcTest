@@ -93,20 +93,25 @@ namespace Presentacion.Reportes
                 AsignarImpresoras();
                 //IDVENTA
                 DataTable maqueta2 = new DataTable();
+                DataTable cronograma = new DataTable();
+                //
                 if (Sql)
                 {
                     if (!EsIntegracion)
                     {
                         maqueta2 = N_Venta1.ReporteComprobante(IdVenta, true);
+                        cronograma = N_Venta1.SpGetReporteVentaCronogramaByIdVenta(IdVenta);
                     }
                     else
                     {
                         maqueta2 = N_CPE_SQL.COMPROBANTE(IdVenta);
+                        cronograma = N_CPE_SQL.CRONOGRAMA_COMPROBANTE(IdVenta);
                     }
                 }
                 else if (MySql)
                 {
                     maqueta2 = N_CPE_MYSQL.COMPROBANTE(IdVenta);
+                    //FALTA SUS CRONOGRAMAS
                 }
                 else if (Acces)
                 {
@@ -118,10 +123,13 @@ namespace Presentacion.Reportes
                 ImpresorasNameEleccion(1);
 
                 ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)maqueta2);
+                ReportDataSource dataSourceCronograma = new ReportDataSource("DataSet12", (DataTable)cronograma);
 
                 LocalReport relatorio = new LocalReport();
                 relatorio.ReportPath = RutaReportes + "Report1_A4-Integracion.rdlc";
                 relatorio.DataSources.Add(dataSource);
+                relatorio.DataSources.Add(dataSourceCronograma);
+                //
                 string PARA = "Para";
                 ReportParameter[] parameters = new ReportParameter[11];
                 parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
@@ -179,6 +187,9 @@ namespace Presentacion.Reportes
                 bool esCredito = false;
 
                 DataTable tabla = N_Venta1.ReporteComprobante(IdVenta, EsIntegracion);
+                DataTable cronograma = N_Venta1.SpGetReporteVentaCronogramaByIdVenta(IdVenta);
+
+
 
                 if(tabla.Rows.Count > 0)
                 {
@@ -189,11 +200,13 @@ namespace Presentacion.Reportes
                 }
 
                 ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);
+                ReportDataSource dataSourceCronograma = new ReportDataSource("DataSet2", (DataTable)cronograma);
 
                 LocalReport relatorio = new LocalReport();
                 ReporteNow = "default.rdcl";
                 //relatorio.ReportPath = RutaReportes + ReporteNow;
                 relatorio.DataSources.Add(dataSource);
+                relatorio.DataSources.Add(dataSourceCronograma);
                 string PARA = "Para";
                 ReportParameter[] parameters = new ReportParameter[11];
                 parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);

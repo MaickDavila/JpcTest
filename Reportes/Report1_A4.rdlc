@@ -9,13 +9,6 @@
       </ConnectionProperties>
       <rd:DataSourceID>2108b3d7-9d83-4b1b-898d-938f634fc3fd</rd:DataSourceID>
     </DataSource>
-    <DataSource Name="SistemaDataSet_aux">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>e1477cf2-ab84-4999-b8c3-9330c4a9aaef</rd:DataSourceID>
-    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
@@ -459,18 +452,6 @@
         <Field Name="IdDocumento">
           <DataField>IdDocumento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nroCuota">
-          <DataField>nroCuota</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="fecha">
-          <DataField>fecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="monto">
-          <DataField>monto</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -1157,7 +1138,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>4.45183cm</Height>
+        <Height>8.791cm</Height>
         <Style />
       </Body>
       <Width>20.16051cm</Width>
