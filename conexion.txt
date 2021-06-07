@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 DESKTOP-OH2B16V*BD_ALMATRINCHERO_2020_2*sa*419141
 D:\JpcTest\Reportes\
-=======
-.*BD_CADENA_2020*sa*foreach()
-\\MAICK-PC\Debug\Reportes\
->>>>>>> caf5e009d2106904dffffc6fff944aca9e76ef13
