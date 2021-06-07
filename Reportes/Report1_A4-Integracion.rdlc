@@ -479,98 +479,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.73054cm</Width>
+                  <Width>13.2423cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.05802cm</Width>
+                  <Width>2.396cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>9.34588cm</Width>
+                  <Width>2.06849cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.25182cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.92431cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.82605cm</Width>
+                  <Width>1.97023cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
                   <Height>0.41479cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Cantidad">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Cantidad.Value</Value>
-                                  <Style>
-                                    <FontFamily>tahoma</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <Format>#,0.000</Format>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Cantidad</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="UnidDet">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!UnidDet.Value</Value>
-                                  <Style>
-                                    <FontFamily>tahoma</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>UnidDet</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="NomPoducto">
@@ -642,14 +566,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Descuento">
+                        <Textbox Name="Igv1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Descuento.Value</Value>
+                                  <Value>=Fields!Igv.Value</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -662,7 +586,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Descuento</rd:DefaultName>
+                          <rd:DefaultName>Igv1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -720,8 +644,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -736,9 +658,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.07204cm</Top>
-            <Left>0.92075cm</Left>
+            <Left>0.34401cm</Left>
             <Height>0.41479cm</Height>
-            <Width>19.13662cm</Width>
+            <Width>19.67702cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -749,13 +671,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.88834cm</Width>
+                  <Width>3.73633cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80005cm</Width>
+                  <Width>1.48227cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.14497cm</Width>
+                  <Width>2.39191cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1006,9 +928,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.56833cm</Top>
-            <Left>13.18769cm</Left>
+            <Left>12.44686cm</Left>
             <Height>1.16749cm</Height>
-            <Width>6.83336cm</Width>
+            <Width>7.61051cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1044,9 +966,9 @@
             </Paragraphs>
             <rd:DefaultName>hassh</rd:DefaultName>
             <Top>0.68983cm</Top>
-            <Left>0.98161cm</Left>
+            <Left>0.34401cm</Left>
             <Height>0.41479cm</Height>
-            <Width>9.25655cm</Width>
+            <Width>11.56788cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1063,14 +985,173 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Autorizado para ser emisor electrónico</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>"BIENES TRANSFERIDOS EN LA AMAZONÍA PARA SER CONSUMIDOS EN LA MISMA"</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>REPRESENTACIÓN IMPRESA DE </Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!TipoDocumento.Value</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>1.90816cm</Top>
+            <Left>3.13075cm</Left>
+            <Height>1.25576cm</Height>
+            <Width>9.30382cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Image Name="QR">
+            <Source>External</Source>
+            <Value>=Parameters!ParaQR.Value</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>1.38834cm</Top>
+            <Left>0.34401cm</Left>
+            <Height>2.29621cm</Height>
+            <Width>2.68091cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Textbox Name="hassh">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Código Hash: </Value>
+                    <Style>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!hassh.Value</Value>
+                    <Style>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>hassh</rd:DefaultName>
+            <Top>3.26975cm</Top>
+            <Left>3.09548cm</Left>
+            <Height>0.41479cm</Height>
+            <Width>9.33909cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="DniRuc2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Powered By JPCConsulting Systems / 977266610</Value>
+                    <Style>
+                      <FontFamily>tahoma</FontFamily>
+                      <FontSize>5pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>DniRuc</rd:DefaultName>
+            <Top>3.15862cm</Top>
+            <Left>13.16847cm</Left>
+            <Height>0.52592cm</Height>
+            <Width>6.8889cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>1.73582cm</Height>
+        <Height>3.84329cm</Height>
         <Style />
       </Body>
       <Width>20.16051cm</Width>
       <Page>
         <PageHeader>
-          <Height>5.92201cm</Height>
+          <Height>6.16543cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1117,9 +1198,9 @@
               </Paragraphs>
               <rd:DefaultName>TipoDocumento</rd:DefaultName>
               <Top>1.0922cm</Top>
-              <Left>11.54324cm</Left>
-              <Height>2.08371cm</Height>
-              <Width>8.2238cm</Width>
+              <Left>12.08828cm</Left>
+              <Height>1.62983cm</Height>
+              <Width>7.67876cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1149,7 +1230,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox9</rd:DefaultName>
               <Top>3.62754cm</Top>
-              <Left>15.66333cm</Left>
+              <Left>15.98083cm</Left>
               <Height>0.49417cm</Height>
               <Width>1.24935cm</Width>
               <ZIndex>1</ZIndex>
@@ -1185,9 +1266,9 @@
               </Paragraphs>
               <rd:DefaultName>FechaEmision</rd:DefaultName>
               <Top>3.62754cm</Top>
-              <Left>16.94796cm</Left>
+              <Left>17.26546cm</Left>
               <Height>0.49417cm</Height>
-              <Width>2.56385cm</Width>
+              <Width>2.50158cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -1220,7 +1301,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox11</rd:DefaultName>
               <Top>4.12524cm</Top>
-              <Left>15.66333cm</Left>
+              <Left>15.98083cm</Left>
               <Height>0.49417cm</Height>
               <Width>1.24935cm</Width>
               <ZIndex>3</ZIndex>
@@ -1255,10 +1336,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>FechaEmision1</rd:DefaultName>
-              <Top>4.12171cm</Top>
-              <Left>16.97619cm</Left>
-              <Height>0.49417cm</Height>
-              <Width>2.56385cm</Width>
+              <Top>4.15699cm</Top>
+              <Left>17.23018cm</Left>
+              <Height>0.46242cm</Height>
+              <Width>2.53686cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -1296,7 +1377,7 @@
               </Paragraphs>
               <rd:DefaultName>descripcion</rd:DefaultName>
               <Top>3.11496cm</Top>
-              <Left>0.89161cm</Left>
+              <Left>0.25661cm</Left>
               <Height>0.49417cm</Height>
               <Width>2.56385cm</Width>
               <ZIndex>5</ZIndex>
@@ -1329,9 +1410,9 @@
               </Paragraphs>
               <rd:DefaultName>DniRuc</rd:DefaultName>
               <Top>3.11496cm</Top>
-              <Left>3.48721cm</Left>
-              <Height>0.49417cm</Height>
-              <Width>8.94736cm</Width>
+              <Left>2.82046cm</Left>
+              <Height>0.52592cm</Height>
+              <Width>9.61411cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -1369,7 +1450,7 @@
               </Paragraphs>
               <rd:DefaultName>TipoGlosa</rd:DefaultName>
               <Top>3.64751cm</Top>
-              <Left>0.89161cm</Left>
+              <Left>0.25661cm</Left>
               <Height>0.49417cm</Height>
               <Width>2.56385cm</Width>
               <ZIndex>7</ZIndex>
@@ -1384,7 +1465,6 @@
               </Style>
             </Textbox>
             <Textbox Name="RazonSocial">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -1402,9 +1482,9 @@
               </Paragraphs>
               <rd:DefaultName>RazonSocial</rd:DefaultName>
               <Top>3.64088cm</Top>
-              <Left>3.50889cm</Left>
-              <Height>0.49417cm</Height>
-              <Width>11.67736cm</Width>
+              <Left>2.82046cm</Left>
+              <Height>0.52592cm</Height>
+              <Width>12.98398cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
@@ -1435,7 +1515,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox35</rd:DefaultName>
               <Top>4.1668cm</Top>
-              <Left>0.89867cm</Left>
+              <Left>0.26367cm</Left>
               <Height>0.49417cm</Height>
               <Width>2.56385cm</Width>
               <ZIndex>9</ZIndex>
@@ -1450,7 +1530,6 @@
               </Style>
             </Textbox>
             <Textbox Name="Direccion">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -1468,94 +1547,14 @@
               </Paragraphs>
               <rd:DefaultName>Direccion</rd:DefaultName>
               <Top>4.1668cm</Top>
-              <Left>3.49427cm</Left>
+              <Left>2.82752cm</Left>
               <Height>0.49417cm</Height>
-              <Width>11.69198cm</Width>
+              <Width>12.97692cm</Width>
               <ZIndex>10</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox17">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Cantidad</Value>
-                      <Style>
-                        <FontFamily>tahoma</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox17</rd:DefaultName>
-              <Top>5.30084cm</Top>
-              <Left>0.92075cm</Left>
-              <Height>0.49417cm</Height>
-              <Width>1.7014cm</Width>
-              <ZIndex>11</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BottomBorder>
-                  <Style>Solid</Style>
-                  <Width>0.5pt</Width>
-                </BottomBorder>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox19">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>U.M</Value>
-                      <Style>
-                        <FontFamily>tahoma</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox19</rd:DefaultName>
-              <Top>5.30084cm</Top>
-              <Left>2.61686cm</Left>
-              <Height>0.49417cm</Height>
-              <Width>2.06331cm</Width>
-              <ZIndex>12</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BottomBorder>
-                  <Style>Solid</Style>
-                  <Width>0.5pt</Width>
-                </BottomBorder>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -1583,11 +1582,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox43</rd:DefaultName>
-              <Top>5.30084cm</Top>
-              <Left>4.68017cm</Left>
+              <Top>4.98334cm</Top>
+              <Left>0.34401cm</Left>
               <Height>0.49417cm</Height>
-              <Width>9.34588cm</Width>
-              <ZIndex>13</ZIndex>
+              <Width>13.2423cm</Width>
+              <ZIndex>11</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1623,11 +1622,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>5.30084cm</Top>
-              <Left>14.00926cm</Left>
+              <Top>4.98334cm</Top>
+              <Left>13.58631cm</Left>
               <Height>0.49417cm</Height>
-              <Width>2.26861cm</Width>
-              <ZIndex>14</ZIndex>
+              <Width>2.396cm</Width>
+              <ZIndex>12</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1649,7 +1648,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Dscto.</Value>
+                      <Value>Igv.</Value>
                       <Style>
                         <FontFamily>tahoma</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1663,11 +1662,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>5.30084cm</Top>
-              <Left>16.27787cm</Left>
+              <Top>4.98334cm</Top>
+              <Left>15.98232cm</Left>
               <Height>0.49417cm</Height>
-              <Width>1.92431cm</Width>
-              <ZIndex>15</ZIndex>
+              <Width>2.06849cm</Width>
+              <ZIndex>13</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1703,11 +1702,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox23</rd:DefaultName>
-              <Top>5.30084cm</Top>
-              <Left>18.20217cm</Left>
+              <Top>4.98334cm</Top>
+              <Left>18.05081cm</Left>
               <Height>0.49417cm</Height>
-              <Width>1.82605cm</Width>
-              <ZIndex>16</ZIndex>
+              <Width>1.97741cm</Width>
+              <ZIndex>14</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1729,7 +1728,7 @@
               <Left>0.31486cm</Left>
               <Height>2.72203cm</Height>
               <Width>2.71006cm</Width>
-              <ZIndex>17</ZIndex>
+              <ZIndex>15</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1759,9 +1758,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Left>0.34396cm</Left>
                   <Height>0.78669cm</Height>
-                  <Width>7.07957cm</Width>
+                  <Width>7.67876cm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1778,7 +1776,7 @@
               <Left>12.08828cm</Left>
               <Height>2.59292cm</Height>
               <Width>7.67876cm</Width>
-              <ZIndex>18</ZIndex>
+              <ZIndex>16</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1801,114 +1799,109 @@
                   </TextRuns>
                   <Style />
                 </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ParaRAZON</rd:DefaultName>
-              <Left>3.09548cm</Left>
-              <Height>0.6cm</Height>
-              <Width>8.66479cm</Width>
-              <ZIndex>19</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="ParaDIRECCION">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
                 <Paragraph>
                   <TextRuns>
+                    <TextRun>
+                      <Value>Dirección: </Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
                     <TextRun>
                       <Value>=Parameters!ParaDIRECCION.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ParaDIRECCION</rd:DefaultName>
-              <Top>0.6cm</Top>
-              <Left>3.13076cm</Left>
-              <Height>0.6cm</Height>
-              <Width>8.66479cm</Width>
-              <ZIndex>20</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="ParaTELEFONO">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
+                      <Value>Contacto: </Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
                       <Value>=Parameters!ParaTELEFONO.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ParaTELEFONO</rd:DefaultName>
-              <Top>1.2cm</Top>
-              <Left>3.13076cm</Left>
-              <Height>0.6cm</Height>
-              <Width>8.62951cm</Width>
-              <ZIndex>21</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="ParaCIUDAD">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
                       <Value>LORETO - </Value>
-                      <Style />
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
                     </TextRun>
                     <TextRun>
                       <Value>=Parameters!ParaCIUDAD.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
                     </TextRun>
                     <TextRun>
                       <Value> - </Value>
-                      <Style />
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
                     </TextRun>
                     <TextRun>
                       <Value>=Parameters!ParaDISTRITO.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Web: </Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Parameters!ParaWEB.Value</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Email: </Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Parameters!ParaEMAIL.Value</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>ParaCIUDAD</rd:DefaultName>
-              <Top>1.8cm</Top>
-              <Left>3.13076cm</Left>
-              <Height>0.6cm</Height>
-              <Width>8.44776cm</Width>
-              <ZIndex>22</ZIndex>
+              <rd:DefaultName>ParaRAZON</rd:DefaultName>
+              <Left>3.09548cm</Left>
+              <Height>2.72203cm</Height>
+              <Width>8.81641cm</Width>
+              <ZIndex>17</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1926,260 +1919,6 @@
             </Border>
           </Style>
         </PageHeader>
-        <PageFooter>
-          <Height>1.97519cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="Textbox2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Autorizado para ser emisor electrónico con resolución: 122-005-0000130/SUNAT</Value>
-                      <Style>
-                        <FontSize>6pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>"BIENES TRANSFERIDOS EN LA AMAZONÍA PARA SER CONSUMIDOS EN LA MISMA"</Value>
-                      <Style>
-                        <FontSize>6pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>REPRESENTACIÓN IMPRESA DE </Value>
-                      <Style>
-                        <FontSize>6pt</FontSize>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>=Fields!TipoDocumento.Value</Value>
-                      <Style>
-                        <FontSize>6pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Left>10.27344cm</Left>
-              <Height>1.25576cm</Height>
-              <Width>9.75478cm</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Image Name="QR">
-              <Source>External</Source>
-              <Value>=Parameters!ParaQR.Value</Value>
-              <Sizing>FitProportional</Sizing>
-              <Top>0.04939cm</Top>
-              <Left>0.31486cm</Left>
-              <Height>1.7935cm</Height>
-              <Width>2.33643cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
-            <Textbox Name="hassh">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Código Hash: </Value>
-                      <Style>
-                        <FontFamily>Tahoma</FontFamily>
-                        <FontSize>7pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>=Fields!hassh.Value</Value>
-                      <Style>
-                        <FontFamily>Tahoma</FontFamily>
-                        <FontSize>7pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>hassh</rd:DefaultName>
-              <Top>1.4281cm</Top>
-              <Left>2.82768cm</Left>
-              <Height>0.41479cm</Height>
-              <Width>6.87391cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox7">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>FormaPago:</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.14111cm</Top>
-              <Left>2.89824cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.22559cm</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox8">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Fields!FormadePago.Value</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.65576cm</Top>
-              <Left>2.89824cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.22559cm</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox10">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Grado:</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.10583cm</Top>
-              <Left>5.26494cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.22559cm</Width>
-              <ZIndex>5</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox12">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Fields!Grado.Value</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.62048cm</Top>
-              <Left>5.26494cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.22559cm</Width>
-              <ZIndex>6</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
         <LeftMargin>0cm</LeftMargin>
