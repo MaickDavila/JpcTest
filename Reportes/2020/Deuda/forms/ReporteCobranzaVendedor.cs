@@ -37,7 +37,7 @@ namespace Presentacion.Reportes._2020.Deuda.forms
                 ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
 
                 datasets.DataSetReporteVendedor.sp_reporte_cobranza_vendedorDataTable tabla = new datasets.DataSetReporteVendedor.sp_reporte_cobranza_vendedorDataTable();
-                ta.Fill(tabla, FechaIni, FechaFin, IdVendedor);
+                ta.Fill(tabla, FechaIni, FechaFin, IdVendedor, VariablesGlobales.IdUsuario);
 
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.EnableExternalImages = true;
