@@ -203,7 +203,7 @@
         "enabled": true,
         "impresoras": [
           {
-            "nombre": "Microsoft Print to PDF",
+            "nombre": "EPSON L4150 Series",
             "report": "Report1_A4.rdlc",
             "limit": 100,
             "enabled": true
