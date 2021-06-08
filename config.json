@@ -204,7 +204,7 @@
         "impresoras": [
           {
             "nombre": "Microsoft Print to PDF",
-            "report": "Report1.rdlc",
+            "report": "Report1_A4.rdlc",
             "limit": 100,
             "enabled": true
           },

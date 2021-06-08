@@ -123,7 +123,7 @@ namespace Presentacion.Reportes
                 ImpresorasNameEleccion(1);
 
                 ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)maqueta2);
-                ReportDataSource dataSourceCronograma = new ReportDataSource("DataSet12", (DataTable)cronograma);
+                ReportDataSource dataSourceCronograma = new ReportDataSource("DataSet2", (DataTable)cronograma);
 
                 LocalReport relatorio = new LocalReport();
                 relatorio.ReportPath = RutaReportes + "Report1_A4-Integracion.rdlc";
@@ -199,8 +199,11 @@ namespace Presentacion.Reportes
                     esCredito = idFormaPago == 2;
                 }
 
-                ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);
-                ReportDataSource dataSourceCronograma = new ReportDataSource("DataSet2", (DataTable)cronograma);
+                ReportDataSource dataSource = new ReportDataSource("DataSet1", tabla);
+                dataSource.Name = "DataSet1";
+                //
+                ReportDataSource dataSourceCronograma = new ReportDataSource("DataSet2", cronograma);
+                dataSourceCronograma.Name = "DataSet2";
 
                 LocalReport relatorio = new LocalReport();
                 ReporteNow = "default.rdcl";
@@ -304,7 +307,10 @@ namespace Presentacion.Reportes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "\n" + ex.InnerException.Message, "IMPRESION COMPROBANTE ");
+                dynamic message2 = ex.InnerException.InnerException;
+                if (message2 != null) message2 = message2.Message;
+                else message2 = "";
+                MessageBox.Show(ex.Message + "\n" + ex.InnerException.Message + "\n" + message2, "IMPRESION COMPROBANTE ");
             }
             finally
             {
