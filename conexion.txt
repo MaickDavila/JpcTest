@@ -1,2 +1,2 @@
-DESKTOP-OH2B16V*BD_CMAYNAS_2019*sa*419141
-D:\JpcTest\Reportes\
+MAICK-PC*BD_ALMATRINCHERO_2020_NEW*sa*foreach()
+D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\bin\Debug\Reportes\

@@ -199,11 +199,11 @@
     "pcs": [
       {
         "id": 1,
-        "nombre": "DESKTOP-OH2B16V",
+        "nombre": "MAICK-PC",
         "enabled": true,
         "impresoras": [
           {
-            "nombre": "EPSON L4150 Series",
+            "nombre": "Microsoft Print to PDF",
             "report": "Report1_A4.rdlc",
             "limit": 100,
             "enabled": true
