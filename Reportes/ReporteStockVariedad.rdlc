@@ -234,6 +234,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -328,10 +329,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.81696cm</Top>
+              <Top>0.72171cm</Top>
               <Left>0.09525cm</Left>
               <Height>0.6cm</Height>
-              <Width>8.69125cm</Width>
+              <Width>13.95646cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -363,7 +364,7 @@
               <Top>0.09525cm</Top>
               <Left>0.09525cm</Left>
               <Height>0.52062cm</Height>
-              <Width>15.22646cm</Width>
+              <Width>13.18917cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -589,49 +590,6 @@
                   <Style>Solid</Style>
                   <Width>1pt</Width>
                 </RightBorder>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox8">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>FECHA: </Value>
-                      <Style>
-                        <FontStyle>Italic</FontStyle>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>=Now()</Value>
-                      <Style>
-                        <FontStyle>Italic</FontStyle>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>f</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>0.81696cm</Top>
-              <Left>9.81286cm</Left>
-              <Height>0.6cm</Height>
-              <Width>8.55896cm</Width>
-              <ZIndex>6</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
