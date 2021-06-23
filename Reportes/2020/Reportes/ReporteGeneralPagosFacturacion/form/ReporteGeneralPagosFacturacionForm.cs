@@ -21,6 +21,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
 
         public DateTime FechaInicio { get => _FechaInicio; set => _FechaInicio = value; }
         public DateTime FechaFin { get => _FechaFin; set => _FechaFin = value; }
+        public int IdUsuarioVendedor { get; set; }
 
         private void ReporteGeneralPagosFacturacionForm_Load(object sender, EventArgs e)
         {
@@ -36,7 +37,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
                 ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
                 
                 ReporteGeneralPagosFacturacion.Dataset.ReporteGeneralPagosFacturacionDataSet.sp_reporte_general_pagos_facturacionDataTable tabla = new Dataset.ReporteGeneralPagosFacturacionDataSet.sp_reporte_general_pagos_facturacionDataTable();
-                ta.Fill(tabla, FechaInicio, FechaFin,IdCliente);
+                ta.Fill(tabla, FechaInicio, FechaFin,IdCliente, IdUsuarioVendedor);
 
 
 
@@ -46,7 +47,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
             catch (Exception e)
             {
 
-                throw e;
+                MessageBox.Show(e.Message);
             }
         }
     }
