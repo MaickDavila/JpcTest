@@ -911,6 +911,12 @@
             gpr_clock_type from grpc/support/time.h
             </summary>
         </member>
+        <member name="T:Grpc.Core.Internal.CommonPlatformDetection">
+            <summary>
+            This source file is shared by both Grpc.Core and Grpc.Tools to avoid duplication
+            of platform detection code.
+            </summary>
+        </member>
         <member name="T:Grpc.Core.Internal.CompletionQueueEvent">
             <summary>
             grpc_event from grpc/grpc.h
@@ -1316,6 +1322,11 @@
         <member name="T:Grpc.Core.Internal.NativeMethods.DllImportsFromSharedLib_x64">
             <summary>
             grpc_csharp_ext used as a shared library (with x64 suffix)
+            </summary>
+        </member>
+        <member name="T:Grpc.Core.Internal.NativeMethods.DllImportsFromSharedLib_arm64">
+            <summary>
+            grpc_csharp_ext used as a shared library (with arm64 suffix)
             </summary>
         </member>
         <member name="T:Grpc.Core.Internal.NativeMethods.DllImportsFromSharedLib_x86_dll">
