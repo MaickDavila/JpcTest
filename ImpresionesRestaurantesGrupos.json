@@ -149,5 +149,23 @@
         }
       ]
     }
+  ],
+  "impresoras":[
+    {
+      "nombre": "Microsoft XPS Document Writer",
+      "enabled": true,
+      "reporte": "PedidosRestaurant.rdlc",
+      "reporte_llevar":"2020/Ventas/Restaurant/ticket_llevar.rdlc",
+      "reporte_delivery":"2020/Ventas/Restaurant/ticket_delivery.rdlc",
+      "grupos":["HAMBURGUESAS"]
+    },
+    {
+      "nombre": "Microsoft Print to PDF",
+      "enabled": true,
+      "reporte": "PedidosRestaurant.rdlc",
+      "reporte_llevar":"2020/Ventas/Restaurant/ticket_llevar.rdlc",
+      "reporte_delivery":"2020/Ventas/Restaurant/ticket_delivery.rdlc",
+      "grupos":["HAMBURGUESAS","JUGOS CLASICOS"]
+    } 
   ]
 }
