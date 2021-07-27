@@ -1,2 +1,2 @@
-MAICK-PC*BD_ALMATRINCHERO_2020_NEW*sa*foreach()
+MAICK-PC*BD_CAJAMARCA_2021*sa*foreach()
 D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\bin\Debug\Reportes\
