@@ -228,80 +228,79 @@ namespace Presentacion.Reportes
                 
                 while (true)
                 {
-                    if (ImpresoraDisponible(ImpresoranNow))
-                    {
-                        //nueva logica con json
-                        string pcName = Environment.MachineName.Trim().ToLower();
-                        if (ConfigJson.Caja.Pcs.Count <= 0)
-                        {
-                            MessageBox.Show("Aun no tiene ninguna configuración de impresoras con PCs!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        //
-                        var pcConfig = ConfigJson.Caja.Pcs.Find(item => item.Nombre.ToLower().ToLower() == pcName && item.Enabled);
-                        if(pcConfig == null)
-                        {
-                            MessageBox.Show($"Ocurrio un problema, aun no configura sus impresoras de caja para esta Pc {pcName}!");
-                            return;
-                        }
+                    if (!ImpresoraDisponible(ImpresoranNow)) continue;
 
-                        //primero vemos si es credito                        
-                        List<Inicio.Impresora> impresorasParametrisadas = null;
-                        if (esCredito)
+                    //nueva logica con json
+                    var pcName = Environment.MachineName.Trim().ToLower();
+                    if (ConfigJson.Caja.Pcs.Count <= 0)
+                    {
+                        MessageBox.Show(@"Aun no tiene ninguna configuración de impresoras con PCs!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    //
+                    var pcConfig = ConfigJson.Caja.Pcs.Find(item => item.Nombre.ToLower().ToLower() == pcName && item.Enabled);
+                    if(pcConfig == null)
+                    {
+                        MessageBox.Show($"Ocurrio un problema, aun no configura sus impresoras de caja para esta Pc {pcName}!");
+                        return;
+                    }
+
+                    //primero vemos si es credito                        
+                    List<Inicio.Impresora> impresorasParametrisadas = null;
+                    if (esCredito)
+                    {
+                        if (pcConfig.CheckCredito.Enabled)
                         {
-                            if (pcConfig.CheckCredito.Enabled)
-                            {
-                                impresorasParametrisadas = (from row in pcConfig.CheckCredito.Impresoras
-                                                            where row.Limit >= count
-                                                            orderby row.Limit ascending
-                                                            select row).ToList();
-                            }
-                            else
-                            {
-                                impresorasParametrisadas = (from row in pcConfig.Impresoras
-                                                            where row.Limit >= count
-                                                            orderby row.Limit ascending
-                                                            select row).ToList();
-                            }
+                            impresorasParametrisadas = (from row in pcConfig.CheckCredito.Impresoras
+                                where row.Limit >= count
+                                orderby row.Limit ascending
+                                select row).ToList();
                         }
                         else
                         {
                             impresorasParametrisadas = (from row in pcConfig.Impresoras
-                                                        where row.Limit >= count
-                                                        orderby row.Limit ascending
-                                                        select row).ToList();
+                                where row.Limit >= count
+                                orderby row.Limit ascending
+                                select row).ToList();
                         }
-                        //                        
-                        var impresoraSeleccionada = impresorasParametrisadas.Count > 0 ? impresorasParametrisadas[0] : null;
-                        if(impresoraSeleccionada == null)
-                        {
-                            MessageBox.Show("Por favor, antes de continuar tendrá que configurar los parámetros de impresion en caja!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }                        
-                        //
-                        ImpresoranNow = impresoraSeleccionada.Nombre;
-                        ReporteNow = impresoraSeleccionada.Report;
-                        relatorio.ReportPath = RutaReportes + ReporteNow;
-                        //
-                        relatorio.SetParameters(parameters);
-                        Exportar(relatorio);
-                        Imprimirr(relatorio);
-                        //
-                        if(pcConfig.CopiasAlmacen.Items.Count > 0 && pcConfig.CopiasAlmacen.Enabled)
-                        {
-                            pcConfig.CopiasAlmacen.Items.FindAll(item => item.Enabled).ForEach(element => 
-                            {
-                                ImpresoranNow = element.Nombre;
-                                ReporteNow = element.Report;
-                                relatorio.ReportPath = RutaReportes + ReporteNow;
-                                Exportar(relatorio);
-                                Imprimirr(relatorio);
-                            });
-                        }
-                        //esto era del almacen
-                        //if (!ImpresorasNameEleccion_Almacen()) break;
-                        break;
                     }
+                    else
+                    {
+                        impresorasParametrisadas = (from row in pcConfig.Impresoras
+                            where row.Limit >= count
+                            orderby row.Limit ascending
+                            select row).ToList();
+                    }
+                    //                        
+                    var impresoraSeleccionada = impresorasParametrisadas.Count > 0 ? impresorasParametrisadas[0] : null;
+                    if(impresoraSeleccionada == null)
+                    {
+                        MessageBox.Show(@"Por favor, antes de continuar tendrá que configurar los parámetros de impresion en caja!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }                        
+                    //
+                    ImpresoranNow = impresoraSeleccionada.Nombre;
+                    ReporteNow = impresoraSeleccionada.Report;
+                    relatorio.ReportPath = RutaReportes + ReporteNow;
+                    //
+                    relatorio.SetParameters(parameters);
+                    Exportar(relatorio);
+                    Imprimirr(relatorio);
+                    //
+                    if(pcConfig.CopiasAlmacen.Items.Count > 0 && pcConfig.CopiasAlmacen.Enabled)
+                    {
+                        pcConfig.CopiasAlmacen.Items.FindAll(item => item.Enabled).ForEach(element => 
+                        {
+                            ImpresoranNow = element.Nombre;
+                            ReporteNow = element.Report;
+                            relatorio.ReportPath = RutaReportes + ReporteNow;
+                            Exportar(relatorio);
+                            Imprimirr(relatorio);
+                        });
+                    }
+                    //esto era del almacen
+                    //if (!ImpresorasNameEleccion_Almacen()) break;
+                    break;
                 }
                 relatorio.Dispose();
             }

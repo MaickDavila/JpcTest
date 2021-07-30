@@ -2,9 +2,8 @@
 <xs:schema id="ReporteGeneralPagosFacturacionDataSet" targetNamespace="http://tempuri.org/ReporteGeneralPagosFacturacionDataSet.xsd" xmlns:mstns="http://tempuri.org/ReporteGeneralPagosFacturacionDataSet.xsd" xmlns="http://tempuri.org/ReporteGeneralPagosFacturacionDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_ALMATRINCHERO_2020_NEWConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_ALMATRINCHERO_2020_NEWConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Presentacion.Properties.Settings.GlobalReference.Default.BD_ALMATRINCHERO_2020_NEWConnectionString" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_ALMATRINCHERO_2020_NEWConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_ALMATRINCHERO_2020_NEWConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Presentacion.Properties.Settings.GlobalReference.Default.BD_ALMATRINCHERO_2020_NEWConnectionString2" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
@@ -28,7 +27,7 @@
             <Mappings>
               <Mapping SourceColumn="numeroDocumento" DataSetColumn="numeroDocumento" />
               <Mapping SourceColumn="razonSocial" DataSetColumn="razonSocial" />
-              <Mapping SourceColumn="idDOcumento" DataSetColumn="idDOcumento" />
+              <Mapping SourceColumn="idDocumento" DataSetColumn="idDocumento" />
               <Mapping SourceColumn="SerieDoc" DataSetColumn="SerieDoc" />
               <Mapping SourceColumn="NumeroDoc" DataSetColumn="NumeroDoc" />
               <Mapping SourceColumn="FechaEmision" DataSetColumn="FechaEmision" />
@@ -40,6 +39,7 @@
               <Mapping SourceColumn="FechaPago" DataSetColumn="FechaPago" />
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
               <Mapping SourceColumn="IdVendedor" DataSetColumn="IdVendedor" />
+              <Mapping SourceColumn="nacionalidad" DataSetColumn="nacionalidad" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -68,7 +68,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="idDOcumento" msprop:Generator_ColumnVarNameInTable="columnidDOcumento" msprop:Generator_ColumnPropNameInRow="idDOcumento" msprop:Generator_ColumnPropNameInTable="idDOcumentoColumn" msprop:Generator_UserColumnName="idDOcumento" minOccurs="0">
+              <xs:element name="idDocumento" msprop:Generator_ColumnVarNameInTable="columnidDocumento" msprop:Generator_ColumnPropNameInRow="idDocumento" msprop:Generator_ColumnPropNameInTable="idDocumentoColumn" msprop:Generator_UserColumnName="idDocumento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
@@ -109,15 +109,18 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IdVendedor" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnIdVendedor" msprop:Generator_ColumnPropNameInRow="IdVendedor" msprop:Generator_ColumnPropNameInTable="IdVendedorColumn" msprop:Generator_UserColumnName="IdVendedor" type="xs:int" />
+              <xs:element name="IdVendedor" msprop:Generator_ColumnVarNameInTable="columnIdVendedor" msprop:Generator_ColumnPropNameInRow="IdVendedor" msprop:Generator_ColumnPropNameInTable="IdVendedorColumn" msprop:Generator_UserColumnName="IdVendedor" type="xs:int" minOccurs="0" />
+              <xs:element name="nacionalidad" msprop:Generator_ColumnVarNameInTable="columnnacionalidad" msprop:Generator_ColumnPropNameInRow="nacionalidad" msprop:Generator_ColumnPropNameInTable="nacionalidadColumn" msprop:Generator_UserColumnName="nacionalidad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:sp_reporte_general_pagos_facturacion" />
-      <xs:field xpath="mstns:IdVendedor" />
-    </xs:unique>
   </xs:element>
 </xs:schema>

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,9 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.forms
 {
     public partial class reporteCodbarra : Imprimir
     {
-        int Id, IdAlmacen;
+        public int Id { get; set; }
+        public int IdAlmacen { get; set; }
+
         public reporteCodbarra()
         {
             InitializeComponent();
@@ -33,14 +36,28 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.forms
         private void reporteCodbarra_Load(object sender, EventArgs e)
         {
             this.Close();
-            this.Imprimir();
-           
+            this.ImprimirReporte();
+        }
 
+        void ImprimirReporte()
+        {
+            try
+            {
+
+                var ta = new spCodigoBarraImpresionTableAdapter() {Connection = new SqlConnection(DataSetConexion)};
+                var tabla = new DataSetCodBarra.spCodigoBarraImpresionDataTable();
+                ta.Fill(tabla, Id, IdAlmacen);
+                ParametrosReporte("DataSet1", tabla, "2020\\Productos\\CodigoBarra\\CodigoBarraImpresion.rdlc", reportViewer1);
+                this.reportViewer1.RefreshReport();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
 
-
-        void Imprimir()
+        void ImprimirExcel()
         {
             try
             {

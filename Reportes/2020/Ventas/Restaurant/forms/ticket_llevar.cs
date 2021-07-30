@@ -37,7 +37,7 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.forms
 
                 if (!configLlevar.State)
                 {
-                    MessageBox.Show("La función de imprimir el ticket de para llevar está desactivada!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(@"La función de imprimir el ticket de para llevar está desactivada!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 

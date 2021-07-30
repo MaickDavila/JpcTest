@@ -2,12 +2,19 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
+    <DataSource Name="DataSet1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>71b64372-50ef-430b-aad0-cd6e56cd0311</rd:DataSourceID>
+    </DataSource>
     <DataSource Name="ReporteGeneralPagosFacturacionDataSet">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>08a60175-2ee7-418b-8e30-fba6fe40602b</rd:DataSourceID>
+      <rd:DataSourceID>bedfc917-8eac-4320-9325-7f627348ba01</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -25,8 +32,8 @@
           <DataField>razonSocial</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="idDOcumento">
-          <DataField>idDOcumento</DataField>
+        <Field Name="idDocumento">
+          <DataField>idDocumento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="SerieDoc">
@@ -73,10 +80,14 @@
           <DataField>IdVendedor</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="nacionalidad">
+          <DataField>nacionalidad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ReporteGeneralPagosFacturacionDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\Reportes\2020\Reportes\ReporteGeneralPagosFacturacion\Dataset\ReporteGeneralPagosFacturacionDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\JpcTestCodigoFuente\JpcConsultings\Sistema\Presentacion\Reportes\2020\Reportes\ReporteGeneralPagosFacturacion\Dataset\ReporteGeneralPagosFacturacionDataSet.xsd</rd:SchemaPath>
         <rd:TableName>sp_reporte_general_pagos_facturacion</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -101,7 +112,7 @@
                   <Width>1.69333cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.87057cm</Width>
+                  <Width>6.83869cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.47354cm</Width>
@@ -110,16 +121,19 @@
                   <Width>1.75917cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.76458cm</Width>
+                  <Width>2.55291cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.21979cm</Width>
+                  <Width>2.93689cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.26188cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.36771cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.52646cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -676,6 +690,61 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Nacionalidad</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -1046,6 +1115,39 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>nombre</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="nacionalidad">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!nacionalidad.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>nacionalidad</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1470,12 +1572,47 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -1505,7 +1642,7 @@
             <Top>0.14499cm</Top>
             <Left>0.09525cm</Left>
             <Height>1.8cm</Height>
-            <Width>29.4316cm</Width>
+            <Width>29.00828cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

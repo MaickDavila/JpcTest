@@ -35,7 +35,7 @@ namespace Presentacion.Reportes._2020.Ventas.Restaurant.forms
 
                 if (!configDelivery.State)
                 {
-                    MessageBox.Show("La función de imprimir el ticket de delivery está desactivada!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(@"La función de imprimir el ticket de delivery está desactivada!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 } 
 

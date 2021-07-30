@@ -3,15 +3,23 @@ using Presentacion.Inicio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestauranteGrupoImpresoras;
 
 namespace Presentacion.Reportes
 {
+    public class ModelImpresion
+    {
+        public Impresoras Impresora { get; set; }
+        public DataTable Datos { get; set; }
+    }
+
     public partial class PedidosRest:Form
     {
         public long IdMesa { get; set; }
@@ -20,6 +28,8 @@ namespace Presentacion.Reportes
         public bool Para_Llevar { get; set; }
         public bool Es_Delivery { get; set; }
         Imprimir _imprimir = new Imprimir();
+        private Ticket ConfigRestaurant;
+
 
         public PedidosRest()
         {
@@ -56,60 +66,54 @@ namespace Presentacion.Reportes
             return table;
         }
 
-        void LogicaDistribucion(DataTable FormatoRest)
+        async Task LogicaDistribucion(DataTable FormatoRest)
         {
-            List<DataTable> gruposListMaquetas = new List<DataTable>();
-            List<RestauranteGrupoImpresoras.Grupo> listImpresoras = new List<RestauranteGrupoImpresoras.Grupo>();
-
-            VariablesGlobales.GrupoImpresorasConfig.Grupos.ForEach(item =>
+            ConfigRestaurant = VariablesGlobales.ConfigJson.Tickets.Find(item => item.Tag == "restaurant");
+            var configLlevar = ConfigRestaurant.Items.Find(item => item.Name == "llevar");
+            var configDelivery = ConfigRestaurant.Items.Find(item => item.Name == "delivery");
+            //
+            var dataList = new List<ModelImpresion>();
+            VariablesGlobales.GrupoImpresorasConfig.Impresoras.ForEach(printerName =>
             {
-                DataTable maqueta = new DataTable();
-                maqueta = FormatoRest.Clone();
-                maqueta.Rows.Clear();
-
-                foreach (DataRow row in FormatoRest.Rows)
+                var table = new DataTable();
+                table.TableName = DateTime.Now.Millisecond.ToString();
+                table = FormatoRest.Clone();
+                table.Clear();
+                var groups = printerName.Grupos;
+                foreach (DataRow item in FormatoRest.Rows)
                 {
-                    string nombreGrupo = row["grupo"].ToString();
-                    nombreGrupo = nombreGrupo.Trim().ToUpper();
-
-                    if (item.Nombre.Trim().ToUpper().Equals(nombreGrupo)) maqueta.ImportRow(row);
+                    var groupItem = item["grupo"].ToString().Trim().ToLower();
+                    var exist = groups.FindIndex(group => group.Trim().ToLower() == groupItem);
+                    if (exist == -1) continue;
+                    table.ImportRow(item);
                 }
 
-                if (maqueta.Rows.Count > 0)
+                if (table.Rows.Count > 0)
                 {
-                    gruposListMaquetas.Add(maqueta);
-                    listImpresoras.Add(item);
+                    dataList.Add(new ModelImpresion() {Impresora = printerName, Datos = table});
                 }
             });
 
-
-            if (gruposListMaquetas.Count > 0)
+            dataList.ForEach(async item =>
             {
-                int count = 0;
-                foreach (var item in listImpresoras)
-                {
-                    item.Impresoras.ForEach(async impresora =>
-                    {
-                        DataTable data = gruposListMaquetas[count];
-                        string reporteName = !Para_Llevar && !Es_Delivery ? impresora.Reporte : Para_Llevar ? impresora.ReporteLlevar : impresora.ReporteDelivery;
-                        await ReporteLocal(data, reporteName, impresora.Nombre);
-                    });
-                    count++;
-                }
-            }
+                var report = Para_Llevar ? item.Impresora.ReporteLlevar : Es_Delivery ? item.Impresora.ReporteDelivery : item.Impresora.Reporte;
+                var printerName = item.Impresora.Nombre;
+                var data = item.Datos;
+                await ReporteLocal(data, report, printerName);
+            });
         }
 
         void ImprimirVentas()
         {
-            DataTable FormatoRest = new DataTable();
+            var FormatoRest = new DataTable();
             FormatoRest = new VariablesGlobales().N_Venta1.sp_reporte_delivery(Id_Venta);
-
-            bool distribucion = VariablesGlobales.GrupoImpresorasConfig.Grupos.Where(item => item.Enabled == true).Count() > 0;
+            var distribucion = VariablesGlobales.GrupoImpresorasConfig.Impresoras.FindAll(item => item.Enabled == true)
+                .Count > 0;
             if (distribucion) LogicaDistribucion(FormatoRest);
 
-            var configRestaurant = VariablesGlobales.ConfigJson.Tickets.Find(item => item.Tag == "restaurant");
-            var configLlevar = configRestaurant.Items.Find(item => item.Name == "llevar");
-            var configDelivery = configRestaurant.Items.Find(item => item.Name == "delivery");
+            ConfigRestaurant = VariablesGlobales.ConfigJson.Tickets.Find(item => item.Tag == "restaurant");
+            var configLlevar = ConfigRestaurant.Items.Find(item => item.Name == "llevar");
+            var configDelivery = ConfigRestaurant.Items.Find(item => item.Name == "delivery");
 
 
             if (Para_Llevar)
@@ -121,9 +125,7 @@ namespace Presentacion.Reportes
                         await ReporteLocal(FormatoRest, item.ReportName, item.PrinterName);
                     });
                 }
-                return;
             }
-
             else
             {
                 if (configDelivery.State)
@@ -133,7 +135,6 @@ namespace Presentacion.Reportes
                         await ReporteLocal(FormatoRest, item.ReportName, item.PrinterName);
                     });
                 }
-                return;
             }
         }
 
@@ -142,9 +143,10 @@ namespace Presentacion.Reportes
             try
             {
                 DataTable FormatoRest = new DataTable();
-                FormatoRest =new VariablesGlobales().N_Venta1.FormatoRest(IdMesa, IdPiso);
+                FormatoRest = new VariablesGlobales().N_Venta1.FormatoRest(IdMesa, IdPiso);
 
-                bool distribucion = VariablesGlobales.GrupoImpresorasConfig.Grupos.Where(item => item.Enabled == true).Count() > 0;
+                var distribucion = VariablesGlobales.GrupoImpresorasConfig.Impresoras
+                    .FindAll(item => item.Enabled == true).Count > 0;
                 if (distribucion) LogicaDistribucion(FormatoRest);
 
                 var configRestaurant = VariablesGlobales.ConfigJson.Tickets.Find(item => item.Tag == "restaurant");
@@ -205,8 +207,9 @@ namespace Presentacion.Reportes
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }

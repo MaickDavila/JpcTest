@@ -1944,8 +1944,8 @@
             <Source>External</Source>
             <Value>=Parameters!ParaQR.Value</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>8.96275cm</Top>
-            <Left>0.13878cm</Left>
+            <Top>8.92042cm</Top>
+            <Left>0.15875cm</Left>
             <Height>2cm</Height>
             <Width>2cm</Width>
             <ZIndex>7</ZIndex>
