@@ -35,7 +35,7 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.forms
 
         private void reporteCodbarra_Load(object sender, EventArgs e)
         {
-            this.Close();
+            
             this.ImprimirReporte();
         }
 
@@ -52,7 +52,7 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.forms
             }
             catch (Exception e)
             {
-                throw e;
+                MessageBox.Show($@"Ocurrio un error al generar el reporte! {e.Message}");
             }
         }
 
