@@ -311,6 +311,12 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             
             private global::System.Data.DataColumn columnGrupo;
             
+            private global::System.Data.DataColumn columnidGrupo;
+            
+            private global::System.Data.DataColumn columnstockminimo;
+            
+            private global::System.Data.DataColumn columnCodigo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public spCodigoBarraImpresionDataTable() {
@@ -474,6 +480,30 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn idGrupoColumn {
+                get {
+                    return this.columnidGrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn stockminimoColumn {
+                get {
+                    return this.columnstockminimo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CodigoColumn {
+                get {
+                    return this.columnCodigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -525,7 +555,10 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                         decimal Stock, 
                         int IdPresentacion, 
                         int IdAlmacen, 
-                        string Grupo) {
+                        string Grupo, 
+                        int idGrupo, 
+                        double stockminimo, 
+                        string Codigo) {
                 spCodigoBarraImpresionRow rowspCodigoBarraImpresionRow = ((spCodigoBarraImpresionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -543,7 +576,10 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                         Stock,
                         IdPresentacion,
                         IdAlmacen,
-                        Grupo};
+                        Grupo,
+                        idGrupo,
+                        stockminimo,
+                        Codigo};
                 rowspCodigoBarraImpresionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowspCodigoBarraImpresionRow);
                 return rowspCodigoBarraImpresionRow;
@@ -582,6 +618,9 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                 this.columnIdPresentacion = base.Columns["IdPresentacion"];
                 this.columnIdAlmacen = base.Columns["IdAlmacen"];
                 this.columnGrupo = base.Columns["Grupo"];
+                this.columnidGrupo = base.Columns["idGrupo"];
+                this.columnstockminimo = base.Columns["stockminimo"];
+                this.columnCodigo = base.Columns["Codigo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -619,10 +658,16 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                 base.Columns.Add(this.columnIdAlmacen);
                 this.columnGrupo = new global::System.Data.DataColumn("Grupo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGrupo);
+                this.columnidGrupo = new global::System.Data.DataColumn("idGrupo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidGrupo);
+                this.columnstockminimo = new global::System.Data.DataColumn("stockminimo", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstockminimo);
+                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigo);
                 this.columnId.AllowDBNull = false;
                 this.columnCod_Barra.MaxLength = 100;
                 this.columnDescripcion.ReadOnly = true;
-                this.columnDescripcion.MaxLength = 425;
+                this.columnDescripcion.MaxLength = 505;
                 this.columnU_Medida.AllowDBNull = false;
                 this.columnU_Medida.MaxLength = 100;
                 this.columnFactor.AllowDBNull = false;
@@ -636,6 +681,8 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                 this.columnStock.ReadOnly = true;
                 this.columnIdPresentacion.AllowDBNull = false;
                 this.columnGrupo.MaxLength = 100;
+                this.columnidGrupo.AllowDBNull = false;
+                this.columnCodigo.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1004,6 +1051,49 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int idGrupo {
+                get {
+                    return ((int)(this[this.tablespCodigoBarraImpresion.idGrupoColumn]));
+                }
+                set {
+                    this[this.tablespCodigoBarraImpresion.idGrupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double stockminimo {
+                get {
+                    try {
+                        return ((double)(this[this.tablespCodigoBarraImpresion.stockminimoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'stockminimo\' in table \'spCodigoBarraImpresion\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespCodigoBarraImpresion.stockminimoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Codigo {
+                get {
+                    try {
+                        return ((string)(this[this.tablespCodigoBarraImpresion.CodigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Codigo\' in table \'spCodigoBarraImpresion\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespCodigoBarraImpresion.CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCod_BarraNull() {
                 return this.IsNull(this.tablespCodigoBarraImpresion.Cod_BarraColumn);
             }
@@ -1120,6 +1210,30 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetGrupoNull() {
                 this[this.tablespCodigoBarraImpresion.GrupoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstockminimoNull() {
+                return this.IsNull(this.tablespCodigoBarraImpresion.stockminimoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstockminimoNull() {
+                this[this.tablespCodigoBarraImpresion.stockminimoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCodigoNull() {
+                return this.IsNull(this.tablespCodigoBarraImpresion.CodigoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCodigoNull() {
+                this[this.tablespCodigoBarraImpresion.CodigoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1298,6 +1412,9 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset.DataSetCodBa
             tableMapping.ColumnMappings.Add("IdPresentacion", "IdPresentacion");
             tableMapping.ColumnMappings.Add("IdAlmacen", "IdAlmacen");
             tableMapping.ColumnMappings.Add("Grupo", "Grupo");
+            tableMapping.ColumnMappings.Add("idGrupo", "idGrupo");
+            tableMapping.ColumnMappings.Add("stockminimo", "stockminimo");
+            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1305,7 +1422,7 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset.DataSetCodBa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Presentacion.Properties.Settings.Default.BD_TEST_2020ConnectionString;
+            this._connection.ConnectionString = global::Presentacion.Properties.Settings.Default.BD_ALMATRINCHERO_2020_NEWConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1317,27 +1434,20 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset.DataSetCodBa
             this._commandCollection[0].CommandText = "dbo.spCodigoBarraImpresion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idalmacen", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idPresentacion", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetCodBarra.spCodigoBarraImpresionDataTable dataTable, global::System.Nullable<int> id, global::System.Nullable<int> idalmacen) {
+        public virtual int Fill(DataSetCodBarra.spCodigoBarraImpresionDataTable dataTable, global::System.Nullable<int> idPresentacion) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            if ((idPresentacion.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idPresentacion.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((idalmacen.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(idalmacen.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1350,19 +1460,13 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset.DataSetCodBa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetCodBarra.spCodigoBarraImpresionDataTable GetData(global::System.Nullable<int> id, global::System.Nullable<int> idalmacen) {
+        public virtual DataSetCodBarra.spCodigoBarraImpresionDataTable GetData(global::System.Nullable<int> idPresentacion) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((id.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            if ((idPresentacion.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idPresentacion.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((idalmacen.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(idalmacen.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             DataSetCodBarra.spCodigoBarraImpresionDataTable dataTable = new DataSetCodBarra.spCodigoBarraImpresionDataTable();
             this.Adapter.Fill(dataTable);
