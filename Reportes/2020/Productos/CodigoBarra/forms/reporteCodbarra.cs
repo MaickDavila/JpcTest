@@ -17,10 +17,12 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.forms
     public partial class reporteCodbarra : Imprimir
     {
         public int IdPresentacion { get; set; }
+        public bool IsPresentacion { get; set; }
 
         public reporteCodbarra()
         {
             InitializeComponent();
+            IsPresentacion = true;
         }
 
         private void reporteCodbarra_Load(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.forms
 
                 var ta = new spCodigoBarraImpresionTableAdapter() {Connection = new SqlConnection(DataSetConexion)};
                 var tabla = new DataSetCodBarra.spCodigoBarraImpresionDataTable();
-                ta.Fill(tabla, IdPresentacion);
+                ta.Fill(tabla, IdPresentacion, IsPresentacion);
                 ParametrosReporte("DataSet1", tabla, "2020\\Productos\\CodigoBarra\\CodigoBarraImpresion.rdlc", reportViewer1);
                 this.reportViewer1.RefreshReport();
             }

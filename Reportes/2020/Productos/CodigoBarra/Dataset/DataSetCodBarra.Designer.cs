@@ -281,7 +281,7 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnCod_Barra;
+            private global::System.Data.DataColumn columnCodigoBarra;
             
             private global::System.Data.DataColumn columnDescripcion;
             
@@ -292,8 +292,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             private global::System.Data.DataColumn columnProveedor;
             
             private global::System.Data.DataColumn columnF_Vence;
-            
-            private global::System.Data.DataColumn columnImagen;
             
             private global::System.Data.DataColumn columnPrecio_Unit;
             
@@ -314,8 +312,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             private global::System.Data.DataColumn columnidGrupo;
             
             private global::System.Data.DataColumn columnstockminimo;
-            
-            private global::System.Data.DataColumn columnCodigo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -360,9 +356,9 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Cod_BarraColumn {
+            public global::System.Data.DataColumn CodigoBarraColumn {
                 get {
-                    return this.columnCod_Barra;
+                    return this.columnCodigoBarra;
                 }
             }
             
@@ -403,14 +399,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             public global::System.Data.DataColumn F_VenceColumn {
                 get {
                     return this.columnF_Vence;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ImagenColumn {
-                get {
-                    return this.columnImagen;
                 }
             }
             
@@ -496,14 +484,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CodigoColumn {
-                get {
-                    return this.columnCodigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -541,13 +521,12 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public spCodigoBarraImpresionRow AddspCodigoBarraImpresionRow(
                         int Id, 
-                        string Cod_Barra, 
+                        string CodigoBarra, 
                         string Descripcion, 
                         string U_Medida, 
                         decimal Factor, 
                         string Proveedor, 
                         string F_Vence, 
-                        string Imagen, 
                         decimal Precio_Unit, 
                         int Id_Unidad, 
                         int Id_Producto, 
@@ -557,18 +536,16 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                         int IdAlmacen, 
                         string Grupo, 
                         int idGrupo, 
-                        double stockminimo, 
-                        string Codigo) {
+                        double stockminimo) {
                 spCodigoBarraImpresionRow rowspCodigoBarraImpresionRow = ((spCodigoBarraImpresionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
-                        Cod_Barra,
+                        CodigoBarra,
                         Descripcion,
                         U_Medida,
                         Factor,
                         Proveedor,
                         F_Vence,
-                        Imagen,
                         Precio_Unit,
                         Id_Unidad,
                         Id_Producto,
@@ -578,8 +555,7 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                         IdAlmacen,
                         Grupo,
                         idGrupo,
-                        stockminimo,
-                        Codigo};
+                        stockminimo};
                 rowspCodigoBarraImpresionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowspCodigoBarraImpresionRow);
                 return rowspCodigoBarraImpresionRow;
@@ -603,13 +579,12 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnCod_Barra = base.Columns["Cod_Barra"];
+                this.columnCodigoBarra = base.Columns["CodigoBarra"];
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnU_Medida = base.Columns["U_Medida"];
                 this.columnFactor = base.Columns["Factor"];
                 this.columnProveedor = base.Columns["Proveedor"];
                 this.columnF_Vence = base.Columns["F_Vence"];
-                this.columnImagen = base.Columns["Imagen"];
                 this.columnPrecio_Unit = base.Columns["Precio_Unit"];
                 this.columnId_Unidad = base.Columns["Id_Unidad"];
                 this.columnId_Producto = base.Columns["Id_Producto"];
@@ -620,7 +595,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                 this.columnGrupo = base.Columns["Grupo"];
                 this.columnidGrupo = base.Columns["idGrupo"];
                 this.columnstockminimo = base.Columns["stockminimo"];
-                this.columnCodigo = base.Columns["Codigo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -628,8 +602,8 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnCod_Barra = new global::System.Data.DataColumn("Cod_Barra", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCod_Barra);
+                this.columnCodigoBarra = new global::System.Data.DataColumn("CodigoBarra", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigoBarra);
                 this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescripcion);
                 this.columnU_Medida = new global::System.Data.DataColumn("U_Medida", typeof(string), null, global::System.Data.MappingType.Element);
@@ -640,8 +614,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                 base.Columns.Add(this.columnProveedor);
                 this.columnF_Vence = new global::System.Data.DataColumn("F_Vence", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnF_Vence);
-                this.columnImagen = new global::System.Data.DataColumn("Imagen", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnImagen);
                 this.columnPrecio_Unit = new global::System.Data.DataColumn("Precio_Unit", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrecio_Unit);
                 this.columnId_Unidad = new global::System.Data.DataColumn("Id_Unidad", typeof(int), null, global::System.Data.MappingType.Element);
@@ -662,10 +634,9 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                 base.Columns.Add(this.columnidGrupo);
                 this.columnstockminimo = new global::System.Data.DataColumn("stockminimo", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstockminimo);
-                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigo);
                 this.columnId.AllowDBNull = false;
-                this.columnCod_Barra.MaxLength = 100;
+                this.columnCodigoBarra.ReadOnly = true;
+                this.columnCodigoBarra.MaxLength = 100;
                 this.columnDescripcion.ReadOnly = true;
                 this.columnDescripcion.MaxLength = 505;
                 this.columnU_Medida.AllowDBNull = false;
@@ -674,15 +645,12 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                 this.columnProveedor.MaxLength = 100;
                 this.columnF_Vence.ReadOnly = true;
                 this.columnF_Vence.MaxLength = 61;
-                this.columnImagen.ReadOnly = true;
-                this.columnImagen.MaxLength = 1;
                 this.columnId_Unidad.AllowDBNull = false;
                 this.columnId_Producto.AllowDBNull = false;
                 this.columnStock.ReadOnly = true;
                 this.columnIdPresentacion.AllowDBNull = false;
                 this.columnGrupo.MaxLength = 100;
                 this.columnidGrupo.AllowDBNull = false;
-                this.columnCodigo.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -836,17 +804,17 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Cod_Barra {
+            public string CodigoBarra {
                 get {
                     try {
-                        return ((string)(this[this.tablespCodigoBarraImpresion.Cod_BarraColumn]));
+                        return ((string)(this[this.tablespCodigoBarraImpresion.CodigoBarraColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cod_Barra\' in table \'spCodigoBarraImpresion\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodigoBarra\' in table \'spCodigoBarraImpresion\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespCodigoBarraImpresion.Cod_BarraColumn] = value;
+                    this[this.tablespCodigoBarraImpresion.CodigoBarraColumn] = value;
                 }
             }
             
@@ -917,22 +885,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
                 }
                 set {
                     this[this.tablespCodigoBarraImpresion.F_VenceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Imagen {
-                get {
-                    try {
-                        return ((string)(this[this.tablespCodigoBarraImpresion.ImagenColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Imagen\' in table \'spCodigoBarraImpresion\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablespCodigoBarraImpresion.ImagenColumn] = value;
                 }
             }
             
@@ -1078,30 +1030,14 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Codigo {
-                get {
-                    try {
-                        return ((string)(this[this.tablespCodigoBarraImpresion.CodigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Codigo\' in table \'spCodigoBarraImpresion\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablespCodigoBarraImpresion.CodigoColumn] = value;
-                }
+            public bool IsCodigoBarraNull() {
+                return this.IsNull(this.tablespCodigoBarraImpresion.CodigoBarraColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCod_BarraNull() {
-                return this.IsNull(this.tablespCodigoBarraImpresion.Cod_BarraColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCod_BarraNull() {
-                this[this.tablespCodigoBarraImpresion.Cod_BarraColumn] = global::System.Convert.DBNull;
+            public void SetCodigoBarraNull() {
+                this[this.tablespCodigoBarraImpresion.CodigoBarraColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1138,18 +1074,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetF_VenceNull() {
                 this[this.tablespCodigoBarraImpresion.F_VenceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsImagenNull() {
-                return this.IsNull(this.tablespCodigoBarraImpresion.ImagenColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetImagenNull() {
-                this[this.tablespCodigoBarraImpresion.ImagenColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1222,18 +1146,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetstockminimoNull() {
                 this[this.tablespCodigoBarraImpresion.stockminimoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCodigoNull() {
-                return this.IsNull(this.tablespCodigoBarraImpresion.CodigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCodigoNull() {
-                this[this.tablespCodigoBarraImpresion.CodigoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1397,13 +1309,12 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset.DataSetCodBa
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "spCodigoBarraImpresion";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Cod_Barra", "Cod_Barra");
+            tableMapping.ColumnMappings.Add("CodigoBarra", "CodigoBarra");
             tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
             tableMapping.ColumnMappings.Add("U_Medida", "U_Medida");
             tableMapping.ColumnMappings.Add("Factor", "Factor");
             tableMapping.ColumnMappings.Add("Proveedor", "Proveedor");
             tableMapping.ColumnMappings.Add("F_Vence", "F_Vence");
-            tableMapping.ColumnMappings.Add("Imagen", "Imagen");
             tableMapping.ColumnMappings.Add("Precio_Unit", "Precio_Unit");
             tableMapping.ColumnMappings.Add("Id_Unidad", "Id_Unidad");
             tableMapping.ColumnMappings.Add("Id_Producto", "Id_Producto");
@@ -1414,7 +1325,6 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset.DataSetCodBa
             tableMapping.ColumnMappings.Add("Grupo", "Grupo");
             tableMapping.ColumnMappings.Add("idGrupo", "idGrupo");
             tableMapping.ColumnMappings.Add("stockminimo", "stockminimo");
-            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1435,19 +1345,26 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset.DataSetCodBa
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idPresentacion", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isPresentacion", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetCodBarra.spCodigoBarraImpresionDataTable dataTable, global::System.Nullable<int> idPresentacion) {
+        public virtual int Fill(DataSetCodBarra.spCodigoBarraImpresionDataTable dataTable, global::System.Nullable<int> idPresentacion, global::System.Nullable<bool> isPresentacion) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((idPresentacion.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idPresentacion.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((isPresentacion.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((bool)(isPresentacion.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1460,13 +1377,19 @@ namespace Presentacion.Reportes._2020.Productos.CodigoBarra.Dataset.DataSetCodBa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetCodBarra.spCodigoBarraImpresionDataTable GetData(global::System.Nullable<int> idPresentacion) {
+        public virtual DataSetCodBarra.spCodigoBarraImpresionDataTable GetData(global::System.Nullable<int> idPresentacion, global::System.Nullable<bool> isPresentacion) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((idPresentacion.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idPresentacion.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((isPresentacion.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((bool)(isPresentacion.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             DataSetCodBarra.spCodigoBarraImpresionDataTable dataTable = new DataSetCodBarra.spCodigoBarraImpresionDataTable();
             this.Adapter.Fill(dataTable);
