@@ -33,6 +33,10 @@
           <DataField>codigoBarra</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="descripcion">
+          <DataField>descripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="nombreProducto">
           <DataField>nombreProducto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -45,16 +49,16 @@
           <DataField>nombreMarca</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="descripcion">
-          <DataField>descripcion</DataField>
+        <Field Name="descripcion1">
+          <DataField>descripcion1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Stock">
           <DataField>Stock</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="descripcion1">
-          <DataField>descripcion1</DataField>
+        <Field Name="descripcion2">
+          <DataField>descripcion2</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="fechavencimiento">
@@ -234,7 +238,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>

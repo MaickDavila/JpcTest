@@ -142,12 +142,12 @@ namespace Presentacion.Reportes
         {                    
             try
             {
-                DataTable FormatoRest = new DataTable();
+                var FormatoRest = new DataTable();
                 FormatoRest = new VariablesGlobales().N_Venta1.FormatoRest(IdMesa, IdPiso);
 
                 var distribucion = VariablesGlobales.GrupoImpresorasConfig.Impresoras
                     .FindAll(item => item.Enabled == true).Count > 0;
-                if (distribucion) LogicaDistribucion(FormatoRest);
+                if (distribucion) await LogicaDistribucion(FormatoRest);
 
                 var configRestaurant = VariablesGlobales.ConfigJson.Tickets.Find(item => item.Tag == "restaurant");
                 var configDefault = configRestaurant.Items.Find(item => item.Name == "default");
@@ -166,10 +166,7 @@ namespace Presentacion.Reportes
             }
             finally
             {
-                string result = new VariablesGlobales().N_Venta1.ResetarTemp(int.Parse(IdMesa.ToString()), IdPiso);
-
-                //if (Mensaje == null)
-                //    MessageBox.Show("EL TICKET NO SE ELIMINÓ, PORFAVOR CONTACTESE: " + "\n- JORGE PUGA DE LA CRUZ, TELF. 970637964." + "\nMAICK DÁVILA JESÚS, TELF. 970637964", Sistema + "- Puede que se vuelva a imprimir el ticker al cobrar el pedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                new VariablesGlobales().N_Venta1.ResetarTemp(int.Parse(IdMesa.ToString()), IdPiso);
             }
         }
 
