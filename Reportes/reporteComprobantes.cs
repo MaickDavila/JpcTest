@@ -133,16 +133,16 @@ namespace Presentacion.Reportes
                 string PARA = "Para";
                 ReportParameter[] parameters = new ReportParameter[11];
                 parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
-                parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
-                parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
-                parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
-                parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
-                parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
-                parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
-                parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
+                parameters[1] = new ReportParameter(PARA + "RAZON", VariablesGlobales.ConfiguracionGeneral.RazonSocial, true);
+                parameters[2] = new ReportParameter(PARA + "NOMBRECOM", VariablesGlobales.ConfiguracionGeneral.NombreComercial, true);
+                parameters[3] = new ReportParameter(PARA + "RUC", VariablesGlobales.ConfiguracionGeneral.Ruc, true);
+                parameters[4] = new ReportParameter(PARA + "TELEFONO", VariablesGlobales.ConfiguracionGeneral.Telefono, true);
+                parameters[5] = new ReportParameter(PARA + "DIRECCION", VariablesGlobales.ConfiguracionGeneral.Direccion, true);
+                parameters[6] = new ReportParameter(PARA + "WEB", VariablesGlobales.ConfiguracionGeneral.Web, true);
+                parameters[7] = new ReportParameter(PARA + "EMAIL", VariablesGlobales.ConfiguracionGeneral.Correo, true);
                 parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
-                parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
-                parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
+                parameters[9] = new ReportParameter(PARA + "CIUDAD", VariablesGlobales.ConfiguracionGeneral.Ciudad, true);
+                parameters[10] = new ReportParameter(PARA + "DISTRITO", VariablesGlobales.ConfiguracionGeneral.Distrito, true);
                 relatorio.EnableExternalImages = true;
 
                 relatorio.SetParameters(parameters);
@@ -213,16 +213,16 @@ namespace Presentacion.Reportes
                 string PARA = "Para";
                 ReportParameter[] parameters = new ReportParameter[11];
                 parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + RutaQr, true);
-                parameters[1] = new ReportParameter(PARA + "RAZON", Razon, true);
-                parameters[2] = new ReportParameter(PARA + "NOMBRECOM", Nombrecom, true);
-                parameters[3] = new ReportParameter(PARA + "RUC", RucEmpresa, true);
-                parameters[4] = new ReportParameter(PARA + "TELEFONO", Telefono, true);
-                parameters[5] = new ReportParameter(PARA + "DIRECCION", Direccion, true);
-                parameters[6] = new ReportParameter(PARA + "WEB", Web, true);
-                parameters[7] = new ReportParameter(PARA + "EMAIL", Email, true);
+                parameters[1] = new ReportParameter(PARA + "RAZON", VariablesGlobales.ConfiguracionGeneral.RazonSocial, true);
+                parameters[2] = new ReportParameter(PARA + "NOMBRECOM",  VariablesGlobales.ConfiguracionGeneral.NombreComercial, true);
+                parameters[3] = new ReportParameter(PARA + "RUC", VariablesGlobales.ConfiguracionGeneral.Ruc, true);
+                parameters[4] = new ReportParameter(PARA + "TELEFONO", VariablesGlobales.ConfiguracionGeneral.Telefono, true);
+                parameters[5] = new ReportParameter(PARA + "DIRECCION", VariablesGlobales.ConfiguracionGeneral.Direccion, true);
+                parameters[6] = new ReportParameter(PARA + "WEB", VariablesGlobales.ConfiguracionGeneral.Web, true);
+                parameters[7] = new ReportParameter(PARA + "EMAIL", VariablesGlobales.ConfiguracionGeneral.Correo, true);
                 parameters[8] = new ReportParameter(PARA + "LOGO", @"file:////" + RutaLogo, true);
-                parameters[9] = new ReportParameter(PARA + "CIUDAD", Ciudad, true);
-                parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
+                parameters[9] = new ReportParameter(PARA + "CIUDAD", VariablesGlobales.ConfiguracionGeneral.Ciudad, true);
+                parameters[10] = new ReportParameter(PARA + "DISTRITO", VariablesGlobales.ConfiguracionGeneral.Distrito, true);
                 relatorio.EnableExternalImages = true;
 
                 
