@@ -204,101 +204,101 @@
           <DataField>Fecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Id1">
-          <DataField>Id1</DataField>
+        <Field Name="cortesia">
+          <DataField>cortesia</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="delivery">
+          <DataField>delivery</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="llevar">
+          <DataField>llevar</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="countPecho">
+          <DataField>countPecho</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="IdProducto">
-          <DataField>IdProducto</DataField>
+        <Field Name="countPierna">
+          <DataField>countPierna</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="textObservation">
+          <DataField>textObservation</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fecha_apertura">
+          <DataField>fecha_apertura</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Id1">
+          <DataField>Id1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="descripcion">
           <DataField>descripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PrecioUnit">
-          <DataField>PrecioUnit</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="IdVenta">
-          <DataField>IdVenta</DataField>
+        <Field Name="codigoSunat">
+          <DataField>codigoSunat</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Flag">
-          <DataField>Flag</DataField>
+        <Field Name="estado">
+          <DataField>estado</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="Anulado1">
-          <DataField>Anulado1</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Cantidad">
-          <DataField>Cantidad</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Subtotal1">
-          <DataField>Subtotal1</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Igv1">
-          <DataField>Igv1</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Descuento1">
-          <DataField>Descuento1</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Total">
-          <DataField>Total</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="IdUnidad">
-          <DataField>IdUnidad</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Factor">
-          <DataField>Factor</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Adicional1">
-          <DataField>Adicional1</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Adicional2">
-          <DataField>Adicional2</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Adicional3">
-          <DataField>Adicional3</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Adicional4">
-          <DataField>Adicional4</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CodigoBarra">
-          <DataField>CodigoBarra</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="igv_incluido">
-          <DataField>igv_incluido</DataField>
+        <Field Name="flag">
+          <DataField>flag</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="Id2">
           <DataField>Id2</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="idProductosDetalle">
-          <DataField>idProductosDetalle</DataField>
+        <Field Name="Codigo">
+          <DataField>Codigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Descripcion1">
+          <DataField>Descripcion1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Estado1">
+          <DataField>Estado1</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Flag1">
+          <DataField>Flag1</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Id3">
+          <DataField>Id3</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="idUnidad1">
-          <DataField>idUnidad1</DataField>
+        <Field Name="idDocumento1">
+          <DataField>idDocumento1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="precioUnitario">
-          <DataField>precioUnitario</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="numeroDocumento">
+          <DataField>numeroDocumento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="razonSocial1">
+          <DataField>razonSocial1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nombreComercial">
+          <DataField>nombreComercial</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="telefono">
+          <DataField>telefono</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="correo">
+          <DataField>correo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="usuarioCrea1">
           <DataField>usuarioCrea1</DataField>
@@ -316,232 +316,24 @@
           <DataField>fechaModifica1</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="estado">
-          <DataField>estado</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="flag1">
-          <DataField>flag1</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Principal">
-          <DataField>Principal</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Id3">
-          <DataField>Id3</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="idProducto1">
-          <DataField>idProducto1</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="idTalla">
-          <DataField>idTalla</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="idColores">
-          <DataField>idColores</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="stockinicial">
-          <DataField>stockinicial</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="stockactual">
-          <DataField>stockactual</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="stockminimo">
-          <DataField>stockminimo</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="fechavencimiento">
-          <DataField>fechavencimiento</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="descripcion1">
-          <DataField>descripcion1</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoBarra1">
-          <DataField>codigoBarra1</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="imagenProducto">
-          <DataField>imagenProducto</DataField>
-          <rd:TypeName>System.Byte[]</rd:TypeName>
-        </Field>
-        <Field Name="usuarioCrea2">
-          <DataField>usuarioCrea2</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="fechaCrea2">
-          <DataField>fechaCrea2</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="usuarioModifica2">
-          <DataField>usuarioModifica2</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="fechaModifica2">
-          <DataField>fechaModifica2</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="estado1">
-          <DataField>estado1</DataField>
+        <Field Name="estado2">
+          <DataField>estado2</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="flag2">
           <DataField>flag2</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="idmedida">
-          <DataField>idmedida</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="checkStock">
-          <DataField>checkStock</DataField>
+        <Field Name="delivery1">
+          <DataField>delivery1</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="nacionalidad">
+          <DataField>nacionalidad</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Id4">
           <DataField>Id4</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="nombreProducto">
-          <DataField>nombreProducto</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="idMarca">
-          <DataField>idMarca</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="IdSegmento">
-          <DataField>IdSegmento</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdFamilia">
-          <DataField>IdFamilia</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdClase">
-          <DataField>IdClase</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="usuarioCrea3">
-          <DataField>usuarioCrea3</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="fechaCrea3">
-          <DataField>fechaCrea3</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="usuarioModifica3">
-          <DataField>usuarioModifica3</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="fechaModifica3">
-          <DataField>fechaModifica3</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="estado2">
-          <DataField>estado2</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="flag3">
-          <DataField>flag3</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="idproveedor">
-          <DataField>idproveedor</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="IdTipoProducto">
-          <DataField>IdTipoProducto</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="IdProductoSunat">
-          <DataField>IdProductoSunat</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IdGrupo">
-          <DataField>IdGrupo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Id5">
-          <DataField>Id5</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Descripcion2">
-          <DataField>Descripcion2</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="UsuarioCrea4">
-          <DataField>UsuarioCrea4</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FechaCrea4">
-          <DataField>FechaCrea4</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="UsuarioModifica4">
-          <DataField>UsuarioModifica4</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FechaModifica4">
-          <DataField>FechaModifica4</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Estado3">
-          <DataField>Estado3</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Flag4">
-          <DataField>Flag4</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Id6">
-          <DataField>Id6</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="descripcion3">
-          <DataField>descripcion3</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="codigoSunat">
-          <DataField>codigoSunat</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="estado4">
-          <DataField>estado4</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="flag5">
-          <DataField>flag5</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Id7">
-          <DataField>Id7</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Codigo">
-          <DataField>Codigo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Descripcion4">
-          <DataField>Descripcion4</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Estado5">
-          <DataField>Estado5</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Flag6">
-          <DataField>Flag6</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Id8">
-          <DataField>Id8</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="idtipoUsuario">
@@ -560,8 +352,8 @@
           <DataField>Direccion1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="telefono">
-          <DataField>telefono</DataField>
+        <Field Name="telefono1">
+          <DataField>telefono1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="usuario">
@@ -572,37 +364,45 @@
           <DataField>pass</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="usuarioCrea5">
-          <DataField>usuarioCrea5</DataField>
+        <Field Name="usuarioCrea2">
+          <DataField>usuarioCrea2</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="fechaCrea5">
-          <DataField>fechaCrea5</DataField>
+        <Field Name="fechaCrea2">
+          <DataField>fechaCrea2</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="usuarioModifica5">
-          <DataField>usuarioModifica5</DataField>
+        <Field Name="usuarioModifica2">
+          <DataField>usuarioModifica2</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="fechaModifica5">
-          <DataField>fechaModifica5</DataField>
+        <Field Name="fechaModifica2">
+          <DataField>fechaModifica2</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="estado6">
-          <DataField>estado6</DataField>
+        <Field Name="estado3">
+          <DataField>estado3</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="flag7">
-          <DataField>flag7</DataField>
+        <Field Name="flag3">
+          <DataField>flag3</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="Correo">
-          <DataField>Correo</DataField>
+        <Field Name="Correo1">
+          <DataField>Correo1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Foto">
           <DataField>Foto</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="is_cobrador">
+          <DataField>is_cobrador</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="verVentas">
+          <DataField>verVentas</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="TipoDoc">
           <DataField>TipoDoc</DataField>
@@ -612,17 +412,9 @@
           <DataField>D_DOC</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="nombre1">
-          <DataField>nombre1</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ImporteTotal">
-          <DataField>ImporteTotal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Descripcion5">
-          <DataField>Descripcion5</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="nacionalidad1">
+          <DataField>nacionalidad1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -958,7 +750,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -994,8 +785,243 @@
               </Border>
             </Style>
           </Tablix>
+          <Tablix Name="Tablix2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Vendedor</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox15">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="nombre">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!nombre.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>nombre</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1Ventas</DataSetName>
+            <Top>1.44142cm</Top>
+            <Left>8.56933cm</Left>
+            <Height>1.2cm</Height>
+            <Width>7.5cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
         </ReportItems>
-        <Height>0.20893in</Height>
+        <Height>1.03993in</Height>
         <Style />
       </Body>
       <Width>7.48768in</Width>

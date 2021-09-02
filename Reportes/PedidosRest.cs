@@ -188,7 +188,7 @@ namespace Presentacion.Reportes
                 parameters[0] = new ReportParameter(PARA + "QR", @"file:////" + VariablesGlobales.RutaQr, true);
                 parameters[1] = new ReportParameter(PARA + "RAZON", VariablesGlobales.Razon, true);
                 parameters[2] = new ReportParameter(PARA + "NOMBRECOM", VariablesGlobales.Nombrecom, true);
-                parameters[3] = new ReportParameter(PARA + "RUC", new VariablesGlobales().RucEmpresa, true);
+                parameters[3] = new ReportParameter(PARA + "RUC", VariablesGlobales.RucEmpresa, true);
                 parameters[4] = new ReportParameter(PARA + "TELEFONO", VariablesGlobales.Telefono, true);
                 parameters[5] = new ReportParameter(PARA + "DIRECCION", VariablesGlobales.Direccion, true);
                 parameters[6] = new ReportParameter(PARA + "WEB", VariablesGlobales.Web, true);
