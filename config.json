@@ -5,7 +5,7 @@
       "items": [
         {
           "name": "default",
-          "state": false,
+          "state": true,
           "printers": [
             {
               "id": 1,
