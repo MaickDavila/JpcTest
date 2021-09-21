@@ -61,7 +61,7 @@ namespace Presentacion.Reportes
             try
             {
                 string BolFac = "";
-               
+
                 foreach (DataRow r in N_Venta1.BuscarVentasId(IdVenta).Rows)
                 {
                     SeleccionRow = r;
@@ -70,21 +70,27 @@ namespace Presentacion.Reportes
                     break;
                 }
                 //MessageBox.Show($"despues de LLenar");
-                
+
                 NombreCPE = RucEmpresa + "-" + BolFac + "-" + NumeroFac;
                 RutaQr = RutaFacturador + @"CODIGOBARRA\" + RucEmpresa + "-" + BolFac + "-" + NumeroFac + ".Bmp";
                 RutaLogo = RutaFacturador + @"LOGO\logoempresa.jpg";
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message,"IMPRESION COMPROBANTE - LLENAR DATOS"); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"IMPRESION COMPROBANTE - LLENAR DATOS");
+            }
         }
         void LLenar_2()
         {
             try
-            {                
+            {
                 RutaQr = RutaFacturador + @"CODIGOBARRA\" + NombreCPE + ".Bmp";
                 RutaLogo = RutaFacturador + @"LOGO\logoempresa.jpg";
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "IMPRESION COMPROBANTE - LLENAR DATOS"); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "IMPRESION COMPROBANTE - LLENAR DATOS");
+            }
         }
         public void GENERARPDF_()
         {
@@ -309,7 +315,7 @@ namespace Presentacion.Reportes
                 dynamic message2 = ex.InnerException.InnerException;
                 if (message2 != null) message2 = message2.Message;
                 else message2 = "";
-                MessageBox.Show(ex.Message + "\n" + ex.InnerException.Message + "\n" + message2, "IMPRESION COMPROBANTE ");
+                MessageBox.Show(ex.Message + "\n" + ex.InnerException.Message + "\n" + message2, "IMPRESION COMPROBANTE");
             }
             finally
             {

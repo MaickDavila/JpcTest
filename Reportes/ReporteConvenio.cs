@@ -36,12 +36,15 @@ namespace Presentacion.Reportes
         {
             try
             {
-                
+
+
+               
 
                 AsignarImpresoras();
                 ImpresorasNameEleccion(1);
  
                 DataTable tabla = N_Venta1.FormatoConvenio(IdConvenio);
+                var count = tabla.Rows.Count;
 
                 ReportDataSource dataSource = new ReportDataSource("DataSet1", (DataTable)tabla);
 
@@ -63,10 +66,35 @@ namespace Presentacion.Reportes
                 parameters[10] = new ReportParameter(PARA + "DISTRITO", Distrito, true);
                 relatorio.EnableExternalImages = true;
 
+                //
+                var pcName = Environment.MachineName.Trim().ToLower();
+                var pcConfig = ConfigJson.Caja.Pcs.Find(item => item.Nombre.ToLower().ToLower() == pcName && item.Enabled);
+                if (pcConfig == null)
+                {
+                    MessageBox.Show($"Ocurrio un problema, aun no configura sus impresoras de caja para esta Pc!");
+                    return;
+                }
+
+                List<Inicio.Impresora> impresorasParametrisadas = null;
+                impresorasParametrisadas = (from row in pcConfig.Impresoras
+                    where row.Limit >= count
+                    orderby row.Limit ascending
+                    select row).ToList();
+                //                        
+                var impresoraSeleccionada = impresorasParametrisadas.Count > 0 ? impresorasParametrisadas[0] : null;
+                if (impresoraSeleccionada == null)
+                {
+                    MessageBox.Show(@"Por favor, antes de continuar tendrá que configurar los parámetros de impresion en caja!", Sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                //
+
+                //
+                ImpresoranNow = impresoraSeleccionada.Nombre;
+                //
+
                 relatorio.SetParameters(parameters);
-
                 Exportar(relatorio);
-
                 Imprimirr(relatorio);
             }
             catch (Exception ex)
