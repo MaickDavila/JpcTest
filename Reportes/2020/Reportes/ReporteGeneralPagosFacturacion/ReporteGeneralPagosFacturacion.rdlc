@@ -112,10 +112,10 @@
                   <Width>1.69333cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.83869cm</Width>
+                  <Width>6.52119cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.47354cm</Width>
+                  <Width>2.15604cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.75917cm</Width>
@@ -124,16 +124,16 @@
                   <Width>2.55291cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.93689cm</Width>
+                  <Width>2.61878cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.26188cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.36771cm</Width>
+                  <Width>1.98438cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.02375cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1642,7 +1642,7 @@
             <Top>0.14499cm</Top>
             <Left>0.09525cm</Left>
             <Height>1.8cm</Height>
-            <Width>29.00828cm</Width>
+            <Width>27.19559cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1653,7 +1653,7 @@
         <Height>1.94499cm</Height>
         <Style />
       </Body>
-      <Width>29.52687cm</Width>
+      <Width>27.29084cm</Width>
       <Page>
         <PageHeader>
           <Height>1.74625cm</Height>
@@ -1711,9 +1711,9 @@
               </Paragraphs>
               <rd:DefaultName>ParaRAZON</rd:DefaultName>
               <Top>0.81153cm</Top>
-              <Left>0.3175cm</Left>
+              <Left>0.09525cm</Left>
               <Height>0.58194cm</Height>
-              <Width>27.92645cm</Width>
+              <Width>27.19559cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>

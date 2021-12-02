@@ -68,8 +68,7 @@ namespace Presentacion.Reportes
                     BolFac = Valor("IdDocumento", true);
                     NumeroFac = Valor("SerieDoc", true) + "-" + Valor("NumeroDoc", true);
                     break;
-                }
-                //MessageBox.Show($"despues de LLenar");
+                }                 
 
                 NombreCPE = RucEmpresa + "-" + BolFac + "-" + NumeroFac;
                 RutaQr = RutaFacturador + @"CODIGOBARRA\" + RucEmpresa + "-" + BolFac + "-" + NumeroFac + ".Bmp";
@@ -212,8 +211,7 @@ namespace Presentacion.Reportes
                 dataSourceCronograma.Name = "DataSet2";
 
                 LocalReport relatorio = new LocalReport();
-                ReporteNow = "default.rdcl";
-                //relatorio.ReportPath = RutaReportes + ReporteNow;
+                ReporteNow = "default.rdcl";                 
                 relatorio.DataSources.Add(dataSource);
                 relatorio.DataSources.Add(dataSourceCronograma);
                 string PARA = "Para";

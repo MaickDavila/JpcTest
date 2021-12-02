@@ -14,14 +14,15 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
     {
         DateTime _FechaInicio, _FechaFin;
         public int IdCliente { get; set; }
+        public DateTime FechaInicio { get => _FechaInicio; set => _FechaInicio = value; }
+        public DateTime FechaFin { get => _FechaFin; set => _FechaFin = value; }
+        public int IdUsuarioVendedor { get; set; }
+        public bool OnlyDedudas { get; set; }
+
         public ReporteGeneralPagosFacturacionForm()
         {
             InitializeComponent();
         }
-
-        public DateTime FechaInicio { get => _FechaInicio; set => _FechaInicio = value; }
-        public DateTime FechaFin { get => _FechaFin; set => _FechaFin = value; }
-        public int IdUsuarioVendedor { get; set; }
 
         private void ReporteGeneralPagosFacturacionForm_Load(object sender, EventArgs e)
         {
@@ -33,11 +34,11 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
             try
             {
 
-                ReporteGeneralPagosFacturacion.Dataset.ReporteGeneralPagosFacturacionDataSetTableAdapters.sp_reporte_general_pagos_facturacionTableAdapter ta = new Dataset.ReporteGeneralPagosFacturacionDataSetTableAdapters.sp_reporte_general_pagos_facturacionTableAdapter();
+                Dataset.ReporteGeneralPagosFacturacionDataSetTableAdapters.sp_reporte_general_pagos_facturacionTableAdapter ta = new Dataset.ReporteGeneralPagosFacturacionDataSetTableAdapters.sp_reporte_general_pagos_facturacionTableAdapter();
                 ta.Connection = new System.Data.SqlClient.SqlConnection(DataSetConexion);
-                
-                ReporteGeneralPagosFacturacion.Dataset.ReporteGeneralPagosFacturacionDataSet.sp_reporte_general_pagos_facturacionDataTable tabla = new Dataset.ReporteGeneralPagosFacturacionDataSet.sp_reporte_general_pagos_facturacionDataTable();
-                ta.Fill(tabla, FechaInicio, FechaFin,IdCliente, IdUsuarioVendedor);
+
+                Dataset.ReporteGeneralPagosFacturacionDataSet.sp_reporte_general_pagos_facturacionDataTable tabla = new Dataset.ReporteGeneralPagosFacturacionDataSet.sp_reporte_general_pagos_facturacionDataTable();
+                ta.Fill(tabla, FechaInicio, FechaFin,IdCliente, IdUsuarioVendedor, OnlyDedudas);
 
 
 
