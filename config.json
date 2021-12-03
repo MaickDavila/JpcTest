@@ -132,7 +132,7 @@
   "almacen_movimiento": {
     "users": [
       {
-        "idUsuario": 20,
+        "idUsuario": 16,
         "acciones": [
           {
             "key": "entrada",
