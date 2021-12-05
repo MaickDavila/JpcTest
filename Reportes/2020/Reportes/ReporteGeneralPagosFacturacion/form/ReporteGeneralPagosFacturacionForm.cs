@@ -42,7 +42,7 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
 
 
 
-                ParametrosReporte("DataSet1", (DataTable)tabla, "2020\\Reportes\\ReporteGeneralPagosFacturacion\\ReporteGeneralPagosFacturacion.rdlc", reportViewer1);
+                ParametrosReporte("DataSet1", tabla, "2020\\Reportes\\ReporteGeneralPagosFacturacion\\ReporteGeneralPagosFacturacion.rdlc", reportViewer1);
 
             }
             catch (Exception e)

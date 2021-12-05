@@ -50,8 +50,7 @@ namespace Presentacion.Reportes
         }
 
         private void reporteComprobantes_Load(object sender, EventArgs e)
-        {
-            
+        {            
             if (!Pdf) Imprimir();
             else GENERARPDF_();
             Close();
@@ -195,13 +194,15 @@ namespace Presentacion.Reportes
                 DataTable cronograma = N_Venta1.SpGetReporteVentaCronogramaByIdVenta(IdVenta);
 
 
-
+                var total = 0.00;
                 if(tabla.Rows.Count > 0)
                 {
                     string aux = tabla.Rows[0]["IdFormaPago"].ToString();
                     int idFormaPago = 0;
                     int.TryParse(aux, out idFormaPago);
                     esCredito = idFormaPago == 2;
+                    aux = tabla.Rows[0]["Total"].ToString();
+                    double.TryParse(aux, out total);
                 }
 
                 ReportDataSource dataSource = new ReportDataSource("DataSet1", tabla);
@@ -307,6 +308,14 @@ namespace Presentacion.Reportes
                     break;
                 }
                 relatorio.Dispose();
+
+
+                if(total >= VariablesGlobales.SorteMonto)
+                {
+                    _2020.Ventas.ReporteSorteo.forms.reporteSorteoForm sorteo = new _2020.Ventas.ReporteSorteo.forms.reporteSorteoForm();
+                    sorteo.IdVenta = IdVenta;
+                    sorteo.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
@@ -319,6 +328,14 @@ namespace Presentacion.Reportes
             {
                 GuardarRuta();
             }
+        }
+
+        private void ImprimirSorte()
+        {
+            if (!VariablesGlobales.SorteEstado)
+                return;
+            
+
         }
         void GuardarRuta()
         {
