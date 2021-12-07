@@ -201,7 +201,7 @@ namespace Presentacion.Reportes
                     int idFormaPago = 0;
                     int.TryParse(aux, out idFormaPago);
                     esCredito = idFormaPago == 2;
-                    aux = tabla.Rows[0]["Total"].ToString();
+                    aux = tabla.Rows[0]["TotalVenta"].ToString();
                     double.TryParse(aux, out total);
                 }
 

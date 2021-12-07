@@ -20,7 +20,8 @@ namespace Presentacion.Reportes._2020.Ventas.ReporteSorteo.forms
 
         private void reporteSorteoForm_Load(object sender, EventArgs e)
         {
-            Imprimir();             
+            Imprimir();
+            Close();
         }
 
         void LLenar()
@@ -114,6 +115,7 @@ namespace Presentacion.Reportes._2020.Ventas.ReporteSorteo.forms
                     relatorio.ReportPath = RutaReportes + ReporteNow;
                     //
                     relatorio.SetParameters(parameters);
+                    ObiarCopias = true;
                     Exportar(relatorio);
                     Imprimirr(relatorio);
                     //                     
