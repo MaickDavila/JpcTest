@@ -79,7 +79,7 @@
           "ver_deuda": true
         },
         {
-          "idUsuario": 5,
+          "idUsuario": 16,
           "ver_convenios": false,
           "pagar_deuda": true,
           "editar_forma_pago": true,
