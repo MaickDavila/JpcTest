@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.Vml;
+
 using Microsoft.Reporting.WinForms;
 
 namespace Presentacion.Reportes
@@ -307,10 +309,9 @@ namespace Presentacion.Reportes
                     //if (!ImpresorasNameEleccion_Almacen()) break;
                     break;
                 }
-                relatorio.Dispose();
+                relatorio.Dispose();                  
 
-
-                if(total >= VariablesGlobales.SorteMonto)
+                if (total >= VariablesGlobales.SorteMonto && VariablesGlobales.SorteEstado)
                 {
                     _2020.Ventas.ReporteSorteo.forms.reporteSorteoForm sorteo = new _2020.Ventas.ReporteSorteo.forms.reporteSorteoForm();
                     sorteo.IdVenta = IdVenta;

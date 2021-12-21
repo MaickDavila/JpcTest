@@ -460,6 +460,10 @@
           <DataField>IdDocumento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="telefono1">
+          <DataField>telefono1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SistemaDataSet</rd:DataSetName>
@@ -1948,14 +1952,102 @@ Facturación Electrónica - 977266610</Value>
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="IdCabCpe">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>*</Value>
+                    <Style>
+                      <FontFamily>Free 3 of 9</FontFamily>
+                      <FontSize>48pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!IdCabCpe.Value, "DataSet1")</Value>
+                    <Style>
+                      <FontFamily>Free 3 of 9</FontFamily>
+                      <FontSize>48pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>*</Value>
+                    <Style>
+                      <FontFamily>Free 3 of 9</FontFamily>
+                      <FontSize>48pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>IdCabCpe</rd:DefaultName>
+            <Top>4.02863cm</Top>
+            <Left>9.62767cm</Left>
+            <Height>1.5525cm</Height>
+            <Width>10.38458cm</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="IdCabCpe1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Mov.: </Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Label>id_cab_cpe</Label>
+                    <Value>=First(Fields!IdCabCpe.Value, "DataSet1")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>IdCabCpe1</rd:DefaultName>
+            <Top>5.58113cm</Top>
+            <Left>14.97225cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.04cm</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>9.53042cm</Height>
+        <Height>6.18113cm</Height>
         <Style />
       </Body>
       <Width>20.13865cm</Width>
       <Page>
         <PageHeader>
-          <Height>5.658cm</Height>
+          <Height>6.02312cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2247,6 +2339,20 @@ Facturación Electrónica - 977266610</Value>
                         <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve">
+</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Label>Telefono</Label>
+                      <Value>=First(Fields!telefono1.Value, "DataSet1")</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
@@ -2254,7 +2360,7 @@ Facturación Electrónica - 977266610</Value>
               <rd:DefaultName>RazonSocial</rd:DefaultName>
               <Top>3.71308cm</Top>
               <Left>3.2553cm</Left>
-              <Height>1.14245cm</Height>
+              <Height>1.64654cm</Height>
               <Width>11.64444cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
@@ -2318,11 +2424,24 @@ Facturación Electrónica - 977266610</Value>
                     <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>TELÉFONO:</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
               </Paragraphs>
               <rd:DefaultName>TipoGlosa</rd:DefaultName>
               <Top>3.71308cm</Top>
               <Left>0.21189cm</Left>
-              <Height>1.14245cm</Height>
+              <Height>1.64654cm</Height>
               <Width>3.04341cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
@@ -2438,7 +2557,7 @@ Facturación Electrónica - 977266610</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>5.21851cm</Top>
+              <Top>5.59951cm</Top>
               <Left>0.23306cm</Left>
               <Height>0.42361cm</Height>
               <Width>19.72626cm</Width>
