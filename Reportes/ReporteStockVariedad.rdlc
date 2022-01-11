@@ -55,7 +55,7 @@
         </Field>
         <Field Name="Stock">
           <DataField>Stock</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="descripcion2">
           <DataField>descripcion2</DataField>
@@ -69,10 +69,14 @@
           <DataField>precioUnitario</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="PCompra">
+          <DataField>PCompra</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>StockVariedad</rd:DataSetName>
-        <rd:SchemaPath>D:\DESAROLLO\JPC\Jpc-Consultings-old\Sistema\Presentacion\StockVariedad.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Desarrollo\JpcConsultings\Sistema\Presentacion\StockVariedad.xsd</rd:SchemaPath>
         <rd:TableName>spListaStock</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
