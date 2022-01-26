@@ -927,7 +927,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetInventarioDetalleForAuditoria",
-    "Content": "CREATE proc SpGetInventarioDetalleForAuditoria@idInventario intasselect 0 as 'id',0 as 'IdAuditoria',i.Id 'IdInventarioDetalle',p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',g.Descripcion 'grupo',id.Zona,id.Stand,stock.Saldo,0 as 'conteo',0 as 'diferencia',0 as 'stockActual',0 as 'diferenciaFinal'from mst_Inventario_Detalle id inner join mst_Inventario i on id.Id_Inventario = i.Idinner join mst_ProductoDetalle pd on id.Id_Producto=pd.Idinner join mst_Producto p on pd.idProducto = p.Idinner join mst_Grupo g on p.IdGrupo = g.Idinner join mst_UnidadMedida um on id.IdUnidad = um.Idinner join Stocks_Acumulados stock on id.Id_Producto = stock.IdProducto and i.Id_Almacen = stock.IdAlmacenwhere Id_Inventario = @idInventarioand id.Estado = 1 and id.Flag = 1"
+    "Content": "CREATE proc SpGetInventarioDetalleForAuditoria@idInventario intasselect 0 as 'id',0 as 'IdAuditoria',i.Id 'IdInventarioDetalle',p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',g.Descripcion 'grupo',id.Zona,id.Stand,stock.Saldo 'Stock',0 as 'conteo',0 as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal'from mst_Inventario_Detalle id inner join mst_Inventario i on id.Id_Inventario = i.Idinner join mst_ProductoDetalle pd on id.Id_Producto=pd.Idinner join mst_Producto p on pd.idProducto = p.Idinner join mst_Grupo g on p.IdGrupo = g.Idinner join mst_UnidadMedida um on id.IdUnidad = um.Idinner join Stocks_Acumulados stock on id.Id_Producto = stock.IdProducto and i.Id_Almacen = stock.IdAlmacenwhere Id_Inventario = @idInventarioand id.Estado = 1 and id.Flag = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
