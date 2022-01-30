@@ -492,7 +492,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetAuditoria",
-    "Content": "CREATE proc SpGetAuditoriaasselectid,CONCAT(Serie, '-', Numero) 'serie',Fecha,InventarioId,Usuario,FechaModifica,UsuarioModificafrom Auditoria"
+    "Content": "CREATE proc SpGetAuditoriaasselectid,CONCAT(Serie, '-', Numero) 'serie',Fecha,InventarioId,Usuario,FechaModifica,UsuarioModificafrom AuditoriaORDER BY id desc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -532,7 +532,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetAuditoriaByInventarioId",
-    "Content": "create proc SpGetAuditoriaByInventarioId@inventarioId intasselect * from Auditoriawhere InventarioId = @inventarioId"
+    "Content": "CREATE proc SpGetAuditoriaByInventarioId@inventarioId intasselect * from Auditoriawhere InventarioId = @inventarioIdORDER BY id desc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1827,7 +1827,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetAuditoriaById",
-    "Content": "create proc SpGetAuditoriaById@id intasselectid,CONCAT(Serie, '-', Numero) 'serie',Fecha,InventarioId,Usuario,FechaModifica,UsuarioModificafrom Auditoriawhere id = @id"
+    "Content": "CREATE proc SpGetAuditoriaById@id intasselectid,CONCAT(Serie, '-', Numero) 'serie',Fecha,InventarioId,Usuario,FechaModifica,UsuarioModificafrom Auditoriawhere id = @idorder by id desc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2187,7 +2187,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spIngresarOtrosImpuestos_Preventa",
-    "Content": "CREATE proc [dbo].[spIngresarOtrosImpuestos_Preventa]@id int,@bit bit,@esconvenio bitasDECLARE @total money = 0if(@bit = 0)\tbegin\t\tif(@esconvenio = 0)\t\t\tbegin\t\t\t\tset @total = (select SUM(Cantidad) \t\t\t\tfrom tabla_Pre_Venta_Detalle pvd\t\t\t\tinner join mst_ProductoPresentacion pp on pvd.IdProducto = pp.Id\t\t\t\tinner join mst_ProductoDetalle pd on pp.idProductosDetalle = pd.Id\t\t\t\tinner join mst_Producto p on pd.idProducto = p.Id\t\t\t\tinner join mst_Grupo g on p.IdGrupo = g.Id\t\t\t\t \t\t\t\tinner join tabla_Pre_Venta pedido on pvd.IdPedido = pedido.IdPedido\t\t\t\twhere pvd.IdPedido = @id and pvd.Pagado = 0 and pvd.Eliminado = 0 and (g.Descripcion = 'BOLSA' or g.Descripcion = 'BOLSAS') and pedido.BolFac <> '99')\t\t\tend\t\telse\t\t\tbegin\t\t\t\tset @total = (select SUM(Cantidad) \t\t\t\tfrom tabla_Pre_Venta_Detalle_Convenio pvd\t\t\t\tinner join mst_ProductoPresentacion pp on pvd.IdProducto = pp.Id\t\t\t\tinner join mst_ProductoDetalle pd on pp.idProductosDetalle = pd.Id\t\t\t\tinner join mst_Producto p on pd.idProducto = p.Id\t\t\t\tinner join mst_Grupo g on p.IdGrupo = g.Id\t\t\t\tinner join tabla_Pre_Venta pedido on pvd.IdPedido = pedido.IdPedido\t\t\t\twhere pvd.IdPedido = @id and pvd.Pagado = 0 and pvd.Eliminado = 0 and (g.Descripcion = 'BOLSA' or g.Descripcion = 'BOLSAS') and pedido.BolFac <> '99')\t\t\tend\tendelse\tbegin\tset @total = (select SUM(Cantidad) \t\tfrom tabla_Pre_Venta_Detalle pvd\t\tinner join mst_ProductoPresentacion pp on pvd.IdProducto = pp.Id\t\tinner join mst_ProductoDetalle pd on pp.idProductosDetalle = pd.Id\t\tinner join mst_Producto p on pd.idProducto = p.Id\t\tinner join mst_Grupo g on p.IdGrupo = g.Id\t\tinner join tabla_Pre_Venta pedido on pvd.IdPedido = pedido.IdPedido\t\twhere pvd.IdMesa = @id and pvd.Pagado = 0 and pvd.Eliminado = 0 and (g.Descripcion = 'BOLSA' or g.Descripcion = 'BOLSAS') and pedido.BolFac <> '99')\tend--set @total = @total * 0.20set @total = @total * dbo.getIcbAmount()set @total = ISNULL(@total,0)if(@bit = 0)\tbegin\t\tif(@esconvenio = 0)\t\t\tbegin\t\t\t\tupdate tabla_Pre_Venta set Otro_Imp = @total where IdPedido = @id and Pagado = 0 and Eliminado = 0\t\t\tend\t\telse\t\t\tbegin\t\t\t\tupdate tabla_Pre_Venta_Convenio set Otro_Imp = @total where IdPedido = @id and Pagado = 0 and Eliminado = 0\t\t\tend\tendelse if(@bit = 1)update tabla_Pre_Venta set Otro_Imp = @total where IdMesa = @id and Pagado = 0 and Eliminado = 0else \tbegin\t\tif(@esconvenio = 0)\t\t\tbegin\t\t\t\tupdate tabla_Pre_Venta set Otro_Imp = @total where Id = @id and Pagado = 0 and Eliminado = 0\t\t\tend\t\telse\t\t\tbegin\t\t\t\tupdate tabla_Pre_Venta_Convenio set Otro_Imp = @total where IdPedido = @id and Pagado = 0 and Eliminado = 0\t\t\tend\tend"
+    "Content": "CREATE proc [dbo].[spIngresarOtrosImpuestos_Preventa]@id int,@bit bit,@esconvenio bitasDECLARE @total money = 0if(@bit = 0)\tbegin\t\tif(@esconvenio = 0)\t\t\tbegin\t\t\t\tset @total = (select SUM(Cantidad) \t\t\t\tfrom tabla_Pre_Venta_Detalle pvd\t\t\t\tinner join mst_ProductoPresentacion pp on pvd.IdProducto = pp.Id\t\t\t\tinner join mst_ProductoDetalle pd on pp.idProductosDetalle = pd.Id\t\t\t\tinner join mst_Producto p on pd.idProducto = p.Id\t\t\t\tinner join mst_Grupo g on p.IdGrupo = g.Id\t\t\t\t \t\t\t\tinner join tabla_Pre_Venta pedido on pvd.IdPedido = pedido.IdPedido\t\t\t\twhere pvd.IdPedido = @id and pvd.Pagado = 0 and pvd.Eliminado = 0 and (g.Descripcion = 'BOLSA' or g.Descripcion = 'BOLSAS') and pedido.BolFac <> '99')\t\t\tend\t\telse\t\t\tbegin\t\t\t\tset @total = (select SUM(Cantidad) \t\t\t\tfrom tabla_Pre_Venta_Detalle_Convenio pvd\t\t\t\tinner join mst_ProductoPresentacion pp on pvd.IdProducto = pp.Id\t\t\t\tinner join mst_ProductoDetalle pd on pp.idProductosDetalle = pd.Id\t\t\t\tinner join mst_Producto p on pd.idProducto = p.Id\t\t\t\tinner join mst_Grupo g on p.IdGrupo = g.Id\t\t\t\tinner join tabla_Pre_Venta pedido on pvd.IdPedido = pedido.IdPedido\t\t\t\twhere pvd.IdPedido = @id and pvd.Pagado = 0 and pvd.Eliminado = 0 and (g.Descripcion = 'BOLSA' or g.Descripcion = 'BOLSAS') and pedido.BolFac <> '99')\t\t\tend\tendelse\tbegin\tset @total = (select SUM(Cantidad) \t\tfrom tabla_Pre_Venta_Detalle pvd\t\tinner join mst_ProductoPresentacion pp on pvd.IdProducto = pp.Id\t\tinner join mst_ProductoDetalle pd on pp.idProductosDetalle = pd.Id\t\tinner join mst_Producto p on pd.idProducto = p.Id\t\tinner join mst_Grupo g on p.IdGrupo = g.Id\t\tinner join tabla_Pre_Venta pedido on pvd.IdMesa = pedido.IdMesa and pvd.Pagado = 0\t\twhere pvd.IdMesa = @id and pvd.Pagado = 0 and pvd.Eliminado = 0 and pedido.Pagado = 0 and pedido.Eliminado = 0 and (g.Descripcion = 'BOLSA' or g.Descripcion = 'BOLSAS') and pedido.BolFac <> '99')\tend--set @total = @total * 0.20set @total = @total * dbo.getIcbAmount()set @total = ISNULL(@total,0)if(@bit = 0)\tbegin\t\tif(@esconvenio = 0)\t\t\tbegin\t\t\t\tupdate tabla_Pre_Venta set Otro_Imp = @total where IdPedido = @id and Pagado = 0 and Eliminado = 0\t\t\tend\t\telse\t\t\tbegin\t\t\t\tupdate tabla_Pre_Venta_Convenio set Otro_Imp = @total where IdPedido = @id and Pagado = 0 and Eliminado = 0\t\t\tend\tendelse if(@bit = 1)update tabla_Pre_Venta set Otro_Imp = @total where IdMesa = @id and Pagado = 0 and Eliminado = 0else \tbegin\t\tif(@esconvenio = 0)\t\t\tbegin\t\t\t\tupdate tabla_Pre_Venta set Otro_Imp = @total where Id = @id and Pagado = 0 and Eliminado = 0\t\t\tend\t\telse\t\t\tbegin\t\t\t\tupdate tabla_Pre_Venta_Convenio set Otro_Imp = @total where IdPedido = @id and Pagado = 0 and Eliminado = 0\t\t\tend\tend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
