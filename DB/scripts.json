@@ -2531,6 +2531,11 @@
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpAddVentaToAuditoria",
+    "Content": "CREATE proc SpAddVentaToAuditoria@idAuditoria int,@idVenta intasupdate Auditoria set IdVenta = @idVentawhere id = @idAuditoriaselect @idAuditoria"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
     "Name": "spMostrarCombo",
     "Content": "CREATE Procedure [dbo].[spMostrarCombo]( @nombreTabla nvarchar(max), @columna varchar(max), @columna2 varchar(max), @columna3 varchar(max))AsDeclare @tabla nvarchar(max);declare @columnas nvarchar(max);set @columnas = '@columna varchar(max)';if(@columna3='0')Set @tabla = 'SELECT '+ cast(@columna as varchar)+',' + cast(@columna2 as varchar)+ ' FROM ' + QUOTENAME(@nombreTabla) + ' where flag=1 and estado=1';else Set @tabla = 'SELECT '+ cast(@columna as varchar)+', cast(' +@columna2 + ' as varchar) + '' - '' + cast('+ @columna3 + ' as varchar)'+@columna2 +' FROM ' + QUOTENAME(@nombreTabla) + ' where flag=1 and estado=1 ';exec sp_executesql @tabla"
   },
