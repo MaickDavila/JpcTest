@@ -1837,7 +1837,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetAuditoriaDetalleByIdAuditoria",
-    "Content": "CREATE proc SpGetAuditoriaDetalleByIdAuditoria@idAuditoria int,@idAlmacen intasselect ad.Id as 'id',ad.AuditoriaId as 'AuditoriaId',ad.IdProducto,p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',um.Id 'IdUnidad',g.Id 'IdGrupo',g.Descripcion 'grupo',ad.Stock 'Stock',ad.Conteo as 'conteo',ad.Diferencia as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal',pp.Codigo 'CodigoBarra'from AuditoriaDetalles ad inner join mst_ProductoDetalle pd on ad.IdProducto=pd.Idinner join mst_ProductoPresentacion pp on pd.idProducto = pp.idProductosDetalle and pp.Principal = 1inner join mst_Producto p on pd.idProducto = p.Idinner join mst_Grupo g on p.IdGrupo = g.Idinner join mst_UnidadMedida um on ad.IdUnidad = um.Idinner join Stocks_Acumulados stock on ad.IdProducto  = stock.IdProducto and @idAlmacen = stock.IdAlmacenwhere ad.AuditoriaId = @idAuditoria"
+    "Content": "CREATE proc SpGetAuditoriaDetalleByIdAuditoria@idAuditoria int,@idAlmacen intasselect ad.Id as 'id',ad.AuditoriaId as 'AuditoriaId',ad.IdProducto,p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',um.Id 'IdUnidad',g.Id 'IdGrupo',g.Descripcion 'grupo',ad.Stock 'Stock',ad.Conteo as 'conteo',ad.Diferencia as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal',pp.Codigo 'CodigoBarra',pp.Id 'IdProductoPresentacion'from AuditoriaDetalles ad inner join mst_ProductoDetalle pd on ad.IdProducto=pd.Id and pd.estado = 1 and pd.flag = 1inner join mst_ProductoPresentacion pp on pd.idProducto = pp.idProductosDetalle and pp.Principal = 1 and pp.estado = 1 and pp.flag = 1inner join mst_Producto p on pd.idProducto = p.Id and p.estado = 1 and p.flag = 1inner join mst_Grupo g on p.IdGrupo = g.Id inner join mst_UnidadMedida um on ad.IdUnidad = um.Idinner join Stocks_Acumulados stock on ad.IdProducto  = stock.IdProducto and @idAlmacen = stock.IdAlmacenwhere ad.AuditoriaId = @idAuditoria"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1967,7 +1967,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetProductoForAuditoriaDetalles",
-    "Content": "CREATE proc SpGetProductoForAuditoriaDetalles@idAlmacen intasselect0 as 'id',0 as 'AuditoriaId',stock.IdProducto,p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',um.Id 'IdUnidad',g.Id 'IdGrupo',g.Descripcion 'grupo',stock.Saldo 'Stock',0 as 'conteo',0 as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal',pp.Codigo 'CodigoBarra'from Stocks_Acumulados stockinner join mst_ProductoDetalle pd on stock.IdProducto = pd.Idinner join mst_ProductoPresentacion pp on pd.Id = pp.Id and pp.Principal = 1inner join mst_Producto p on pd.idProducto = p.Idinner join mst_Grupo g on p.IdGrupo = g.Idinner join mst_UnidadMedida um on pp.idUnidad = um.Idwhere IdAlmacen = @idAlmacen"
+    "Content": "CREATE proc SpGetProductoForAuditoriaDetalles@idAlmacen intasselect0 as 'id',0 as 'AuditoriaId',stock.IdProducto,p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',um.Id 'IdUnidad',g.Id 'IdGrupo',g.Descripcion 'grupo',stock.Saldo 'Stock',0 as 'conteo',0 as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal',pp.Codigo 'CodigoBarra',pp.Id 'IdProductoPresentacion'from Stocks_Acumulados stockinner join mst_ProductoDetalle pd on stock.IdProducto = pd.Id and pd.estado = 1 and pd.flag = 1inner join mst_ProductoPresentacion pp on pd.Id = pp.Id and pp.Principal = 1 AND pp.estado = 1 and pp.flag =1 inner join mst_Producto p on pd.idProducto = p.Id and p.estado = 1 and p.flag = 1inner join mst_Grupo g on p.IdGrupo = g.Idinner join mst_UnidadMedida um on pp.idUnidad = um.Idwhere IdAlmacen = @idAlmacen"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2531,11 +2531,6 @@
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
-    "Name": "SpAddVentaToAuditoria",
-    "Content": "CREATE proc SpAddVentaToAuditoria@idAuditoria int,@idVenta intasupdate Auditoria set IdVenta = @idVentawhere id = @idAuditoriaselect @idAuditoria"
-  },
-  {
-    "Type": "SQL_STORED_PROCEDURE",
     "Name": "spMostrarCombo",
     "Content": "CREATE Procedure [dbo].[spMostrarCombo]( @nombreTabla nvarchar(max), @columna varchar(max), @columna2 varchar(max), @columna3 varchar(max))AsDeclare @tabla nvarchar(max);declare @columnas nvarchar(max);set @columnas = '@columna varchar(max)';if(@columna3='0')Set @tabla = 'SELECT '+ cast(@columna as varchar)+',' + cast(@columna2 as varchar)+ ' FROM ' + QUOTENAME(@nombreTabla) + ' where flag=1 and estado=1';else Set @tabla = 'SELECT '+ cast(@columna as varchar)+', cast(' +@columna2 + ' as varchar) + '' - '' + cast('+ @columna3 + ' as varchar)'+@columna2 +' FROM ' + QUOTENAME(@nombreTabla) + ' where flag=1 and estado=1 ';exec sp_executesql @tabla"
   },
@@ -2558,6 +2553,11 @@
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spInsertarResumen_Det",
     "Content": "CREATE proc [dbo].[spInsertarResumen_Det]@id bigint,@Fecha date,@Tipo_Comprobante char(2),@Num_Comprobante varchar(50),@Tipo_Doc char(1),@Numero_Doc varchar(20),@Tipo_Comprobante_Ref char(2),@Num_Comprobante_Ref varchar(50),@Total money,@Gravada money,@Isc money,@Igv money,@Otros money,@Cargo_X_Asignacion bit,@Monto_Cargo_X_Asignacion money,@Exonerado money,@Inafecto money,@Exportacion money,@Gratuitas money,@Cliente varchar(100),@bit bit,@descripcion varchar(100),@Otro_Imp moneyasinsert into Tbl_Resumen_Det(Fecha,Tipo_Comprobante,Num_Comprobante ,Tipo_Doc,Numero_Doc,Tipo_Comprobante_Ref,Num_Comprobante_Ref,Total,Gravada,Isc,Igv,Otros,Cargo_X_Asignacion,Monto_Cargo_X_Asignacion,Exonerado,Inafecto,Exportacion,Gratuitas,Cliente,descripcion, Otro_Imp)values(@Fecha,@Tipo_Comprobante,@Num_Comprobante,@Tipo_Doc,@Numero_Doc,@Tipo_Comprobante_Ref,@Num_Comprobante_Ref,@Total,@Gravada,@Isc,@Igv,@Otros,@Cargo_X_Asignacion,@Monto_Cargo_X_Asignacion,@Exonerado,@Inafecto,@Exportacion,@Gratuitas,@cliente,@descripcion, @Otro_Imp)------if(@bit = 0)beginDECLARE @MENSAJE VARCHAR(100) = 'La Boleta numero '+@Num_Comprobante+', ha sido enviada para resumen diario'exec spInsertar_Resultado_Envio @id,1,1,'',@MENSAJE,''end------"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpGetProductoByIdAlmacenIdProductoDetalle",
+    "Content": "CREATE proc SpGetProductoByIdAlmacenIdProductoDetalle@idalmacen int,@idProductoDetalle intasselect id 'id',C_Interno 'codigo',Cod_Barra 'codigo_barra',RTRIM(LTRIM(Descripcion)) 'descripcion',U_Medida 'unidad_medida',Factor 'factor',Imagen 'imagen',Proveedor 'proveedor',Stock_Actual 'stock',F_Vencimiento 'fecha_vencimiento',Precio_Unit 'precio',IdAlmacen 'idalmacen',idUnidad 'idunidad',checkStockfrom vw_FiltroProductoswhere IdAlmacen = @idalmacen and C_Interno = @idProductoDetalleand principal = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2638,6 +2638,11 @@
     "Type": "VIEW",
     "Name": "vw_tbl_items_cab_cpe",
     "Content": "CREATE VIEW [dbo].[vw_tbl_items_cab_cpe]ASSELECT        a.Id AS id_item_cab_cpe, a.IdVenta AS id_cab_cpe, a.IdProducto AS id_producto, CAST(a.IdProducto AS char(25)) AS cve_producto, CAST('NIU' AS char(3)) AS unit_code, a.descripcion AS nom_producto, CAST('' AS char(254))                          AS descri_item, CAST(a.Cantidad AS numeric(12, 2)) AS cantidad, CAST(a.PrecioUnit AS numeric(12, 2)) AS pre_unitario, CAST(a.Subtotal AS numeric(12, 2)) AS sub_total, CAST('' AS CHAR(2)) AS tipo_isc, CAST(0 AS numeric(3))                          AS por_isc, CAST(0 AS numeric(12, 2)) AS monto_isc, CAST('20' AS CHAR(2)) AS tipo_afec_igv, CAST(a.Igv AS numeric(12, 2)) AS monto_igv, CAST(a.Total AS numeric(12, 2)) AS pre_total, d.IdProductoSunat,                          a.Adicional1 AS TipoAdicional, a.Adicional2 AS FechaAdicional, a.Adicional3 AS NumAdicional, a.Adicional4 as 'OtroAdicional',\t\t\t\t\t\t iif(a.CodigoBarra = 'ICBPER', a.Total, 0) 'otros_impuestos',\t\t\t\t\t\t 'X' AS 'IDENTIFICADOR'FROM            dbo.mst_Venta_det AS a LEFT JOIN                         dbo.mst_ProductoPresentacion AS b ON a.IdProducto = b.Id LEFT JOIN                         dbo.mst_ProductoDetalle AS c ON b.idProductosDetalle = c.Id LEFT JOIN                         dbo.mst_Producto AS d ON c.idProducto = d.Id"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpAddAjusteToAuditoria",
+    "Content": "create proc SpAddAjusteToAuditoria@idAuditoria int,@idAjuste intasupdate Auditoria set IdAjuste=@idAjustewhere id = @idAuditoriaselect @idAuditoria"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
