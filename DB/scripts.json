@@ -2157,7 +2157,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spModificarPermisosVenta",
-    "Content": "CREATE proc [dbo].[spModificarPermisosVenta]@idusuario int,@maximo money,@minimo money,@estado bitasupdate mst_permisos_venta setmaximo = @maximo,minimo = @minimo,estado = @estadowhere idusuario = @idusuario"
+    "Content": "CREATE proc [dbo].[spModificarPermisosVenta]@idusuario int,@maximo money,@minimo money,@estado bitasdeclare @exist int = (select top 1 id from mst_Permisos_Venta where IdUsuario = @idusuario)set @exist = ISNULL(@exist, 0)if @exist = 0begin\tinsert into mst_Permisos_Venta (IdUsuario, Maximo, Minimo, Estado)\tvalues(@idusuario, @maximo, @minimo, @estado)endelsebegin\tupdate mst_permisos_venta set\tmaximo = @maximo,\tminimo = @minimo,\testado = @estado\twhere idusuario = @idusuarioend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
