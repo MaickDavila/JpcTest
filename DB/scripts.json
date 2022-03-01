@@ -742,7 +742,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spActualizarTotales_Venta",
-    "Content": "CREATE proc [dbo].[spActualizarTotales_Venta]@id intasEXEC spIngresarOtrosImpuestos_Venta @iddeclare @total moneydeclare @igv money = (select SUM(igv) from mst_Venta_det  where IdVenta = @id and Anulado = 0)declare @subtotal money =  (select SUM(Subtotal) from mst_Venta_det  where IdVenta = @id and Anulado = 0)declare @descuento money =  (select SUM(Descuento) from mst_Venta_det where IdVenta = @id and Anulado = 0)declare @formapago int = ((select IdFormaPago from mst_Venta where Id = @id and Anulado = 0))declare @tipomoneda varchar(10) = (select TipoMoneda from mst_Venta where id = @id)DECLARE\t@icbper money = (select SUM(Otro_Imp) from mst_Venta where Id = @id and Anulado = 0)if(@tipomoneda = 'PEN')\tBEGIN\tSET @tipomoneda = 'SOLES'\tENDELSE \tBEGIN\tSET @tipomoneda = 'DOLARES'\tENDdeclare @totalletras varchar(max) = (select dbo.fn_ConvertirNumeroLetra( ROUND(( (@subtotal + @igv) -@descuento) + @icbper, 2),@tipomoneda))set @total = ROUND(((@subtotal + @igv) -@descuento) + @icbper,2)if(@formapago = 1)beginupdate mst_Venta set TotalVenta = ROUND(((@subtotal + @igv) -@descuento) + @icbper,2),SubTotal = @subtotal,Descuento = @descuento,Igv = @igv,ImportePagado = (((@subtotal + @igv) -@descuento) + @icbper),Total_Letras = @totalletraswhere Id = @id----------end----------elsebeginupdate mst_Venta set TotalVenta = ROUND(((@subtotal + @igv) -@descuento) + @icbper,2),SubTotal = @subtotal,Descuento = @descuento,Igv = @igv ,ImportePagado = 0,Total_Letras = @totalletraswhere Id = @idend-----update tabla_Venta_Ext setTotal = @totalwhere IdVenta = @id--nuevos campos, todo va estar igual solo para el envio se hace esto"
+    "Content": "CREATE proc [dbo].[spActualizarTotales_Venta]@id intasEXEC spIngresarOtrosImpuestos_Venta @iddeclare @total moneydeclare @igv money = (select SUM(igv) from mst_Venta_det  where IdVenta = @id and Anulado = 0)declare @subtotal money =  (select SUM(Subtotal) from mst_Venta_det  where IdVenta = @id and Anulado = 0)declare @descuento money =  (select SUM(Descuento) from mst_Venta_det where IdVenta = @id and Anulado = 0)declare @formapago int = ((select IdFormaPago from mst_Venta where Id = @id and Anulado = 0))declare @tipomoneda varchar(10) = (select TipoMoneda from mst_Venta where id = @id)DECLARE\t@icbper money = (select SUM(Otro_Imp) from mst_Venta where Id = @id and Anulado = 0)if(@tipomoneda = 'PEN')\tBEGIN\tSET @tipomoneda = 'SOLES'\tENDELSE \tBEGIN\tSET @tipomoneda = 'DOLARES'\tENDdeclare @totalletras varchar(max) = (select dbo.fn_ConvertirNumeroLetra( ROUND(( (@subtotal + @igv) -@descuento) + @icbper, 2),@tipomoneda))set @total = ROUND(((@subtotal + @igv) -@descuento) + @icbper,2)if(@formapago = 1)beginupdate mst_Venta set TotalVenta = ROUND(((@subtotal + @igv) -@descuento) + @icbper,2),SubTotal = @subtotal,Descuento = @descuento,Igv = @igv,ImportePagado = ROUND(((@subtotal + @igv) -@descuento) + @icbper,2),Total_Letras = @totalletraswhere Id = @id----------end----------elsebeginupdate mst_Venta set TotalVenta = ROUND(((@subtotal + @igv) -@descuento) + @icbper,2),SubTotal = @subtotal,Descuento = @descuento,Igv = @igv ,ImportePagado = 0,Total_Letras = @totalletraswhere Id = @idend-----update tabla_Venta_Ext setTotal = @totalwhere IdVenta = @id--nuevos campos, todo va estar igual solo para el envio se hace esto"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1111,6 +1111,11 @@
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpAddPedidos",
+    "Content": "CREATE proc SpAddPedidos@id int,@idPedido int,@idMesa int,@idTipoDocCliente varchar(2),@idCliente int,@numDocCliente varchar(20),@razonSocial varchar(200),@direccion varchar(200),@email varchar(50),@pagado bit,@eliminado bit,@idUsuario int,@idDocVenta int,@subTotal float,@igv float,@icbper float,@descuento float,@total float,@idAlmacen int,@fecha datetimeasif @id = 0begin\tinsert into Pedidos (IdPedido, IdMesa, IdTipoDocCliente, IdCliente, NumDocCliente, RazonSocial, Direccion, Email, Pagado, Eliminado, IdUsuario, IdDocVenta, SubTotal, Igv, Icbper, Descuento, Total, IdAlmacen, Fecha)\tvalues(@idPedido, @idMesa, @idTipoDocCliente, @idCliente, @numDocCliente, @razonSocial, @direccion, @email, @pagado, @eliminado, @idUsuario, @idDocVenta, @subTotal, @igv, @icbper, @descuento, @total, @idAlmacen, @fecha)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate Pedidos set IdMesa = @idMesa, IdTipoDocCliente=@idTipoDocCliente, NumDocCliente=@numDocCliente,RazonSocial=@razonSocial,\tDireccion=@direccion,Email=@email,Pagado=@pagado,Eliminado=@eliminado,IdUsuario=@idUsuario,IdDocVenta=@idDocVenta,\tSubTotal=@subTotal,Igv=@igv,Icbper=@icbper,Descuento=@descuento,Total=@total,IdAlmacen=@idAlmacen,Fecha=@fecha\twhere id = @id\tselect @idend"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
     "Name": "spEliminarProductoDetalle",
     "Content": "--eliminarCREATE proc [dbo].[spEliminarProductoDetalle]@id intasupdate mst_ProductoDetalle setestado = 0, flag = 0where Id = @id"
   },
@@ -1118,6 +1123,11 @@
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "sp_insertar_almacen_traslado",
     "Content": "CREATE proc [dbo].[sp_insertar_almacen_traslado]@id int,@idalmacensalida int,@idalmacenentrada int,@fecha date,@descripcion varchar(max),@cerrado bit,@estado bit,@bit bitasif @bit = 0\tbegin\tinsert into mst_almacen_traslado (idAlmacenSalida, idAlmacenEntrada, fecha, descripcion, cerrado)\tvalues(@idalmacensalida, @idalmacenentrada, @fecha,@descripcion,@cerrado)\tselect SCOPE_IDENTITY();\tendelse\tbegin\tupdate mst_almacen_traslado set idAlmacenSalida = @idalmacensalida, idAlmacenEntrada = @idalmacenentrada, fecha = @fecha, descripcion = @descripcion, cerrado = @cerrado\twhere id = @id\tend"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpAnularPedido",
+    "Content": "CREATE proc SpAnularPedido@idPedido intasupdate Pedidos set Eliminado = 1where Id = @idPedidoupdate PedidosDetalles set Eliminado = 1where IdPedido = @idPedido"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1201,6 +1211,11 @@
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpGetPedidosDetalles",
+    "Content": "CREATE proc SpGetPedidosDetallesasselect * from PedidosDetalleswhere Eliminado = 0"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
     "Name": "spEliminarTipoUsuario",
     "Content": "CREATE proc [dbo].[spEliminarTipoUsuario]@id intasupdate mst_TipoUsuario set flag = 0,estado = 0where id = @id"
   },
@@ -1247,7 +1262,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetPedidos",
-    "Content": "CREATE proc [dbo].[SpGetPedidos]asselectId,IdPedido,IdMesa,CodigoDoc,IdCliente,DniRuc,RazonSocial,Direccion,Email,Pagado,Eliminado,IdUsuario,BolFac,sub_total 'SubTotal',igv 'Igv',Descuento,Total,Idalmacen,Proforma,IdPiso,NumSecuencia,PreCuenta,Otro_Imp 'OtrosImpuestos',Adicional,Beneficiario,IdConvenio,IdParentesco,Fecha,is_llevar 'IsLlevar',is_delivery 'IsDelivery',ISNULL(countPecho, 0) 'CountPecho',ISNULL(countPierna, 0) 'CountPierna',textObservation 'TextObservacion',OperacionExoneradafrom tabla_Pre_Venta"
+    "Content": "CREATE proc SpGetPedidosasselect * from Pedidoswhere Eliminado = 0"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2547,7 +2562,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddPedidosDetalles",
-    "Content": "CREATE proc [dbo].[SpAddPedidosDetalles]@id int,@idPedido int,@idMesa int,@idProducto int,@descripcion varchar(max),@codigoBarra varchar(50),@unidad varchar(50),@cantidad float,@precio float,@subtotal float,@igv float,@descuento float,@total float,@pagado bit,@eliminado bit,@factor float,@idUnidad int,@idPiso int,@numSecuencia int,@adicional1 varchar(max),@adicional2 date,@adicional3 varchar(max),@adicional4 varchar(max),@igvIncluido bit,@isCodigoBarraBusqueda bit,@idProductoDetalle int,@operacionExonerada bitasif @id = 0begin\tinsert into tabla_Pre_Venta_Detalle(IdPedido, IdMesa, IdProducto, Descripcion, CodigoBarra, UMedida, Cantidad, Precio, Subtotal, igv, Descuento, total, Pagado, Eliminado, Factor,\tIdUnidad, IdPiso, NumSecuencia, Adicional1, Adicional2, Adicional3, Adicional4, igv_incluido, IsCodBarraBusqueda, IdProductoDetalle, OperacionExonerada)\tvalues (@idPedido, @idMesa, @idProducto, @descripcion, @codigoBarra, @unidad, @cantidad, @precio, @subtotal, @igv, @descuento, @total, @pagado, @eliminado, @factor,\t@idUnidad, @idPiso, @numSecuencia, @adicional1, @adicional2, @adicional3, @adicional4, @igvIncluido, @isCodigoBarraBusqueda, @idProductoDetalle, @operacionExonerada)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate tabla_Pre_Venta_Detalle set IdPedido = @idPedido, IdMesa=@idMesa, IdProducto=@idProducto,Descripcion=@descripcion,CodigoBarra=@codigoBarra,UMedida=@unidad,Cantidad=@cantidad,\tPrecio=@precio,Subtotal=@subtotal,igv=@igv,Descuento=@descuento,total=@total,Pagado=@pagado,Eliminado=@eliminado,Factor=@factor,IdUnidad=@idUnidad,IdPiso=@idPiso,NumSecuencia=@numSecuencia,\tAdicional1=@adicional1,Adicional2=@adicional2,Adicional3=@adicional3,Adicional4=@adicional4,igv_incluido=@igvIncluido,IsCodBarraBusqueda=@isCodigoBarraBusqueda, IdProductoDetalle=@idProductoDetalle,\tOperacionExonerada= @operacionExonerada\twhere id= @id\tselect @idend"
+    "Content": "CREATE proc SpAddPedidosDetalles@id int,@idPedido int,@idProducto int,@descripcion varchar(200),@codigoBarra varchar(50),@idUnidad int,@unidad varchar(50),@factor float,@cantidad float,@precio float,@subTotal float,@igv float,@descuento float,@total float,@eliminado float,@igvIncluido bit,@isCodBarra bitasif @id = 0begin\tinsert into PedidosDetalles(IdPedido, IdProducto, Descripcion, CodigoBarra,\tIdUnidad, Unidad, Factor, Cantidad, Precio, SubTotal, Igv, Descuento, Total,\tEliminado, IgvIncluido, IsCodBarra)\tvalues(@idPedido, @idProducto, @descripcion, @codigoBarra, @idUnidad,\t@unidad, @factor, @cantidad, @precio, @subTotal, @igv, @descuento, @total,\t@eliminado, @igvIncluido, @isCodBarra)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate PedidosDetalles set IdProducto=@idProducto,Descripcion=@descripcion,\tCodigoBarra=@codigoBarra,IdUnidad=@idUnidad,Unidad=@unidad,Factor=@factor,\tCantidad=@cantidad,Precio=@precio,SubTotal=@subTotal,Igv=@igv,\tDescuento=@descuento,Total=@total,Eliminado=@eliminado,IgvIncluido=@igvIncluido,\tIsCodBarra=@isCodBarra\twhere IdPedido=@idPedido\tselect @idPedidoend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2592,7 +2607,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetPedidosDetallesByIdPedido",
-    "Content": "CREATE proc [dbo].[SpGetPedidosDetallesByIdPedido]@idPedido intasselectId,IdPedido,IdMesa,IdProducto,Descripcion,CodigoBarra,UMedida 'Unidad',Cantidad,Precio,Subtotal,igv 'Igv',Descuento,total 'Total',Pagado,Eliminado,Factor,IdUnidad,IdPiso,NumSecuencia,Adicional1,Adicional2,Adicional3,Adicional4,igv_incluido 'IgvIncluido',IsCodBarraBusqueda,IdProductoDetallefrom tabla_Pre_Venta_Detalle pdwhere Eliminado = 0 and Id = @idPedido"
+    "Content": "CREATE proc SpGetPedidosDetallesByIdPedido@idPedido intasselect * from PedidosDetalleswhere IdPedido = @idPedido"
   },
   {
     "Type": "VIEW",
@@ -3137,7 +3152,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeletePedidosDetalles",
-    "Content": "CREATE proc [dbo].[SpDeletePedidosDetalles]@id intasupdate tabla_Pre_Venta_Detalle set Eliminado = 1where id = @id"
+    "Content": "CREATE proc SpDeletePedidosDetalles@id intasupdate PedidosDetalles set Eliminado = 1where id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
