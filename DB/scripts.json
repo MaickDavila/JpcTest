@@ -1882,7 +1882,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpFilterMasterProductos",
-    "Content": "CREATE proc [dbo].[SpFilterMasterProductos]@text varchar(max),@idGrupo int,@desactivados bit,@idAlmacen int,@cantidad int = 50asselect top (@cantidad)Id,Id_Producto 'IdProducto',IdPresentacion 'IdProductoPresentacion',Cod_Barra 'CodigoBarra',Descripcion 'NombreProducto',U_Medida 'Unidad',Factor,Proveedor,F_Vence 'FechaVence',Precio_Unit 'Precio',Estado,Stock,Grupo,stockminimo 'StockMinimo',dbo.F_GetUltimoCostoProductoDetalle(Id, @idalmacen) as 'Costo'from vw_FiltroMstProductoswhere (Descripcion like '%'+@text+'%' or Cod_Barra like '%'+@text+'%')and idGrupo = CASe @idgrupo when 0 then idGrupo else @idgrupo endand Estado = CASe @desactivados when 0 then 1 else 0 endand IdAlmacen = @idAlmacenorder by id desc"
+    "Content": "CREATE proc [dbo].[SpFilterMasterProductos]@text varchar(max),@idGrupo int,@desactivados bit,@idAlmacen int,@cantidad int = 50asselect top (@cantidad)Id,Id_Producto 'IdProducto',IdPresentacion 'IdProductoPresentacion',Cod_Barra 'CodigoBarra',Descripcion 'NombreProducto',U_Medida 'Unidad',Factor,Proveedor,F_Vence 'FechaVence',Precio_Unit 'Precio',Estado,Stock,Grupo,stockminimo 'StockMinimo',dbo.F_GetUltimoCostoProductoDetalle(Id, @idalmacen) as 'Costo'from vw_FiltroMstProductoswhere (Descripcion like '%'+@text+'%' or Cod_Barra like '%'+@text+'%')and idGrupo = CASe @idgrupo when 0 then idGrupo else @idgrupo endand Estado = CASe @desactivados when 0 then 1 else 0 endand IdAlmacen = @idAlmacenorder by Descripcion desc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
