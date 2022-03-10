@@ -452,7 +452,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddProductoDetalle",
-    "Content": "CREATE proc [dbo].[SpAddProductoDetalle]@id int,@idProducto int,@idTalla int,@idColor int,@stockMinimo float,@fechaVence date,@descripcion varchar(max),@codigoBarra varchar(100), @estado bit,@idMedida int,@checkStock bit,@usuario VARCHAR(50)asif @Id = 0begin\tinsert into mst_ProductoDetalle (idProducto, idTalla, idColores, stockminimo, fechavencimiento , descripcion, codigoBarra,  estado, idmedida, checkStock, fechaCrea, usuarioCrea)\tvalues(@IdProducto, @IdTalla, @IdColor, @StockMinimo, @fechaVence, @descripcion, @CodigoBarra, @estado, @IdMedida, @CheckStock, GETDATE(), @usuario)\tselect CAST(SCOPE_IDENTITY() as int) as 'id'endelsebegin\tupdate mst_ProductoDetalle set idTalla = @IdTalla, idColores = @IdColor, fechavencimiento = @fechaVence,\tdescripcion = @descripcion, stockminimo = @StockMinimo, codigoBarra = @CodigoBarra, fechaModifica = GETDATE(), estado = @Estado,\tidmedida = @IdMedida, checkStock = @CheckStock, usuarioModifica = @usuario\twhere Id = @Id\tselect @Id as 'id'end"
+    "Content": "CREATE proc [dbo].[SpAddProductoDetalle]@id int,@idProducto int,@idTalla int,@idColor int,@stockMinimo float,@stockActual float,@fechaVence date,@descripcion varchar(max),@codigoBarra varchar(100), @estado bit,@idMedida int,@checkStock bit,@usuario VARCHAR(50)asif @Id = 0begin\tinsert into mst_ProductoDetalle (idProducto, idTalla, idColores, stockminimo, stockactual, fechavencimiento , descripcion, codigoBarra,  estado, idmedida, checkStock, fechaCrea, usuarioCrea)\tvalues(@IdProducto, @IdTalla, @IdColor, @StockMinimo, @stockActual, @fechaVence, @descripcion, @CodigoBarra, @estado, @IdMedida, @CheckStock, GETDATE(), @usuario)\tselect CAST(SCOPE_IDENTITY() as int) as 'id'endelsebegin\tupdate mst_ProductoDetalle set idTalla = @IdTalla, idColores = @IdColor, fechavencimiento = @fechaVence,\tdescripcion = @descripcion, stockminimo = @StockMinimo, stockactual=@stockActual, codigoBarra = @CodigoBarra, fechaModifica = GETDATE(), estado = @Estado,\tidmedida = @IdMedida, checkStock = @CheckStock, usuarioModifica = @usuario\twhere Id = @Id\tselect @Id as 'id'end"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -872,7 +872,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spEliminarDetalle",
-    "Content": "CREATE proc [dbo].[spEliminarDetalle]@id intasdeclare @precio moneydeclare @idventa int-------------------------------------------------------------------update mst_Venta_det setFlag = 0, Anulado = 1where id = @id-------------------------------------------------------------------set @precio = (select Subtotal from mst_Venta_det where id = @id)set @idventa = (select IdVenta from mst_Venta_det where id = @id)update mst_Venta setTotalVenta = TotalVenta - @preciowhere Id = @idventaupdate tabla_FormaPago set Total = Total - @preciowhere IdVenta = @idventaexec spEliminarVenta_Det_Ext @idexec SpStockActualizarAlEliminarItemVenta @id"
+    "Content": "CREATE proc [dbo].[spEliminarDetalle]@id intasdeclare @precio moneydeclare @idventa int-------------------------------------------------------------------update mst_Venta_det setFlag = 0, Anulado = 1where id = @id-------------------------------------------------------------------declare @subtotal moneyset @subtotal = (select Subtotal from mst_Venta_det where id = @id)set @idventa = (select IdVenta from mst_Venta_det where id = @id)update mst_Venta setTotalVenta = TotalVenta - @subtotalwhere Id = @idventaupdate tabla_FormaPago set Total = Total - @subtotalwhere IdVenta = @idventaexec spEliminarVenta_Det_Ext @idexec SpStockActualizarAlEliminarItemVenta @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1412,7 +1412,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetProductoDetalleById",
-    "Content": "CREATE proc [dbo].[SpGetProductoDetalleById]@id intasselect pd.Id,idProducto 'IdProducto',idTalla 'IdTalla',t.descripcion 'Talla',idColores 'IdColor',c.descripcion 'Color',stockminimo 'StockMinimo',fechavencimiento 'FechaVence',pd.descripcion 'Descripcion',codigoBarra 'CodigoBarra',pd.estado 'Estado',idmedida 'IdMedida',m.descripcion 'Medida',checkStock 'CheckStock'from mst_ProductoDetalle pdinner join mst_Talla t on pd.idTalla = t.Idinner join mst_Color c on pd.idColores = c.Idinner join mst_Medidas m on pd.idmedida = m.idwhere pd.Id = @id and pd.estado = 1 and pd.flag = 1"
+    "Content": "CREATE proc [dbo].[SpGetProductoDetalleById]@id intasselect pd.Id,idProducto 'IdProducto',idTalla 'IdTalla',t.descripcion 'Talla',idColores 'IdColor',c.descripcion 'Color',stockminimo 'StockMinimo',stockactual 'StockActual',fechavencimiento 'FechaVence',pd.descripcion 'Descripcion',codigoBarra 'CodigoBarra',pd.estado 'Estado',idmedida 'IdMedida',m.descripcion 'Medida',checkStock 'CheckStock'from mst_ProductoDetalle pdinner join mst_Talla t on pd.idTalla = t.Idinner join mst_Color c on pd.idColores = c.Idinner join mst_Medidas m on pd.idmedida = m.idwhere pd.Id = @id and pd.estado = 1 and pd.flag = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -3092,7 +3092,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetProductoDetalleByIdProducto",
-    "Content": "CREATE proc [dbo].[SpGetProductoDetalleByIdProducto]@idProducto intasselect Id,idProducto 'IdProducto',idTalla 'IdTalla',idColores 'IdColor',stockminimo 'StockMinimo',fechavencimiento 'FechaVence',descripcion 'Descripcion',codigoBarra 'CodigoBarra',estado 'Estado',idmedida 'IdMedida',checkStock 'CheckStock'from mst_ProductoDetallewhere idProducto = @idProducto and flag = 1"
+    "Content": "CREATE proc [dbo].[SpGetProductoDetalleByIdProducto]@idProducto intasselect Id,idProducto 'IdProducto',idTalla 'IdTalla',idColores 'IdColor',stockminimo 'StockMinimo',stockactual 'StockActual',fechavencimiento 'FechaVence',descripcion 'Descripcion',codigoBarra 'CodigoBarra',estado 'Estado',idmedida 'IdMedida',checkStock 'CheckStock'from mst_ProductoDetallewhere idProducto = @idProducto and flag = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
