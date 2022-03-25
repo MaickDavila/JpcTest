@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 
 namespace Presentacion.Reportes._2020.AlmacenMovimiento.forms
 {
@@ -40,7 +41,8 @@ namespace Presentacion.Reportes._2020.AlmacenMovimiento.forms
                 ta.Fill(tabla, IdAlmacenMovimiento);
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.EnableExternalImages = true;
-                ParametrosReporte("DataSet1", (DataTable)tabla, "2020//AlmacenMovimiento//get_reporte_almacenMovimiento_by_id.rdlc", reportViewer1);
+                RutaQr = VariablesGlobales.RutaFacturador + @"CODIGOBARRA\QR_ALMACEN\" + IdAlmacenMovimiento + ".bmp";
+                ParametrosReporte("DataSet1", tabla, "2020//AlmacenMovimiento//get_reporte_almacenMovimiento_by_id.rdlc", reportViewer1);
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
