@@ -22,7 +22,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "sp_get_almacen_movimiento_detalle_by_id_almacen_movimiento",
-    "Content": "CREATE proc [dbo].[sp_get_almacen_movimiento_detalle_by_id_almacen_movimiento]@idalmacenmovimiento intasselectid 'id',idProducto 'id_producto',nombreProducto 'nombre_producto',idUnidad 'id_unidad',nombreUnidad 'nombre_unidad',factor 'factor',cantidad 'cantidad',precio 'precio',total 'total',almacen_movimiento_id 'almacen_movimiento_id'from mst_almacen_movimiento_detallewhere almacen_movimiento_id = @idalmacenmovimiento and estado = 1 and flag = 1"
+    "Content": "CREATE proc [dbo].[sp_get_almacen_movimiento_detalle_by_id_almacen_movimiento]@idalmacenmovimiento intasselecta.id 'id',idProducto 'id_producto',nombreProducto 'nombre_producto',a.idUnidad 'id_unidad',nombreUnidad 'nombre_unidad',factor 'factor',cantidad 'cantidad',precio 'precio',total 'total',almacen_movimiento_id 'almacen_movimiento_id',ISNULL(pp.Codigo, '') 'codigo_barra'from mst_almacen_movimiento_detalle ainner join mst_ProductoPresentacion pp on a.idProducto = pp.idProductosDetalle and pp.idUnidad = a.idUnidad and pp.estado = 1 and pp.flag = 1where almacen_movimiento_id = @idalmacenmovimiento and a.estado = 1 and a.flag = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1447,7 +1447,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "sp_get_status_pago_almacen_movimiento_by_almacen_movimiento_id",
-    "Content": "CREATE proc [dbo].[sp_get_status_pago_almacen_movimiento_by_almacen_movimiento_id]@id intasSELECT am.total, ISNULL(SUM(p.monto), 0) 'monto_pagado', IIF(am.total = ISNULL(SUM(p.monto), 0), cast(0 as bit), cast(1 as bit)) 'success' FROM mst_almacen_movimiento  am left join api_almacen_pagos p on p.almacen_movimiento_id = am.idwhere am.salida = 1 and am.id = @idgroup by am.total"
+    "Content": "CREATE proc [dbo].[sp_get_status_pago_almacen_movimiento_by_almacen_movimiento_id]@id intasSELECT am.total, ISNULL(SUM(p.monto), 0) 'monto_pagado', IIF(am.total = ISNULL(SUM(p.monto), 0), cast(0 as bit), cast(1 as bit)) 'success' FROM mst_almacen_movimiento  am left join api_almacen_pagos p on p.almacen_movimiento_id = am.idwhere am.ajuste = 0 and am.id = @idgroup by am.total"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1648,6 +1648,11 @@
     "Type": "VIEW",
     "Name": "ViewProductoVenta",
     "Content": "CREATE view [dbo].[ViewProductoVenta]asselectp.Id as 'IdProducto',pd.Id as 'IdProductoDetalle',pp.Id as 'IdProductoPresentacion',ISNULL(pp.Codigo, '') as 'CodigoBarra',pd.codigoBarra as 'CodigoBarraDetalle',CONCAT(p.nombreProducto, ' ', pd.descripcion, ' ', LTRIM(mmm.descripcion), LTRIM(mm.nombreMarca), '', LTRIM(t.descripcion), ' ', LTRIM(c.descripcion))as 'NombreProducto',um.id 'IdUnidad',LTRIM(um.nombreUnidad) 'UnidadMedida',um.factor Factor,pro.nombre Proveedor,stock.saldo 'Stock',fechavencimiento as 'FechaVence',CAST(pp.precioUnitario as decimal(18,2)) 'Precio',stock.IdAlmacen 'IdAlmacen',pp.principal 'IsPrincipal',pd.checkstock 'CheckStock'from mst_Producto p inner join mst_ProductoDetalle pd on p.Id = pd.idProductoinner join mst_ProductoPresentacion pp on pd.Id=  pp.idProductosDetalleinner join mst_Marca mm on p.idMarca = mm.Idinner join mst_Talla t on pd.idTalla = t.Idinner join mst_Color c on pd.idColores = c.Idinner join mst_UnidadMedida um on pp.idUnidad = um.Idinner join mst_Medidas mmm on pd.idmedida = mmm.idinner join mst_Proveedor pro on p.idproveedor = pro.idinner join stocks_acumulados stock on pd.id = stock.idproductowhere p.flag = 1 and p.estado = 1and pd.flag = 1 and pd.estado = 1and pp.flag = 1 and pp.estado = 1"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpReporteProductosPorPedir",
+    "Content": "CREATE proc SpReporteProductosPorPedir@id_almacen intasSELECT \ns.IdAlmacen,\na.Nombre, \ng.Descripcion as Grupo,\npd.codigoBarra,\ng.descripcion,\nRTRIM((p.nombreProducto + ' ' + me.descripcion + ' '+ m.nombreMarca + ' ' + pd.descripcion)) as nombreProducto,\nu.nombreUnidad,\nm.nombreMarca,\nme.descripcion,\n(s.Saldo/u.factor) as Stock,\npd.stockactual,\n(pd.stockactual-(s.Saldo/u.factor)) as ProductosAPedir,\npd.descripcion,\npd.fechavencimiento,\npp.precioUnitario\nFROM mst_ProductoPresentacion pp\nINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalle\nINNER JOIN mst_Producto p ON p.Id = pd.idProducto\nINNER JOIN mst_UnidadMedida u ON u.Id = pp.idUnidad\nINNER JOIN mst_Grupo g ON g.Id = IdGrupo\nINNER JOIN mst_Marca m ON m.Id = p.idMarca\nINNER JOIN mst_Medidas me ON me.Id = pd.idmedida\nINNER JOIN Stocks_Acumulados s ON s.IdProducto = pd.Id\nINNER JOIN mst_Almacen a ON a.Id = s.IdAlmacen\nWHERE --p.IdGrupo = @idGrupo and s.IdAlmacen = @idAlmacen and\n(pp.Principal = 1 AND pp.estado = 1 AND pp.flag = 1) AND\n--\t(pp.PrincipalAlmacen = 1 AND pp.estado = 1 AND pp.flag = 1) AND\n(pd.estado = 1 AND pd.flag = 1) AND (p.estado = 1 AND p.flag = 1) AND s.IdAlmacen = @id_almacen\nORDER BY RTRIM((p.nombreProducto + ' ' + pd.descripcion + ' '+ m.nombreMarca + ' ' + me.descripcion)) ASC"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
