@@ -565,14 +565,14 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Image Name="Image3">
+          <Image Name="Image2">
             <Source>External</Source>
             <Value>=Parameters!ParaQR.Value</Value>
             <Sizing>FitProportional</Sizing>
             <Top>1.99559cm</Top>
             <Left>0.26141cm</Left>
-            <Height>3.51083cm</Height>
-            <Width>3.66958cm</Width>
+            <Height>4.27812cm</Height>
+            <Width>5.33646cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -581,7 +581,7 @@
             </Style>
           </Image>
         </ReportItems>
-        <Height>6.44941cm</Height>
+        <Height>6.84628cm</Height>
         <Style />
       </Body>
       <Width>19.74703cm</Width>

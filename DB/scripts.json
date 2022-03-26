@@ -207,7 +207,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "sp_get_productos_by_almacen",
-    "Content": "CREATE proc [dbo].[sp_get_productos_by_almacen]@idalmacen int,@text VARCHAR(250),@isPrincipal bit = 0asselect top 10id 'id',C_Interno 'codigo',Cod_Barra 'codigo_barra',RTRIM(LTRIM(Descripcion)) 'descripcion',U_Medida 'unidad_medida',Factor 'factor',Imagen 'imagen',Proveedor 'proveedor',Stock_Actual 'stock',F_Vencimiento 'fecha_vencimiento',Precio_Unit 'precio',IdAlmacen 'idalmacen',idUnidad 'idunidad',checkStockfrom vw_FiltroProductoswhere IdAlmacen = @idalmacenand (Descripcion like CONCAT('%', @text, '%') or Cod_Barra = @text or Codigo = @text)--and PrincipalAlmacen = @isPrincipal"
+    "Content": "CREATE proc [dbo].[sp_get_productos_by_almacen]@idalmacen int,@text VARCHAR(250),@isPrincipal bit = 0asselect top 10id 'id',C_Interno 'codigo',Codigo 'codigo_barra',RTRIM(LTRIM(Descripcion)) 'descripcion',U_Medida 'unidad_medida',Factor 'factor',Imagen 'imagen',Proveedor 'proveedor',Stock_Actual 'stock',F_Vencimiento 'fecha_vencimiento',Precio_Unit 'precio',IdAlmacen 'idalmacen',idUnidad 'idunidad',checkStockfrom vw_FiltroProductoswhere IdAlmacen = @idalmacenand (Descripcion like CONCAT('%', @text, '%') or Cod_Barra = @text or Codigo = @text)--and PrincipalAlmacen = @isPrincipal"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
