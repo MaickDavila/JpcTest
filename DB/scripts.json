@@ -2191,6 +2191,11 @@
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpCambiarTipoMonedaVenta",
+    "Content": "create proc SpCambiarTipoMonedaVenta@idVenta int,@tipoMoneda varchar(5)asupdate mst_Venta set TipoMoneda = @tipoMonedawhere id = @idVenta"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetPedidosById",
     "Content": "CREATE proc [dbo].[SpGetPedidosById]@id intasselectId,IdPedido,IdMesa,CodigoDoc,IdCliente,DniRuc,RazonSocial,Direccion,Email,Pagado,Eliminado,IdUsuario,BolFac,sub_total 'SubTotal',igv 'Igv',Descuento,Total,Idalmacen,Proforma,IdPiso,NumSecuencia,PreCuenta,Otro_Imp 'OtrosImpuestos',Adicional,Beneficiario,IdConvenio,IdParentesco,Fecha,is_llevar 'IsLlevar',is_delivery 'IsDelivery',ISNULL(countPecho, 0) 'CountPecho',ISNULL(countPierna, 0) 'CountPierna',textObservation 'TextObservacion',OperacionExoneradafrom tabla_Pre_Ventawhere id = @id"
   },
