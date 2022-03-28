@@ -2017,7 +2017,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetReporteAlmacenTraslado",
-    "Content": "CREATE proc [dbo].[SpGetReporteAlmacenTraslado]\n@id int\nas\nselect\nat.id,\nCASE at.serie\nWHEN 'T' THEN 'TRASLADO'\nEND DescripDoc,\ncast(at.fecha as date) as FechaEmision,\nat.descripcion,\nat.cerrado,\nat.estado,\nat.flag,\nat.serie,\nat.numero,\nat.idalmacenentrada,\nao.nombre as AlmaceEntrada,\nat.idalmacensalida,\nasa.nombre as AlmacenSalida,\nat.total,\natd.IdProducto,\natd.nombreProducto,\natd.idunidad,\natd.nombreUnidad,\natd.factor,\natd.cantidad,\natd.estado,\natd.flag,\natd.almacen_traslado_id,\natd.precio,\natd.total\nfrom mst_almacen_traslado at\ninner join mst_almacen_traslado_detalle atd on at.Id = atd.almacen_traslado_id\ninner join mst_Almacen ao on at.idAlmacenEntrada = ao.Id\ninner join mst_Almacen asa on at.idAlmacenSalida = asa.Id\nwhere at.id = @id"
+    "Content": "CREATE proc [dbo].[SpGetReporteAlmacenTraslado]@id intasselect--at.id,CASE at.serieWHEN 'T' THEN 'TRASLADO'END DescripDoc,cast(at.fecha as date) as FechaEmision,at.descripcion,at.cerrado,at.estado,at.flag,at.serie,at.numero,--at.idalmacenentrada,ao.nombre as AlmaceEntrada,at.idalmacensalida,asa.nombre as AlmacenSalida,at.total,atd.IdProducto,atd.nombreProducto,atd.idunidad,atd.nombreUnidad,atd.factor,atd.cantidad,atd.estado,atd.flag,--atd.almacen_traslado_id,atd.precio,atd.totalfrom mst_almacen_traslado atinner join mst_almacen_traslado_detalle atd on at.Id = atd.almacen_traslado_idinner join mst_Almacen ao on at.idAlmacenEntrada = ao.Idinner join mst_Almacen asa on at.idAlmacenSalida = asa.Idwhere at.id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
