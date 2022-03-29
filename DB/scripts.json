@@ -2192,7 +2192,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpCambiarTipoMonedaVenta",
-    "Content": "create proc SpCambiarTipoMonedaVenta@idVenta int,@tipoMoneda varchar(5)asupdate mst_Venta set TipoMoneda = @tipoMonedawhere id = @idVenta"
+    "Content": "CREATE proc SpCambiarTipoMonedaVenta@idVenta int,@tipoMoneda varchar(5)asdeclare @total decimal = (select TotalVenta from mst_Venta where id = @idVenta)declare @tipomoneda_text varchar(200) set @tipomoneda_text = CASE @TipoMoneda\tWHEN 'PEN' THEN 'SOLES'\tELSE 'DOLARES'ENDupdate mst_Venta set TipoMoneda = @tipoMoneda, Total_Letras = dbo.fn_ConvertirNumeroLetra(@total, @tipomoneda_text)where id = @idVenta"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
