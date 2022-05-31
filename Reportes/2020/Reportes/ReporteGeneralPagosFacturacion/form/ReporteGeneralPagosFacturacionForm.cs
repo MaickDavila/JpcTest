@@ -29,6 +29,11 @@ namespace Presentacion.Reportes._2020.Reportes.ReporteGeneralPagosFacturacion.fo
             Imprimir();
         }
 
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         void Imprimir()
         {
             try

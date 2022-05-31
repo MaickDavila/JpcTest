@@ -61,6 +61,10 @@
           <DataField>stockactual</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="stocminino">
+          <DataField>stocminino</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
         <Field Name="ProductosAPedir">
           <DataField>ProductosAPedir</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
@@ -80,7 +84,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetPorPedir</rd:DataSetName>
-        <rd:SchemaPath>D:\Desarrollo\JpcConsultings\Sistema\Presentacion\Reportes\2020\Productos\PorPedir\DataSetPorPedir.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\JpcTestCodigoFuente\JpcConsultings\Sistema\Presentacion\Reportes\2020\Productos\PorPedir\DataSetPorPedir.xsd</rd:SchemaPath>
         <rd:TableName>SpReporteProductosPorPedir</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

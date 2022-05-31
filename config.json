@@ -199,7 +199,7 @@
     "pcs": [
       {
         "id": 1,
-        "nombre": "MAICKPC",
+        "nombre": "MAICK-PC",
         "enabled": true,
         "impresoras": [
           {

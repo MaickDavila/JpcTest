@@ -16,6 +16,9 @@ namespace Presentacion.Reportes._2020.Productos.PorPedir
     {
         public int IdAlmacen { get; set; }
         public bool Exportar { get; set; }
+        
+        ///jpuga
+        public int IdGrupo { get; set; }
 
         public FormPorPedir()
         {
@@ -34,7 +37,7 @@ namespace Presentacion.Reportes._2020.Productos.PorPedir
 
                 var ta = new SpReporteProductosPorPedirTableAdapter() { Connection = new SqlConnection(DataSetConexion) };
                 var tabla = new DataSetPorPedir().SpReporteProductosPorPedir;
-                ta.Fill(tabla, IdAlmacen);
+                ta.Fill(tabla, IdAlmacen,IdGrupo);
                 ParametrosReporte("DataSet1", tabla, "2020\\Productos\\PorPedir\\ReportPorPedir.rdlc", reportViewer1);
                 this.reportViewer1.RefreshReport();
                 ExportarData(tabla);
@@ -73,6 +76,11 @@ namespace Presentacion.Reportes._2020.Productos.PorPedir
             {
                 MessageBox.Show(e.Message, "Error al exportar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
