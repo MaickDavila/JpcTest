@@ -204,14 +204,14 @@
         "impresoras": [
           {
             "nombre": "Microsoft Print to PDF",
-            "report": "Report1_A4.rdlc",
+            "report": "Report1.rdlc",
             "limit": 100,
             "enabled": true
           },
 
           {
             "nombre": "Microsoft Print to PDF",
-            "report": "Report1_A4.rdlc",
+            "report": "Report1.rdlc",
             "limit": 1000,
             "enabled": true
           }
@@ -222,7 +222,7 @@
           "items": [
             {
               "nombre": "Microsoft Print to PDF",
-              "report": "Report1_A4.rdlc",
+              "report": "Report1.rdlc",
               "enabled": true
             }
           ]
@@ -233,13 +233,13 @@
           "impresoras": [
             {
               "nombre": "Microsoft Print to PDF",
-              "report": "Report1_A4.rdlc",
+              "report": "Report1.rdlc",
               "limit": 100,
               "enabled": true
             },
             {
               "nombre": "Microsoft Print to PDF",
-              "report": "Report1_A4.rdlc",
+              "report": "Report1.rdlc",
               "limit": 1000,
               "enabled": true
             }
