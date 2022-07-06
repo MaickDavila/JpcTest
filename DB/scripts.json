@@ -97,7 +97,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "sp_reporte_cobranza",
-    "Content": "CREATE proc [dbo].[sp_reporte_cobranza]\n@fecha date\nas\nSELECT * FROM \n(\nSELECT v.IdUsuarioPreventa as CodVen, u.usuario as VENDEDOR,s.FechaPago,\nv.IdDocumento as Doc,\n(v.SerieDoc+'-'+CAST(v.NumeroDoc as varchar)) as NumDoc,\nv.TotalVenta,\nISNULL(s.Monto,0) AS Monto,\nts.Descripcion as tipo_pago \nFROM mst_Venta v\nINNER JOIN tbl_Seguimiento s\nON v.Id = s.IdVenta\nINNER JOIN tbl_TipoPago_Seguimiento ts\nON ts.Id = s.IdTipoPago\nINNER JOIN mst_Usuarios u\nON u.Id = v.IdUsuarioPreventa\nWHERE s.Eliminado = 0 and s.FechaPago  = @fecha \n) as cobranzas\npivot (\nsum(Monto)\nfor tipo_pago in ([EFECTIVO], [CHEQUE], [TRANSFERENCIA], [DEPOSITO])) PivotTable"
+    "Content": "CREATE proc [dbo].[sp_reporte_cobranza]@fecha dateasSELECT * FROM (SELECT v.IdUsuarioPreventa as CodVen, u.usuario as VENDEDOR,s.FechaPago,v.IdDocumento as Doc,(v.SerieDoc+'-'+CAST(v.NumeroDoc as varchar)) as NumDoc,v.TotalVenta,ISNULL(s.Monto,0) AS Monto,ts.Descripcion as tipo_pago FROM mst_Venta vINNER JOIN tbl_Seguimiento sON v.Id = s.IdVentaINNER JOIN tbl_TipoPago_Seguimiento tsON ts.Id = s.IdTipoPagoINNER JOIN mst_Usuarios uON u.Id = v.IdUsuarioPreventaWHERE s.Eliminado = 0 and s.FechaPago  = @fecha ) as cobranzaspivot (sum(Monto)for tipo_pago in ([EFECTIVO], [CHEQUE], [TRANSFERENCIA], [DEPOSITO])) PivotTable"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -337,7 +337,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddUnidadMedida",
-    "Content": "CREATE proc SpAddUnidadMedida@id int,@nombreUnidad varchar(50),@factor floatasif @id = 0begin\tinsert into mst_UnidadMedida (nombreUnidad, factor)\tvalues(@nombreUnidad, @factor)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_UnidadMedida set nombreUnidad = @nombreUnidad,\tfactor = @factor, fechaModifica = GETDATE()\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddUnidadMedida]@id int,@nombreUnidad varchar(50),@factor floatasif @id = 0begin\tinsert into mst_UnidadMedida (nombreUnidad, factor)\tvalues(@nombreUnidad, @factor)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_UnidadMedida set nombreUnidad = @nombreUnidad,\tfactor = @factor, fechaModifica = GETDATE()\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -397,7 +397,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetUnidadMedidaById",
-    "Content": "create proc SpGetUnidadMedidaById@id intasselect Id,nombreUnidad 'Descripcion',factorfrom mst_UnidadMedidawhere id = @id"
+    "Content": "CREATE proc [dbo].[SpGetUnidadMedidaById]@id intasselect Id,nombreUnidad 'Descripcion',factorfrom mst_UnidadMedidawhere id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -432,7 +432,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeleteUnidadMedida",
-    "Content": "create proc SpDeleteUnidadMedida@id intasupdate mst_UnidadMedida set estado = 0, flag = 0 where id = @id"
+    "Content": "CREATE proc [dbo].[SpDeleteUnidadMedida]@id intasupdate mst_UnidadMedida set estado = 0, flag = 0 where id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -492,7 +492,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetAuditoria",
-    "Content": "CREATE proc SpGetAuditoriaasselectid,CONCAT(Serie, '-', Numero) 'serie',Fecha,Usuario,FechaModifica,UsuarioModifica,IsClosedfrom AuditoriaORDER BY id desc"
+    "Content": "CREATE proc [dbo].[SpGetAuditoria]asselectid,CONCAT(Serie, '-', Numero) 'serie',Fecha,Usuario,FechaModifica,UsuarioModifica,IsClosedfrom AuditoriaORDER BY id desc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -572,7 +572,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "sp_reporte_cobranza_vendedor",
-    "Content": "CREATE proc [dbo].[sp_reporte_cobranza_vendedor]\n@fecha_ini date,\n@fecha_fin date,\n@id_vendedor int,\n@id_usuario_cajero int\nas\n\ndeclare @tipo_usuario int = (select idtipoUsuario from mst_Usuarios where id = @id_vendedor)\n--1,admin\n--2,cajero\n--3,vendedor\n\n\nif @tipo_usuario <> 2\nbegin\n\tSELECT * FROM \n\t(\n\tSELECT v.IdUsuarioPreventa as CodVen, u.usuario as VENDEDOR,s.FechaPago,\n\tv.IdDocumento as Doc,\n\t(v.SerieDoc+'-'+CAST(v.NumeroDoc as varchar)) as NumDoc,\n\tv.TotalVenta,\n\tISNULL(s.Monto,0) AS Monto,\n\tts.Descripcion as tipo_pago,\n\tv.RazonSocial as cliente\n\tFROM mst_Venta v\n\tINNER JOIN tbl_Seguimiento s\n\tON v.Id = s.IdVenta\n\tINNER JOIN tbl_TipoPago_Seguimiento ts\n\tON ts.Id = s.IdTipoPago\n\tINNER JOIN mst_Usuarios u\n\tON u.Id = v.IdUsuarioPreventa\n\tWHERE s.Eliminado = 0 and s.FechaPago between @fecha_ini and @fecha_fin and v.IdUsuarioPreventa = @id_vendedor\n\t) as cobranzas\n\tpivot (\n\tsum(Monto)\n\tfor tipo_pago in ([EFECTIVO], [CHEQUE], [TRANSFERENCIA], [DEPOSITO])) PivotTable\nend\nelse\nbegin\n\tSELECT * FROM \n\t(\n\tSELECT v.IdUsuarioPreventa as CodVen, u.usuario as VENDEDOR,s.FechaPago,\n\tv.IdDocumento as Doc,\n\t(v.SerieDoc+'-'+CAST(v.NumeroDoc as varchar)) as NumDoc,\n\tv.TotalVenta,\n\tISNULL(s.Monto,0) AS Monto,\n\tts.Descripcion as tipo_pago,\n\tv.RazonSocial as cliente\n\tFROM mst_Venta v\n\tINNER JOIN tbl_Seguimiento s\n\tON v.Id = s.IdVenta\n\tINNER JOIN tbl_TipoPago_Seguimiento ts\n\tON ts.Id = s.IdTipoPago\n\tINNER JOIN mst_Usuarios u\n\tON u.Id = v.IdUsuarioPreventa\n\tWHERE s.Eliminado = 0 and s.FechaPago between @fecha_ini and @fecha_fin and s.idUsuario = @id_usuario_cajero\n\t) as cobranzas\n\tpivot (\n\tsum(Monto)\n\tfor tipo_pago in ([EFECTIVO], [CHEQUE], [TRANSFERENCIA], [DEPOSITO])) PivotTable\nend"
+    "Content": "CREATE proc [dbo].[sp_reporte_cobranza_vendedor]@fecha_ini date,@fecha_fin date,@id_vendedor int,@id_usuario_cajero intasdeclare @tipo_usuario int = (select idtipoUsuario from mst_Usuarios where id = @id_vendedor)--1,admin--2,cajero--3,vendedorif @tipo_usuario <> 2begin\tSELECT * FROM \t(\tSELECT v.IdUsuarioPreventa as CodVen, u.usuario as VENDEDOR,s.FechaPago,\tv.IdDocumento as Doc,\t(v.SerieDoc+'-'+CAST(v.NumeroDoc as varchar)) as NumDoc,\tv.TotalVenta,\tISNULL(s.Monto,0) AS Monto,\tts.Descripcion as tipo_pago,\tv.RazonSocial as cliente\tFROM mst_Venta v\tINNER JOIN tbl_Seguimiento s\tON v.Id = s.IdVenta\tINNER JOIN tbl_TipoPago_Seguimiento ts\tON ts.Id = s.IdTipoPago\tINNER JOIN mst_Usuarios u\tON u.Id = v.IdUsuarioPreventa\tWHERE s.Eliminado = 0 and s.FechaPago between @fecha_ini and @fecha_fin and v.IdUsuarioPreventa = @id_vendedor\t) as cobranzas\tpivot (\tsum(Monto)\tfor tipo_pago in ([EFECTIVO], [CHEQUE], [TRANSFERENCIA], [DEPOSITO])) PivotTableendelsebegin\tSELECT * FROM \t(\tSELECT v.IdUsuarioPreventa as CodVen, u.usuario as VENDEDOR,s.FechaPago,\tv.IdDocumento as Doc,\t(v.SerieDoc+'-'+CAST(v.NumeroDoc as varchar)) as NumDoc,\tv.TotalVenta,\tISNULL(s.Monto,0) AS Monto,\tts.Descripcion as tipo_pago,\tv.RazonSocial as cliente\tFROM mst_Venta v\tINNER JOIN tbl_Seguimiento s\tON v.Id = s.IdVenta\tINNER JOIN tbl_TipoPago_Seguimiento ts\tON ts.Id = s.IdTipoPago\tINNER JOIN mst_Usuarios u\tON u.Id = v.IdUsuarioPreventa\tWHERE s.Eliminado = 0 and s.FechaPago between @fecha_ini and @fecha_fin and s.idUsuario = @id_usuario_cajero\t) as cobranzas\tpivot (\tsum(Monto)\tfor tipo_pago in ([EFECTIVO], [CHEQUE], [TRANSFERENCIA], [DEPOSITO])) PivotTableend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -687,7 +687,7 @@
   {
     "Type": "SQL_SCALAR_FUNCTION",
     "Name": "F_GetUltimoCostoProductoDetalle",
-    "Content": "CREATE function [dbo].[F_GetUltimoCostoProductoDetalle](@idProductoDetalle int, @idAlmacen int)\nreturns money\nas\nbegin\ndeclare @costo money = 0\nset @costo = (select top 1  Costo from (\n---INVENTARIO--------\nselect\nId_Producto as 'IdProducto',\nCosto as 'Costo',\ni.FechaCrea as 'FechaCrea',\ni.Id_Almacen 'IdAlmacen'\nfrom mst_Inventario_Detalle id\ninner join mst_Inventario i on id.Id_Inventario = i.Id\nwhere (i.Estado = 0 and i.Flag = 1)\nand (id.Estado = 1 and id.Flag = 1)\n---INVENTARIO--------\nunion all\n---COMPRAS--------\nselect\ncd.IdProducto,\n(cd.Precio/u.factor) as 'Costo',\nc.FechaCrea,\nc.IdAlmacen 'IdAlmacen'\nfrom mst_ComprasDetalles cd\ninner join mst_Compras c on cd.IdCompra = c.Id\ninner join mst_UnidadMedida u on u.Id = cd.IdUnidad\nwhere c.Estado = 1 and c.Flag = 1 and cd.Estado = 1 and cd.Flag = 1\nand c.IsClosed = 1\n---COMPRAS--------\nunion all\n---ENTRADAS--------\nselect \nidProducto as 'IdProducto',\n(precio/factor) as 'Costo',\nm.fecha as 'FechaCrea',\nm.idAlmacen 'IdAlmacen'\nfrom mst_almacen_movimiento_detalle md\ninner join mst_almacen_movimiento m on md.almacen_movimiento_id = m.id\nwhere entrada = 1 and m.estado = 1 and m.flag = 1 and md.estado = 1 and md.flag = 1\n---ENTRADAS--------\nunion all\n---TRASLADOS--------\nselect\ntd.idProducto as 'IdProducto',\n(td.precio/td.factor) as 'Costo',\nt.fecha as 'FechaCrea',\nt.idAlmacenEntrada as 'IdAlmacen'\nfrom mst_almacen_traslado_detalle td\ninner join mst_almacen_traslado t on td.almacen_traslado_id = t.id\nwhere td.estado = 1 and td.flag = 1 and t.estado = 1 and t.flag = 1\n---TRASLADOS--------\n) as Temp\nwhere Temp.IdProducto = @idProductoDetalle\nand Temp.IdAlmacen = @idAlmacen\norder by Temp.FechaCrea desc)\n\nset @costo =isnull(@costo,0)\nreturn (@costo)\nend"
+    "Content": "CREATE function [dbo].[F_GetUltimoCostoProductoDetalle](@idProductoDetalle int, @idAlmacen int)returns moneyasbegindeclare @costo money = 0set @costo = (select top 1  Costo from (---INVENTARIO--------selectId_Producto as 'IdProducto',Costo as 'Costo',i.FechaCrea as 'FechaCrea',i.Id_Almacen 'IdAlmacen'from mst_Inventario_Detalle idinner join mst_Inventario i on id.Id_Inventario = i.Idwhere (i.Estado = 0 and i.Flag = 1)and (id.Estado = 1 and id.Flag = 1)---INVENTARIO--------union all---COMPRAS--------selectcd.IdProducto,(cd.Precio/u.factor) as 'Costo',c.FechaCrea,c.IdAlmacen 'IdAlmacen'from mst_ComprasDetalles cdinner join mst_Compras c on cd.IdCompra = c.Idinner join mst_UnidadMedida u on u.Id = cd.IdUnidadwhere c.Estado = 1 and c.Flag = 1 and cd.Estado = 1 and cd.Flag = 1and c.IsClosed = 1---COMPRAS--------union all---ENTRADAS--------select idProducto as 'IdProducto',(precio/factor) as 'Costo',m.fecha as 'FechaCrea',m.idAlmacen 'IdAlmacen'from mst_almacen_movimiento_detalle mdinner join mst_almacen_movimiento m on md.almacen_movimiento_id = m.idwhere entrada = 1 and m.estado = 1 and m.flag = 1 and md.estado = 1 and md.flag = 1---ENTRADAS--------union all---TRASLADOS--------selecttd.idProducto as 'IdProducto',(td.precio/td.factor) as 'Costo',t.fecha as 'FechaCrea',t.idAlmacenEntrada as 'IdAlmacen'from mst_almacen_traslado_detalle tdinner join mst_almacen_traslado t on td.almacen_traslado_id = t.idwhere td.estado = 1 and td.flag = 1 and t.estado = 1 and t.flag = 1---TRASLADOS--------) as Tempwhere Temp.IdProducto = @idProductoDetalleand Temp.IdAlmacen = @idAlmacenorder by Temp.FechaCrea desc)set @costo =isnull(@costo,0)return (@costo)end"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -822,7 +822,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddMarca",
-    "Content": "CREATE proc SpAddMarca@id int,@descripcion varchar(50)asif @id = 0begin\tinsert into mst_Marca (nombreMarca)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Marca set nombreMarca=@descripcion\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddMarca]@id int,@descripcion varchar(50)asif @id = 0begin\tinsert into mst_Marca (nombreMarca)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Marca set nombreMarca=@descripcion\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_SCALAR_FUNCTION",
@@ -842,12 +842,12 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetConfiguracionGeneral",
-    "Content": "CREATE proc [dbo].[SpGetConfiguracionGeneral]asselectRuc,razonsocial 'RazonSocial',nombrecomercial 'NombreComercial',direccion 'Direccion',telefono 'Telefono',celular 'Celular',web 'Web',correo 'Correo',marca 'Marca',grupo_linea_familia 'GrupoLineaFamilia',talla 'Talla',color 'Color',medida 'Medida',descripcion 'Descripcion',f_vence 'FechaVence',proveedor 'Proveedor',visa 'Visa',mastercard 'Mastercard',Logo 'Logo',impresora1 'Impresora1',impresora2 'Impresora2',ubigeo 'Ubigeo',ciudad 'Ciudad',distrito 'Distrito',igv 'Igv',Certificado_CPE 'CertificadoCpe',ContraseniaCertificadoCpe,UsuarioSecundarioSol,ContraseniaUsuarioSecundarioSol,Validar_Vendedor 'ValidarVendedor',ModoRapido 'ModoRapido',CodBarra 'CodigoBarra',NumCopias 'NumeroCopias',NumMesas 'NumeroMesas',Produccion,PassCorreo,Met_Busqueda 'MetodoBusqueda',UrlOse,TipoOse,UrlOseBeta,UrlOseOtros,UrlOseOtrosBeta,UrlOseAux,UrlOseAuxBeta,TipoMoneda,Puerto,Ssl,Servidor_Email 'ServidorEmail',Nube,Id,hora_envio 'HoraEnvio',pago_defecto 'PagoEfectivo',id_api_sunat 'IdApiSunat',clave_api_sunat 'ClaveApiSunat',ruta_copia_bd 'RutaCopiaBd',CodigoAnexo,ActivarLote,EntradaDirectaProducto,DocumentoVentaDefecto,ActivarBalanza,AlertaSunat,SorteoEstado,SorteoMonto,IsGravadafrom tabla_configuracion_general"
+    "Content": "CREATE proc [dbo].[SpGetConfiguracionGeneral]asselectRuc,razonsocial 'RazonSocial',nombrecomercial 'NombreComercial',direccion 'Direccion',telefono 'Telefono',celular 'Celular',web 'Web',correo 'Correo',marca 'Marca',grupo_linea_familia 'GrupoLineaFamilia',talla 'Talla',color 'Color',medida 'Medida',descripcion 'Descripcion',f_vence 'FechaVence',proveedor 'Proveedor',visa 'Visa',mastercard 'Mastercard',Logo 'Logo',impresora1 'Impresora1',impresora2 'Impresora2',ubigeo 'Ubigeo',ciudad 'Ciudad',distrito 'Distrito',igv 'Igv',Certificado_CPE 'CertificadoCpe',ContraseniaCertificadoCpe,UsuarioSecundarioSol,ContraseniaUsuarioSecundarioSol,Validar_Vendedor 'ValidarVendedor',ModoRapido 'ModoRapido',CodBarra 'CodigoBarra',NumCopias 'NumeroCopias',NumMesas 'NumeroMesas',Produccion,PassCorreo,Met_Busqueda 'MetodoBusqueda',UrlOse,TipoOse,UrlOseBeta,UrlOseOtros,UrlOseOtrosBeta,UrlOseAux,UrlOseAuxBeta,TipoMoneda,Puerto,Ssl,Servidor_Email 'ServidorEmail',Nube,Id,hora_envio 'HoraEnvio',pago_defecto 'PagoEfectivo',id_api_sunat 'IdApiSunat',clave_api_sunat 'ClaveApiSunat',ruta_copia_bd 'RutaCopiaBd',CodigoAnexo,ActivarLote,EntradaDirectaProducto,DocumentoVentaDefecto,ActivarBalanza,AlertaSunat,SorteoEstado,SorteoMonto,IsGravada,DiasEnviofrom tabla_configuracion_general"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetMarcaById",
-    "Content": "create proc SpGetMarcaById@id intasselectId,nombreMarca as 'Descripcion'from mst_Marcawhere Estado = 1 and Flag =1 and id = @id"
+    "Content": "CREATE proc [dbo].[SpGetMarcaById]@id intasselectId,nombreMarca as 'Descripcion'from mst_Marcawhere Estado = 1 and Flag =1 and id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -867,7 +867,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeleteMarca",
-    "Content": "create proc SpDeleteMarca@id intasupdate mst_Marca set estado = 0, flag = 0where id = @id"
+    "Content": "CREATE proc [dbo].[SpDeleteMarca]@id intasupdate mst_Marca set estado = 0, flag = 0where id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -972,7 +972,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpUpdateConfiguracionGeneral",
-    "Content": "CREATE proc [dbo].[SpUpdateConfiguracionGeneral]@ruc varchar(11),@razonSocial varchar(max),@nombreComercial varchar(max),@direccion varchar(max),@telefono varchar(11),@celular varchar(11),@web varchar(100),@correo varchar(100),@marca bit,@grupoLineaFamilia bit,@talla bit,@color bit,@medida bit,@descripcion bit,@fechaVence bit,@proveedor bit,@visa bit,@mastercard bit,@logo image,@impresora1 varchar(100),@impresora2 varchar(100),@ubigeo varchar(11),@ciudad varchar(100),@distrito varchar(100),@igv money,@certificadoCpe varchar(100),@contraseniaCertificadoCpe varchar(100),@usuarioSecundarioSol varchar(100),@contraseniaUsuarioSecundarioSol varchar(100),@validarVendedor bit,@modoRapido bit,@codigoBarra VARCHAR(250),@numeroCopias int,@numeroMesas int,@produccion bit,@passCorreo varchar(100),@metodoBusqueda char(2),@urlOse varchar(100),@tipoOse int,@urlOseBeta varchar(100),@urlOseOtros varchar(100),@urlOseOtrosBeta varchar(100),@urlOseAux varchar(100),@urlOseAuxBeta varchar(100),@tipoMoneda varchar(5),@puerto int,@ssl bit,@servidorEmail varchar(100),@nube bit,@id int,@horaEnvio int,@pagoEfectivo varchar(5),@idApiSunat varchar(100),@claveApiSunat varchar(100),@rutaCopiaBd varchar(100),@codigoAnexo varchar(10),@activarLote bit,@entradaDirectaProducto bit,@documentoVentaDefecto char(2),@activarBalanza bit,@alertaSunat bit,@sorteoEstado bit,@sorteoMonto float,@isGravada bitasupdate tabla_configuracion_generalsetruc=@ruc,razonsocial = @razonSocial,nombrecomercial = @nombreComercial,direccion = @direccion,telefono = @telefono,celular = @celular,web = @web,correo = @correo,marca = @marca,grupo_linea_familia = @grupoLineaFamilia,talla = @talla,color = @color,medida = @medida,descripcion = @descripcion,f_vence = @fechaVence,proveedor = @proveedor,visa = @visa,mastercard = @mastercard,Logo = @logo,impresora1 = @impresora1,impresora2 = @impresora2,ubigeo = @ubigeo,ciudad = @ciudad,distrito = @distrito,igv=@igv,Certificado_CPE = @certificadoCpe,ContraseniaCertificadoCpe = @contraseniaCertificadoCpe,UsuarioSecundarioSol = @usuarioSecundarioSol,ContraseniaUsuarioSecundarioSol = @contraseniaUsuarioSecundarioSol,Validar_Vendedor = @validarVendedor,ModoRapido = @modoRapido,CodBarra = @codigoBarra,NumCopias = @numeroCopias,NumMesas = @numeroMesas,Produccion = @produccion,PassCorreo = @passCorreo,Met_Busqueda = @metodoBusqueda,UrlOse = @urlOse,TipoOse=@tipoOse,UrlOseBeta = @urlOseBeta,UrlOseOtros = @urlOseOtros,UrlOseOtrosBeta=@urlOseOtrosBeta,UrlOseAux=@urlOseAux,UrlOseAuxBeta=@urlOseAuxBeta,TipoMoneda=@tipoMoneda,Puerto=@puerto,Ssl = @ssl,Servidor_Email=@servidorEmail,Nube=@nube, hora_envio=@horaEnvio,pago_defecto=@pagoEfectivo,id_api_sunat=@idApiSunat,clave_api_sunat=@claveApiSunat,ruta_copia_bd=@rutaCopiaBd,CodigoAnexo=@codigoAnexo,ActivarLote=@activarLote,EntradaDirectaProducto=@entradaDirectaProducto,DocumentoVentaDefecto=@documentoVentaDefecto,ActivarBalanza = @activarBalanza,AlertaSunat = @alertaSunat,SorteoEstado = @sorteoEstado,SorteoMonto = @sorteoMonto,IsGravada = @isGravadawhere id =@idselect @id as 'id'"
+    "Content": "CREATE proc [dbo].[SpUpdateConfiguracionGeneral]@ruc varchar(11),@razonSocial varchar(max),@nombreComercial varchar(max),@direccion varchar(max),@telefono varchar(11),@celular varchar(11),@web varchar(100),@correo varchar(100),@marca bit,@grupoLineaFamilia bit,@talla bit,@color bit,@medida bit,@descripcion bit,@fechaVence bit,@proveedor bit,@visa bit,@mastercard bit,@logo image,@impresora1 varchar(100),@impresora2 varchar(100),@ubigeo varchar(11),@ciudad varchar(100),@distrito varchar(100),@igv money,@certificadoCpe varchar(100),@contraseniaCertificadoCpe varchar(100),@usuarioSecundarioSol varchar(100),@contraseniaUsuarioSecundarioSol varchar(100),@validarVendedor bit,@modoRapido bit,@codigoBarra VARCHAR(250),@numeroCopias int,@numeroMesas int,@produccion bit,@passCorreo varchar(100),@metodoBusqueda char(2),@urlOse varchar(100),@tipoOse int,@urlOseBeta varchar(100),@urlOseOtros varchar(100),@urlOseOtrosBeta varchar(100),@urlOseAux varchar(100),@urlOseAuxBeta varchar(100),@tipoMoneda varchar(5),@puerto int,@ssl bit,@servidorEmail varchar(100),@nube bit,@id int,@horaEnvio int,@pagoEfectivo varchar(5),@idApiSunat varchar(100),@claveApiSunat varchar(100),@rutaCopiaBd varchar(100),@codigoAnexo varchar(10),@activarLote bit,@entradaDirectaProducto bit,@documentoVentaDefecto char(2),@activarBalanza bit,@alertaSunat bit,@sorteoEstado bit,@sorteoMonto float,@isGravada bit,@diasEnvio intasupdate tabla_configuracion_generalsetruc=@ruc,razonsocial = @razonSocial,nombrecomercial = @nombreComercial,direccion = @direccion,telefono = @telefono,celular = @celular,web = @web,correo = @correo,marca = @marca,grupo_linea_familia = @grupoLineaFamilia,talla = @talla,color = @color,medida = @medida,descripcion = @descripcion,f_vence = @fechaVence,proveedor = @proveedor,visa = @visa,mastercard = @mastercard,Logo = @logo,impresora1 = @impresora1,impresora2 = @impresora2,ubigeo = @ubigeo,ciudad = @ciudad,distrito = @distrito,igv=@igv,Certificado_CPE = @certificadoCpe,ContraseniaCertificadoCpe = @contraseniaCertificadoCpe,UsuarioSecundarioSol = @usuarioSecundarioSol,ContraseniaUsuarioSecundarioSol = @contraseniaUsuarioSecundarioSol,Validar_Vendedor = @validarVendedor,ModoRapido = @modoRapido,CodBarra = @codigoBarra,NumCopias = @numeroCopias,NumMesas = @numeroMesas,Produccion = @produccion,PassCorreo = @passCorreo,Met_Busqueda = @metodoBusqueda,UrlOse = @urlOse,TipoOse=@tipoOse,UrlOseBeta = @urlOseBeta,UrlOseOtros = @urlOseOtros,UrlOseOtrosBeta=@urlOseOtrosBeta,UrlOseAux=@urlOseAux,UrlOseAuxBeta=@urlOseAuxBeta,TipoMoneda=@tipoMoneda,Puerto=@puerto,Ssl = @ssl,Servidor_Email=@servidorEmail,Nube=@nube, hora_envio=@horaEnvio,pago_defecto=@pagoEfectivo,id_api_sunat=@idApiSunat,clave_api_sunat=@claveApiSunat,ruta_copia_bd=@rutaCopiaBd,CodigoAnexo=@codigoAnexo,ActivarLote=@activarLote,EntradaDirectaProducto=@entradaDirectaProducto,DocumentoVentaDefecto=@documentoVentaDefecto,ActivarBalanza = @activarBalanza,AlertaSunat = @alertaSunat,SorteoEstado = @sorteoEstado,SorteoMonto = @sorteoMonto,IsGravada = @isGravada,DiasEnvio = @diasEnviowhere id =@idselect @id as 'id'"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1112,7 +1112,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddPedidos",
-    "Content": "CREATE proc SpAddPedidos@id int,@idPedido int,@idMesa int,@idTipoDocCliente varchar(2),@idCliente int,@numDocCliente varchar(20),@razonSocial varchar(200),@direccion varchar(200),@email varchar(50),@pagado bit,@eliminado bit,@idUsuario int,@idDocVenta int,@subTotal float,@igv float,@icbper float,@descuento float,@total float,@idAlmacen int,@fecha datetimeasif @id = 0begin\tinsert into Pedidos (IdPedido, IdMesa, IdTipoDocCliente, IdCliente, NumDocCliente, RazonSocial, Direccion, Email, Pagado, Eliminado, IdUsuario, IdDocVenta, SubTotal, Igv, Icbper, Descuento, Total, IdAlmacen, Fecha)\tvalues(@idPedido, @idMesa, @idTipoDocCliente, @idCliente, @numDocCliente, @razonSocial, @direccion, @email, @pagado, @eliminado, @idUsuario, @idDocVenta, @subTotal, @igv, @icbper, @descuento, @total, @idAlmacen, @fecha)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate Pedidos set IdMesa = @idMesa, IdTipoDocCliente=@idTipoDocCliente, NumDocCliente=@numDocCliente,RazonSocial=@razonSocial,\tDireccion=@direccion,Email=@email,Pagado=@pagado,Eliminado=@eliminado,IdUsuario=@idUsuario,IdDocVenta=@idDocVenta,\tSubTotal=@subTotal,Igv=@igv,Icbper=@icbper,Descuento=@descuento,Total=@total,IdAlmacen=@idAlmacen,Fecha=@fecha\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddPedidos]@id int,@idPedido int,@idMesa int,@idTipoDocCliente varchar(2),@idCliente int,@numDocCliente varchar(20),@razonSocial varchar(200),@direccion varchar(200),@email varchar(50),@pagado bit,@eliminado bit,@idUsuario int,@idDocVenta int,@subTotal float,@igv float,@icbper float,@descuento float,@total float,@idAlmacen int,@fecha datetimeasif @id = 0begin\tinsert into Pedidos (IdPedido, IdMesa, IdTipoDocCliente, IdCliente, NumDocCliente, RazonSocial, Direccion, Email, Pagado, Eliminado, IdUsuario, IdDocVenta, SubTotal, Igv, Icbper, Descuento, Total, IdAlmacen, Fecha)\tvalues(@idPedido, @idMesa, @idTipoDocCliente, @idCliente, @numDocCliente, @razonSocial, @direccion, @email, @pagado, @eliminado, @idUsuario, @idDocVenta, @subTotal, @igv, @icbper, @descuento, @total, @idAlmacen, @fecha)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate Pedidos set IdMesa = @idMesa, IdTipoDocCliente=@idTipoDocCliente, NumDocCliente=@numDocCliente,RazonSocial=@razonSocial,\tDireccion=@direccion,Email=@email,Pagado=@pagado,Eliminado=@eliminado,IdUsuario=@idUsuario,IdDocVenta=@idDocVenta,\tSubTotal=@subTotal,Igv=@igv,Icbper=@icbper,Descuento=@descuento,Total=@total,IdAlmacen=@idAlmacen,Fecha=@fecha\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1127,7 +1127,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAnularPedido",
-    "Content": "CREATE proc SpAnularPedido@idPedido intasupdate Pedidos set Eliminado = 1where Id = @idPedidoupdate PedidosDetalles set Eliminado = 1where IdPedido = @idPedido"
+    "Content": "CREATE proc [dbo].[SpAnularPedido]@idPedido intasupdate Pedidos set Eliminado = 1where Id = @idPedidoupdate PedidosDetalles set Eliminado = 1where IdPedido = @idPedido"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1212,7 +1212,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetPedidosDetalles",
-    "Content": "CREATE proc SpGetPedidosDetallesasselect * from PedidosDetalleswhere Eliminado = 0"
+    "Content": "CREATE proc [dbo].[SpGetPedidosDetalles]asselect * from PedidosDetalleswhere Eliminado = 0"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1262,7 +1262,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetPedidos",
-    "Content": "CREATE proc SpGetPedidosasselect * from Pedidoswhere Eliminado = 0"
+    "Content": "CREATE proc [dbo].[SpGetPedidos]asselect * from Pedidoswhere Eliminado = 0"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1312,7 +1312,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetGrupoById",
-    "Content": "CREATE proc SpGetGrupoById@id intasselect id,Descripcionfrom mst_Grupowhere Estado = 1 and Flag = 1 and id = @id"
+    "Content": "CREATE proc [dbo].[SpGetGrupoById]@id intasselect id,Descripcionfrom mst_Grupowhere Estado = 1 and Flag = 1 and id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1387,7 +1387,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddGrupo",
-    "Content": "CREATE proc SpAddGrupo@id int,@descripcion varchar(50)asif @id = 0begin\tinsert into mst_Grupo (Descripcion)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Grupo set Descripcion = @descripcion\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddGrupo]@id int,@descripcion varchar(50)asif @id = 0begin\tinsert into mst_Grupo (Descripcion)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Grupo set Descripcion = @descripcion\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1437,7 +1437,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeleteGrupo",
-    "Content": "create proc SpDeleteGrupo@id intasupdate mst_Grupo set Estado = 0, Flag =0where id = @id"
+    "Content": "CREATE proc [dbo].[SpDeleteGrupo]@id intasupdate mst_Grupo set Estado = 0, Flag =0where id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1467,7 +1467,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetColorById",
-    "Content": "CREATE proc SpGetColorById@id intasselectId,descripcionfrom mst_Colorwhere Estado = 1 and Flag =1 and id = @id"
+    "Content": "CREATE proc [dbo].[SpGetColorById]@id intasselectId,descripcionfrom mst_Colorwhere Estado = 1 and Flag =1 and id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1487,7 +1487,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddAuditoria",
-    "Content": "CREATE proc SpAddAuditoria@id int,@usuario varchar(50),@isClosed bit = 0asif @id = 0begin\tdeclare @numero int = isnull((select top 1 Numero from Auditoria order by id desc), 0)\t \tset @numero = @numero + 1\tinsert into Auditoria (Fecha, Usuario, Numero, IsClosed)\tvalues(GETDATE(), @usuario, @numero, @isClosed)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate Auditoria set FechaModifica = GETDATE(),\tUsuarioModifica = @usuario, IsClosed = @isClosed\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddAuditoria]@id int,@usuario varchar(50),@isClosed bit = 0asif @id = 0begin\tdeclare @numero int = isnull((select top 1 Numero from Auditoria order by id desc), 0)\t \tset @numero = @numero + 1\tinsert into Auditoria (Fecha, Usuario, Numero, IsClosed)\tvalues(GETDATE(), @usuario, @numero, @isClosed)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate Auditoria set FechaModifica = GETDATE(),\tUsuarioModifica = @usuario, IsClosed = @isClosed\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1507,7 +1507,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddComision",
-    "Content": "CREATE proc SpAddComision @idVenta int,  @idUsuario intas declare @idComision int = isnull((select Id from Comision where IdVenta = @idVenta), 0)declare @comisionTotal float = isnull((select sum(temp.importecomision) from (\t\t\t\t\t\t\t\t\tSELECT v.Id,u.IdTipoUsuario,u.nombre,v.IdUsuarioPreventa,p.nombreproducto,p.IdGrupo,vd.Total,config.Porcentaje,\t\t\t\t\t\t\t\t\t(vd.Total*config.Porcentaje/100) as ImporteComision\t\t\t\t\t\t\t\t\tFROM mst_venta v\t\t\t\t\t\t\t\t\tINNER JOIN mst_Venta_det vd ON v.Id=vd.IdVenta\t\t\t\t\t\t\t\t\tINNER JOIN mst_ProductoPresentacion pp ON pp.Id = vd.IdProducto\t\t\t\t\t\t\t\t\tINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalle\t\t\t\t\t\t\t\t\tINNER JOIN mst_Producto p ON p.Id = pd.IdProducto\t\t\t\t\t\t\t\t\tINNER JOIN mst_Usuarios u ON u.Id = v.IdUsuarioPreventa\t\t\t\t\t\t\t\t\tINNER JOIN ComisionConfig config ON (config.IdTipoUsuario=u.IdTipoUsuario AND config.IdGrupo = p.IdGrupo)\t\t\t\t\t\t\t\t\tWHERE v.Id=@idVenta and IdDocumento <> '07'\t\t\t\t\t\t\t\t\t) as temp), 0)if @idComision = 0begin\tif @comisionTotal > 0\tbegin\t\t \t\tinsert into Comision(IdVenta, Total, MontoPagado, IdUsuario)\t\tvalues(@idVenta, @comisionTotal, 0, @idUsuario)\t\tselect CAST(SCOPE_IDENTITY() as int) 'idcomision add'\tend\t \tselect nullendelsebegin\tdeclare @montoPagado float = isnull((select SUM(Monto) from ComisionPagos where IdComision = @idComision and Eliminado = 0), 0)\tupdate Comision set Total = @comisionTotal, MontoPagado = @montoPagado,\tIdUsuario = @idUsuario\twhere id = @idComision\tselect @idComision 'idcomision update'end--validar si esa venta es una nota de credito y saber a que documento afectó con anulación para eliminar sus comisiones-- 07 -> 01,02 anulacióndeclare @serie VARCHAR(20) = (select top 1 NumeroDocAfectado from mst_Venta where id = @idVenta and IdDocumento = '07' and (TipoNotCred = '01' or TipoNotCred = '02')) set @serie = isnull(@serie, '')set @serie = LTRIM(RTRIM(@serie))if @serie <> ''\tbegin\t\tset @idVenta = ISNULL((select top 1 Id from mst_Venta where CONCAT(rtrim(LTRIM(SerieDoc)), '-', NumeroDoc) = @serie) , 0)\t \t\tprint 'yyyyyy'\t\tprint @serie\t\tprint @idventa\t\tif @idVenta > 0\t\tbegin\t\t \t\t\tset @idComision = (select top 1 Id from Comision where IdVenta = @idVenta)\t\t\t\tdelete from ComisionPagos where IdComision = @idComision\t\t\tdelete from Comision where Id = @idComision\t\tend\tend "
+    "Content": "CREATE proc [dbo].[SpAddComision] @idVenta int,  @idUsuario intas declare @idComision int = isnull((select Id from Comision where IdVenta = @idVenta), 0)declare @comisionTotal float = isnull((select sum(temp.importecomision) from (\t\t\t\t\t\t\t\t\tSELECT v.Id,u.IdTipoUsuario,u.nombre,v.IdUsuarioPreventa,p.nombreproducto,p.IdGrupo,vd.Total,config.Porcentaje,\t\t\t\t\t\t\t\t\t(vd.Total*config.Porcentaje/100) as ImporteComision\t\t\t\t\t\t\t\t\tFROM mst_venta v\t\t\t\t\t\t\t\t\tINNER JOIN mst_Venta_det vd ON v.Id=vd.IdVenta\t\t\t\t\t\t\t\t\tINNER JOIN mst_ProductoPresentacion pp ON pp.Id = vd.IdProducto\t\t\t\t\t\t\t\t\tINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalle\t\t\t\t\t\t\t\t\tINNER JOIN mst_Producto p ON p.Id = pd.IdProducto\t\t\t\t\t\t\t\t\tINNER JOIN mst_Usuarios u ON u.Id = v.IdUsuarioPreventa\t\t\t\t\t\t\t\t\tINNER JOIN ComisionConfig config ON (config.IdTipoUsuario=u.IdTipoUsuario AND config.IdGrupo = p.IdGrupo)\t\t\t\t\t\t\t\t\tWHERE v.Id=@idVenta and IdDocumento <> '07'\t\t\t\t\t\t\t\t\t) as temp), 0)if @idComision = 0begin\tif @comisionTotal > 0\tbegin\t\t \t\tinsert into Comision(IdVenta, Total, MontoPagado, IdUsuario)\t\tvalues(@idVenta, @comisionTotal, 0, @idUsuario)\t\tselect CAST(SCOPE_IDENTITY() as int) 'idcomision add'\tend\t \tselect nullendelsebegin\tdeclare @montoPagado float = isnull((select SUM(Monto) from ComisionPagos where IdComision = @idComision and Eliminado = 0), 0)\tupdate Comision set Total = @comisionTotal, MontoPagado = @montoPagado,\tIdUsuario = @idUsuario\twhere id = @idComision\tselect @idComision 'idcomision update'end--validar si esa venta es una nota de credito y saber a que documento afectó con anulación para eliminar sus comisiones-- 07 -> 01,02 anulacióndeclare @serie VARCHAR(20) = (select top 1 NumeroDocAfectado from mst_Venta where id = @idVenta and IdDocumento = '07' and (TipoNotCred = '01' or TipoNotCred = '02')) set @serie = isnull(@serie, '')set @serie = LTRIM(RTRIM(@serie))if @serie <> ''\tbegin\t\tset @idVenta = ISNULL((select top 1 Id from mst_Venta where CONCAT(rtrim(LTRIM(SerieDoc)), '-', NumeroDoc) = @serie) , 0)\t \t\tprint 'yyyyyy'\t\tprint @serie\t\tprint @idventa\t\tif @idVenta > 0\t\tbegin\t\t \t\t\tset @idComision = (select top 1 Id from Comision where IdVenta = @idVenta)\t\t\t\tdelete from ComisionPagos where IdComision = @idComision\t\t\tdelete from Comision where Id = @idComision\t\tend\tend "
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1532,7 +1532,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddAuditoriaDetalles",
-    "Content": "CREATE proc SpAddAuditoriaDetalles@id int,@auditoriaId int,@stock float,@conteo float,@diferencia float,@idProducto int,@descripcion varchar(50),@idUnidad int,@idGrupo intasif @id = 0begin\tinsert into AuditoriaDetalles(AuditoriaId, Stock, Conteo, Diferencia, IdProducto, IdUnidad, idgrupo)\tvalues(@auditoriaId, @stock, @conteo, @diferencia, @idProducto, @idUnidad, @idGrupo)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate AuditoriaDetalles set Stock = @stock,\tConteo = @conteo, Diferencia = @diferencia,\tIdProducto= @idProducto, IdUnidad=@idUnidad,\tidgrupo=@idGrupo\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddAuditoriaDetalles]@id int,@auditoriaId int,@stock float,@conteo float,@diferencia float,@idProducto int,@descripcion varchar(50),@idUnidad int,@idGrupo intasif @id = 0begin\tinsert into AuditoriaDetalles(AuditoriaId, Stock, Conteo, Diferencia, IdProducto, IdUnidad, idgrupo)\tvalues(@auditoriaId, @stock, @conteo, @diferencia, @idProducto, @idUnidad, @idGrupo)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate AuditoriaDetalles set Stock = @stock,\tConteo = @conteo, Diferencia = @diferencia,\tIdProducto= @idProducto, IdUnidad=@idUnidad,\tidgrupo=@idGrupo\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1552,7 +1552,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddColor",
-    "Content": "CREATE proc SpAddColor@id int, @descripcion varchar(50)asif @id = 0begin\tinsert into mst_Color (descripcion)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Color set descripcion = @descripcion\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddColor]@id int, @descripcion varchar(50)asif @id = 0begin\tinsert into mst_Color (descripcion)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Color set descripcion = @descripcion\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_SCALAR_FUNCTION",
@@ -1577,17 +1577,17 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeleteColor",
-    "Content": "create proc SpDeleteColor@id intasupdate mst_Color set estado = 0, flag = 0where id = @id"
+    "Content": "CREATE proc [dbo].[SpDeleteColor]@id intasupdate mst_Color set estado = 0, flag = 0where id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetComision",
-    "Content": "CREATE proc SpGetComision@idUsuario int,@deben bitasselectc.Id,c.IdVenta,CONCAT(v.SerieDoc, '-', v.NumeroDoc) as 'Referencia',v.TotalVenta,c.Total 'Comision',c.MontoPagado,(c.Total - c.MontoPagado) as 'Saldo',c.IdUsuario,u.usuario 'Usuario' from Comision cinner join mst_Venta v on c.IdVenta = v.idinner join mst_Usuarios u on c.idUsuario = u.Idwhere c.IdUsuario = case @idUsuario when 0 then c.IdUsuario else @idUsuario endand c.MontoPagado <= case @deben when 0 then c.Total else c.Total-1 endorder by id desc"
+    "Content": "CREATE proc [dbo].[SpGetComision]@idUsuario int,@deben bitasselectc.Id,c.IdVenta,CONCAT(v.SerieDoc, '-', v.NumeroDoc) as 'Referencia',v.TotalVenta,c.Total 'Comision',c.MontoPagado,(c.Total - c.MontoPagado) as 'Saldo',c.IdUsuario,u.usuario 'Usuario' from Comision cinner join mst_Venta v on c.IdVenta = v.idinner join mst_Usuarios u on c.idUsuario = u.Idwhere c.IdUsuario = case @idUsuario when 0 then c.IdUsuario else @idUsuario endand c.MontoPagado <= case @deben when 0 then c.Total else c.Total-1 endorder by id desc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spReporteComprobante",
-    "Content": "CREATE proc [dbo].[spReporteComprobante]\n@id int,\n@bit bit\nas\nif(@bit = 0)\nSELECT a.Id AS IdCabCpe,\nCASE a.IdDocumento\nWHEN '01' THEN 'FACTURA ELECTRÓNICA'\nWHEN '03' THEN 'BOLETA DE VENTA ELECTRÓNICA'\nWHEN '07' THEN 'NOTA DE CREDITO ELECTRÓNICA'\nWHEN '08' THEN 'NOTA DE DEBITO ELECTRÓNICA'\nWHEN '99' THEN 'NOTA DE VENTA'\nEND AS TipoDocumento, \nCASE l.codigoSunat\nWHEN 6 THEN 'RAZON SOCIAL'\nELSE 'CLIENTE'\nEND AS TipoGlosa,\na.SerieDoc+'-'+ cast(a.NumeroDoc as varchar(15)) as SerieNum,\n(CASE a.IdDocumento\nWHEN '01' THEN 'FACTURA ELECTRÓNICA'\nWHEN '03' THEN 'BOLETA DE VENTA ELECTRÓNICA'\nWHEN '07' THEN 'NOTA DE CREDITO ELECTRÓNICA'\nWHEN '08' THEN 'NOTA DE DEBITO ELECTRÓNICA'\nWHEN '99' THEN 'NOTA DE VENTA'\nEND +': '+\na.SerieDoc+'-'+ cast(a.NumeroDoc as varchar(15))) as Documento, \na.FechaEmision,\na.SubTotal as SubTotalC, \na.TotalVenta,\na.Total_Letras, \nRTRIM((e.nombreProducto + ' ' + d.descripcion + ' '+ g.nombreMarca + ' ' + f.descripcion)) + ' ' + LTRIM(cast(b.Adicional1 as varchar(250))) AS NomPoducto, \na.IdCliente, \nIIF(l.descripcion='OTROS','DOC',l.descripcion) AS descripcion, \na.DniRuc, a.RazonSocial, \na.Direccion, \na.Email, \na.Anulado AS Estatus, \na.Observacion, \na.TipoNotCred, \na.DescripNotCred, \na.TipoDocAfectado, \na.NumeroDocAfectado, \na.UsuarioCrea, \na.FechaCrea, \na.UsuarioModifica, \na.FechaModifica, \na.IdFormaPago, \nk.FormadePago, \na.IdUsuarioPreventa, \na.Descuento AS Descto, \na.IdApertura, \na.IdCaja, \na.ImportePagado, \nb.Id AS IdVentaDet, \nb.IdProducto AS fkProducto, \nb.PrecioUnit, b.IdVenta, \nb.Flag AS FlagVentaDet, \nb.Anulado, \nb.Cantidad, \nb.Descuento,\nb.Subtotal,\nb.Total, \nh.nombreUnidad AS UnidDet, \nb.Factor, \ne.Id AS IdProductoPres, \ne.idMarca AS IdMarcaProductoPres, \ne.idsegmento, \ne.idfamilia, \ne.idclase, \ne.estado AS StatusVentaDet, \ne.flag AS FlagPresen, \ne.idproveedor, \nd.Id AS IdProductoDet, \nd.idProducto AS IdProductDetalles, \nd.idTalla, d.idColores, \nd.stockinicial, \nd.stockactual, \nd.stockminimo, \n'' fechavencimiento, \nd.codigoBarra, \n'' imagenProducto, \nd.estado AS StatusProdDet, \nd.flag AS FlagProdDet, \nd.idmedida AS MediProducDet, \nc.Id AS IdProducto, \nc.idProductosDetalle, \nc.idUnidad, \nc.precioUnitario, \nc.estado AS StatusPresent, \nc.flag AS FlagPresent, \nc.Principal, \nf.id AS IdMedida, \nf.descripcion, \nf.estado, \nf.flag, \ng.Id AS IdMarca, \ng.nombreMarca, \ng.estado AS StatusMarca, \ng.flag AS FlagMarca, \na.hassh, \ni.usuario as Vendedor, \nj.Efectivo,\nj.Vuelto,\niif(a.IdMesa >= 500 and a.idmesa < 1000,'Para Llevar',iif(a.idmesa >= 1000 and a.idmesa < 2000, 'Delivery' ,cast(a.idmesa as varchar))) as IdMesa,\na.idpiso,\niif(a.tipomoneda = 'PEN','PENS/','USD$') AS Simbolo,\n'' as 'Grado',\na.Otro_Imp,\t\t\t\t\t\t \n(a.TotalVenta + a.Otro_Imp) as 'Importe_Total',\nb.Igv,\nDBO.F_CalcularTotalExoneradas_Gravadas_Ventas(@id,0) total_exonerada,\nDBO.F_CalcularTotalExoneradas_Gravadas_Ventas(@id,1) total_gravada,\nj.Visa,\nj.Mastercard,\nv_d.estado,\nv_d.flag,\na.countPecho,\na.countPierna,\na.textObservation,\ncl.telefono,\ncl.razonSocial as Contacto,\ndi.Direccion,\nv_d.num_correlative,\na.delivery,\na.llevar,\nIIF(a.delivery =1, 'D-'+cast(v_d.num_correlative as varchar), iif(a.llevar =1, 'LL-'+cast(v_d.num_correlative as varchar),'')) as 'correlativo2',\na.IdDocumento,\nc2.telefono,\na.igv as IgvCab,\nc2.NombreCarrera 'programaEstudio',\nc2.Nivel\nFROM dbo.mst_Venta AS a INNER JOIN\ndbo.mst_Venta_det AS b ON a.Id = b.IdVenta INNER JOIN\ndbo.mst_ProductoPresentacion AS c ON c.Id = b.IdProducto INNER JOIN\ndbo.mst_ProductoDetalle AS d ON d.Id = c.idProductosDetalle INNER JOIN\ndbo.mst_Producto AS e ON e.Id = d.idProducto INNER JOIN\ndbo.mst_Medidas AS f ON f.id = d.idmedida INNER JOIN\ndbo.mst_Marca AS g ON g.Id = e.idMarca INNER JOIN \ndbo.mst_UnidadMedida AS h ON h.Id = b.IdUnidad INNER JOIN \ndbo.mst_Usuarios AS i ON i.Id=a.IdUsuarioPreventa INNER JOIN\ndbo.tabla_FormaPago AS j ON j.IdVenta=a.Id INNER JOIN\ndbo.mst_FormaPago k ON k.Id = a.IdFormaPago INNER JOIN\ndbo.mst_TipoDocumento l ON l.codigoSunat=a.CodigoTipoDoc LEFT JOIN\ndbo.venta_delivery v_d ON v_d.id_venta = a.Id LEFT JOIN\ndbo.mst_Cliente cl on v_d.id_contacto = cl.id LEFT JOIN\ndbo.mst_Cliente_Direccion di ON cl.Id = di.IdCliente \t\t\t\t\t\t  \ninner join mst_Cliente c2 on a.IdCliente = c2.Id\nleft join ProgramasEstudio pe on cl.IdProgramaEstudio = pe.id\nwhere b.Flag=1  and\t a.Id = @id\t\t\t\t\t\t  \nelse\n------------------------------------------------------------------------------------------------------------\nSELECT \na.Id AS IdCabCpe,\nCASE a.IdDocumento\nWHEN '01' THEN 'FACTURA ELECTRÓNICA'\nWHEN '03' THEN 'BOLETA DE VENTA ELECTRÓNICA'\nWHEN '07' THEN 'NOTA DE CREDITO ELECTRÓNICA'\nWHEN '08' THEN 'NOTA DE DEBITO ELECTRÓNICA'\nWHEN '99' THEN 'NOTA DE VENTA'\nEND AS \nTipoDocumento, \nCASE l.codigoSunat\nWHEN 6 THEN 'RAZON SOCIAL'\nELSE 'CLIENTE'\nEND AS \nTipoGlosa,\na.SerieDoc+'-'+ cast(a.NumeroDoc as varchar(15)) as SerieNum,\n(CASE a.IdDocumento\nWHEN '01' THEN 'FACTURA ELECTRÓNICA'\nWHEN '03' THEN 'BOLETA DE VENTA ELECTRÓNICA'\nWHEN '07' THEN 'NOTA DE CREDITO ELECTRÓNICA'\nWHEN '08' THEN 'NOTA DE DEBITO ELECTRÓNICA'\nWHEN '99' THEN 'NOTA DE VENTA'\nEND +': '+\na.SerieDoc+'-'+ cast(a.NumeroDoc as varchar(15))) as Documento, \na.FechaEmision, \na.SubTotal as SubTotalC,\na.TotalVenta,\na.Total_Letras, \nrtrim(B.descripcion) + ' ' + CAST(B.Adicional1 as varchar(250)) AS NomPoducto, \na.IdCliente, \nIIF(l.descripcion='OTROS','DOC',l.descripcion) AS descripcion, \na.DniRuc, \na.RazonSocial, \na.Direccion, \na.Email, \na.Anulado AS Estatus, \na.Observacion, \na.TipoNotCred, \na.DescripNotCred, \na.TipoDocAfectado, \na.NumeroDocAfectado, \na.UsuarioCrea, \na.FechaCrea, \na.UsuarioModifica, \na.FechaModifica, \na.IdFormaPago, \n--'Contado' FormadePago, \nCASE a.IdFormaPago\nWHEN 1 THEN 'CONTADO'\nWHEN 2 THEN 'CREDITO'\nEND AS FormadePago, \na.IdUsuarioPreventa, \na.Descuento AS Descto, \na.IdApertura, \na.IdCaja, \na.ImportePagado, \nb.Id AS IdVentaDet, \nb.IdProducto AS fkProducto, \nb.PrecioUnit, \nb.IdVenta, \nb.Flag AS FlagVentaDet, \nb.Anulado, \nb.Cantidad, \nb.Descuento, \nb.Subtotal,\nb.Total, \n'NIU' AS UnidDet, \nb.Factor, \n0 AS IdProductoPres, \n0 AS IdMarcaProductoPres, \n0 idsegmento, \n0 idfamilia, \n0 idclase, \nB.Flag AS StatusVentaDet, \n1 AS FlagPresen, \n0 idproveedor, \nb.IdProducto AS IdProductoDet, \nb.IdProducto AS IdProductDetalles, \n0 idTalla, \n0 idColores, \n0 stockinicial, \n0 stockactual, \n0 stockminimo, \n'' fechavencimiento, \n'' codigoBarra, \n'' imagenProducto, \n1 AS StatusProdDet, \n1 AS FlagProdDet, \n0 AS MediProducDet, \nb.IdProducto AS IdProducto, \nb.IdProducto as idProductosDetalle,\n1 idUnidad, \nb.PrecioUnit precioUnitario, \n1 AS StatusPresent, \n1 AS FlagPresent, \n0 Principal, \n1 AS IdMedida, \n'' descripcion, \n1 estado, \n1 flag, \n1 AS IdMarca, \n'' nombreMarca, \n1 AS StatusMarca, \n1 AS FlagMarca, \na.hassh, \ni.usuario as Vendedor, \n0 Efectivo,\n0 Vuelto,\niif(a.IdMesa >= 500 and a.idmesa < 1000,'Para Llevar',iif(a.idmesa >= 1000 and a.idmesa < 2000, 'Delivery' , cast(a.idmesa as varchar))) as IdMesa,\na.idpiso,\niif(a.tipomoneda = 'PEN','PENS/','USD$') AS Simbolo,\n'' as 'Grado',\na.Otro_Imp,\n(a.TotalVenta + a.Otro_Imp) as 'Importe_Total',\nb.Igv,\nDBO.F_CalcularTotalExoneradas_Gravadas_Ventas(@id,0) total_exonerada,\nDBO.F_CalcularTotalExoneradas_Gravadas_Ventas(@id,1) total_gravada,\n0 Visa,\n0 Mastercard,\n\nv_d.estado,\nv_d.flag,\na.countPecho,\na.countPierna,\na.textObservation,\ncl.telefono,\ncl.razonSocial as Contacto,\ndi.Direccion,\nv_d.num_correlative,\na.delivery,\na.llevar,\nIIF(a.delivery =1, 'D-'+cast(v_d.num_correlative as varchar), iif(a.llevar =1, 'LL-'+cast(v_d.num_correlative as varchar),'')) as 'correlativo2',\na.IdDocumento ,\nc2.telefono,\na.igv as IgvCab,\nc2.NombreCarrera 'programaEstudio',\nc2.Nivel\nFROM\ndbo.mst_Venta AS a INNER JOIN\ndbo.mst_Venta_det AS b ON a.Id = b.IdVenta INNER JOIN\ndbo.mst_Usuarios AS i ON i.Id=a.IdUsuarioPreventa INNER JOIN\ndbo.mst_TipoDocumento l ON l.codigoSunat=a.CodigoTipoDoc LEFT JOIN\ndbo.venta_delivery v_d ON v_d.id_venta = a.Id LEFT JOIN\ndbo.mst_Cliente cl on v_d.id_contacto = cl.id LEFT JOIN\ndbo.mst_Cliente_Direccion di ON cl.Id = di.IdCliente \nleft join dbo.ProgramasEstudio pe on cl.IdProgramaEstudio = pe.id\ninner join mst_Cliente c2 on a.IdCliente = c2.Id\nwhere b.Flag=1  and\na.Id = @id"
+    "Content": "CREATE proc [dbo].[spReporteComprobante]@id int,@bit bitasif(@bit = 0)SELECT a.Id AS IdCabCpe,CASE a.IdDocumentoWHEN '01' THEN 'FACTURA ELECTRÓNICA'WHEN '03' THEN 'BOLETA DE VENTA ELECTRÓNICA'WHEN '07' THEN 'NOTA DE CREDITO ELECTRÓNICA'WHEN '08' THEN 'NOTA DE DEBITO ELECTRÓNICA'WHEN '99' THEN 'NOTA DE VENTA'END AS TipoDocumento, CASE l.codigoSunatWHEN 6 THEN 'RAZON SOCIAL'ELSE 'CLIENTE'END AS TipoGlosa,a.SerieDoc+'-'+ cast(a.NumeroDoc as varchar(15)) as SerieNum,(CASE a.IdDocumentoWHEN '01' THEN 'FACTURA ELECTRÓNICA'WHEN '03' THEN 'BOLETA DE VENTA ELECTRÓNICA'WHEN '07' THEN 'NOTA DE CREDITO ELECTRÓNICA'WHEN '08' THEN 'NOTA DE DEBITO ELECTRÓNICA'WHEN '99' THEN 'NOTA DE VENTA'END +': '+a.SerieDoc+'-'+ cast(a.NumeroDoc as varchar(15))) as Documento, a.FechaEmision,a.SubTotal as SubTotalC, a.TotalVenta,a.Total_Letras, RTRIM((e.nombreProducto + ' ' + d.descripcion + ' '+ g.nombreMarca + ' ' + f.descripcion)) + ' ' + LTRIM(cast(b.Adicional1 as varchar(250))) AS NomPoducto, a.IdCliente, IIF(l.descripcion='OTROS','DOC',l.descripcion) AS descripcion, a.DniRuc, a.RazonSocial, a.Direccion, a.Email, a.Anulado AS Estatus, a.Observacion, a.TipoNotCred, a.DescripNotCred, a.TipoDocAfectado, a.NumeroDocAfectado, a.UsuarioCrea, a.FechaCrea, a.UsuarioModifica, a.FechaModifica, a.IdFormaPago, k.FormadePago, a.IdUsuarioPreventa, a.Descuento AS Descto, a.IdApertura, a.IdCaja, a.ImportePagado, b.Id AS IdVentaDet, b.IdProducto AS fkProducto, b.PrecioUnit, b.IdVenta, b.Flag AS FlagVentaDet, b.Anulado, b.Cantidad, b.Descuento,b.Subtotal,b.Total, h.nombreUnidad AS UnidDet, b.Factor, e.Id AS IdProductoPres, e.idMarca AS IdMarcaProductoPres, e.idsegmento, e.idfamilia, e.idclase, e.estado AS StatusVentaDet, e.flag AS FlagPresen, e.idproveedor, d.Id AS IdProductoDet, d.idProducto AS IdProductDetalles, d.idTalla, d.idColores, d.stockinicial, d.stockactual, d.stockminimo, '' fechavencimiento, d.codigoBarra, '' imagenProducto, d.estado AS StatusProdDet, d.flag AS FlagProdDet, d.idmedida AS MediProducDet, c.Id AS IdProducto, c.idProductosDetalle, c.idUnidad, c.precioUnitario, c.estado AS StatusPresent, c.flag AS FlagPresent, c.Principal, f.id AS IdMedida, f.descripcion, f.estado, f.flag, g.Id AS IdMarca, g.nombreMarca, g.estado AS StatusMarca, g.flag AS FlagMarca, a.hassh, i.usuario as Vendedor, j.Efectivo,j.Vuelto,iif(a.IdMesa >= 500 and a.idmesa < 1000,'Para Llevar',iif(a.idmesa >= 1000 and a.idmesa < 2000, 'Delivery' ,cast(a.idmesa as varchar))) as IdMesa,a.idpiso,iif(a.tipomoneda = 'PEN','PENS/','USD$') AS Simbolo,'' as 'Grado',a.Otro_Imp,\t\t\t\t\t\t (a.TotalVenta + a.Otro_Imp) as 'Importe_Total',b.Igv,DBO.F_CalcularTotalExoneradas_Gravadas_Ventas(@id,0) total_exonerada,DBO.F_CalcularTotalExoneradas_Gravadas_Ventas(@id,1) total_gravada,j.Visa,j.Mastercard,v_d.estado,v_d.flag,a.countPecho,a.countPierna,a.textObservation,cl.telefono,cl.razonSocial as Contacto,di.Direccion,v_d.num_correlative,a.delivery,a.llevar,IIF(a.delivery =1, 'D-'+cast(v_d.num_correlative as varchar), iif(a.llevar =1, 'LL-'+cast(v_d.num_correlative as varchar),'')) as 'correlativo2',a.IdDocumento,c2.telefono,a.igv as IgvCab,c2.NombreCarrera 'programaEstudio',c2.NivelFROM dbo.mst_Venta AS a INNER JOINdbo.mst_Venta_det AS b ON a.Id = b.IdVenta INNER JOINdbo.mst_ProductoPresentacion AS c ON c.Id = b.IdProducto INNER JOINdbo.mst_ProductoDetalle AS d ON d.Id = c.idProductosDetalle INNER JOINdbo.mst_Producto AS e ON e.Id = d.idProducto INNER JOINdbo.mst_Medidas AS f ON f.id = d.idmedida INNER JOINdbo.mst_Marca AS g ON g.Id = e.idMarca INNER JOIN dbo.mst_UnidadMedida AS h ON h.Id = b.IdUnidad INNER JOIN dbo.mst_Usuarios AS i ON i.Id=a.IdUsuarioPreventa INNER JOINdbo.tabla_FormaPago AS j ON j.IdVenta=a.Id INNER JOINdbo.mst_FormaPago k ON k.Id = a.IdFormaPago INNER JOINdbo.mst_TipoDocumento l ON l.codigoSunat=a.CodigoTipoDoc LEFT JOINdbo.venta_delivery v_d ON v_d.id_venta = a.Id LEFT JOINdbo.mst_Cliente cl on v_d.id_contacto = cl.id LEFT JOINdbo.mst_Cliente_Direccion di ON cl.Id = di.IdCliente \t\t\t\t\t\t  inner join mst_Cliente c2 on a.IdCliente = c2.Idleft join ProgramasEstudio pe on cl.IdProgramaEstudio = pe.idwhere b.Flag=1  and\t a.Id = @id\t\t\t\t\t\t  else------------------------------------------------------------------------------------------------------------SELECT a.Id AS IdCabCpe,CASE a.IdDocumentoWHEN '01' THEN 'FACTURA ELECTRÓNICA'WHEN '03' THEN 'BOLETA DE VENTA ELECTRÓNICA'WHEN '07' THEN 'NOTA DE CREDITO ELECTRÓNICA'WHEN '08' THEN 'NOTA DE DEBITO ELECTRÓNICA'WHEN '99' THEN 'NOTA DE VENTA'END AS TipoDocumento, CASE l.codigoSunatWHEN 6 THEN 'RAZON SOCIAL'ELSE 'CLIENTE'END AS TipoGlosa,a.SerieDoc+'-'+ cast(a.NumeroDoc as varchar(15)) as SerieNum,(CASE a.IdDocumentoWHEN '01' THEN 'FACTURA ELECTRÓNICA'WHEN '03' THEN 'BOLETA DE VENTA ELECTRÓNICA'WHEN '07' THEN 'NOTA DE CREDITO ELECTRÓNICA'WHEN '08' THEN 'NOTA DE DEBITO ELECTRÓNICA'WHEN '99' THEN 'NOTA DE VENTA'END +': '+a.SerieDoc+'-'+ cast(a.NumeroDoc as varchar(15))) as Documento, a.FechaEmision, a.SubTotal as SubTotalC,a.TotalVenta,a.Total_Letras, rtrim(B.descripcion) + ' ' + CAST(B.Adicional1 as varchar(250)) AS NomPoducto, a.IdCliente, IIF(l.descripcion='OTROS','DOC',l.descripcion) AS descripcion, a.DniRuc, a.RazonSocial, a.Direccion, a.Email, a.Anulado AS Estatus, a.Observacion, a.TipoNotCred, a.DescripNotCred, a.TipoDocAfectado, a.NumeroDocAfectado, a.UsuarioCrea, a.FechaCrea, a.UsuarioModifica, a.FechaModifica, a.IdFormaPago, --'Contado' FormadePago, CASE a.IdFormaPagoWHEN 1 THEN 'CONTADO'WHEN 2 THEN 'CREDITO'END AS FormadePago, a.IdUsuarioPreventa, a.Descuento AS Descto, a.IdApertura, a.IdCaja, a.ImportePagado, b.Id AS IdVentaDet, b.IdProducto AS fkProducto, b.PrecioUnit, b.IdVenta, b.Flag AS FlagVentaDet, b.Anulado, b.Cantidad, b.Descuento, b.Subtotal,b.Total, 'NIU' AS UnidDet, b.Factor, 0 AS IdProductoPres, 0 AS IdMarcaProductoPres, 0 idsegmento, 0 idfamilia, 0 idclase, B.Flag AS StatusVentaDet, 1 AS FlagPresen, 0 idproveedor, b.IdProducto AS IdProductoDet, b.IdProducto AS IdProductDetalles, 0 idTalla, 0 idColores, 0 stockinicial, 0 stockactual, 0 stockminimo, '' fechavencimiento, '' codigoBarra, '' imagenProducto, 1 AS StatusProdDet, 1 AS FlagProdDet, 0 AS MediProducDet, b.IdProducto AS IdProducto, b.IdProducto as idProductosDetalle,1 idUnidad, b.PrecioUnit precioUnitario, 1 AS StatusPresent, 1 AS FlagPresent, 0 Principal, 1 AS IdMedida, '' descripcion, 1 estado, 1 flag, 1 AS IdMarca, '' nombreMarca, 1 AS StatusMarca, 1 AS FlagMarca, a.hassh, i.usuario as Vendedor, 0 Efectivo,0 Vuelto,iif(a.IdMesa >= 500 and a.idmesa < 1000,'Para Llevar',iif(a.idmesa >= 1000 and a.idmesa < 2000, 'Delivery' , cast(a.idmesa as varchar))) as IdMesa,a.idpiso,iif(a.tipomoneda = 'PEN','PENS/','USD$') AS Simbolo,'' as 'Grado',a.Otro_Imp,(a.TotalVenta + a.Otro_Imp) as 'Importe_Total',b.Igv,DBO.F_CalcularTotalExoneradas_Gravadas_Ventas(@id,0) total_exonerada,DBO.F_CalcularTotalExoneradas_Gravadas_Ventas(@id,1) total_gravada,0 Visa,0 Mastercard,v_d.estado,v_d.flag,a.countPecho,a.countPierna,a.textObservation,cl.telefono,cl.razonSocial as Contacto,di.Direccion,v_d.num_correlative,a.delivery,a.llevar,IIF(a.delivery =1, 'D-'+cast(v_d.num_correlative as varchar), iif(a.llevar =1, 'LL-'+cast(v_d.num_correlative as varchar),'')) as 'correlativo2',a.IdDocumento ,c2.telefono,a.igv as IgvCab,c2.NombreCarrera 'programaEstudio',c2.NivelFROMdbo.mst_Venta AS a INNER JOINdbo.mst_Venta_det AS b ON a.Id = b.IdVenta INNER JOINdbo.mst_Usuarios AS i ON i.Id=a.IdUsuarioPreventa INNER JOINdbo.mst_TipoDocumento l ON l.codigoSunat=a.CodigoTipoDoc LEFT JOINdbo.venta_delivery v_d ON v_d.id_venta = a.Id LEFT JOINdbo.mst_Cliente cl on v_d.id_contacto = cl.id LEFT JOINdbo.mst_Cliente_Direccion di ON cl.Id = di.IdCliente left join dbo.ProgramasEstudio pe on cl.IdProgramaEstudio = pe.idinner join mst_Cliente c2 on a.IdCliente = c2.Idwhere b.Flag=1  anda.Id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1602,12 +1602,12 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetTallaById",
-    "Content": "CREATE proc SpGetTallaById@id intasselectId,descripcionfrom mst_Tallawhere Estado = 1 and Flag =1 and id = @id"
+    "Content": "CREATE proc [dbo].[SpGetTallaById]@id intasselectId,descripcionfrom mst_Tallawhere Estado = 1 and Flag =1 and id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spListaStock",
-    "Content": "CREATE proc [dbo].[spListaStock]\n@idGrupo int,\n@idAlmacen int = 1\nas\nIF @idGrupo > 0\nbegin\n\tSELECT s.IdAlmacen,a.Nombre, g.Descripcion as Grupo,\n\tpd.codigoBarra,g.descripcion,\n\tRTRIM((p.nombreProducto + ' ' + me.descripcion + ' '+ m.nombreMarca + ' ' + pd.descripcion)) as nombreProducto,\n\tu.nombreUnidad,\n\tm.nombreMarca,\n\tme.descripcion,\n\t(s.Saldo/u.factor) as Stock,\n\tpd.descripcion,\n\tpd.fechavencimiento,\n\tpp.precioUnitario,\n\tdbo.F_GetUltimoCostoProductoDetalle(pd.idproducto,s.IdAlmacen) as PCompra\n\tFROM mst_ProductoPresentacion pp\n\tINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalle\n\tINNER JOIN mst_Producto p ON p.Id = pd.idProducto\n\tINNER JOIN mst_UnidadMedida u ON u.Id = pp.idUnidad\n\tINNER JOIN mst_Grupo g ON g.Id = IdGrupo\n\tINNER JOIN mst_Marca m ON m.Id = p.idMarca\n\tINNER JOIN mst_Medidas me ON me.Id = pd.idmedida\n\tINNER JOIN Stocks_Acumulados s ON s.IdProducto = pd.Id\n\tINNER JOIN mst_Almacen a ON a.Id = s.IdAlmacen\n\tWHERE p.IdGrupo = @idGrupo and s.IdAlmacen = @idAlmacen and\n\t(pp.Principal = 1 AND pp.estado = 1 AND pp.flag = 1) AND\n--\t(pp.PrincipalAlmacen = 1 AND pp.estado = 1 AND pp.flag = 1) AND\n\t(pd.estado = 1 AND pd.flag = 1) AND\n\t(p.estado = 1 AND p.flag = 1) \n\tORDER BY RTRIM((p.nombreProducto + ' ' + pd.descripcion + ' '+ m.nombreMarca + ' ' + me.descripcion)) ASC\nend\n\nelse\nbegin\n\tSELECT s.IdAlmacen,a.Nombre, g.Descripcion as Grupo,\n\tpd.codigoBarra,g.descripcion,\n\tRTRIM((p.nombreProducto + ' ' + me.descripcion + ' '+ m.nombreMarca + ' ' + pd.descripcion)) as nombreProducto,\n\tu.nombreUnidad,\n\tm.nombreMarca,\n\tme.descripcion,\n\t(s.Saldo/u.factor) as Stock,\n\tpd.descripcion,\n\tpd.fechavencimiento,\n\tpp.precioUnitario,\n\tdbo.F_GetUltimoCostoProductoDetalle(pd.idproducto,s.IdAlmacen) as PCompra\n\tFROM mst_ProductoPresentacion pp\n\tINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalle\n\tINNER JOIN mst_Producto p ON p.Id = pd.idProducto\n\tINNER JOIN mst_UnidadMedida u ON u.Id = pp.idUnidad\n\tINNER JOIN mst_Grupo g ON g.Id = IdGrupo\n\tINNER JOIN mst_Marca m ON m.Id = p.idMarca\n\tINNER JOIN mst_Medidas me ON me.Id = pd.idmedida\n\tINNER JOIN Stocks_Acumulados s ON s.IdProducto = pd.Id\n\tINNER JOIN mst_Almacen a ON a.Id = s.IdAlmacen\n\tWHERE s.IdAlmacen = @idAlmacen and\n\t(pp.Principal = 1 AND pp.estado = 1 AND pp.flag = 1) AND\n\t--(pp.PrincipalAlmacen = 1 AND pp.estado = 1 AND pp.flag = 1) AND\n\t(pd.estado = 1 AND pd.flag = 1) AND\n\t(p.estado = 1 AND p.flag = 1) \n\tORDER BY RTRIM((p.nombreProducto + ' ' + pd.descripcion + ' '+ m.nombreMarca + ' ' + me.descripcion)) ASC\nend"
+    "Content": "CREATE proc [dbo].[spListaStock]@idGrupo int,@idAlmacen int = 1asIF @idGrupo > 0begin\tSELECT s.IdAlmacen,a.Nombre, g.Descripcion as Grupo,\tpd.codigoBarra,g.descripcion,\tRTRIM((p.nombreProducto + ' ' + me.descripcion + ' '+ m.nombreMarca + ' ' + pd.descripcion)) as nombreProducto,\tu.nombreUnidad,\tm.nombreMarca,\tme.descripcion,\t(s.Saldo/u.factor) as Stock,\tpd.descripcion,\tpd.fechavencimiento,\tpp.precioUnitario,\tdbo.F_GetUltimoCostoProductoDetalle(pd.idproducto,s.IdAlmacen) as PCompra\tFROM mst_ProductoPresentacion pp\tINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalle\tINNER JOIN mst_Producto p ON p.Id = pd.idProducto\tINNER JOIN mst_UnidadMedida u ON u.Id = pp.idUnidad\tINNER JOIN mst_Grupo g ON g.Id = IdGrupo\tINNER JOIN mst_Marca m ON m.Id = p.idMarca\tINNER JOIN mst_Medidas me ON me.Id = pd.idmedida\tINNER JOIN Stocks_Acumulados s ON s.IdProducto = pd.Id\tINNER JOIN mst_Almacen a ON a.Id = s.IdAlmacen\tWHERE p.IdGrupo = @idGrupo and s.IdAlmacen = @idAlmacen and\t(pp.Principal = 1 AND pp.estado = 1 AND pp.flag = 1) AND--\t(pp.PrincipalAlmacen = 1 AND pp.estado = 1 AND pp.flag = 1) AND\t(pd.estado = 1 AND pd.flag = 1) AND\t(p.estado = 1 AND p.flag = 1) \tORDER BY RTRIM((p.nombreProducto + ' ' + pd.descripcion + ' '+ m.nombreMarca + ' ' + me.descripcion)) ASCendelsebegin\tSELECT s.IdAlmacen,a.Nombre, g.Descripcion as Grupo,\tpd.codigoBarra,g.descripcion,\tRTRIM((p.nombreProducto + ' ' + me.descripcion + ' '+ m.nombreMarca + ' ' + pd.descripcion)) as nombreProducto,\tu.nombreUnidad,\tm.nombreMarca,\tme.descripcion,\t(s.Saldo/u.factor) as Stock,\tpd.descripcion,\tpd.fechavencimiento,\tpp.precioUnitario,\tdbo.F_GetUltimoCostoProductoDetalle(pd.idproducto,s.IdAlmacen) as PCompra\tFROM mst_ProductoPresentacion pp\tINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalle\tINNER JOIN mst_Producto p ON p.Id = pd.idProducto\tINNER JOIN mst_UnidadMedida u ON u.Id = pp.idUnidad\tINNER JOIN mst_Grupo g ON g.Id = IdGrupo\tINNER JOIN mst_Marca m ON m.Id = p.idMarca\tINNER JOIN mst_Medidas me ON me.Id = pd.idmedida\tINNER JOIN Stocks_Acumulados s ON s.IdProducto = pd.Id\tINNER JOIN mst_Almacen a ON a.Id = s.IdAlmacen\tWHERE s.IdAlmacen = @idAlmacen and\t(pp.Principal = 1 AND pp.estado = 1 AND pp.flag = 1) AND\t--(pp.PrincipalAlmacen = 1 AND pp.estado = 1 AND pp.flag = 1) AND\t(pd.estado = 1 AND pd.flag = 1) AND\t(p.estado = 1 AND p.flag = 1) \tORDER BY RTRIM((p.nombreProducto + ' ' + pd.descripcion + ' '+ m.nombreMarca + ' ' + me.descripcion)) ASCend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1622,7 +1622,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddTalla",
-    "Content": "CREATE proc SpAddTalla@id int,@descripcion varchar(50)asif @id = 0begin\t\tinsert into mst_Talla (descripcion)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Talla set descripcion = @descripcion\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddTalla]@id int,@descripcion varchar(50)asif @id = 0begin\t\tinsert into mst_Talla (descripcion)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Talla set descripcion = @descripcion\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1642,7 +1642,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeleteTalla",
-    "Content": "CREATE proc SpDeleteTalla@id intasupdate mst_Talla set estado=0, flag =0where id =@id"
+    "Content": "CREATE proc [dbo].[SpDeleteTalla]@id intasupdate mst_Talla set estado=0, flag =0where id =@id"
   },
   {
     "Type": "VIEW",
@@ -1652,7 +1652,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpReporteProductosPorPedir",
-    "Content": "CREATE proc SpReporteProductosPorPedir\n@id_almacen int\nas\nSELECT \ns.IdAlmacen,\na.Nombre, \ng.Descripcion as Grupo,\npd.codigoBarra,\ng.descripcion,\nRTRIM((p.nombreProducto + ' ' + me.descripcion + ' '+ m.nombreMarca + ' ' + pd.descripcion)) as nombreProducto,\nu.nombreUnidad,\nm.nombreMarca,\nme.descripcion,\n(s.Saldo/u.factor) as Stock,\npd.stockminimo as stockactual,\n(pd.stockactual-(s.Saldo/u.factor)) as ProductosAPedir,\npd.descripcion,\npd.fechavencimiento,\npp.precioUnitario\nFROM mst_ProductoPresentacion pp\nINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalle\nINNER JOIN mst_Producto p ON p.Id = pd.idProducto\nINNER JOIN mst_UnidadMedida u ON u.Id = pp.idUnidad\nINNER JOIN mst_Grupo g ON g.Id = IdGrupo\nINNER JOIN mst_Marca m ON m.Id = p.idMarca\nINNER JOIN mst_Medidas me ON me.Id = pd.idmedida\nINNER JOIN Stocks_Acumulados s ON s.IdProducto = pd.Id\nINNER JOIN mst_Almacen a ON a.Id = s.IdAlmacen\nWHERE --p.IdGrupo = @idGrupo and s.IdAlmacen = @idAlmacen and\n(pp.Principal = 1 AND pp.estado = 1 AND pp.flag = 1) AND\n--\t(pp.PrincipalAlmacen = 1 AND pp.estado = 1 AND pp.flag = 1) AND\n(pd.estado = 1 AND pd.flag = 1) AND (p.estado = 1 AND p.flag = 1) AND s.IdAlmacen = 2\nAND (s.Saldo/u.factor) <= pd.stockminimo AND (pd.stockactual-(s.Saldo/u.factor))>0\nORDER BY RTRIM((p.nombreProducto + ' ' + pd.descripcion + ' '+ m.nombreMarca + ' ' + me.descripcion)) ASC"
+    "Content": "CREATE proc [dbo].[SpReporteProductosPorPedir]@id_almacen intasSELECT s.IdAlmacen,a.Nombre, g.Descripcion as Grupo,pd.codigoBarra,g.descripcion,RTRIM((p.nombreProducto + ' ' + me.descripcion + ' '+ m.nombreMarca + ' ' + pd.descripcion)) as nombreProducto,u.nombreUnidad,m.nombreMarca,me.descripcion,(s.Saldo/u.factor) as Stock,pd.stockminimo as stockactual,(pd.stockactual-(s.Saldo/u.factor)) as ProductosAPedir,pd.descripcion,pd.fechavencimiento,pp.precioUnitarioFROM mst_ProductoPresentacion ppINNER JOIN mst_ProductoDetalle pd ON pd.Id = pp.idProductosDetalleINNER JOIN mst_Producto p ON p.Id = pd.idProductoINNER JOIN mst_UnidadMedida u ON u.Id = pp.idUnidadINNER JOIN mst_Grupo g ON g.Id = IdGrupoINNER JOIN mst_Marca m ON m.Id = p.idMarcaINNER JOIN mst_Medidas me ON me.Id = pd.idmedidaINNER JOIN Stocks_Acumulados s ON s.IdProducto = pd.IdINNER JOIN mst_Almacen a ON a.Id = s.IdAlmacenWHERE --p.IdGrupo = @idGrupo and s.IdAlmacen = @idAlmacen and(pp.Principal = 1 AND pp.estado = 1 AND pp.flag = 1) AND--\t(pp.PrincipalAlmacen = 1 AND pp.estado = 1 AND pp.flag = 1) AND(pd.estado = 1 AND pd.flag = 1) AND (p.estado = 1 AND p.flag = 1) AND s.IdAlmacen = 2AND (s.Saldo/u.factor) <= pd.stockminimo AND (pd.stockactual-(s.Saldo/u.factor))>0ORDER BY RTRIM((p.nombreProducto + ' ' + pd.descripcion + ' '+ m.nombreMarca + ' ' + me.descripcion)) ASC"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1672,7 +1672,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetTipoUsuarioById",
-    "Content": "CREATE proc SpGetTipoUsuarioById@id intasselect * from mst_TipoUsuariowhere id = @id"
+    "Content": "CREATE proc [dbo].[SpGetTipoUsuarioById]@id intasselect * from mst_TipoUsuariowhere id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1687,7 +1687,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetUsuarioPorPagarComision",
-    "Content": "CREATE proc SpGetUsuarioPorPagarComisionasselect distinct u.Id,u.idtipoUsuario 'IdTipoUsuario',u.nombre 'Nombre',u.Dni,u.Direccion,u.telefono 'Telefono',u.usuario 'Usuario',u.is_cobrador 'IsCobrador',u.verVentas 'VerVentas',u.DocVentaDefectofrom Comision cinner join mst_Usuarios u on c.IdUsuario = u.Id"
+    "Content": "CREATE proc [dbo].[SpGetUsuarioPorPagarComision]asselect distinct u.Id,u.idtipoUsuario 'IdTipoUsuario',u.nombre 'Nombre',u.Dni,u.Direccion,u.telefono 'Telefono',u.usuario 'Usuario',u.is_cobrador 'IsCobrador',u.verVentas 'VerVentas',u.DocVentaDefectofrom Comision cinner join mst_Usuarios u on c.IdUsuario = u.Id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1777,7 +1777,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetMedidaById",
-    "Content": "CREATE proc SpGetMedidaById@id intasselectId,descripcionfrom mst_Medidaswhere Estado = 1 and Flag =1 and id = @id"
+    "Content": "CREATE proc [dbo].[SpGetMedidaById]@id intasselectId,descripcionfrom mst_Medidaswhere Estado = 1 and Flag =1 and id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1822,7 +1822,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddMedida",
-    "Content": "create proc SpAddMedida@id int,@descripcion varchar(50)asif @id = 0begin\tinsert into mst_Medidas(descripcion)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Medidas set descripcion = @descripcion\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddMedida]@id int,@descripcion varchar(50)asif @id = 0begin\tinsert into mst_Medidas(descripcion)\tvalues(@descripcion)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate mst_Medidas set descripcion = @descripcion\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1837,7 +1837,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetAuditoriaById",
-    "Content": "CREATE proc SpGetAuditoriaById@id intasselectid,CONCAT(Serie, '-', Numero) 'serie',Fecha,Usuario,FechaModifica,UsuarioModificafrom Auditoriawhere id = @idorder by id desc"
+    "Content": "CREATE proc [dbo].[SpGetAuditoriaById]@id intasselectid,CONCAT(Serie, '-', Numero) 'serie',Fecha,Usuario,FechaModifica,UsuarioModificafrom Auditoriawhere id = @idorder by id desc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1847,7 +1847,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeleteMedida",
-    "Content": "create proc SpDeleteMedida@id intasupdate mst_Medidas set estado = 0, flag= 0where id = @id"
+    "Content": "CREATE proc [dbo].[SpDeleteMedida]@id intasupdate mst_Medidas set estado = 0, flag= 0where id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1857,7 +1857,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetAuditoriaDetalleByIdAuditoria",
-    "Content": "CREATE proc SpGetAuditoriaDetalleByIdAuditoria@idAuditoria int,@idAlmacen intasselect ad.Id as 'id',ad.AuditoriaId as 'AuditoriaId',ad.IdProducto,p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',um.Id 'IdUnidad',g.Id 'IdGrupo',g.Descripcion 'grupo',ad.Stock 'Stock',ad.Conteo as 'conteo',ad.Diferencia as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal',pp.Codigo 'CodigoBarra',pp.Id 'IdProductoPresentacion',pp.precioUnitario 'Precio',um.factor 'Factor'from AuditoriaDetalles ad inner join mst_ProductoDetalle pd on ad.IdProducto=pd.Id and pd.estado = 1 and pd.flag = 1inner join mst_ProductoPresentacion pp on pd.idProducto = pp.idProductosDetalle and pp.Principal = 1 and pp.estado = 1 and pp.flag = 1inner join mst_Producto p on pd.idProducto = p.Id and p.estado = 1 and p.flag = 1inner join mst_Grupo g on p.IdGrupo = g.Id inner join mst_UnidadMedida um on ad.IdUnidad = um.Idinner join Stocks_Acumulados stock on ad.IdProducto  = stock.IdProducto and @idAlmacen = stock.IdAlmacenwhere ad.AuditoriaId = @idAuditoria and pp.estado = 1 and pp.flag = 1and pd.estado = 1 and pd.flag = 1 and p.estado = 1 and p.flag = 1and pp.PrincipalAlmacen = 1"
+    "Content": "CREATE proc [dbo].[SpGetAuditoriaDetalleByIdAuditoria]@idAuditoria int,@idAlmacen intasselect ad.Id as 'id',ad.AuditoriaId as 'AuditoriaId',ad.IdProducto,p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',um.Id 'IdUnidad',g.Id 'IdGrupo',g.Descripcion 'grupo',ad.Stock 'Stock',ad.Conteo as 'conteo',ad.Diferencia as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal',pp.Codigo 'CodigoBarra',pp.Id 'IdProductoPresentacion',pp.precioUnitario 'Precio',um.factor 'Factor'from AuditoriaDetalles ad inner join mst_ProductoDetalle pd on ad.IdProducto=pd.Id and pd.estado = 1 and pd.flag = 1inner join mst_ProductoPresentacion pp on pd.idProducto = pp.idProductosDetalle and pp.Principal = 1 and pp.estado = 1 and pp.flag = 1inner join mst_Producto p on pd.idProducto = p.Id and p.estado = 1 and p.flag = 1inner join mst_Grupo g on p.IdGrupo = g.Id inner join mst_UnidadMedida um on ad.IdUnidad = um.Idinner join Stocks_Acumulados stock on ad.IdProducto  = stock.IdProducto and @idAlmacen = stock.IdAlmacenwhere ad.AuditoriaId = @idAuditoria and pp.estado = 1 and pp.flag = 1and pd.estado = 1 and pd.flag = 1 and p.estado = 1 and p.flag = 1and pp.PrincipalAlmacen = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1872,12 +1872,17 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetBackUpScripts",
-    "Content": "CREATE procedure SpGetBackUpScriptsasWITH ROUTINES AS (         SELECT o.type_desc AS Type            ,o.name AS Name            ,m.definition AS Content    FROM sys.sql_modules AS m    INNER JOIN sys.objects AS o        ON m.object_id = o.object_id)SELECT *FROM ROUTINES"
+    "Content": "CREATE procedure [dbo].[SpGetBackUpScripts]asWITH ROUTINES AS (         SELECT o.type_desc AS Type            ,o.name AS Name            ,m.definition AS Content    FROM sys.sql_modules AS m    INNER JOIN sys.objects AS o        ON m.object_id = o.object_id)SELECT *FROM ROUTINES"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spGetApertura",
     "Content": "CREATE proc [dbo].[spGetApertura]asselect * from mst_Apertura"
+  },
+  {
+    "Type": "SQL_STORED_PROCEDURE",
+    "Name": "SpGetProgramasEstudio",
+    "Content": "CREATE proc [dbo].[SpGetProgramasEstudio]asselect * from ProgramasEstudio"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -1987,7 +1992,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetProductoForAuditoriaDetalles",
-    "Content": "CREATE proc SpGetProductoForAuditoriaDetalles@idAlmacen intasselect0 as 'id',0 as 'AuditoriaId',stock.IdProducto,p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',um.Id 'IdUnidad',g.Id 'IdGrupo',g.Descripcion 'grupo',stock.Saldo 'Stock',0 as 'conteo',0 as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal',pp.Codigo 'CodigoBarra',pp.Id 'IdProductoPresentacion',pp.precioUnitario 'Precio',um.factor 'Factor'from Stocks_Acumulados stockinner join mst_ProductoDetalle pd on stock.IdProducto = pd.Idinner join mst_ProductoPresentacion pp on pd.Id = pp.Id inner join mst_Producto p on pd.idProducto = p.Idinner join mst_Grupo g on p.IdGrupo = g.Idinner join mst_UnidadMedida um on pp.idUnidad = um.Idwhere IdAlmacen = @idAlmacen and pp.estado = 1 and pp.flag = 1and pd.estado = 1 and pd.flag = 1 and p.estado = 1 and p.flag = 1and pp.PrincipalAlmacen = 1"
+    "Content": "CREATE proc [dbo].[SpGetProductoForAuditoriaDetalles]@idAlmacen intasselect0 as 'id',0 as 'AuditoriaId',stock.IdProducto,p.nombreProducto 'descripcion',um.nombreUnidad 'Unidad',um.Id 'IdUnidad',g.Id 'IdGrupo',g.Descripcion 'grupo',stock.Saldo 'Stock',0 as 'conteo',0 as 'diferencia',stock.Saldo as 'stockActual',0 as 'diferenciaFinal',pp.Codigo 'CodigoBarra',pp.Id 'IdProductoPresentacion',pp.precioUnitario 'Precio',um.factor 'Factor'from Stocks_Acumulados stockinner join mst_ProductoDetalle pd on stock.IdProducto = pd.Idinner join mst_ProductoPresentacion pp on pd.Id = pp.Id inner join mst_Producto p on pd.idProducto = p.Idinner join mst_Grupo g on p.IdGrupo = g.Idinner join mst_UnidadMedida um on pp.idUnidad = um.Idwhere IdAlmacen = @idAlmacen and pp.estado = 1 and pp.flag = 1and pd.estado = 1 and pd.flag = 1 and p.estado = 1 and p.flag = 1and pp.PrincipalAlmacen = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2072,7 +2077,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetConrolTransportisaDetalleByIdControlTransportista",
-    "Content": "\nCREATE proc [dbo].[SpGetConrolTransportisaDetalleByIdControlTransportista]\n@idControlTransportista int\nas\nselect cd.*, fp.FormadePago 'FormaPago' from ControlTransportistasDetalle cd\ninner join mst_FormaPago fp on cd.IdFormaPago = fp.Id\nwhere IdControlTransportista = @idControlTransportista"
+    "Content": "CREATE proc [dbo].[SpGetConrolTransportisaDetalleByIdControlTransportista]@idControlTransportista intasselect cd.*, fp.FormadePago 'FormaPago' from ControlTransportistasDetalle cdinner join mst_FormaPago fp on cd.IdFormaPago = fp.Idwhere IdControlTransportista = @idControlTransportista"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2192,7 +2197,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpCambiarTipoMonedaVenta",
-    "Content": "CREATE proc SpCambiarTipoMonedaVenta@idVenta int,@tipoMoneda varchar(5)asdeclare @total decimal = (select TotalVenta from mst_Venta where id = @idVenta)declare @tipomoneda_text varchar(200) set @tipomoneda_text = CASE @TipoMoneda\tWHEN 'PEN' THEN 'SOLES'\tELSE 'DOLARES'ENDupdate mst_Venta set TipoMoneda = @tipoMoneda, Total_Letras = dbo.fn_ConvertirNumeroLetra(@total, @tipomoneda_text)where id = @idVenta"
+    "Content": "CREATE proc [dbo].[SpCambiarTipoMonedaVenta]@idVenta int,@tipoMoneda varchar(5)asdeclare @total decimal = (select TotalVenta from mst_Venta where id = @idVenta)declare @tipomoneda_text varchar(200) set @tipomoneda_text = CASE @TipoMoneda\tWHEN 'PEN' THEN 'SOLES'\tELSE 'DOLARES'ENDupdate mst_Venta set TipoMoneda = @tipoMoneda, Total_Letras = dbo.fn_ConvertirNumeroLetra(@total, @tipomoneda_text)where id = @idVenta"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2432,7 +2437,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetReporteComision",
-    "Content": "CREATE proc SpGetReporteComision@token varchar(max)asSELECT c.*, cp.*, u.nombre FROM Comision c\nINNER JOIN ComisionPagos cp\nON c.Id = cp.IdComision\nINNER JOIN mst_Usuarios u\nON c.IdUsuario = u.Id\nWHERE cp.token = @token"
+    "Content": "CREATE proc [dbo].[SpGetReporteComision]@token varchar(max)asSELECT c.*, cp.*, u.nombre FROM Comision cINNER JOIN ComisionPagos cpON c.Id = cp.IdComisionINNER JOIN mst_Usuarios uON c.IdUsuario = u.IdWHERE cp.token = @token"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2572,7 +2577,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddPedidosDetalles",
-    "Content": "CREATE proc SpAddPedidosDetalles@id int,@idPedido int,@idProducto int,@descripcion varchar(200),@codigoBarra varchar(50),@idUnidad int,@unidad varchar(50),@factor float,@cantidad float,@precio float,@subTotal float,@igv float,@descuento float,@total float,@eliminado float,@igvIncluido bit,@isCodBarra bitasif @id = 0begin\tinsert into PedidosDetalles(IdPedido, IdProducto, Descripcion, CodigoBarra,\tIdUnidad, Unidad, Factor, Cantidad, Precio, SubTotal, Igv, Descuento, Total,\tEliminado, IgvIncluido, IsCodBarra)\tvalues(@idPedido, @idProducto, @descripcion, @codigoBarra, @idUnidad,\t@unidad, @factor, @cantidad, @precio, @subTotal, @igv, @descuento, @total,\t@eliminado, @igvIncluido, @isCodBarra)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate PedidosDetalles set IdProducto=@idProducto,Descripcion=@descripcion,\tCodigoBarra=@codigoBarra,IdUnidad=@idUnidad,Unidad=@unidad,Factor=@factor,\tCantidad=@cantidad,Precio=@precio,SubTotal=@subTotal,Igv=@igv,\tDescuento=@descuento,Total=@total,Eliminado=@eliminado,IgvIncluido=@igvIncluido,\tIsCodBarra=@isCodBarra\twhere IdPedido=@idPedido\tselect @idPedidoend"
+    "Content": "CREATE proc [dbo].[SpAddPedidosDetalles]@id int,@idPedido int,@idProducto int,@descripcion varchar(200),@codigoBarra varchar(50),@idUnidad int,@unidad varchar(50),@factor float,@cantidad float,@precio float,@subTotal float,@igv float,@descuento float,@total float,@eliminado float,@igvIncluido bit,@isCodBarra bitasif @id = 0begin\tinsert into PedidosDetalles(IdPedido, IdProducto, Descripcion, CodigoBarra,\tIdUnidad, Unidad, Factor, Cantidad, Precio, SubTotal, Igv, Descuento, Total,\tEliminado, IgvIncluido, IsCodBarra)\tvalues(@idPedido, @idProducto, @descripcion, @codigoBarra, @idUnidad,\t@unidad, @factor, @cantidad, @precio, @subTotal, @igv, @descuento, @total,\t@eliminado, @igvIncluido, @isCodBarra)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate PedidosDetalles set IdProducto=@idProducto,Descripcion=@descripcion,\tCodigoBarra=@codigoBarra,IdUnidad=@idUnidad,Unidad=@unidad,Factor=@factor,\tCantidad=@cantidad,Precio=@precio,SubTotal=@subTotal,Igv=@igv,\tDescuento=@descuento,Total=@total,Eliminado=@eliminado,IgvIncluido=@igvIncluido,\tIsCodBarra=@isCodBarra\twhere IdPedido=@idPedido\tselect @idPedidoend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2582,7 +2587,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetProductoByIdAlmacenIdProductoDetalle",
-    "Content": "CREATE proc SpGetProductoByIdAlmacenIdProductoDetalle@idalmacen int,@idProductoDetalle intasselect id 'id',C_Interno 'codigo',Cod_Barra 'codigo_barra',RTRIM(LTRIM(Descripcion)) 'descripcion',U_Medida 'unidad_medida',Factor 'factor',Imagen 'imagen',Proveedor 'proveedor',Stock_Actual 'stock',F_Vencimiento 'fecha_vencimiento',Precio_Unit 'precio',IdAlmacen 'idalmacen',idUnidad 'idunidad',checkStockfrom vw_FiltroProductoswhere IdAlmacen = @idalmacen and C_Interno = @idProductoDetalleand principal = 1"
+    "Content": "CREATE proc [dbo].[SpGetProductoByIdAlmacenIdProductoDetalle]@idalmacen int,@idProductoDetalle intasselect id 'id',C_Interno 'codigo',Cod_Barra 'codigo_barra',RTRIM(LTRIM(Descripcion)) 'descripcion',U_Medida 'unidad_medida',Factor 'factor',Imagen 'imagen',Proveedor 'proveedor',Stock_Actual 'stock',F_Vencimiento 'fecha_vencimiento',Precio_Unit 'precio',IdAlmacen 'idalmacen',idUnidad 'idunidad',checkStockfrom vw_FiltroProductoswhere IdAlmacen = @idalmacen and C_Interno = @idProductoDetalleand principal = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2617,7 +2622,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetPedidosDetallesByIdPedido",
-    "Content": "CREATE proc SpGetPedidosDetallesByIdPedido@idPedido intasselect * from PedidosDetalleswhere IdPedido = @idPedido"
+    "Content": "CREATE proc [dbo].[SpGetPedidosDetallesByIdPedido]@idPedido intasselect * from PedidosDetalleswhere IdPedido = @idPedido"
   },
   {
     "Type": "VIEW",
@@ -2667,7 +2672,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddAjusteToAuditoria",
-    "Content": "create proc SpAddAjusteToAuditoria@idAuditoria int,@idAjuste intasupdate Auditoria set IdAjuste=@idAjustewhere id = @idAuditoriaselect @idAuditoria"
+    "Content": "CREATE proc [dbo].[SpAddAjusteToAuditoria]@idAuditoria int,@idAjuste intasupdate Auditoria set IdAjuste=@idAjustewhere id = @idAuditoriaselect @idAuditoria"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2792,7 +2797,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetComisionConfig",
-    "Content": "CREATE proc SpGetComisionConfigasselectconfig.Id,config.IdTipoUsuario,tu.descripcion 'TipoUsuario',config.IdGrupo,g.Descripcion 'Grupo',config.Porcentajefrom ComisionConfig configinner join mst_TipoUsuario tu on config.IdTipoUsuario = tu.Idinner join mst_Grupo g on config.IdGrupo = g.Id"
+    "Content": "CREATE proc [dbo].[SpGetComisionConfig]asselectconfig.Id,config.IdTipoUsuario,tu.descripcion 'TipoUsuario',config.IdGrupo,g.Descripcion 'Grupo',config.Porcentajefrom ComisionConfig configinner join mst_TipoUsuario tu on config.IdTipoUsuario = tu.Idinner join mst_Grupo g on config.IdGrupo = g.Id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2812,7 +2817,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddComisionConfig",
-    "Content": "CREATE proc SpAddComisionConfig@id int,@idTipoUsuario int,@idGrupo int,@porcentaje floatasif @id = 0begin\tinsert into ComisionConfig (IdTipoUsuario, IdGrupo, Porcentaje)\tvalues(@idTipoUsuario, @idGrupo, @porcentaje)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate ComisionConfig set IdTipoUsuario = @idTipoUsuario, IdGrupo = @idGrupo,\tPorcentaje = @porcentaje\twhere id = @id\tselect @idend"
+    "Content": "CREATE proc [dbo].[SpAddComisionConfig]@id int,@idTipoUsuario int,@idGrupo int,@porcentaje floatasif @id = 0begin\tinsert into ComisionConfig (IdTipoUsuario, IdGrupo, Porcentaje)\tvalues(@idTipoUsuario, @idGrupo, @porcentaje)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate ComisionConfig set IdTipoUsuario = @idTipoUsuario, IdGrupo = @idGrupo,\tPorcentaje = @porcentaje\twhere id = @id\tselect @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2842,7 +2847,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeleteComisionConfig",
-    "Content": "CREATE proc SpDeleteComisionConfig@id intasdelete from ComisionConfig where id=@id"
+    "Content": "CREATE proc [dbo].[SpDeleteComisionConfig]@id intasdelete from ComisionConfig where id=@id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2877,7 +2882,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetTiposUsuarios",
-    "Content": "CREATE proc SpGetTiposUsuariosasselectId,Descripcionfrom mst_TipoUsuariowhere estado = 1 and flag = 1"
+    "Content": "CREATE proc [dbo].[SpGetTiposUsuarios]asselectId,Descripcionfrom mst_TipoUsuariowhere estado = 1 and flag = 1"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2907,12 +2912,12 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetComisionConfigById",
-    "Content": "create proc SpGetComisionConfigById@id intasselectconfig.Id,config.IdTipoUsuario,tu.descripcion 'TipoUsuario',config.IdGrupo,g.Descripcion 'Grupo',config.Porcentajefrom ComisionConfig configinner join mst_TipoUsuario tu on config.IdTipoUsuario = tu.Idinner join mst_Grupo g on config.IdGrupo = g.Idwhere config.Id = @id"
+    "Content": "CREATE proc [dbo].[SpGetComisionConfigById]@id intasselectconfig.Id,config.IdTipoUsuario,tu.descripcion 'TipoUsuario',config.IdGrupo,g.Descripcion 'Grupo',config.Porcentajefrom ComisionConfig configinner join mst_TipoUsuario tu on config.IdTipoUsuario = tu.Idinner join mst_Grupo g on config.IdGrupo = g.Idwhere config.Id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "sp_mostrar_detalles_deuda_acumulada",
-    "Content": "CREATE PROC [dbo].[sp_mostrar_detalles_deuda_acumulada]\n@id_usuario int,\n@fecha date\t\nas\n--detalle\nselect\nv.id as id,\nCONCAT(V.SerieDoc, '-' , CAST(v.NumeroDoc as varchar)) as factura,\nv.RazonSocial AS 'cliente',\nv.TotalVenta as 'total_deuda',\nSUM(s.monto) as 'importe_pagado'\nfrom mst_Venta v\ninner join tbl_Seguimiento s on s.IdVenta = v.Id\ninner join mst_Usuarios u on v.IdUsuario = u.Id\nwhere s.Eliminado = 0 and s.validado = 0 and v.Anulado = 0  AND v.IdUsuarioPreventa = @id_usuario and FechaPago = @fecha\ngroup by  v.SerieDoc, v.NumeroDoc, V.RazonSocial, v.TotalVenta, v.Id"
+    "Content": "CREATE PROC [dbo].[sp_mostrar_detalles_deuda_acumulada]@id_usuario int,@fecha date\tas--detalleselectv.id as id,CONCAT(V.SerieDoc, '-' , CAST(v.NumeroDoc as varchar)) as factura,v.RazonSocial AS 'cliente',v.TotalVenta as 'total_deuda',SUM(s.monto) as 'importe_pagado'from mst_Venta vinner join tbl_Seguimiento s on s.IdVenta = v.Idinner join mst_Usuarios u on v.IdUsuario = u.Idwhere s.Eliminado = 0 and s.validado = 0 and v.Anulado = 0  AND v.IdUsuarioPreventa = @id_usuario and FechaPago = @fechagroup by  v.SerieDoc, v.NumeroDoc, V.RazonSocial, v.TotalVenta, v.Id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -2952,7 +2957,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "sp_mostrar_deudas_acumuladas",
-    "Content": "CREATE proc [dbo].[sp_mostrar_deudas_acumuladas]\nas\nselect\nidusuario,\nusuario as usuario,\nfecha_pago,\nsum(total) as total,\nsum(total_pagado) as total_pagado,\nsum(efectivo) as efectivo,\nsum(cheque) as cheque,\nsum(transferencia) as transferencia,\nsum(deposito) as deposito\nfrom (\nselect\nidusuario,\nusuario,\nfecha_pago,\ntotal,\n(isnull(efectivo, 0) + isnull(cheque, 0) + isnull(transferencia, 0) + isnull(deposito, 0)) as total_pagado,\nisnull(efectivo, 0) as efectivo,\nisnull(cheque, 0) as cheque,\nisnull(transferencia, 0) as transferencia,\nisnull(deposito, 0) as deposito\nfrom (\nselect\nidusuariopreventa as idusuario,\nu.nombre as usuario,\ns.FechaPago as 'fecha_pago',\nSUM(totalventa) total,\nisnull(sum(s.monto), 0) importe_pagado,\nts.descripcion as 'tipo_pago'\nfrom mst_venta v\ninner join tbl_seguimiento s on s.idventa = v.id\ninner join tbl_tipopago_seguimiento ts on s.idtipopago = ts.id\ninner join mst_usuarios u on v.idusuariopreventa = u.id\ninner join mst_formapago fp on v.idformapago = fp.id\nwhere v.anulado = 0 and (s.Eliminado = 0 and s.validado = 0) --and v.idformapago = 2 \ngroup by idusuariopreventa, u.nombre, ts.descripcion, s.FechaPago\n) as deudas\npivot (\nsum(importe_pagado)\nfor tipo_pago in ([efectivo], [cheque], [transferencia], [deposito])\n) as pivote_final\n) as final\ngroup by idusuario, usuario, fecha_pago"
+    "Content": "CREATE proc [dbo].[sp_mostrar_deudas_acumuladas]asselectidusuario,usuario as usuario,fecha_pago,sum(total) as total,sum(total_pagado) as total_pagado,sum(efectivo) as efectivo,sum(cheque) as cheque,sum(transferencia) as transferencia,sum(deposito) as depositofrom (selectidusuario,usuario,fecha_pago,total,(isnull(efectivo, 0) + isnull(cheque, 0) + isnull(transferencia, 0) + isnull(deposito, 0)) as total_pagado,isnull(efectivo, 0) as efectivo,isnull(cheque, 0) as cheque,isnull(transferencia, 0) as transferencia,isnull(deposito, 0) as depositofrom (selectidusuariopreventa as idusuario,u.nombre as usuario,s.FechaPago as 'fecha_pago',SUM(totalventa) total,isnull(sum(s.monto), 0) importe_pagado,ts.descripcion as 'tipo_pago'from mst_venta vinner join tbl_seguimiento s on s.idventa = v.idinner join tbl_tipopago_seguimiento ts on s.idtipopago = ts.idinner join mst_usuarios u on v.idusuariopreventa = u.idinner join mst_formapago fp on v.idformapago = fp.idwhere v.anulado = 0 and (s.Eliminado = 0 and s.validado = 0) --and v.idformapago = 2 group by idusuariopreventa, u.nombre, ts.descripcion, s.FechaPago) as deudaspivot (sum(importe_pagado)for tipo_pago in ([efectivo], [cheque], [transferencia], [deposito])) as pivote_final) as finalgroup by idusuario, usuario, fecha_pago"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -3077,7 +3082,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetComisionByIdVenta",
-    "Content": "create proc SpGetComisionByIdVenta@idVenta intasselectc.Id,c.IdVenta,CONCAT(v.SerieDoc, '-', v.NumeroDoc) as 'Referencia',v.TotalVenta,c.Total 'Comision',c.MontoPagado,c.IdUsuario,u.usuario 'Usuario' from Comision cinner join mst_Venta v on c.IdVenta = v.idinner join mst_Usuarios u on c.idUsuario = u.Idwhere c.IdVenta = @idVentaorder by v.FechaEmision asc"
+    "Content": "CREATE proc [dbo].[SpGetComisionByIdVenta]@idVenta intasselectc.Id,c.IdVenta,CONCAT(v.SerieDoc, '-', v.NumeroDoc) as 'Referencia',v.TotalVenta,c.Total 'Comision',c.MontoPagado,c.IdUsuario,u.usuario 'Usuario' from Comision cinner join mst_Venta v on c.IdVenta = v.idinner join mst_Usuarios u on c.idUsuario = u.Idwhere c.IdVenta = @idVentaorder by v.FechaEmision asc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -3162,7 +3167,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpDeletePedidosDetalles",
-    "Content": "CREATE proc SpDeletePedidosDetalles@id intasupdate PedidosDetalles set Eliminado = 1where id = @id"
+    "Content": "CREATE proc [dbo].[SpDeletePedidosDetalles]@id intasupdate PedidosDetalles set Eliminado = 1where id = @id"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -3198,11 +3203,6 @@
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "spMostrarPulsos",
     "Content": "CREATE proc [dbo].[spMostrarPulsos]@idpiso intasselect * from tabla_pulsos where IdPiso = @idpiso"
-  },
-  {
-    "Type": "SQL_STORED_PROCEDURE",
-    "Name": "SpGetProgramasEstudio",
-    "Content": "create proc SpGetProgramasEstudioasselect * from ProgramasEstudio"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -3242,7 +3242,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetComisionPagosByIdComision",
-    "Content": "CREATE proc SpGetComisionPagosByIdComision@idComision intasselect * from ComisionPagoswhere IdComision = @idComision and Eliminado = 0"
+    "Content": "CREATE proc [dbo].[SpGetComisionPagosByIdComision]@idComision intasselect * from ComisionPagoswhere IdComision = @idComision and Eliminado = 0"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -3262,7 +3262,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpGetComisionByIdUsuario",
-    "Content": "CREATE proc SpGetComisionByIdUsuario@idUsuario intasselectc.Id,c.IdVenta,CONCAT(v.SerieDoc, '-', v.NumeroDoc) as 'Referencia',v.TotalVenta,c.Total 'Comision',c.MontoPagado,c.IdUsuario,u.usuario 'Usuario' from Comision cinner join mst_Venta v on c.IdVenta = v.idinner join mst_Usuarios u on c.idUsuario = u.Idwhere c.IdUsuario = @idUsuarioorder by v.FechaEmision asc"
+    "Content": "CREATE proc [dbo].[SpGetComisionByIdUsuario]@idUsuario intasselectc.Id,c.IdVenta,CONCAT(v.SerieDoc, '-', v.NumeroDoc) as 'Referencia',v.TotalVenta,c.Total 'Comision',c.MontoPagado,c.IdUsuario,u.usuario 'Usuario' from Comision cinner join mst_Venta v on c.IdVenta = v.idinner join mst_Usuarios u on c.idUsuario = u.Idwhere c.IdUsuario = @idUsuarioorder by v.FechaEmision asc"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
@@ -3297,7 +3297,7 @@
   {
     "Type": "SQL_STORED_PROCEDURE",
     "Name": "SpAddComisionPagos",
-    "Content": "CREATE proc SpAddComisionPagos@id int,@idComision int,@monto float,@token textasif @id = 0begin\tinsert into ComisionPagos (IdComision, Monto, Fecha, Token)\tvalues(@idComision, @monto, GETDATE(), @token)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate ComisionPagos set Monto = @monto\twhere Id = @idend"
+    "Content": "CREATE proc [dbo].[SpAddComisionPagos]@id int,@idComision int,@monto float,@token textasif @id = 0begin\tinsert into ComisionPagos (IdComision, Monto, Fecha, Token)\tvalues(@idComision, @monto, GETDATE(), @token)\tselect CAST(SCOPE_IDENTITY() as int)endelsebegin\tupdate ComisionPagos set Monto = @monto\twhere Id = @idend"
   },
   {
     "Type": "SQL_STORED_PROCEDURE",
